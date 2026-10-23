@@ -1,0 +1,350 @@
+{
+  "site": {
+    "name": "HopeAlive",
+    "tagline": "Rooted in Compassion, Growing Lasting Hope",
+    "description": "HopeAlive is a global non-profit organization dedicated to empowering vulnerable children, supporting families, and uplifting communities through education, healthcare, and humanitarian aid."
+  },
+  "navbar": {
+    "brand": {
+      "name": "HopeAlive",
+      "href": "/"
+    },
+    "links": [
+      {
+        "id": "home",
+        "label": "HOME",
+        "href": "/"
+      },
+      {
+        "id": "about",
+        "label": "ABOUT US",
+        "href": "/about"
+      },
+      {
+        "id": "causes",
+        "label": "CAUSES",
+        "href": "/causes"
+      },
+      {
+        "id": "team",
+        "label": "TEAM",
+        "href": "/team"
+      },
+      {
+        "id": "blog",
+        "label": "BLOG",
+        "href": "/blog"
+      },
+      {
+        "id": "contact",
+        "label": "CONTACT US",
+        "href": "/contact"
+      }
+    ],
+    "cta": {
+      "label": "Donate Now",
+      "href": "/donate"
+    }
+  },
+  "hero": {
+    "badge": {
+      "text": "GLOBAL NONPROFIT & HUMANITARIAN AID",
+      "dot": true
+    },
+    "headline": {
+      "line1": "Children,",
+      "line2": "Nurturing Communities,",
+      "line3": "Transforming Lives"
+    },
+    "description": "HopeAlive Foundation works on the frontlines to empower vulnerable children and underserved communities through education, healthcare, and sustainable development.",
+    "cta": {
+      "label": "Donate For A Cause",
+      "href": "/donate"
+    },
+    "backgroundImage": "/images/hero-children.png"
+  },
+  "about": {
+    "badge": {
+      "text": "ABOUT US",
+      "dot": true
+    },
+    "stats": {
+      "value": "250K+",
+      "label": "LIVES TRANSFORMED"
+    },
+    "headline": {
+      "line1": "International Independent",
+      "line2": "Charity Organization"
+    },
+    "description": "Your support will help us to make life better living for poor vulnerable children. We are a non-profit organization working for children and communities in need.",
+    "cta": {
+      "label": "Support Our Mission",
+      "href": "/donate"
+    },
+    "images": {
+      "planting": {
+        "src": "/images/about-community.jpg",
+        "alt": "HopeAlive volunteers and community children learning together in rural village"
+      },
+      "seedling": {
+        "src": "/images/about-child.jpg",
+        "alt": "Joyful young African village girl smiling with hope"
+      }
+    }
+  },
+  "causes": {
+    "badge": {
+      "text": "OUR CAUSES",
+      "dot": true
+    },
+    "headline": {
+      "line1": "The Causes We Care About",
+      "line2": ""
+    },
+    "description": "Every contribution creates opportunities for children, families, and communities to build a brighter and healthier future together.",
+    "items": [
+      {
+        "id": "child-nutrition",
+        "title": "Education For Poor Children",
+        "icon": "nutrition",
+        "description": "Every child deserves quality education, regardless of background. We provide free schooling, books, uniforms, and nutritious meals to children in need. Your support helps us build classrooms, train teachers, and ensure every child can learn, grow, and dream without limits.",
+        "href": "/programs/education"
+      },
+      {
+        "id": "education-empowerment",
+        "title": "Massive Donation To Poor",
+        "icon": "education",
+        "description": "We provide food, shelter, medical aid, and educational resources to families facing extreme poverty. Your contribution helps us deliver essentials that change lives and restore dignity. Together, we can ensure no one goes without basic needs.",
+        "href": "/programs/education"
+      },
+      {
+        "id": "healthcare-shelter",
+        "title": "Huge Help To Homeless Children",
+        "icon": "healthcare",
+        "description": "Children need safety, warmth, and care. We provide emergency shelters, warm clothing, and nutritious meals to homeless children, ensuring they have a safe place to rest and recover. Your support gives them the security and hope they deserve during difficult times.",
+        "href": "/programs/healthcare"
+      }
+    ]
+  },
+  "blog": {
+    "badge": {
+      "text": "OUR BLOGS",
+      "dot": true
+    },
+    "headline": {
+      "line1": "Check Out Our Latest News",
+      "line2": ""
+    },
+    "description": "Explore our latest articles, field reports, and inspiring stories showing how HopeAlive Foundation empowers vulnerable children and transforms communities.",
+    "posts": [
+      {
+        "id": "education-empowers-rural-children",
+        "date": "April 20, 2025",
+        "title": "How Education Unlocks Brighter Futures for Underprivileged Children",
+        "image": "/images/blog-education.jpg",
+        "alt": "Volunteer teacher reading books with smiling children in rural classroom",
+        "href": "/stories/education-empowers-rural-children"
+      },
+      {
+        "id": "fighting-child-malnutrition",
+        "date": "June 09, 2025",
+        "title": "Nourishing Young Lives: Delivering Daily Warm Meals to At-Risk Families",
+        "image": "/images/blog-nutrition.jpg",
+        "alt": "NGO volunteers serving nutritious hot meals and fruit to community children",
+        "href": "/stories/fighting-child-malnutrition"
+      },
+      {
+        "id": "healthcare-outreach-camps",
+        "date": "October 17, 2025",
+        "title": "Healthcare on the Frontlines: Bringing Essential Medicine to Remote Villages",
+        "image": "/images/blog-healthcare.jpg",
+        "alt": "Doctor providing medical checkup to child in rural community health camp",
+        "href": "/stories/healthcare-outreach-camps"
+      }
+    ]
+  },
+  "projects": {
+    "badge": {
+      "text": "OUR PROJECTS",
+      "dot": true
+    },
+    "headline": {
+      "line1": "Featured Projects",
+      "line2": ""
+    },
+    "description": "Discover HopeAlive Foundation's active humanitarian projects — delivering quality education, child healthcare, clean water, and nutritional aid across vulnerable communities.",
+    "items": [
+      {
+        "id": "project-education",
+        "title": "Education",
+        "subtitle": "Quality Education For All",
+        "description": "Providing free education, books and learning resources to underprivileged children for a brighter future.",
+        "category": "Youth Literacy & Schools",
+        "ctaText": "Explore Project",
+        "image": "/images/project-gallery-books.jpg",
+        "alt": "Hands holding open school books and notebooks for children education",
+        "href": "/projects/education"
+      },
+      {
+        "id": "project-healthcare",
+        "title": "Healthcare",
+        "subtitle": "Healthcare For Every Life",
+        "description": "Organizing health camps, medical support and awareness programs for rural communities.",
+        "category": "Medical Outreach & Aid",
+        "ctaText": "Explore Project",
+        "image": "/images/project-gallery-baby.jpg",
+        "alt": "Volunteer hands protecting and nurturing a newborn baby in healthcare outreach",
+        "href": "/projects/healthcare"
+      },
+      {
+        "id": "project-clean-water",
+        "title": "Clean Water",
+        "subtitle": "Clean Water, Better Life",
+        "description": "Building water wells and supplying safe drinking water to families and villages.",
+        "category": "Clean Water & Wells",
+        "ctaText": "Explore Project",
+        "image": "/images/project-water.jpg",
+        "alt": "Cupped hands holding fresh clean drinking water droplets",
+        "href": "/projects/clean-water"
+      }
+    ]
+  },
+  "testimonials": {
+    "badge": {
+      "text": "TESTIMONIAL",
+      "dot": true
+    },
+    "headline": {
+      "line1": "Don't Believe Us See Review",
+      "line2": ""
+    },
+    "description": "Hear how HopeAlive Foundation touches lives every day through dedicated volunteer work, grassroots healthcare, child nutrition, and life-changing educational programs.",
+    "items": [
+      {
+        "id": "michael-b",
+        "name": "Michael B",
+        "role": "PHILANTHROPY PARTNER",
+        "avatar": "/images/testimonial-michael.jpg",
+        "quote": "Seeing HopeAlive's school literacy kits, clean water wells, and child nutrition programs reach remote villages with total transparency gave us complete confidence to support their mission."
+      },
+      {
+        "id": "sarah-k",
+        "name": "Sarah K",
+        "role": "FIELD VOLUNTEER LEAD",
+        "avatar": "/images/testimonial-sarah.jpg",
+        "quote": "Volunteering on the frontlines with HopeAlive has been deeply transformative. Serving warm meals and teaching children who were previously excluded from school creates genuine, lasting hope."
+      },
+      {
+        "id": "david-m",
+        "name": "David M",
+        "role": "RURAL HEALTHCARE ADVOCATE",
+        "avatar": "/images/testimonial-david.jpg",
+        "quote": "HopeAlive brought life-saving medical camps and essential medicines directly to our remote village doorstep. For the first time in years, our mothers and children have access to dependable care."
+      },
+      {
+        "id": "elena-r",
+        "name": "Elena R",
+        "role": "EDUCATION MENTOR",
+        "avatar": "/images/testimonial-sarah.jpg",
+        "quote": "Watching underprivileged children hold their first notebooks and learn to read with pure joy is unforgettable. HopeAlive is genuinely breaking the cycle of poverty from the ground up."
+      }
+    ]
+  },
+  "footer": {
+    "headline": {
+      "line1": "HopeAlive"
+    },
+    "description": "Rooted in purpose and grown through community, we turn simple actions into lasting impact that reaches far beyond today.",
+    "socials": [
+      {
+        "id": "facebook",
+        "platform": "facebook",
+        "href": "https://facebook.com",
+        "label": "Facebook"
+      },
+      {
+        "id": "instagram",
+        "platform": "instagram",
+        "href": "https://instagram.com",
+        "label": "Instagram"
+      },
+      {
+        "id": "twitter",
+        "platform": "twitter",
+        "href": "https://twitter.com",
+        "label": "Twitter"
+      },
+      {
+        "id": "linkedin",
+        "platform": "linkedin",
+        "href": "https://linkedin.com",
+        "label": "LinkedIn"
+      }
+    ],
+    "linksSection": {
+      "title": "LINKS",
+      "links": [
+        {
+          "label": "Home",
+          "href": "/"
+        },
+        {
+          "label": "About Us",
+          "href": "/about"
+        },
+        {
+          "label": "Programs",
+          "href": "/programs"
+        },
+        {
+          "label": "Stories",
+          "href": "/stories"
+        },
+        {
+          "label": "Blog",
+          "href": "/blog"
+        }
+      ]
+    },
+    "quickLinksSection": {
+      "title": "QUICK LINKS",
+      "links": [
+        {
+          "label": "Donate",
+          "href": "/donate"
+        },
+        {
+          "label": "Volunteer",
+          "href": "/volunteer"
+        },
+        {
+          "label": "Our Impact",
+          "href": "/impact"
+        },
+        {
+          "label": "FAQ",
+          "href": "/faq"
+        },
+        {
+          "label": "Contact Us",
+          "href": "/contact"
+        }
+      ]
+    },
+    "locationSection": {
+      "title": "LOCATION",
+      "addressLines": [
+        "3170 Rosewood Lane Unit 200",
+        "Beverly Hills, CA 90210"
+      ],
+      "phones": [
+        "+10 0000000000"
+      ],
+      "email": "info@xyz.com"
+    },
+    "copyright": {
+      "line1": "© 2026 Copyright HopeAlive. All rights reserved. Powered by Lestow"
+    },
+    "watermark": "HopeAlive"
+  }
+}
