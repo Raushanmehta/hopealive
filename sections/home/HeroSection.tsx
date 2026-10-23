@@ -41,9 +41,9 @@ export default function HeroSection({ data = siteData.hero }: HeroSectionProps) 
     <section
       ref={heroRef}
       aria-label="Hero Section"
-      className="relative min-h-screen w-full overflow-hidden flex flex-col justify-end pt-32 sm:pt-36 lg:pt-40 pb-12 sm:pb-16 lg:pb-20 bg-[#162211]"
+      className="relative min-h-[100svh] min-h-screen w-full overflow-hidden flex flex-col justify-end pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-10 sm:pb-14 lg:pb-20 bg-[#162211] px-4 md:px-12"
     >
-      {/* 1. Cinematic Background Image of Terraced Hills with Cabin */}
+      {/* 1. Cinematic Background Image */}
       <div
         ref={bgRef}
         className="absolute inset-0 w-full h-full pointer-events-none select-none overflow-hidden"
@@ -58,24 +58,23 @@ export default function HeroSection({ data = siteData.hero }: HeroSectionProps) 
         />
 
         {/* Top Vignette Overlay for Navbar Contrast */}
-        <div className="absolute inset-x-0 top-0 h-48 sm:h-64 bg-gradient-to-b from-[#10190d]/90 via-[#10190d]/40 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 top-0 h-40 sm:h-56 lg:h-64 bg-gradient-to-b from-[#10190d]/90 via-[#10190d]/40 to-transparent pointer-events-none" />
 
         {/* Ambient Dark Forest Green Vignette Tint */}
-        <div className="absolute inset-0 bg-[#0f170c]/25 pointer-events-none" />
+        <div className="absolute inset-0 bg-[#0f170c]/30 pointer-events-none" />
 
         {/* Bottom Dark Gradient to Seamlessly Blend into Next Section */}
-        <div className="absolute inset-x-0 bottom-0 h-72 sm:h-96 bg-gradient-to-t from-[#141f10] via-[#141f10]/60 to-transparent pointer-events-none" />
+        <div className="absolute inset-x-0 bottom-0 h-64 sm:h-80 lg:h-96 bg-gradient-to-t from-[#141f10] via-[#141f10]/60 to-transparent pointer-events-none" />
       </div>
 
       {/* 2. Main Content Container */}
       <div className="relative z-10 max-w-7xl mx-auto w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-end">
-          {/* Left Column: Massive 3-Line Headline */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-end">
+          {/* Left Column: Responsive 3-Line Headline */}
           <div className="lg:col-span-8">
-            {/* Giant 3-Line Hero Headline */}
             <h1
               ref={headlineRef}
-              className="text-4xl sm:text-6xl md:text-7xl lg:text-[76px] xl:text-[84px] font-poppins font-bold text-white tracking-tight leading-[1.06] select-none"
+              className="text-3xl sm:text-5xl md:text-6xl lg:text-[72px] xl:text-[84px] font-poppins font-bold text-white tracking-tight leading-[1.08] select-none break-words"
             >
               <span className="hero-headline-line block">{data.headline.line1}</span>
               {data.headline.line2 && (
@@ -88,8 +87,8 @@ export default function HeroSection({ data = siteData.hero }: HeroSectionProps) 
           </div>
 
           {/* Right Column: CTA Button (Bottom-Right) */}
-          <div className="lg:col-span-4 flex justify-start lg:justify-end items-end">
-            <div className="pt-4 sm:pt-6">
+          <div className="lg:col-span-4 flex justify-start lg:justify-end items-end w-full">
+            <div className="pt-3 sm:pt-4 lg:pt-6 w-full sm:w-auto">
               <Link
                 ref={ctaButtonRef}
                 href={data.cta.href}
@@ -99,7 +98,7 @@ export default function HeroSection({ data = siteData.hero }: HeroSectionProps) 
                 onMouseLeave={() =>
                   animateHeroButtonLeave(ctaButtonRef.current, arrowRef.current)
                 }
-                className="btn-leaf group relative inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-[#feff02] text-[#121a0d] font-poppins font-semibold text-sm sm:text-[15px] tracking-wide shadow-xl hover:bg-[#f5f600] active:scale-[0.98] transition-all duration-200 cursor-pointer select-none shrink-0"
+                className="btn-leaf group relative inline-flex items-center justify-center gap-3 w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-[#feff02] text-[#121a0d] font-poppins font-semibold text-sm sm:text-[15px] tracking-wide shadow-xl hover:bg-[#f5f600] active:scale-[0.98] transition-all duration-200 cursor-pointer select-none shrink-0"
               >
                 <span>{data.cta.label}</span>
                 <ArrowUpRight
