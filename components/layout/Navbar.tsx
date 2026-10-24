@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState, Suspense } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
@@ -21,7 +21,7 @@ interface NavbarProps {
   data?: NavbarData;
 }
 
-export default function Navbar({ data = siteData.navbar }: NavbarProps) {
+function NavbarContent({ data = siteData.navbar }: NavbarProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -238,5 +238,79 @@ export default function Navbar({ data = siteData.navbar }: NavbarProps) {
         </div>
       )}
     </header>
+  );
+}
+
+export function NavbarFallback({ data = siteData.navbar }: NavbarProps) {
+  return (
+    <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none flex flex-col items-center w-full">
+      <nav
+        aria-label="Main Navigation"
+        className="pointer-events-auto relative w-[calc(100%-24px)] max-w-6xl px-4 mt-3 rounded-xl border border-white/10 bg-[#1f2c16] backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.45)]"
+      >
+        <div className="w-full max-w-7xl mx-auto flex items-center justify-between py-2.5 sm:py-2.5">
+          {/* LEFT: Logo */}
+          <Link
+            href={data.brand.href}
+            className="flex items-center gap-3 group select-none focus:outline-none rounded-lg shrink-0"
+          >
+            <span className="inline-flex items-center justify-center shrink-0">
+              <SunburstIcon
+                size={34}
+                color="#feff02"
+                className="drop-shadow-[0_0_10px_rgba(254,255,2,0.6)]"
+              />
+            </span>
+            <span className="font-poppins font-semibold text-xl sm:text-2xl tracking-tight text-white select-none">
+              {data.brand.name}
+            </span>
+          </Link>
+
+          {/* CENTER: Desktop Nav Links */}
+          <div className="hidden md:flex items-center gap-7 lg:gap-10">
+            {data.links.map((link: NavItem) => (
+              <Link
+                key={link.id}
+                href={link.href}
+                className="nav-link-item relative py-1 text-xs lg:text-[13px] font-poppins font-medium tracking-[0.08em] uppercase text-[#f0f4ee]/90 hover:text-white transition-colors duration-200 rounded-sm"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* RIGHT: CTA Button & Mobile Toggle */}
+          <div className="flex items-center gap-3 shrink-0">
+            <Link
+              href={data.cta.href}
+              className="btn-leaf relative inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2 sm:py-3 bg-[#feff02] text-black font-poppins font-medium sm:font-semibold text-xs sm:text-sm tracking-wide shadow-sm hover:bg-[#f5f600] transition-all duration-200 shrink-0 select-none"
+            >
+              <span>{data.cta.label}</span>
+              <ArrowUpRight
+                size={16}
+                strokeWidth={2.6}
+                className="shrink-0"
+              />
+            </Link>
+
+            <button
+              type="button"
+              aria-label="Open menu"
+              className="md:hidden inline-flex items-center justify-center p-2 rounded-lg text-white hover:text-[#feff02]"
+            >
+              <Menu size={22} />
+            </button>
+          </div>
+        </div>
+      </nav>
+    </header>
+  );
+}
+
+export default function Navbar(props: NavbarProps) {
+  return (
+    <Suspense fallback={<NavbarFallback data={props.data} />}>
+      <NavbarContent {...props} />
+    </Suspense>
   );
 }

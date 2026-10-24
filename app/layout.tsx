@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Poppins, Roboto } from "next/font/google";
 import "./globals.css";
-import Navbar from "@/components/layout/Navbar";
+import { Suspense } from "react";
+import Navbar, { NavbarFallback } from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 const poppins = Poppins({
@@ -30,7 +31,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       className={`${poppins.variable} ${roboto.variable} ${poppins.className} font-sans h-full antialiased`}
     >
       <body className={`min-h-full flex flex-col font-sans ${poppins.className}`}>
-        <Navbar />
+        <Suspense fallback={<NavbarFallback />}>
+          <Navbar />
+        </Suspense>
         {children}
         <Footer />
       </body>

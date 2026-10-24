@@ -65,11 +65,64 @@ export interface AboutData {
   };
 }
 
+export interface MissionVisionData {
+  tagline?: string;
+  vision: {
+    title: {
+      line1: string;
+      line2: string;
+    };
+    description: string;
+  };
+  mission: {
+    title: {
+      line1: string;
+      line2: string;
+    };
+    description: string;
+  };
+}
+
+export interface WhyChooseUsItem {
+  id: string;
+  number: string;
+  badgeColor: string;
+  title?: string;
+  description: string;
+}
+
+export interface WhyChooseUsData {
+  badge?: {
+    text: string;
+    dot?: boolean;
+  };
+  stats?: {
+    value: string;
+    label: string;
+  };
+  headline: {
+    line1: string;
+    line2?: string;
+  };
+  description: string;
+  cta?: {
+    label: string;
+    href: string;
+  };
+  image: string;
+  imageAlt?: string;
+  items: WhyChooseUsItem[];
+}
+
 export interface CauseItem {
   id: string;
   title: string;
   icon: string;
   description: string;
+  image?: string;
+  raised?: string;
+  goal?: string;
+  category?: string;
   href?: string;
 }
 
@@ -93,6 +146,18 @@ export interface BlogPostItem {
   image: string;
   alt: string;
   href: string;
+  category?: string;
+  readTime?: string;
+  author?: {
+    name: string;
+    role: string;
+    avatar: string;
+  };
+  excerpt?: string;
+  content?: string[];
+  quote?: string;
+  quoteAuthor?: string;
+  tags?: string[];
 }
 
 export interface BlogData {
@@ -155,6 +220,62 @@ export interface ProjectData {
   items: ProjectItem[];
 }
 
+export interface FaqItem {
+  id: string;
+  question: string;
+  answer: string;
+  category?: string;
+}
+
+export interface FaqData {
+  badge: {
+    text: string;
+    dot?: boolean;
+  };
+  headline: {
+    line1: string;
+    line2?: string;
+  };
+  description: string;
+  items: FaqItem[];
+  cta?: {
+    title: string;
+    description: string;
+    buttonText: string;
+    buttonHref: string;
+  };
+}
+
+export interface ContactData {
+  badge: {
+    text: string;
+    dot?: boolean;
+  };
+  headline: {
+    line1: string;
+    line2?: string;
+  };
+  description: string;
+  info: {
+    address: {
+      title: string;
+      lines: string[];
+    };
+    phone: {
+      title: string;
+      numbers: string[];
+    };
+    email: {
+      title: string;
+      address: string;
+    };
+    hours: {
+      title: string;
+      text: string;
+    };
+  };
+}
+
 export interface SocialLink {
   id: string;
   platform: string;
@@ -187,4 +308,43 @@ export interface FooterData {
     line1: string;
   };
   watermark: string;
+}
+export interface PresetAmountItem {
+  amount: number;
+  label: string;
+  impact: string;
+}
+
+export interface DonationCauseOption {
+  id: string;
+  name: string;
+}
+
+export interface TransparencyStat {
+  percentage: string;
+  label: string;
+}
+
+export interface ImpactMetric {
+  value: string;
+  label: string;
+}
+
+export interface DonationData {
+  badge: {
+    text: string;
+    dot?: boolean;
+  };
+  headline: {
+    line1: string;
+    line2?: string;
+  };
+  description: string;
+  presetAmounts: PresetAmountItem[];
+  causes: DonationCauseOption[];
+  transparency: {
+    stats: TransparencyStat[];
+    guarantees: string[];
+  };
+  impactMetrics: ImpactMetric[];
 }
