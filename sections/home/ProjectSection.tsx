@@ -82,7 +82,7 @@ export default function ProjectSection({
 
         {/* BOTTOM ROW: 3 Feature Folder-Tab Project Cards (Matching mt-4 sm:mt-6 lg:mt-8 and gap-4 sm:gap-5 from AboutSection) */}
         <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
-          {data.items.map((item: ProjectItem, index: number) => (
+          {(data.projectsList || (data as any).items || []).slice(0, 3).map((item: ProjectItem, index: number) => (
             <div
               key={item.id}
               ref={(el) => {

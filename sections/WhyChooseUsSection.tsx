@@ -9,8 +9,9 @@ import { ArrowUpRight } from "lucide-react";
 import siteData from "@/data/site.json";
 import { WhyChooseUsData, WhyChooseUsItem } from "@/types";
 import {
-  animateAboutButtonHover,
-  animateAboutButtonLeave,
+  animateWhyChooseUsEntrance,
+  animateWhyChooseUsButtonHover,
+  animateWhyChooseUsButtonLeave,
 } from "@/util/animations";
 
 if (typeof window !== "undefined") {
@@ -43,103 +44,16 @@ export default function WhyChooseUsSection({
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-          toggleActions: "play none none none",
-        },
-        defaults: { ease: "power3.out" },
+      animateWhyChooseUsEntrance(sectionRef.current, {
+        badge: badgeRef.current,
+        headline: headlineRef.current,
+        stats: statsRef.current,
+        description: descriptionRef.current,
+        ctaButton: ctaButtonRef.current,
+        imageContainer: imageContainerRef.current,
+        ring: ringRef.current,
+        items: itemRefs.current,
       });
-
-      // 1. Upper Row Badge fade & slide down
-      if (badgeRef.current) {
-        tl.fromTo(
-          badgeRef.current,
-          { y: -16, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.5 }
-        );
-      }
-
-      // 2. Headline lines reveal
-      if (headlineRef.current) {
-        const lines = headlineRef.current.querySelectorAll(
-          ".whychooseus-headline-line, .about-headline-line"
-        );
-        tl.fromTo(
-          lines.length > 0 ? lines : headlineRef.current,
-          { y: 35, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.7, stagger: 0.12, ease: "power3.out" },
-          "-=0.3"
-        );
-      }
-
-      // 3. Stats Block reveal
-      if (statsRef.current) {
-        tl.fromTo(
-          statsRef.current,
-          { scale: 0.9, opacity: 0, y: 20 },
-          { scale: 1, opacity: 1, y: 0, duration: 0.65, ease: "power2.out" },
-          "-=0.4"
-        );
-      }
-
-      // 4. Description paragraph reveal
-      if (descriptionRef.current) {
-        tl.fromTo(
-          descriptionRef.current,
-          { y: 20, opacity: 0 },
-          { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" },
-          "-=0.4"
-        );
-      }
-
-      // 5. CTA Button pop-in
-      if (ctaButtonRef.current) {
-        tl.fromTo(
-          ctaButtonRef.current,
-          { scale: 0.92, opacity: 0, y: 15 },
-          { scale: 1, opacity: 1, y: 0, duration: 0.5, ease: "back.out(1.3)" },
-          "-=0.35"
-        );
-      }
-
-      // 6. Left Arched Image entrance
-      if (imageContainerRef.current) {
-        tl.fromTo(
-          imageContainerRef.current,
-          { opacity: 0, x: -45, scale: 0.95 },
-          { opacity: 1, x: 0, scale: 1, duration: 0.85, ease: "power3.out" },
-          "-=0.2"
-        );
-      }
-
-      // 7. Circular Outline Ring
-      if (ringRef.current) {
-        tl.fromTo(
-          ringRef.current,
-          { opacity: 0, scale: 0.8, rotate: -45 },
-          { opacity: 1, scale: 1, rotate: 0, duration: 1.1, ease: "power2.out" },
-          "-=0.7"
-        );
-      }
-
-      // 8. Staggered feature items entrance
-      if (itemRefs.current.length > 0) {
-        const validItems = itemRefs.current.filter(Boolean);
-        tl.fromTo(
-          validItems,
-          { opacity: 0, x: 35 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 0.7,
-            stagger: 0.16,
-            ease: "power3.out",
-          },
-          "-=0.6"
-        );
-      }
     }, sectionRef);
 
     return () => ctx.revert();
@@ -211,10 +125,10 @@ export default function WhyChooseUsSection({
                   ref={ctaButtonRef}
                   href={data.cta.href}
                   onMouseEnter={() =>
-                    animateAboutButtonHover(ctaButtonRef.current, arrowRef.current)
+                    animateWhyChooseUsButtonHover(ctaButtonRef.current, arrowRef.current)
                   }
                   onMouseLeave={() =>
-                    animateAboutButtonLeave(ctaButtonRef.current, arrowRef.current)
+                    animateWhyChooseUsButtonLeave(ctaButtonRef.current, arrowRef.current)
                   }
                   className="btn-leaf inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-[#1f2c16] text-[#feff02] font-poppins font-semibold text-sm sm:text-[15px] tracking-wide rounded-xl shadow-lg hover:bg-[#162211] active:scale-[0.98] transition-all duration-200 cursor-pointer select-none"
                 >
@@ -237,13 +151,6 @@ export default function WhyChooseUsSection({
         <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
           {/* Left Column: Featured Arch-Curved Pillar Image */}
           <div className="lg:col-span-6 relative flex justify-center lg:justify-start">
-            {/* Subtle Circular Outline Ring tracing behind the image - Theme Forest Green */}
-            <div
-              ref={ringRef}
-              className="absolute -left-8 sm:-left-12 lg:-left-16 top-1/2 -translate-y-1/2 w-[300px] sm:w-[400px] md:w-[440px] lg:w-[480px] h-[300px] sm:h-[400px] md:h-[440px] lg:h-[480px] rounded-full border-2 border-[#1f2c16]/15 pointer-events-none -z-0"
-              aria-hidden="true"
-            />
-
             {/* Arched Image Container */}
             <div
               ref={imageContainerRef}

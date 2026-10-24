@@ -1,21 +1,16 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   Calendar,
-  Clock,
   User,
   Tag,
-  Share2,
-  Link2,
+  Heart,
   CheckCircle2,
   Quote,
-  Heart,
-  Check,
 } from "lucide-react";
-import { TwitterIcon, FacebookIcon, LinkedinIcon } from "@/components/icons/SocialIcons";
 import siteData from "@/data/site.json";
 import { BlogPostItem } from "@/types";
 
@@ -28,7 +23,8 @@ export default function BlogDetailSection({
   slug,
   data: propData,
 }: BlogDetailSectionProps) {
-  const allPosts: BlogPostItem[] = (siteData.blog?.posts || []) as BlogPostItem[];
+  const allPosts: BlogPostItem[] =
+    (((siteData.blog as any)?.blogPosts || (siteData.blog as any)?.posts || []) as BlogPostItem[]);
 
   // Find the post matching slug, or use provided data, or fallback to first post
   const currentPost: BlogPostItem =
@@ -39,19 +35,8 @@ export default function BlogDetailSection({
   // Recent posts excluding the current one
   const recentPosts = allPosts.filter((p) => p.id !== currentPost?.id).slice(0, 4);
 
-  // Social share copy feedback
-  const [copied, setCopied] = useState(false);
-  const handleCopyLink = () => {
-    if (typeof window !== "undefined") {
-      navigator.clipboard?.writeText(window.location.href);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
-  };
-
   // Fallback defaults for rich details
   const category = currentPost?.category || "Humanitarian Field Story";
-  const readTime = currentPost?.readTime || "5 Min Read";
   const author = currentPost?.author || {
     name: "Dr. Sarah Mitchell",
     role: "Field Operations & Education Lead",
@@ -68,31 +53,10 @@ export default function BlogDetailSection({
   const quoteAuthor = currentPost?.quoteAuthor || "Amara Okafor, HopeAlive Field Coordinator";
   const tags = currentPost?.tags || ["Child Welfare", "Education", "HopeAlive", "Community Impact"];
 
-  const categoriesWithCounts = [
-    { name: "Child Education", count: 8 },
-    { name: "Nutrition & Food", count: 12 },
-    { name: "Clean Water & Wells", count: 6 },
-    { name: "Mobile Healthcare", count: 9 },
-    { name: "Shelter & Protection", count: 5 },
-    { name: "Emergency Relief", count: 14 },
-  ];
-
-  const popularTags = [
-    "Education",
-    "Clean Water",
-    "Nutrition",
-    "Healthcare",
-    "Empowerment",
-    "Volunteering",
-    "Frontline Hope",
-    "Community",
-  ];
-
   return (
     <section
-      id="blog-detail-section"
       aria-label="HopeAlive Foundation Blog Article Detail"
-      className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-10 md:py-16 lg:py-20"
+      className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* MAIN 2-COLUMN GRID: Left Article Content | Right Sticky Sidebar */}
@@ -111,11 +75,6 @@ export default function BlogDetailSection({
               </div>
 
               <div className="flex items-center gap-1.5 text-xs font-poppins text-[#556350]">
-                <Clock size={14} className="text-[#1b2715]" />
-                <span>{readTime}</span>
-              </div>
-
-              <div className="flex items-center gap-1.5 text-xs font-poppins text-[#556350]">
                 <User size={14} className="text-[#1b2715]" />
                 <span>{author.name}</span>
               </div>
@@ -127,7 +86,7 @@ export default function BlogDetailSection({
             </h1>
 
             {/* 3. Featured Hero Image with Leaf-Cut Accent */}
-            <div className="relative w-full h-[280px] sm:h-[400px] md:h-[460px] rounded-3xl overflow-hidden shadow-lg border border-[#1b2715]/10 mb-8">
+            <div className="relative w-full h-[280px] sm:h-[400px] md:h-[460px] rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none overflow-hidden shadow-2xl border border-[#1b2715]/10 mb-8">
               <Image
                 src={currentPost?.image || "/images/blog-education.jpg"}
                 alt={currentPost?.alt || currentPost?.title || "HopeAlive Humanitarian field post"}
@@ -244,115 +203,17 @@ export default function BlogDetailSection({
                 </p>
               </div>
               <Link
-                href="/donate"
+                href="/contact"
                 className="shrink-0 px-6 py-3 rounded-full bg-[#feff02] text-[#121a0d] hover:bg-white font-poppins font-bold text-xs sm:text-sm tracking-wide transition-all shadow-md cursor-pointer flex items-center gap-2"
               >
                 <Heart size={15} className="fill-[#121a0d]" />
-                <span>Donate For This Cause</span>
+                <span>Contact Us</span>
               </Link>
-            </div>
-
-            {/* 10. Tags & Social Share Footer */}
-            <div className="mt-10 pt-6 border-t border-[#1b2715]/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
-              {/* Tags */}
-              <div className="flex flex-wrap items-center gap-2">
-                <Tag size={15} className="text-[#1b2715]" />
-                {tags.map((t) => (
-                  <span
-                    key={t}
-                    className="text-xs font-poppins font-medium bg-[#f8f6f0] text-[#556350] border border-[#1b2715]/10 px-3 py-1 rounded-full hover:border-[#1b2715]/30 cursor-pointer transition-colors"
-                  >
-                    #{t}
-                  </span>
-                ))}
-              </div>
-
-              {/* Social Share Buttons */}
-              <div className="flex items-center gap-2">
-                <span className="text-xs font-poppins font-semibold text-[#1b2715] mr-1">
-                  Share:
-                </span>
-                <button
-                  type="button"
-                  onClick={() =>
-                    window.open(
-                      `https://twitter.com/intent/tweet?text=${encodeURIComponent(currentPost.title)}`,
-                      "_blank"
-                    )
-                  }
-                  className="w-8 h-8 rounded-full bg-[#f8f6f0] border border-[#1b2715]/10 flex items-center justify-center text-[#1b2715] hover:bg-[#1f2c16] hover:text-[#feff02] transition-colors cursor-pointer"
-                  title="Share on Twitter"
-                >
-                  <TwitterIcon size={14} />
-                </button>
-                <button
-                  type="button"
-                  onClick={() =>
-                    window.open(
-                      `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`,
-                      "_blank"
-                    )
-                  }
-                  className="w-8 h-8 rounded-full bg-[#f8f6f0] border border-[#1b2715]/10 flex items-center justify-center text-[#1b2715] hover:bg-[#1f2c16] hover:text-[#feff02] transition-colors cursor-pointer"
-                  title="Share on Facebook"
-                >
-                  <FacebookIcon size={14} />
-                </button>
-                <button
-                  type="button"
-                  onClick={() =>
-                    window.open(
-                      `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(typeof window !== "undefined" ? window.location.href : "")}`,
-                      "_blank"
-                    )
-                  }
-                  className="w-8 h-8 rounded-full bg-[#f8f6f0] border border-[#1b2715]/10 flex items-center justify-center text-[#1b2715] hover:bg-[#1f2c16] hover:text-[#feff02] transition-colors cursor-pointer"
-                  title="Share on LinkedIn"
-                >
-                  <LinkedinIcon size={14} />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleCopyLink}
-                  className="relative w-8 h-8 rounded-full bg-[#f8f6f0] border border-[#1b2715]/10 flex items-center justify-center text-[#1b2715] hover:bg-[#1f2c16] hover:text-[#feff02] transition-colors cursor-pointer"
-                  title="Copy Article Link"
-                >
-                  {copied ? <Check size={14} className="text-green-600" /> : <Link2 size={14} />}
-                  {copied && (
-                    <span className="absolute -top-7 right-0 text-[10px] bg-[#1f2c16] text-[#feff02] px-2 py-0.5 rounded font-poppins font-bold whitespace-nowrap animate-fadeIn">
-                      Copied!
-                    </span>
-                  )}
-                </button>
-              </div>
-            </div>
-
-            {/* 11. Author Bio Box */}
-            <div className="mt-8 p-6 sm:p-7 rounded-2xl bg-[#f8f6f0] border border-[#1b2715]/10 flex items-start gap-4">
-              <div className="relative w-16 h-16 rounded-full overflow-hidden shrink-0 border-2 border-[#1f2c16] shadow-sm">
-                <Image
-                  src={author.avatar || "/images/testimonial-sarah.jpg"}
-                  alt={author.name}
-                  fill
-                  className="object-cover"
-                />
-              </div>
-              <div>
-                <h4 className="font-poppins font-bold text-base text-[#1b2715]">
-                  {author.name}
-                </h4>
-                <p className="text-xs font-poppins text-[#2d5a27] font-semibold">
-                  {author.role}
-                </p>
-                <p className="mt-1.5 text-xs text-[#556350] font-poppins leading-relaxed">
-                  Dedicated to grassroots humanitarian fieldwork, child literacy empowerment, and transparent community stewardship across 14 underprivileged regions.
-                </p>
-              </div>
             </div>
           </article>
 
           {/* RIGHT COLUMN: Interactive Sticky Sidebar */}
-          <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-28 self-start">
+          <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-0 self-start">
 
             {/* 2. Recent Field Reports Widget */}
             <div className="bg-white p-6 rounded-3xl border border-[#1b2715]/10 shadow-md">
@@ -387,29 +248,8 @@ export default function BlogDetailSection({
               </div>
             </div>
 
-            {/* 3. Program Categories Widget */}
-            <div className="bg-white p-6 rounded-3xl border border-[#1b2715]/10 shadow-md">
-              <h4 className="font-poppins font-bold text-base text-[#1b2715] mb-4 pb-2 border-b border-[#1b2715]/10">
-                Program Categories
-              </h4>
-              <div className="space-y-2 font-poppins text-xs">
-                {categoriesWithCounts.map((cat) => (
-                  <Link
-                    key={cat.name}
-                    href="/blog"
-                    className="flex items-center justify-between p-2.5 rounded-xl hover:bg-[#f8f6f0] text-[#556350] hover:text-[#1b2715] transition-colors"
-                  >
-                    <span>{cat.name}</span>
-                    <span className="bg-[#f8f6f0] text-[#1b2715] font-semibold px-2 py-0.5 rounded-md text-[11px] border border-[#1b2715]/10">
-                      {cat.count}
-                    </span>
-                  </Link>
-                ))}
-              </div>
-            </div>
-
             {/* 4. Urgent Cause Donation Callout Card */}
-            <div className="bg-[#1f2c16] text-white p-7 rounded-3xl shadow-xl border border-white/10 relative overflow-hidden">
+            <div className="bg-[#1f2c16] text-white p-7 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none shadow-2xl border border-white/10 relative overflow-hidden">
               <span className="text-[11px] font-poppins font-bold uppercase tracking-widest text-[#feff02] bg-[#2a3c20] px-3.5 py-1 rounded-full inline-block mb-3">
                 Urgent Humanitarian Need
               </span>
@@ -420,30 +260,12 @@ export default function BlogDetailSection({
                 Join our circle of hope today. Your gift provides immediate nutrition, clean water, and classroom packs to vulnerable children.
               </p>
               <Link
-                href="/donate"
-                className="mt-5 w-full py-3 px-6 rounded-full bg-[#feff02] text-[#121a0d] hover:bg-white font-poppins font-bold text-xs tracking-wide transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
+                href="#donate"
+                className="btn-leaf mt-5 w-full py-3.5 px-6 rounded-xl bg-[#feff02] text-[#121a0d] hover:bg-white font-poppins font-bold text-xs tracking-wide transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer select-none"
               >
                 <Heart size={14} className="fill-[#121a0d]" />
-                <span>Donate To Support A Cause</span>
+                <span>Donate</span>
               </Link>
-            </div>
-
-            {/* 5. Popular Tags Cloud */}
-            <div className="bg-white p-6 rounded-3xl border border-[#1b2715]/10 shadow-md">
-              <h4 className="font-poppins font-bold text-base text-[#1b2715] mb-3 pb-2 border-b border-[#1b2715]/10">
-                Popular Tags
-              </h4>
-              <div className="flex flex-wrap gap-2">
-                {popularTags.map((t) => (
-                  <Link
-                    key={t}
-                    href="/blog"
-                    className="text-xs font-poppins font-medium bg-[#f8f6f0] text-[#556350] border border-[#1b2715]/10 px-3 py-1 rounded-full hover:bg-[#1f2c16] hover:text-[#feff02] hover:border-[#1f2c16] transition-all"
-                  >
-                    #{t}
-                  </Link>
-                ))}
-              </div>
             </div>
           </aside>
         </div>

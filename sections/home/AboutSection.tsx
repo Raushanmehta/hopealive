@@ -4,6 +4,7 @@ import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
 import siteData from "@/data/site.json";
 import { AboutData } from "@/types";
@@ -13,14 +14,23 @@ import {
   animateAboutButtonLeave,
 } from "@/util/animations";
 
-interface AboutSectionProps {
-  data?: AboutData;
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
 }
 
-export default function AboutSection({ data = siteData.about }: AboutSectionProps) {
+interface AboutSectionProps {
+  data?: AboutData;
+  showCta?: boolean;
+}
+
+export default function AboutSection({
+  data = siteData.about,
+  showCta = true,
+}: AboutSectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
+  const counterRef = useRef<HTMLSpanElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const ctaButtonRef = useRef<HTMLAnchorElement>(null);
@@ -40,10 +50,44 @@ export default function AboutSection({ data = siteData.about }: AboutSectionProp
         imagePlanting: imagePlantingRef.current,
         imageSeedling: imageSeedlingRef.current,
       });
+
+      // Ultra-Smooth Animated Number Counter from 0 to 250
+      const rawValue = data.stats.value || "250K+";
+      const match = rawValue.match(/^(\d+)(.*)$/);
+      const targetNum = match ? parseInt(match[1], 10) : 250;
+      const suffix = match ? match[2] : "K+";
+
+      let lastInt = -1;
+      const counterObj = { value: 0 };
+
+      gsap.to(counterObj, {
+        value: targetNum,
+        duration: 2.6,
+        ease: "power2.inOut",
+        scrollTrigger: {
+          trigger: statsRef.current || sectionRef.current,
+          start: "top 85%",
+          once: true,
+        },
+        onUpdate: () => {
+          const currentInt = Math.round(counterObj.value);
+          if (currentInt !== lastInt) {
+            lastInt = currentInt;
+            if (counterRef.current) {
+              counterRef.current.textContent = `${currentInt}${suffix}`;
+            }
+          }
+        },
+        onComplete: () => {
+          if (counterRef.current) {
+            counterRef.current.textContent = `${targetNum}${suffix}`;
+          }
+        },
+      });
     }, sectionRef);
 
     return () => ctx.revert();
-  }, []);
+  }, [data.stats.value]);
 
   return (
     <section
@@ -66,10 +110,10 @@ export default function AboutSection({ data = siteData.about }: AboutSectionProp
               </span>
             </div>
 
-            {/* Giant Stat Block: 12M+ */}
+            {/* Giant Stat Block: Counter 0 to 250 with Tabular Nums for zero-jitter smoothness */}
             <div ref={statsRef} className="mt-12 sm:mt-16 lg:mt-auto pt-4">
-              <div className="font-poppins font-bold text-6xl sm:text-7xl lg:text-[84px] xl:text-[92px] tracking-tight text-[#1b2715] leading-none select-none">
-                {data.stats.value}
+              <div className="font-poppins font-bold text-6xl sm:text-7xl lg:text-[84px] xl:text-[92px] tracking-tight text-[#1b2715] leading-none select-none tabular-nums">
+                <span ref={counterRef}>0{data.stats.value.replace(/^\d+/, "") || "K+"}</span>
               </div>
               <div className="mt-2 font-poppins font-semibold text-xs sm:text-[13px] uppercase tracking-[0.16em] text-[#556350] select-none">
                 {data.stats.label}
@@ -100,27 +144,29 @@ export default function AboutSection({ data = siteData.about }: AboutSectionProp
             </p>
 
             {/* CTA Button: Dark Green Leaf with Yellow Text & Arrow */}
-            <div className="mt-3 sm:mt-6">
-              <Link
-                ref={ctaButtonRef}
-                href={data.cta.href}
-                onMouseEnter={() =>
-                  animateAboutButtonHover(ctaButtonRef.current, arrowRef.current)
-                }
-                onMouseLeave={() =>
-                  animateAboutButtonLeave(ctaButtonRef.current, arrowRef.current)
-                }
-                className="btn-leaf inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-[#1f2c16] text-[#feff02] font-poppins font-semibold text-sm sm:text-[15px] tracking-wide rounded-xl shadow-lg hover:bg-[#162211] active:scale-[0.98] transition-all duration-200 cursor-pointer select-none"
-              >
-                <span>{data.cta.label}</span>
-                <ArrowUpRight
-                  ref={arrowRef}
-                  size={18}
-                  strokeWidth={2.6}
-                  className="transition-transform duration-200 shrink-0 text-[#feff02]"
-                />
-              </Link>
-            </div>
+            {showCta && data.cta && (
+              <div className="mt-3 sm:mt-6">
+                <Link
+                  ref={ctaButtonRef}
+                  href={data.cta.href}
+                  onMouseEnter={() =>
+                    animateAboutButtonHover(ctaButtonRef.current, arrowRef.current)
+                  }
+                  onMouseLeave={() =>
+                    animateAboutButtonLeave(ctaButtonRef.current, arrowRef.current)
+                  }
+                  className="btn-leaf inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-[#1f2c16] text-[#feff02] font-poppins font-semibold text-sm sm:text-[15px] tracking-wide rounded-xl shadow-lg hover:bg-[#162211] active:scale-[0.98] transition-all duration-200 cursor-pointer select-none"
+                >
+                  <span>{data.cta.label}</span>
+                  <ArrowUpRight
+                    ref={arrowRef}
+                    size={18}
+                    strokeWidth={2.6}
+                    className="transition-transform duration-200 shrink-0 text-[#feff02]"
+                  />
+                </Link>
+              </div>
+            )}
           </div>
         </div>
 

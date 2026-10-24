@@ -80,7 +80,7 @@ export default function BlogSection({
 
         {/* BOTTOM ROW: 3 Feature Blog Cards with Signature 80px Organic Leaf-Cut Silhouette */}
         <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
-          {data.posts.slice(0, 3).map((post: BlogPostItem, index: number) => (
+          {(data.blogPosts || data.posts || []).slice(0, 3).map((post: BlogPostItem, index: number) => (
             <BlogCard
               key={post.id}
               ref={(el) => {

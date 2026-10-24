@@ -5,7 +5,7 @@ import {
   MapPin,
   Phone,
   Mail,
-  Clock,
+  HeartHandshake,
   Send,
   CheckCircle2,
   User,
@@ -53,7 +53,7 @@ export default function ContactSection({
     <section
       id="contact"
       aria-label="Contact HopeAlive Foundation"
-      className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-10 md:py-16 lg:py-24 overflow-hidden"
+      className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* UPPER ROW: Left Column (Badge) | Right Column (Headline & Narrative) */}
@@ -85,7 +85,7 @@ export default function ContactSection({
         </div>
 
         {/* MAIN ROW: Contact Info Cards (Left) | Interactive Form (Right) */}
-        <div className="mt-12 sm:mt-16 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
+        <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
           {/* LEFT: 4 Contact Information Cards */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-4 sm:gap-5">
             {/* 1. Address Card */}
@@ -154,26 +154,36 @@ export default function ContactSection({
               </div>
             </div>
 
-            {/* 4. Hours Card */}
+            {/* 4. Frontline & Volunteer Desk Card */}
             <div className="group bg-[#1f2c16] text-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/10 hover:border-white/25 transition-all duration-300 shadow-lg">
               <div className="flex items-start gap-4">
                 <div className="shrink-0 w-12 h-12 rounded-xl bg-[#2a3c20] text-[#feff02] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
-                  <Clock size={22} strokeWidth={2} />
+                  <HeartHandshake size={22} strokeWidth={2} />
                 </div>
                 <div>
                   <h3 className="font-poppins font-bold text-lg text-white">
-                    {data.info.hours.title}
+                    {data.info.support?.title || "Frontline & Volunteer Desk"}
                   </h3>
-                  <p className="mt-1 text-sm text-[#b0bfae] font-poppins leading-relaxed">
-                    {data.info.hours.text}
-                  </p>
+                  <div className="mt-1 text-sm text-[#b0bfae] font-poppins leading-relaxed">
+                    <p>
+                      {data.info.support?.text || "Immediate aid dispatch, localized relief projects & volunteer coordination."}
+                    </p>
+                    {(data.info.support?.email || "volunteer@xyz.com") && (
+                      <a
+                        href={`mailto:${data.info.support?.email || "volunteer@xyz.com"}`}
+                        className="inline-block mt-1 text-[#feff02] hover:underline font-medium"
+                      >
+                        {data.info.support?.email || "volunteer@xyz.com"}
+                      </a>
+                    )}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* RIGHT: Interactive Contact Form Card with signature Leaf-Cut silhouette */}
-          <div className="lg:col-span-7 bg-white p-8 sm:p-10 lg:p-12 rounded-tl-[54px] sm:rounded-tl-[64px] rounded-br-[54px] sm:rounded-br-[64px] rounded-tr-3xl rounded-bl-3xl shadow-xl border border-[#1b2715]/10 flex flex-col justify-between">
+          <div className="lg:col-span-7 bg-white p-8 sm:p-10 lg:p-12 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none shadow-xl border border-[#1b2715]/10 flex flex-col justify-between">
             <div>
               <h3 className="font-poppins font-bold text-2xl sm:text-3xl text-[#1b2715] tracking-tight">
                 Leave Us A Note

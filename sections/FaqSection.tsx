@@ -24,7 +24,7 @@ export default function FaqSection({
     <section
       id="faqs"
       aria-label="HopeAlive Foundation Frequently Asked Questions"
-      className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-10 md:py-16 lg:py-24 overflow-hidden"
+      className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* UPPER ROW: Left Column (Badge) | Right Column (Headline & Narrative) */}
@@ -56,7 +56,7 @@ export default function FaqSection({
         </div>
 
         {/* Accordion FAQ List */}
-        <div className="mt-10 sm:mt-12 space-y-4">
+        <div className="mt-4 sm:mt-6 lg:mt-8 space-y-4">
           {data.items.map((item: FaqItem) => {
             const isOpen = openId === item.id;
 
@@ -122,7 +122,7 @@ export default function FaqSection({
 
         {/* Bottom CTA Banner (Can't find answer? Contact Us) */}
         {data.cta && (
-          <div className="mt-14 sm:mt-16 bg-[#1f2c16] text-white p-8 sm:p-10 lg:p-12 rounded-tl-[54px] sm:rounded-tl-[64px] rounded-br-[54px] sm:rounded-br-[64px] rounded-tr-2xl rounded-bl-2xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 border border-white/10 select-none">
+          <div className="mt-8 sm:mt-10 lg:mt-12 bg-[#1f2c16] text-white p-8 sm:p-10 lg:p-12 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 border border-white/10 select-none">
             <div className="flex-1 text-left">
               <h3 className="font-poppins font-bold text-2xl sm:text-3xl text-white tracking-tight">
                 {data.cta.title}
@@ -134,7 +134,7 @@ export default function FaqSection({
 
             <Link
               href={data.cta.buttonHref}
-              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-[#feff02] text-[#121a0d] font-poppins font-bold text-sm sm:text-base tracking-wide rounded-xl shadow-lg hover:bg-white transition-all duration-200 cursor-pointer shrink-0 active:scale-[0.98]"
+              className="btn-leaf inline-flex items-center justify-center gap-3 px-7 sm:px-8 py-3.5 sm:py-4 bg-[#feff02] text-[#121a0d] font-poppins font-semibold text-sm sm:text-[15px] tracking-wide rounded-xl shadow-lg hover:bg-white active:scale-[0.98] transition-all duration-200 cursor-pointer shrink-0 select-none"
             >
               <span>{data.cta.buttonText}</span>
               <ArrowUpRight size={18} strokeWidth={2.4} />

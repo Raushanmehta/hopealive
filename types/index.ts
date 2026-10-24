@@ -139,6 +139,41 @@ export interface CausesData {
   items: CauseItem[];
 }
 
+export interface BlogDetailGalleryItem {
+  image: string;
+  alt: string;
+  caption: string;
+}
+
+export interface BlogDetailConfig {
+  callout?: {
+    badge?: string;
+    title: string;
+    description: string;
+    buttonText: string;
+    buttonHref: string;
+  };
+  sidebar?: {
+    recentTitle?: string;
+    tagsTitle?: string;
+    donateCard?: {
+      badge?: string;
+      title: string;
+      description: string;
+      buttonText: string;
+      buttonHref: string;
+    };
+  };
+  highlights?: {
+    title: string;
+    items: string[];
+  };
+  gallery?: {
+    title: string;
+    items: BlogDetailGalleryItem[];
+  };
+}
+
 export interface BlogPostItem {
   id: string;
   date: string;
@@ -158,6 +193,28 @@ export interface BlogPostItem {
   quote?: string;
   quoteAuthor?: string;
   tags?: string[];
+  highlights?: {
+    title?: string;
+    items: string[];
+  };
+  gallery?: {
+    title?: string;
+    items: BlogDetailGalleryItem[];
+  };
+  callout?: {
+    badge?: string;
+    title: string;
+    description: string;
+    buttonText: string;
+    buttonHref: string;
+  };
+  donateCard?: {
+    badge?: string;
+    title: string;
+    description: string;
+    buttonText: string;
+    buttonHref: string;
+  };
 }
 
 export interface BlogData {
@@ -170,7 +227,9 @@ export interface BlogData {
     line2?: string;
   };
   description: string;
-  posts: BlogPostItem[];
+  blogPosts?: BlogPostItem[];
+  posts?: BlogPostItem[];
+  blogDetail?: BlogDetailConfig;
 }
 
 export interface TestimonialItem {
@@ -195,6 +254,60 @@ export interface TestimonialData {
   items: TestimonialItem[];
 }
 
+export interface ProjectStat {
+  label: string;
+  value: string;
+}
+
+export interface ProjectMilestone {
+  phase: string;
+  title: string;
+  description: string;
+  status: string;
+}
+
+export interface ProjectGalleryItem {
+  image: string;
+  alt: string;
+  caption: string;
+}
+
+export interface ProjectDetailConfig {
+  stats: ProjectStat[];
+  challengeSolution: {
+    title: string;
+    paragraphs: string[];
+  };
+  quote: {
+    text: string;
+    author: string;
+    role: string;
+  };
+  milestones: {
+    title: string;
+    items: ProjectMilestone[];
+  };
+  gallery: {
+    title: string;
+    items: ProjectGalleryItem[];
+  };
+  callout: {
+    title: string;
+    description: string;
+    buttonText: string;
+    buttonHref: string;
+  };
+  sidebar: {
+    relatedTitle: string;
+    donateCard: {
+      title: string;
+      description: string;
+      buttonText: string;
+      buttonHref: string;
+    };
+  };
+}
+
 export interface ProjectItem {
   id: string;
   title: string;
@@ -205,6 +318,36 @@ export interface ProjectItem {
   image: string;
   alt: string;
   href: string;
+  stats?: ProjectStat[];
+  challengeSolution?: {
+    title: string;
+    paragraphs: string[];
+  };
+  quote?: {
+    text: string;
+    author: string;
+    role: string;
+  };
+  milestones?: {
+    title: string;
+    items: ProjectMilestone[];
+  };
+  gallery?: {
+    title: string;
+    items: ProjectGalleryItem[];
+  };
+  callout?: {
+    title: string;
+    description: string;
+    buttonText: string;
+    buttonHref: string;
+  };
+  donateCard?: {
+    title: string;
+    description: string;
+    buttonText: string;
+    buttonHref?: string;
+  };
 }
 
 export interface ProjectData {
@@ -217,7 +360,39 @@ export interface ProjectData {
     line2?: string;
   };
   description: string;
-  items: ProjectItem[];
+  projectsList?: ProjectItem[];
+  items?: ProjectItem[];
+  projects?: ProjectItem[];
+}
+
+export interface TeamSocial {
+  platform: "twitter" | "facebook" | "linkedin" | "email";
+  href: string;
+}
+
+export interface TeamMember {
+  id: string;
+  name: string;
+  role: string;
+  department: string;
+  bio: string;
+  image: string;
+  alt?: string;
+  experience?: string;
+  socials?: TeamSocial[];
+}
+
+export interface TeamData {
+  badge: {
+    text: string;
+    dot?: boolean;
+  };
+  headline: {
+    line1: string;
+    line2?: string;
+  };
+  description: string;
+  members: TeamMember[];
 }
 
 export interface FaqItem {
@@ -269,7 +444,12 @@ export interface ContactData {
       title: string;
       address: string;
     };
-    hours: {
+    support?: {
+      title: string;
+      text: string;
+      email?: string;
+    };
+    hours?: {
       title: string;
       text: string;
     };

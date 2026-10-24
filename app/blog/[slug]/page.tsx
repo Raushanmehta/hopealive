@@ -8,7 +8,8 @@ interface PageProps {
 }
 
 export async function generateStaticParams() {
-  const posts = siteData.blog.posts;
+  const posts =
+    (siteData.blog as any).blogPosts || (siteData.blog as any).posts || [];
   return posts.map((post: { href: string }) => ({
     slug: post.href.replace("/blog/", ""),
   }));

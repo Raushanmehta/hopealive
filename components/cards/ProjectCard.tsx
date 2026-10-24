@@ -7,8 +7,13 @@ import { ArrowUpRight } from "lucide-react";
 import { ProjectItem } from "@/types";
 
 interface ProjectCardProps {
-  item: ProjectItem;
+  item?: ProjectItem;
+  project?: ProjectItem;
   className?: string;
+  sectionRef?: any;
+  imageAnimRef?: any;
+  contentAnimRef?: any;
+  linkAnimRef?: any;
 }
 
 /**
@@ -17,12 +22,16 @@ interface ProjectCardProps {
  */
 export default function ProjectCard({
   item,
+  project,
   className = "",
 }: ProjectCardProps) {
+  const currentItem = item || project;
   const arrowRef = useRef<SVGSVGElement>(null);
 
+  if (!currentItem) return null;
+
   return (
-    <Link href={item.href} className="block group h-full">
+    <Link href={currentItem.href} className="block group h-full">
       <div
         className={`relative flex flex-col justify-between min-h-[490px] sm:min-h-[530px] pt-9 sm:pt-11 pb-6 sm:pb-7 lg:pb-8 select-none transition-all duration-500 ease-out group-hover:-translate-y-2 drop-shadow-2xl ${className}`}
       >
@@ -56,14 +65,14 @@ export default function ProjectCard({
           />
         </svg>
 
-        {/* Top Title: Editorial Serif Typography for Project Title */}
+        {/* Top Title: HopeAlive Theme Poppins Typography for Project Title */}
         <div className="text-center pt-2 sm:pt-3 px-6 sm:px-7 lg:px-8">
-          <h3 className="font-serif font-bold text-3xl sm:text-4xl lg:text-[40px] tracking-tight text-white group-hover:text-[#feff02] transition-colors duration-300 leading-none">
-            {item.title}
+          <h3 className="font-poppins font-bold text-2xl sm:text-3xl lg:text-[34px] tracking-tight text-white group-hover:text-[#feff02] transition-colors duration-300 leading-tight">
+            {currentItem.title}
           </h3>
-          {item.subtitle && (
+          {currentItem.subtitle && (
             <p className="font-poppins font-medium text-xs sm:text-[13px] text-[#feff02] mt-1.5 tracking-wide">
-              {item.subtitle}
+              {currentItem.subtitle}
             </p>
           )}
         </div>
@@ -71,8 +80,8 @@ export default function ProjectCard({
         {/* Center Graphic: FULL WIDTH - ZERO horizontal padding (Edge-to-Edge) */}
         <div className="relative w-full h-[200px] sm:h-[220px] my-auto flex items-center justify-center overflow-hidden">
           <Image
-            src={item.image}
-            alt={item.alt}
+            src={currentItem.image}
+            alt={currentItem.alt}
             fill
             unoptimized
             className="object-cover object-center w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 filter drop-shadow-[0_12px_22px_rgba(0,0,0,0.5)]"
@@ -82,17 +91,17 @@ export default function ProjectCard({
         </div>
 
         {/* Project Description */}
-        {item.description && (
+        {currentItem.description && (
           <p className="font-poppins text-xs sm:text-[13px] text-[#b0bfae] leading-relaxed line-clamp-2 px-6 sm:px-7 lg:px-8 text-center my-2 select-none">
-            {item.description}
+            {currentItem.description}
           </p>
         )}
 
         {/* Bottom Pill Container with Theme Yellow Base on #162211 Card */}
         <div className="w-full px-6 sm:px-7 lg:px-8">
           <div className="w-full bg-[#feff02] rounded-full p-2 sm:p-2.5 pl-5 sm:pl-6 flex items-center justify-between gap-3 shadow-lg border border-black/10 transition-colors duration-300 group-hover:bg-[#f5f600]">
-            <span className="font-poppins text-xs sm:text-[14px] text-[#121a0d] font-semibold tracking-normal">
-              {item.ctaText}
+            <span className="font-poppins text-xs sm:text-[16px] text-[#121a0d] font-semibold tracking-normal">
+              {currentItem.ctaText}
             </span>
 
             {/* Circular Button with Diagonal Theme Yellow Arrow */}

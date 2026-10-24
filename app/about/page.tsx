@@ -5,9 +5,9 @@ import WhyChooseUsSection from "@/sections/WhyChooseUsSection";
 
 export default function AboutPage() {
     return (
-        <main>
+        <main className="bg-[#f8f6f0]">
             <Breadcrumb pageTitle="About Us" subTitle="About Us" />
-            <AboutSection />
+            <AboutSection showCta={false} />
             <MissionAndVisionSection />
             <WhyChooseUsSection />
         </main>

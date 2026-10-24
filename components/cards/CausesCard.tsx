@@ -2,7 +2,15 @@
 
 import React, { forwardRef } from "react";
 import { CauseItem } from "@/types";
-import { NutritionIcon, EducationIcon, HealthcareIcon } from "@/components/icons";
+import {
+  NutritionIcon,
+  EducationIcon,
+  HealthcareIcon,
+  ShelterIcon,
+  WaterIcon,
+  MedicalIcon,
+  EmergencyAidIcon,
+} from "@/components/icons";
 
 interface CausesCardProps {
   item?: CauseItem;
@@ -17,30 +25,85 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
     const cardData = cause || item;
     if (!cardData) return null;
 
-    const renderIcon = (iconName: string, active: boolean) => {
+    /**
+     * Dynamically chooses the appropriate SVG icon based on the cause Title and Icon type
+     */
+    const renderIcon = (title: string, iconName: string = "", active: boolean) => {
+      const t = (title || "").toLowerCase();
+      const icon = (iconName || "").toLowerCase();
+
       const iconProps = {
-        size: 40,
+        size: 42,
         strokeWidth: 1.8,
         className: `transition-transform duration-300 transform group-hover:scale-110 ${
           active ? "text-[#121a0d]" : "text-white"
         }`,
       };
 
-      switch (iconName.toLowerCase()) {
-        case "nutrition":
-        case "wheat":
-        case "food":
-          return <NutritionIcon {...iconProps} />;
-        case "education":
-        case "sprout":
-        case "book":
-          return <EducationIcon {...iconProps} />;
-        case "healthcare":
-        case "shelter":
-        case "leaf":
-        default:
-          return <HealthcareIcon {...iconProps} />;
+      // 1. Shelter & Homeless Children Cause
+      if (
+        t.includes("shelter") ||
+        t.includes("homeless") ||
+        t.includes("home") ||
+        icon === "shelter"
+      ) {
+        return <ShelterIcon {...iconProps} />;
       }
+
+      // 2. Pure Clean Water Cause
+      if (
+        t.includes("water") ||
+        t.includes("drinking") ||
+        t.includes("well") ||
+        icon === "water"
+      ) {
+        return <WaterIcon {...iconProps} />;
+      }
+
+      // 3. Education & School Cause
+      if (
+        t.includes("education") ||
+        t.includes("school") ||
+        t.includes("book") ||
+        t.includes("literacy") ||
+        icon === "education"
+      ) {
+        return <EducationIcon {...iconProps} />;
+      }
+
+      // 4. Emergency Aid & Food Relief Cause
+      if (
+        t.includes("emergency") ||
+        t.includes("relief") ||
+        (t.includes("aid") && !t.includes("medical")) ||
+        icon === "emergency"
+      ) {
+        return <EmergencyAidIcon {...iconProps} />;
+      }
+
+      // 5. Daily Warm Meals & Nutrition Cause
+      if (
+        t.includes("meal") ||
+        t.includes("food") ||
+        t.includes("nutrition") ||
+        icon === "nutrition"
+      ) {
+        return <NutritionIcon {...iconProps} />;
+      }
+
+      // 6. Mobile Healthcare & Medicine Cause
+      if (
+        t.includes("health") ||
+        t.includes("medical") ||
+        t.includes("medicine") ||
+        t.includes("doctor") ||
+        icon === "healthcare"
+      ) {
+        return <MedicalIcon {...iconProps} />;
+      }
+
+      // Fallback
+      return <HealthcareIcon {...iconProps} />;
     };
 
     return (
@@ -61,7 +124,7 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
             : "bg-[#1f2c16] text-white border border-white/10 hover:border-white/25 hover:bg-[#25361c]"
         } ${className}`}
       >
-        {/* Top Row: Title (Left) and Organic Icon (Right) */}
+        {/* Top Row: Title (Left) and Distinct Title-Specific Organic SVG Icon (Right) */}
         <div className="flex items-start justify-between gap-4 w-full">
           <h3
             className={`font-poppins font-bold text-2xl sm:text-[28px] lg:text-[32px] tracking-tight leading-[1.15] max-w-[210px] ${
@@ -72,7 +135,7 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
           </h3>
 
           <div className="shrink-0 p-1">
-            {renderIcon(cardData.icon, isActive)}
+            {renderIcon(cardData.title, cardData.icon, isActive)}
           </div>
         </div>
 

@@ -7,6 +7,7 @@ import { HandHeart, Globe2 } from "lucide-react";
 import SunburstIcon from "@/components/icons/SunburstIcon";
 import siteData from "@/data/site.json";
 import { MissionVisionData } from "@/types";
+import { animateMissionVisionEntrance } from "@/util/animations";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
@@ -44,117 +45,19 @@ export default function MissionAndVisionSection({
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top 75%",
-          toggleActions: "play none none none",
-        },
-        defaults: { ease: "power3.out" },
+      animateMissionVisionEntrance(sectionRef.current, {
+        tagline: taglineRef.current,
+        visionLines: [visionLine1Ref.current, visionLine2Ref.current],
+        divider1: divider1Ref.current,
+        visionIcon: visionIconRef.current,
+        visionDesc: visionDescRef.current,
+        divider2: divider2Ref.current,
+        missionLines: [missionLine1Ref.current, missionLine2Ref.current],
+        divider3: divider3Ref.current,
+        missionDesc: missionDescRef.current,
+        missionIcon: missionIconRef.current,
+        divider4: divider4Ref.current,
       });
-
-      // 1. Tagline fade in
-      if (taglineRef.current) {
-        tl.fromTo(
-          taglineRef.current,
-          { opacity: 0, y: -10 },
-          { opacity: 1, y: 0, duration: 0.5 }
-        );
-      }
-
-      // 2. Vision Title lines slide up
-      tl.fromTo(
-        [visionLine1Ref.current, visionLine2Ref.current],
-        { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.7, stagger: 0.14, ease: "power4.out" },
-        "-=0.2"
-      );
-
-      // 3. Divider 1 expand
-      if (divider1Ref.current) {
-        tl.fromTo(
-          divider1Ref.current,
-          { scaleX: 0, transformOrigin: "left center" },
-          { scaleX: 1, duration: 0.7, ease: "power2.out" },
-          "-=0.35"
-        );
-      }
-
-      // 4. Vision Icon & Paragraph
-      if (visionIconRef.current) {
-        tl.fromTo(
-          visionIconRef.current,
-          { opacity: 0, scale: 0.5, rotate: -30 },
-          { opacity: 1, scale: 1, rotate: 0, duration: 0.75, ease: "back.out(1.7)" },
-          "-=0.4"
-        );
-      }
-
-      if (visionDescRef.current) {
-        tl.fromTo(
-          visionDescRef.current,
-          { opacity: 0, y: 16 },
-          { opacity: 1, y: 0, duration: 0.55 },
-          "-=0.45"
-        );
-      }
-
-      // 5. Divider 2 expand
-      if (divider2Ref.current) {
-        tl.fromTo(
-          divider2Ref.current,
-          { scaleX: 0, transformOrigin: "left center" },
-          { scaleX: 1, duration: 0.65, ease: "power2.out" },
-          "-=0.3"
-        );
-      }
-
-      // 6. Mission Title lines slide up
-      tl.fromTo(
-        [missionLine1Ref.current, missionLine2Ref.current],
-        { opacity: 0, y: 40, x: 20 },
-        { opacity: 1, y: 0, x: 0, duration: 0.7, stagger: 0.14, ease: "power4.out" },
-        "-=0.2"
-      );
-
-      // 7. Divider 3 expand
-      if (divider3Ref.current) {
-        tl.fromTo(
-          divider3Ref.current,
-          { scaleX: 0, transformOrigin: "right center" },
-          { scaleX: 1, duration: 0.7, ease: "power2.out" },
-          "-=0.3"
-        );
-      }
-
-      // 8. Mission Paragraph & Icon
-      if (missionDescRef.current) {
-        tl.fromTo(
-          missionDescRef.current,
-          { opacity: 0, y: 16 },
-          { opacity: 1, y: 0, duration: 0.55 },
-          "-=0.4"
-        );
-      }
-
-      if (missionIconRef.current) {
-        tl.fromTo(
-          missionIconRef.current,
-          { opacity: 0, scale: 0.5, rotate: 30 },
-          { opacity: 1, scale: 1, rotate: 0, duration: 0.75, ease: "back.out(1.7)" },
-          "-=0.45"
-        );
-      }
-
-      // 9. Closing Divider 4 expand
-      if (divider4Ref.current) {
-        tl.fromTo(
-          divider4Ref.current,
-          { scaleX: 0, transformOrigin: "center center" },
-          { scaleX: 1, duration: 0.65, ease: "power2.out" },
-          "-=0.3"
-        );
-      }
     }, sectionRef);
 
     return () => ctx.revert();

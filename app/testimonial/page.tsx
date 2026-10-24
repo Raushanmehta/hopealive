@@ -87,7 +87,7 @@ export default function TestimonialPage() {
           {/* Testimonial Cards Grid with uniform heights and gap-y for popping avatars */}
           <div
             ref={gridContainerRef}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-5 gap-y-16 pt-8 sm:pt-10 pb-6 mt-4 sm:mt-6 items-stretch"
+            className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 gap-y-16 sm:gap-y-20 pt-14 sm:pt-16 items-stretch"
           >
             {data.items.map((item: TestimonialItem) => (
               <TestimonialCard

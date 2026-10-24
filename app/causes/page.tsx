@@ -88,7 +88,7 @@ export default function CausesPage() {
           </div>
 
           {/* Causes Cards Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 mt-8 items-stretch">
+          <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
             {causess.map((cause, index) => (
               <CausesCard
                 key={cause.id}
