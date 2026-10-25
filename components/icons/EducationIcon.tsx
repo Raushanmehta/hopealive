@@ -26,7 +26,7 @@ export default function EducationIcon({
       aria-hidden="true"
       {...props}
     >
-      {/* Open Book Spine and Outer Pages */}
+      {/* Open book spine pages */}
       <path d="M2 4.5C4.5 3.5 7.5 3.5 12 5c4.5-1.5 7.5-1.5 10-.5v14c-2.5-1-5.5-1-10 .5-4.5-1.5-7.5-1.5-10-.5v-14Z" />
       {/* Center Binding Line */}
       <path d="M12 5v14" />

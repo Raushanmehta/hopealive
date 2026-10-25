@@ -26,7 +26,7 @@ export default function MedicalIcon({
       aria-hidden="true"
       {...props}
     >
-      {/* Medical First-Aid Cross Badge at the top */}
+      {/* Medical first aid badge */}
       <path d="M12 2v5" />
       <path d="M9.5 4.5h5" />
       {/* Heartbeat EKG Pulse Line */}

@@ -28,7 +28,7 @@ export default function ProjectDetailSection({
 
   const normalizedId = (projectId || "").toLowerCase().trim();
 
-  // Select project by id or fallback to first
+  // Select project by id
   const currentProject: ProjectItem =
     propData ||
     (normalizedId
@@ -59,7 +59,7 @@ export default function ProjectDetailSection({
 
   const otherProjects = allProjects.filter((p) => p.id !== currentProject?.id);
 
-  // Dynamic data from projectsList / site.json with fallbacks
+  // Dynamic project configurations data
   const stats: ProjectStat[] =
     currentProject.stats || defaultProject.stats || projectDetailConfig?.stats || [];
   const challengeSolution =
@@ -96,11 +96,11 @@ export default function ProjectDetailSection({
       className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-visible"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* MAIN 2-COLUMN GRID: Left Project Narrative | Right Sticky Sidebar */}
+        {/* Two column layout grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* LEFT COLUMN: In-depth Project Case Study */}
+          {/* In-depth project case study */}
           <article className="lg:col-span-8">
-            {/* Main Title */}
+            {/* Main project headline title */}
             <h1 className="font-poppins font-bold text-2xl sm:text-4xl lg:text-[42px] text-[#1b2715] tracking-tight leading-[1.2] mb-3">
               {currentProject.subtitle || currentProject.title}
             </h1>
@@ -130,7 +130,7 @@ export default function ProjectDetailSection({
               </div>
             </div>
 
-            {/* Key Metrics Grid */}
+            {/* Key project metrics grid */}
             {stats.length > 0 && (
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
                 {stats.map((stat, idx) => (
@@ -149,7 +149,7 @@ export default function ProjectDetailSection({
               </div>
             )}
 
-            {/* The Challenge vs Solution Narrative */}
+            {/* Challenge and solution narrative */}
             {challengeSolution && (
               <div className="space-y-6 font-poppins text-[#556350] text-sm sm:text-base leading-relaxed mb-10">
                 <h2 className="text-xl sm:text-2xl font-bold text-[#1b2715] tracking-tight">
@@ -161,7 +161,7 @@ export default function ProjectDetailSection({
               </div>
             )}
 
-            {/* Signature Pullquote */}
+            {/* Project signature pullquote highlight */}
             {quote && (
               <div className="my-8 sm:my-10 bg-[#1f2c16] text-white p-7 sm:p-9 rounded-3xl border border-white/10 relative overflow-hidden shadow-xl">
                 <div className="absolute top-4 right-6 text-white/5 pointer-events-none">
@@ -180,7 +180,7 @@ export default function ProjectDetailSection({
               </div>
             )}
 
-            {/* Milestone Roadmap */}
+            {/* Project milestones implementation roadmap */}
             {milestones && milestones.items?.length > 0 && (
               <div className="my-10">
                 <h3 className="font-poppins font-bold text-xl sm:text-2xl text-[#1b2715] tracking-tight mb-6">
@@ -214,7 +214,7 @@ export default function ProjectDetailSection({
               </div>
             )}
 
-            {/* Field Photo Collage */}
+            {/* Field photo showcase collage */}
             {gallery && gallery.items?.length > 0 && (
               <div className="my-10">
                 <h3 className="font-poppins font-bold text-xl sm:text-2xl text-[#1b2715] tracking-tight mb-5">
@@ -243,7 +243,7 @@ export default function ProjectDetailSection({
               </div>
             )}
 
-            {/* Mid-Page Contact Callout Banner */}
+            {/* Project contact callout banner */}
             {callout && (
               <div className="mt-8 sm:mt-10 lg:mt-12 bg-[#1f2c16] text-white p-7 sm:p-9 lg:p-10 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none border border-white/10 shadow-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                 <div>
@@ -265,9 +265,9 @@ export default function ProjectDetailSection({
             )}
           </article>
 
-          {/* RIGHT COLUMN: Interactive Sticky Sidebar */}
+          {/* Right interactive sticky sidebar */}
           <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-28 self-start">
-            {/* Related Field Initiatives */}
+            {/* Related field initiatives list */}
             {otherProjects.length > 0 && (
               <div className="bg-white p-6 rounded-3xl border border-[#1b2715]/10 shadow-md">
                 <h4 className="font-poppins font-bold text-xl text-[#1b2715] mb-4 pb-2 border-b border-[#1b2715]/10">
@@ -302,7 +302,7 @@ export default function ProjectDetailSection({
               </div>
             )}
 
-            {/* Urgent Need / Contact Donate Card */}
+            {/* Urgent donate callout card */}
             {sidebar?.donateCard && (
               <div className="bg-[#1f2c16] text-white p-7 rounded-3xl shadow-xl border border-white/10 relative overflow-hidden">
                 <h4 className="font-poppins font-bold text-lg sm:text-xl text-white">

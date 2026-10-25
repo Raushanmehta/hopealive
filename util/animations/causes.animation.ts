@@ -34,7 +34,7 @@ export function animateCausesEntrance(
     defaults: { ease: "power3.out" },
   });
 
-  // 1. Badge fade & slide down
+  // Badge slide down animation
   if (badge) {
     tl.fromTo(
       badge,
@@ -49,7 +49,7 @@ export function animateCausesEntrance(
     );
   }
 
-  // 2. Staggered headline lines reveal
+  // Headline lines staggered reveal
   if (headline) {
     const lines = headline.querySelectorAll(".causes-headline-line");
     if (lines.length > 0) {
@@ -83,7 +83,7 @@ export function animateCausesEntrance(
     }
   }
 
-  // 3. Description paragraph smooth reveal
+  // Description paragraph smooth reveal
   if (description) {
     tl.fromTo(
       description,
@@ -100,7 +100,7 @@ export function animateCausesEntrance(
     );
   }
 
-  // 4. CTA Button pop in
+  // Button pop in entrance
   if (ctaButton) {
     tl.fromTo(
       ctaButton,
@@ -118,7 +118,7 @@ export function animateCausesEntrance(
     );
   }
 
-  // 5. Staggered Cards reveal
+  // Cause cards staggered reveal
   const validCards = cards?.filter(Boolean) as HTMLElement[];
   if (validCards && validCards.length > 0) {
     tl.fromTo(
@@ -141,9 +141,7 @@ export function animateCausesEntrance(
   return tl;
 }
 
-/**
- * Micro-interaction: Button hover diagonal arrow shift
- */
+// Button hover diagonal arrow
 export function animateCausesButtonHover(
   button: HTMLElement | null,
   arrow: SVGSVGElement | null
@@ -165,9 +163,7 @@ export function animateCausesButtonHover(
   }
 }
 
-/**
- * Micro-interaction: Button mouse leave reset
- */
+// Button mouse leave reset
 export function animateCausesButtonLeave(
   button: HTMLElement | null,
   arrow: SVGSVGElement | null
@@ -189,9 +185,7 @@ export function animateCausesButtonLeave(
   }
 }
 
-/**
- * Micro-interaction: Card hover subtle lift and icon float
- */
+// Card hover subtle lift
 export function animateCausesCardHover(
   card: HTMLElement | null,
   icon: SVGSVGElement | null

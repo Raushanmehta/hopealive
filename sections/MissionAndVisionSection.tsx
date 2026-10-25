@@ -97,9 +97,7 @@ export default function MissionAndVisionSection({
           </div>
         )}
 
-        {/* ========================================================
-            BLOCK 1: OUR VISION (Headline Left-Aligned from JSON)
-            ======================================================== */}
+        {/* Vision headline block */}
         <div className="pt-2 sm:pt-3 pb-2 sm:pb-3">
           <h2 className="font-poppins font-bold text-6xl sm:text-7xl md:text-8xl text-white tracking-[-0.035em] leading-[0.88] flex flex-col items-start select-none">
             <span ref={visionLine1Ref} className="block text-white">
@@ -114,17 +112,15 @@ export default function MissionAndVisionSection({
           </h2>
         </div>
 
-        {/* Divider Line 1 (Theme Brand Yellow Accent) */}
+        {/* Vision separator divider line */}
         <hr
           ref={divider1Ref}
           className="border-0 h-[2px] bg-gradient-to-r from-[#feff02]/50 via-[#feff02]/25 to-white/10 w-full my-6 sm:my-8 md:my-9 opacity-100"
         />
 
-        {/* ========================================================
-            BLOCK 2: VISION CONTENT (NGO Vision Icon Left | Text Right from JSON)
-            ======================================================== */}
+        {/* Vision narrative content block */}
         <div className="py-2 sm:py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-10 md:gap-14 lg:gap-16">
-          {/* Left: NGO Vision Emblem (Hope Sunburst + Global Vision) */}
+          {/* Vision emblem icon container */}
           <div
             ref={visionIconRef}
             className="shrink-0 flex items-center justify-start group"
@@ -144,7 +140,7 @@ export default function MissionAndVisionSection({
             </div>
           </div>
 
-          {/* Right: Authentic NGO Vision Narrative from JSON */}
+          {/* Vision narrative description text */}
           <div className="w-full sm:max-w-xl md:max-w-2xl flex justify-end">
             <p
               ref={visionDescRef}
@@ -155,15 +151,13 @@ export default function MissionAndVisionSection({
           </div>
         </div>
 
-        {/* Divider Line 2 */}
+        {/* Second section divider line */}
         <hr
           ref={divider2Ref}
           className="border-0 h-[2px] bg-gradient-to-r from-white/10 via-[#feff02]/25 to-[#feff02]/50 w-full my-6 sm:my-8 md:my-9 opacity-100"
         />
 
-        {/* ========================================================
-            BLOCK 3: OUR MISSION (Headline Right-Aligned from JSON)
-            ======================================================== */}
+        {/* Mission headline title block */}
         <div className="pt-2 sm:pt-3 pb-2 sm:pb-3 flex flex-col items-end text-right">
           <h2 className="font-poppins font-extrabold text-6xl sm:text-7xl md:text-8xl text-white tracking-[-0.035em] leading-[0.88] flex flex-col items-end select-none">
             <span ref={missionLine1Ref} className="block text-right text-white">
@@ -178,17 +172,15 @@ export default function MissionAndVisionSection({
           </h2>
         </div>
 
-        {/* Divider Line 3 */}
+        {/* Third section divider line */}
         <hr
           ref={divider3Ref}
           className="border-0 h-[2px] bg-gradient-to-l from-[#feff02]/50 via-[#feff02]/25 to-white/10 w-full my-6 sm:my-8 md:my-9 opacity-100"
         />
 
-        {/* ========================================================
-            BLOCK 4: MISSION CONTENT (Text Left | NGO Mission Icon Right from JSON)
-            ======================================================== */}
+        {/* Mission narrative content block */}
         <div className="py-2 sm:py-4 flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-10 md:gap-14 lg:gap-16">
-          {/* Left: Authentic NGO Mission Narrative from JSON (Right-Aligned on desktop) */}
+          {/* Mission narrative description text */}
           <div className="w-full sm:max-w-xl md:max-w-2xl flex justify-start">
             <p
               ref={missionDescRef}
@@ -198,7 +190,7 @@ export default function MissionAndVisionSection({
             </p>
           </div>
 
-          {/* Right: NGO Mission Emblem (Hand Holding Heart & Compassion) */}
+          {/* Mission emblem icon container */}
           <div
             ref={missionIconRef}
             className="shrink-0 flex items-center justify-start sm:justify-end group"
@@ -212,7 +204,7 @@ export default function MissionAndVisionSection({
           </div>
         </div>
 
-        {/* Divider Line 4 (Closing Bottom Border) */}
+        {/* Bottom closing divider line */}
         <hr
           ref={divider4Ref}
           className="border-0 h-[2px] bg-gradient-to-r from-white/10 via-[#feff02]/30 to-white/10 w-full mt-6 sm:my-8 md:mt-9 opacity-100"

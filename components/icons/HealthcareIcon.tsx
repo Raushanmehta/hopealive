@@ -30,7 +30,7 @@ export default function HealthcareIcon({
       <path d="M2.5 10L12 2.5 21.5 10" />
       {/* Home / Shelter Walls */}
       <path d="M5 9.5V20a1.5 1.5 0 0 0 1.5 1.5h11a1.5 1.5 0 0 0 1.5-1.5V9.5" />
-      {/* Medical Healthcare Cross & Circle Protection */}
+      {/* Medical healthcare cross icon */}
       <circle cx="12" cy="14.5" r="4" opacity="0.4" />
       <path d="M12 12v5" />
       <path d="M9.5 14.5h5" />

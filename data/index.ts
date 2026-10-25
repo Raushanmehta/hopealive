@@ -1,6 +1,6 @@
 import siteData from "@/data/site.json";
 
-// ── Root Schema Types ──
+// Root schema types definition
 export type RawSiteData = typeof siteData;
 export type HopeAliveSchema = typeof siteData.HopeAlive;
 export type HopeAliveSections = HopeAliveSchema["sections"];
@@ -11,7 +11,7 @@ export type ServicesSchema = HopeAliveSchema;
 export type ServicesSections = HopeAliveSections;
 export type ServicesTemplateComponents = HopeAliveTemplateComponents;
 
-// ── Universal SectionProps Interface (ai-builder Standard) ──
+// Universal section props interface
 export interface SectionProps<T = unknown> {
   data?: T;
   className?: string;
@@ -21,7 +21,7 @@ export interface SectionProps<T = unknown> {
   onUpdate?: (newData: Partial<T>) => void;
 }
 
-// ── Strongly Typed Section Variant Data Models ──
+// Section variant data models
 export type HopeAliveNavbarData = HopeAliveSections["navbar"]["variants"]["HopeAliveNavbar1"];
 export type HopeAliveHeroData = HopeAliveSections["hero"]["variants"]["HopeAliveHero1"];
 export type HopeAliveAboutData = HopeAliveSections["about"]["variants"]["HopeAliveAbout1"];
@@ -38,7 +38,7 @@ export type HopeAliveThankYouData = HopeAliveSections["thankYou"]["variants"]["H
 export type HopeAliveNotFoundData = HopeAliveSections["notFound"]["variants"]["HopeAliveNotFound1"];
 export type HopeAliveFooterData = HopeAliveSections["footer"]["variants"]["HopeAliveFooter1"];
 
-// ── Inferred Sub-item Data Models ──
+// Inferred subitem data models
 export type TeamMember = HopeAliveTeamData["membersList"][number];
 export type BlogPost = HopeAliveBlogData["blogPosts"][number];
 export type BlogPostItem = BlogPost;
@@ -48,7 +48,7 @@ export type TestimonialItem = HopeAliveTestimonialsData["items"][number];
 export type FaqItem = HopeAliveFaqsData["faqsList"][number];
 export type NavItem = HopeAliveNavbarData["links"][number];
 
-// ── Convenience & Aliases ──
+// Convenience types and aliases
 export type NavbarData = HopeAliveNavbarData;
 export type HeroData = HopeAliveHeroData;
 export type AboutData = HopeAliveAboutData;
@@ -65,7 +65,7 @@ export type ThankYouData = HopeAliveThankYouData;
 export type NotFoundData = HopeAliveNotFoundData;
 export type FooterData = HopeAliveFooterData;
 
-// ── Default Site Data (Unified Schema Node Map) ──
+// Default unified site data
 const sec = siteData.HopeAlive.sections;
 
 export const site = {
@@ -85,7 +85,7 @@ export const site = {
   notFound: sec.notFound.variants.HopeAliveNotFound1,
   footer: sec.footer.variants.HopeAliveFooter1,
 
-  // Root references
+  // Root schema structure references
   HopeAlive: siteData.HopeAlive,
   Services: siteData.HopeAlive,
 };

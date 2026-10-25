@@ -15,10 +15,7 @@ export interface AboutAnimationElements {
   imageSeedling?: HTMLElement | null;
 }
 
-/**
- * GSAP Entrance Animation for About Section
- * Animates text, stats, and organic shaped images when scrolled into view
- */
+// About section entrance animation
 export function animateAboutEntrance(
   container: HTMLElement | null,
   elements: AboutAnimationElements
@@ -44,7 +41,7 @@ export function animateAboutEntrance(
     defaults: { ease: "power3.out" },
   });
 
-  // 1. Badge fade & slide down
+  // Badge slide down animation
   if (badge) {
     tl.fromTo(
       badge,
@@ -59,7 +56,7 @@ export function animateAboutEntrance(
     );
   }
 
-  // 2. 12M+ Stat block entrance
+  // Statistics block entrance animation
   if (stats) {
     tl.fromTo(
       stats,
@@ -76,7 +73,7 @@ export function animateAboutEntrance(
     );
   }
 
-  // 3. Staggered headline lines reveal
+  // Staggered headline lines reveal
   if (headline) {
     const lines = headline.querySelectorAll(".about-headline-line");
     if (lines.length > 0) {
@@ -110,7 +107,7 @@ export function animateAboutEntrance(
     }
   }
 
-  // 4. Description paragraph smooth reveal
+  // Description paragraph smooth reveal
   if (description) {
     tl.fromTo(
       description,
@@ -127,7 +124,7 @@ export function animateAboutEntrance(
     );
   }
 
-  // 5. CTA Button pop in
+  // Call to action button
   if (ctaButton) {
     tl.fromTo(
       ctaButton,
@@ -145,7 +142,7 @@ export function animateAboutEntrance(
     );
   }
 
-  // 6. Planting Image Reveal (scale & slide)
+  // Planting image scale reveal
   if (imagePlanting) {
     tl.fromTo(
       imagePlanting,
@@ -163,7 +160,7 @@ export function animateAboutEntrance(
     );
   }
 
-  // 7. Seedling Image Reveal (arch slide & scale)
+  // Seedling image slide reveal
   if (imageSeedling) {
     tl.fromTo(
       imageSeedling,
@@ -184,9 +181,7 @@ export function animateAboutEntrance(
   return tl;
 }
 
-/**
- * Micro-interaction: Button hover diagonal arrow shift
- */
+// Button hover diagonal arrow
 export function animateAboutButtonHover(
   button: HTMLElement | null,
   arrow: SVGSVGElement | null
@@ -208,9 +203,7 @@ export function animateAboutButtonHover(
   }
 }
 
-/**
- * Micro-interaction: Button mouse leave reset
- */
+// Button mouse leave reset
 export function animateAboutButtonLeave(
   button: HTMLElement | null,
   arrow: SVGSVGElement | null

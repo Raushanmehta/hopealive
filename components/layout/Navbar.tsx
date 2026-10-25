@@ -27,7 +27,7 @@ function NavbarContent({ data = site.navbar }: NavbarProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const isFirstRender = useRef(true);
 
-  // Scroll detection
+  // Scroll position state detection
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -38,7 +38,7 @@ function NavbarContent({ data = site.navbar }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Animation refs
+  // Component animation element references
   const headerRef = useRef<HTMLElement>(null);
   const navContainerRef = useRef<HTMLDivElement>(null);
   const innerContainerRef = useRef<HTMLDivElement>(null);
@@ -94,7 +94,7 @@ function NavbarContent({ data = site.navbar }: NavbarProps) {
     }
   }, [mobileMenuOpen]);
 
-  // Micro-interactions
+  // Component interactive hover handlers
   const handleLogoMouseEnter = () => {
     animateLogoHover(logoIconRef.current);
   };
@@ -256,7 +256,7 @@ export function NavbarFallback({ data = site.navbar }: NavbarProps) {
         className="pointer-events-auto relative w-[calc(100%-24px)] max-w-6xl px-4 mt-3 rounded-xl border border-white/10 bg-[#1f2c16] backdrop-blur-md shadow-[0_12px_40px_rgba(0,0,0,0.45)]"
       >
         <div className="w-full max-w-7xl mx-auto flex items-center justify-between py-2.5 sm:py-2.5">
-          {/* LEFT: Logo */}
+          {/* Brand logo navigation link */}
           <Link
             href={data.brand.href}
             className="flex items-center gap-2.5 group select-none focus:outline-none rounded-lg shrink-0"
@@ -280,7 +280,7 @@ export function NavbarFallback({ data = site.navbar }: NavbarProps) {
             </span>
           </Link>
 
-          {/* CENTER: Desktop Nav Links */}
+          {/* Desktop navigation links container */}
           <div className="hidden md:flex items-center gap-7 lg:gap-10">
             {data.links.map((link: NavItem) => (
               <Link
@@ -293,7 +293,7 @@ export function NavbarFallback({ data = site.navbar }: NavbarProps) {
             ))}
           </div>
 
-          {/* RIGHT: CTA Button & Mobile Toggle */}
+          {/* Call to action button */}
           <div className="flex items-center gap-3 shrink-0">
             <Link
               href={data.cta.href}

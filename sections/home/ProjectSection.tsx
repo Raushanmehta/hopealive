@@ -38,9 +38,9 @@ export default function ProjectSection({
       className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* UPPER ROW: Left Column (Badge) | Right Column (Headline & Narrative) */}
+        {/* Header content grid layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* LEFT COLUMN: Organic Capsule Badge */}
+          {/* Left badge column wrapper */}
           <div className="lg:col-span-4 flex flex-col justify-between self-stretch">
             <div
               ref={badgeRef}
@@ -52,7 +52,7 @@ export default function ProjectSection({
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Massive Bold Headline & Narrative Paragraph */}
+          {/* Right headline and narrative */}
           <div className="lg:col-span-8 flex flex-col">
             <h2
               ref={headlineRef}
@@ -77,7 +77,7 @@ export default function ProjectSection({
           </div>
         </div>
 
-        {/* BOTTOM ROW: 3 Feature Folder-Tab Project Cards (Matching mt-4 sm:mt-6 lg:mt-8 and gap-4 sm:gap-5 from AboutSection) */}
+        {/* Feature project cards grid */}
         <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
           {(data.projectsList || (data as any).items || []).slice(0, 3).map((item: ProjectItem, index: number) => (
             <div

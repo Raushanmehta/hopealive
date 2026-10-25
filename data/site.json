@@ -1786,15 +1786,6 @@
             "watermark": "HopeAlive"
           }
         }
-      },
-      "siteMetadata": {
-        "variants": {
-          "HopeAliveSiteMetadata1": {
-            "name": "HopeAlive",
-            "tagline": "Rooted in Compassion, Growing Lasting Hope",
-            "description": "HopeAlive is a global non-profit organization dedicated to empowering vulnerable children, supporting families, and uplifting communities through education, healthcare, and humanitarian aid."
-          }
-        }
       }
     }
   }

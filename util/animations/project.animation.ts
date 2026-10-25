@@ -12,9 +12,7 @@ export interface ProjectAnimationElements {
   cards?: (HTMLElement | null)[];
 }
 
-/**
- * GSAP Entrance Animation for Project Section
- */
+// Project section entrance animation
 export function animateProjectEntrance(
   container: HTMLElement | null,
   elements: ProjectAnimationElements
@@ -32,7 +30,7 @@ export function animateProjectEntrance(
     defaults: { ease: "power3.out" },
   });
 
-  // 1. Badge fade & slide down
+  // Badge slide down animation
   if (badge) {
     tl.fromTo(
       badge,
@@ -47,7 +45,7 @@ export function animateProjectEntrance(
     );
   }
 
-  // 2. Headline lines reveal
+  // Headline lines staggered reveal
   if (headline) {
     const lines = headline.querySelectorAll(".project-headline-line");
     if (lines.length > 0) {
@@ -81,7 +79,7 @@ export function animateProjectEntrance(
     }
   }
 
-  // 3. Description smooth reveal
+  // Description smooth reveal animation
   if (description) {
     tl.fromTo(
       description,
@@ -98,7 +96,7 @@ export function animateProjectEntrance(
     );
   }
 
-  // 4. Staggered reveal for folder tab cards
+  // Staggered project cards reveal
   if (cards && cards.length > 0) {
     const validCards = cards.filter(Boolean) as HTMLElement[];
     if (validCards.length > 0) {

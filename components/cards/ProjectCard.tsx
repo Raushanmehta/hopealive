@@ -16,10 +16,7 @@ interface ProjectCardProps {
   linkAnimRef?: any;
 }
 
-/**
- * ProjectCard with Exact Folder-Tab Silhouette, Editorial Serif Title,
- * Center Cutout Image with Shadow, and Olive Capsule Arrow Button
- */
+// Project card component display
 export default function ProjectCard({
   item,
   project,
@@ -35,19 +32,19 @@ export default function ProjectCard({
       <div
         className={`relative flex flex-col justify-between min-h-[490px] sm:min-h-[530px] pt-9 sm:pt-11 pb-6 sm:pb-7 lg:pb-8 select-none transition-all duration-500 ease-out group-hover:-translate-y-2 drop-shadow-2xl ${className}`}
       >
-        {/* SVG Background: Exact Folder-Tab Silhouette with 80px Leaf Curve in Theme #162211 */}
+        {/* Card background shape container */}
         <svg
           viewBox="0 0 340 500"
           preserveAspectRatio="none"
           className="absolute inset-0 w-full h-full -z-10 text-[#162211] overflow-visible"
         >
-          {/* Main Folder Tab Silhouette with 80px Leaf Curve matching AboutSection */}
+          {/* Silhouette leaf curve path */}
           <path
             d="M 0 64 A 36 36 0 0 1 36 28 L 150 28 C 162 28 162 0 174 0 L 304 0 A 36 36 0 0 1 340 36 L 340 420 A 80 80 0 0 1 260 500 L 40 500 A 40 40 0 0 1 0 460 Z"
             fill="currentColor"
           />
 
-          {/* Faceted Angled Ribbon Stripes on #162211 */}
+          {/* Faceted decorative angled stripes */}
           <path
             d="M 0 85 L 340 55 L 340 145 L 0 175 Z"
             fill="#ffffff"
@@ -65,7 +62,7 @@ export default function ProjectCard({
           />
         </svg>
 
-        {/* Top Title: HopeAlive Theme Poppins Typography for Project Title */}
+        {/* Project title and subtitle */}
         <div className="text-center pt-2 sm:pt-3 px-6 sm:px-7 lg:px-8">
           <h3 className="font-poppins font-bold text-2xl sm:text-3xl lg:text-[34px] tracking-tight text-white group-hover:text-[#feff02] transition-colors duration-300 leading-tight">
             {currentItem.title}
@@ -77,7 +74,7 @@ export default function ProjectCard({
           )}
         </div>
 
-        {/* Center Graphic: FULL WIDTH - ZERO horizontal padding (Edge-to-Edge) */}
+        {/* Center project preview image */}
         <div className="relative w-full h-[200px] sm:h-[220px] my-auto flex items-center justify-center overflow-hidden">
           <Image
             src={currentItem.image}
@@ -86,25 +83,25 @@ export default function ProjectCard({
             unoptimized
             className="object-cover object-center w-full h-full transition-transform duration-700 ease-out group-hover:scale-105 filter drop-shadow-[0_12px_22px_rgba(0,0,0,0.5)]"
           />
-          {/* Subtle Ambient Vignette Blending to #162211 */}
+          {/* Ambient image gradient overlay */}
           <div className="absolute inset-0 bg-gradient-to-t from-[#162211]/50 via-transparent to-[#162211]/25 pointer-events-none" />
         </div>
 
-        {/* Project Description */}
+        {/* Project short description text */}
         {currentItem.description && (
           <p className="font-poppins text-xs sm:text-[13px] text-[#b0bfae] leading-relaxed line-clamp-2 px-6 sm:px-7 lg:px-8 text-center my-2 select-none">
             {currentItem.description}
           </p>
         )}
 
-        {/* Bottom Pill Container with Theme Yellow Base on #162211 Card */}
+        {/* Bottom action button container */}
         <div className="w-full px-6 sm:px-7 lg:px-8">
           <div className="w-full bg-[#feff02] rounded-full p-2 sm:p-2.5 pl-5 sm:pl-6 flex items-center justify-between gap-3 shadow-lg border border-black/10 transition-colors duration-300 group-hover:bg-[#f5f600]">
             <span className="font-poppins text-xs sm:text-[16px] text-[#121a0d] font-semibold tracking-normal">
               {currentItem.ctaText}
             </span>
 
-            {/* Circular Button with Diagonal Theme Yellow Arrow */}
+            {/* Action link arrow icon */}
             <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-[#162211] flex items-center justify-center shrink-0 shadow-md group-hover:bg-black transition-all duration-300">
               <ArrowUpRight
                 ref={arrowRef}

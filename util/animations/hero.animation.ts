@@ -8,9 +8,7 @@ export interface HeroAnimationElements {
   background?: HTMLElement | null;
 }
 
-/**
- * GSAP entrance animation for Hero Section
- */
+// Hero entrance animation timeline
 export function animateHeroEntrance(
   elements: HeroAnimationElements,
   scope?: HTMLElement | null
@@ -19,7 +17,7 @@ export function animateHeroEntrance(
 
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-  // 1. Cinematic slow zoom for background terrace image
+  // Background image slow zoom
   if (background) {
     tl.fromTo(
       background,
@@ -35,7 +33,7 @@ export function animateHeroEntrance(
     );
   }
 
-  // 2. Badge pill slide-up
+  // Badge pill entrance animation
   if (badge) {
     tl.fromTo(
       badge,
@@ -51,7 +49,7 @@ export function animateHeroEntrance(
     );
   }
 
-  // 3. Staggered headline lines reveal
+  // Staggered headline lines reveal
   if (headline) {
     const lines = headline.querySelectorAll(".hero-headline-line");
     if (lines.length > 0) {
@@ -85,7 +83,7 @@ export function animateHeroEntrance(
     }
   }
 
-  // 4. Description paragraph slide-up
+  // Description paragraph text reveal
   if (description) {
     tl.fromTo(
       description,
@@ -101,7 +99,7 @@ export function animateHeroEntrance(
     );
   }
 
-  // 5. CTA Button with bounce pop-in
+  // Action button bounce entrance
   if (ctaButton) {
     tl.fromTo(
       ctaButton,
@@ -121,9 +119,7 @@ export function animateHeroEntrance(
   return tl;
 }
 
-/**
- * Micro-interaction: Button hover diagonal arrow nudge
- */
+// Button hover diagonal arrow
 export function animateHeroButtonHover(
   button: HTMLElement | null,
   arrow: SVGSVGElement | null
@@ -145,9 +141,7 @@ export function animateHeroButtonHover(
   }
 }
 
-/**
- * Micro-interaction: Button mouse leave reset
- */
+// Button hover reset leave
 export function animateHeroButtonLeave(
   button: HTMLElement | null,
   arrow: SVGSVGElement | null

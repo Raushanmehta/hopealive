@@ -53,9 +53,9 @@ export default function ContactSection({
       className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* UPPER ROW: Left Column (Badge) | Right Column (Headline & Narrative) */}
+        {/* Header content grid layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* LEFT COLUMN: Organic Pill Badge */}
+          {/* Left badge column wrapper */}
           <div className="lg:col-span-4 flex flex-col justify-start self-stretch">
             <div className="inline-flex items-center w-fit select-none">
               <span className="text-sm lg:text-lg font-poppins font-medium text-[#1b2715]">
@@ -64,9 +64,9 @@ export default function ContactSection({
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Massive Headline & Narrative Paragraph */}
+          {/* Right headline and narrative */}
           <div className="lg:col-span-8 flex flex-col">
-            {/* Massive Bold Headline */}
+            {/* Section main heading title */}
             <h2 className="font-poppins font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[62px] text-[#1b2715] tracking-tight leading-[1.12] select-none">
               <span className="block">{data.headline.line1}</span>
               {data.headline.line2 && (
@@ -74,18 +74,18 @@ export default function ContactSection({
               )}
             </h2>
 
-            {/* Narrative Paragraph */}
+            {/* Description narrative paragraph text */}
             <p className="mt-3 sm:mt-4 max-w-3xl font-poppins text-sm sm:text-base text-[#556350] leading-relaxed select-none">
               {data.description}
             </p>
           </div>
         </div>
 
-        {/* MAIN ROW: Contact Info Cards (Left) | Interactive Form (Right) */}
+        {/* Main contact information grid */}
         <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-stretch">
-          {/* LEFT: 4 Contact Information Cards */}
+          {/* Contact information card list */}
           <div className="lg:col-span-5 flex flex-col justify-between gap-4 sm:gap-5">
-            {/* 1. Address Card */}
+            {/* Physical address detail card */}
             <div className="group bg-[#1f2c16] text-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/10 hover:border-white/25 transition-all duration-300 shadow-lg">
               <div className="flex items-start gap-4">
                 <div className="shrink-0 w-12 h-12 rounded-xl bg-[#2a3c20] text-[#feff02] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
@@ -104,7 +104,7 @@ export default function ContactSection({
               </div>
             </div>
 
-            {/* 2. Phone Card */}
+            {/* Contact telephone numbers card */}
             <div className="group bg-[#1f2c16] text-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/10 hover:border-white/25 transition-all duration-300 shadow-lg">
               <div className="flex items-start gap-4">
                 <div className="shrink-0 w-12 h-12 rounded-xl bg-[#2a3c20] text-[#feff02] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
@@ -129,7 +129,7 @@ export default function ContactSection({
               </div>
             </div>
 
-            {/* 3. Email Card */}
+            {/* Contact email address card */}
             <div className="group bg-[#1f2c16] text-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/10 hover:border-white/25 transition-all duration-300 shadow-lg">
               <div className="flex items-start gap-4">
                 <div className="shrink-0 w-12 h-12 rounded-xl bg-[#2a3c20] text-[#feff02] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
@@ -151,7 +151,7 @@ export default function ContactSection({
               </div>
             </div>
 
-            {/* 4. Frontline & Volunteer Desk Card */}
+            {/* Frontline volunteer support card */}
             <div className="group bg-[#1f2c16] text-white p-6 sm:p-7 rounded-2xl sm:rounded-3xl border border-white/10 hover:border-white/25 transition-all duration-300 shadow-lg">
               <div className="flex items-start gap-4">
                 <div className="shrink-0 w-12 h-12 rounded-xl bg-[#2a3c20] text-[#feff02] flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
@@ -179,7 +179,7 @@ export default function ContactSection({
             </div>
           </div>
 
-          {/* RIGHT: Interactive Contact Form Card with signature Leaf-Cut silhouette */}
+          {/* Interactive contact form container */}
           <div className="lg:col-span-7 bg-white p-8 sm:p-10 lg:p-12 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none shadow-xl border border-[#1b2715]/10 flex flex-col justify-between">
             <div>
               <h3 className="font-poppins font-bold text-2xl sm:text-3xl text-[#1b2715] tracking-tight">
@@ -210,7 +210,7 @@ export default function ContactSection({
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="mt-7 space-y-4 sm:space-y-5">
-                  {/* Name & Email Row */}
+                  {/* Name and email fields */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-poppins font-bold uppercase tracking-wider text-[#1b2715] mb-1.5">
@@ -257,7 +257,7 @@ export default function ContactSection({
                     </div>
                   </div>
 
-                  {/* Phone & Subject Row */}
+                  {/* Phone and subject row */}
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div>
                       <label className="block text-xs font-poppins font-bold uppercase tracking-wider text-[#1b2715] mb-1.5">
@@ -300,7 +300,7 @@ export default function ContactSection({
                     </div>
                   </div>
 
-                  {/* Message Field */}
+                  {/* Contact message input area */}
                   <div>
                     <label className="block text-xs font-poppins font-bold uppercase tracking-wider text-[#1b2715] mb-1.5">
                       Your Message *
@@ -323,7 +323,7 @@ export default function ContactSection({
                     </div>
                   </div>
 
-                  {/* Submit Button */}
+                  {/* Form submit action button */}
                   <div className="pt-2">
                     <button
                       type="submit"

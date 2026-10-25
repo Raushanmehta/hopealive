@@ -12,9 +12,7 @@ export interface TestimonialAnimationElements {
   carousel?: HTMLElement | null;
 }
 
-/**
- * GSAP Entrance Animation for Testimonial Section
- */
+// Testimonial section entrance animation
 export function animateTestimonialEntrance(
   container: HTMLElement | null,
   elements: TestimonialAnimationElements
@@ -32,7 +30,7 @@ export function animateTestimonialEntrance(
     defaults: { ease: "power3.out" },
   });
 
-  // 1. Badge fade & slide down
+  // Badge slide down animation
   if (badge) {
     tl.fromTo(
       badge,
@@ -47,7 +45,7 @@ export function animateTestimonialEntrance(
     );
   }
 
-  // 2. Headline reveal
+  // Headline lines staggered reveal
   if (headline) {
     const lines = headline.querySelectorAll(".testimonial-headline-line");
     if (lines.length > 0) {
@@ -81,7 +79,7 @@ export function animateTestimonialEntrance(
     }
   }
 
-  // 3. Description smooth reveal
+  // Description smooth reveal animation
   if (description) {
     tl.fromTo(
       description,
@@ -98,7 +96,7 @@ export function animateTestimonialEntrance(
     );
   }
 
-  // 4. Carousel cards container smooth entrance
+  // Carousel container entrance animation
   if (carousel) {
     tl.fromTo(
       carousel,

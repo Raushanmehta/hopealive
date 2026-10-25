@@ -16,10 +16,7 @@ export interface WhyChooseUsAnimationElements {
   items?: (HTMLElement | null)[];
 }
 
-/**
- * GSAP Entrance Animation for Why Choose Us Section
- * Staggers badge, headline, stat block, narrative, CTA button, arch image, and feature list
- */
+// Why choose us entrance animation
 export function animateWhyChooseUsEntrance(
   container: HTMLElement | null,
   elements: WhyChooseUsAnimationElements
@@ -46,7 +43,7 @@ export function animateWhyChooseUsEntrance(
     defaults: { ease: "power3.out" },
   });
 
-  // 1. Upper Row Badge fade & slide down
+  // Upper row badge animation
   if (badge) {
     tl.fromTo(
       badge,
@@ -55,7 +52,7 @@ export function animateWhyChooseUsEntrance(
     );
   }
 
-  // 2. Headline lines reveal
+  // Headline lines staggered reveal
   if (headline) {
     const lines = headline.querySelectorAll(
       ".whychooseus-headline-line, .about-headline-line"
@@ -75,7 +72,7 @@ export function animateWhyChooseUsEntrance(
     );
   }
 
-  // 3. Stats Block reveal
+  // Stats block entrance animation
   if (stats) {
     tl.fromTo(
       stats,
@@ -92,7 +89,7 @@ export function animateWhyChooseUsEntrance(
     );
   }
 
-  // 4. Description paragraph reveal
+  // Description paragraph smooth reveal
   if (description) {
     tl.fromTo(
       description,
@@ -108,7 +105,7 @@ export function animateWhyChooseUsEntrance(
     );
   }
 
-  // 5. CTA Button pop-in
+  // Call to action button
   if (ctaButton) {
     tl.fromTo(
       ctaButton,
@@ -125,7 +122,7 @@ export function animateWhyChooseUsEntrance(
     );
   }
 
-  // 6. Left Arched Image entrance
+  // Left arched image entrance
   if (imageContainer) {
     tl.fromTo(
       imageContainer,
@@ -142,7 +139,7 @@ export function animateWhyChooseUsEntrance(
     );
   }
 
-  // 7. Circular Outline Ring
+  // Circular outline ring animation
   if (ring) {
     tl.fromTo(
       ring,
@@ -159,7 +156,7 @@ export function animateWhyChooseUsEntrance(
     );
   }
 
-  // 8. Staggered feature items entrance
+  // Staggered feature items entrance
   const validItems = (items || []).filter(Boolean);
   if (validItems.length > 0) {
     tl.fromTo(
@@ -180,9 +177,7 @@ export function animateWhyChooseUsEntrance(
   return tl;
 }
 
-/**
- * Micro-interaction: CTA Button hover expansion
- */
+// Button hover arrow expansion
 export function animateWhyChooseUsButtonHover(
   button: HTMLElement | null,
   arrow: SVGSVGElement | null
@@ -204,9 +199,7 @@ export function animateWhyChooseUsButtonHover(
   }
 }
 
-/**
- * Micro-interaction: CTA Button mouse leave reset
- */
+// Button mouse leave reset
 export function animateWhyChooseUsButtonLeave(
   button: HTMLElement | null,
   arrow: SVGSVGElement | null

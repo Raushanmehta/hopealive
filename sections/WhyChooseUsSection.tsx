@@ -29,7 +29,7 @@ export default function WhyChooseUsSection({
   };
   const sectionRef = useRef<HTMLElement>(null);
 
-  // Upper row refs (Badge, Stats, Headline, Description, CTA)
+  // Header element animation refs
   const badgeRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -37,7 +37,7 @@ export default function WhyChooseUsSection({
   const ctaButtonRef = useRef<HTMLAnchorElement>(null);
   const arrowRef = useRef<SVGSVGElement>(null);
 
-  // Lower row refs (Image & 3 Feature Items)
+  // Feature items animation refs
   const imageContainerRef = useRef<HTMLDivElement>(null);
   const ringRef = useRef<HTMLDivElement>(null);
   const itemRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -66,9 +66,9 @@ export default function WhyChooseUsSection({
       className={`relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden ${className}`}
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* UPPER ROW: Left Stat & Badge | Right Headline, Paragraph & CTA */}
+        {/* Header content grid layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* LEFT COLUMN: Badge + Optional Stat Block */}
+          {/* Left badge and stat */}
           <div className="lg:col-span-4 flex flex-col justify-between self-stretch">
             {/* Organic Capsule Badge */}
             <div
@@ -80,7 +80,7 @@ export default function WhyChooseUsSection({
               </span>
             </div>
 
-            {/* Giant Stat Block: rendered only if data.stats exists */}
+            {/* Optional statistics counter block */}
             {data.stats && (
               <div ref={statsRef} className="mt-12 sm:mt-16 lg:mt-auto pt-4">
                 <div className="font-poppins font-bold text-6xl sm:text-7xl lg:text-[84px] xl:text-[92px] tracking-tight text-[#1b2715] leading-none select-none">
@@ -93,9 +93,9 @@ export default function WhyChooseUsSection({
             )}
           </div>
 
-          {/* RIGHT COLUMN: Massive Headline, Narrative Paragraph & Optional CTA Button */}
+          {/* Right headline and narrative */}
           <div className="lg:col-span-8 flex flex-col">
-            {/* Massive Bold Headline */}
+            {/* Section main heading title */}
             <h2
               ref={headlineRef}
               className="font-poppins font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[62px] text-[#1b2715] tracking-tight leading-[1.12] select-none"
@@ -110,7 +110,7 @@ export default function WhyChooseUsSection({
               )}
             </h2>
 
-            {/* Narrative Paragraph */}
+            {/* Section description narrative text */}
             <p
               ref={descriptionRef}
               className="mt-3 sm:mt-4 max-w-3xl font-poppins text-sm sm:text-base text-[#556350] leading-relaxed select-none"
@@ -118,7 +118,7 @@ export default function WhyChooseUsSection({
               {data.description}
             </p>
 
-            {/* CTA Button: rendered only if data.cta exists */}
+            {/* Action link button element */}
             {data.cta && (
               <div className="mt-3 sm:mt-6">
                 <Link
@@ -145,13 +145,11 @@ export default function WhyChooseUsSection({
           </div>
         </div>
 
-        {/* ========================================================
-            LOWER ROW: Left Arch Pillar Image | Right 3 Numbered Feature Items
-            ======================================================== */}
+        {/* Feature items row layout */}
         <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          {/* Left Column: Featured Arch-Curved Pillar Image */}
+          {/* Featured curved pillar image */}
           <div className="lg:col-span-6 relative flex justify-center lg:justify-start">
-            {/* Arched Image Container */}
+            {/* Arched image container wrapper */}
             <div
               ref={imageContainerRef}
               className="relative z-10 w-full max-w-[440px] sm:max-w-[480px] lg:max-w-[500px] h-[380px] sm:h-[410px] md:h-[430px] lg:h-[450px] rounded-tl-3xl rounded-tr-[180px] sm:rounded-tr-[240px] md:rounded-tr-[280px] rounded-bl-3xl rounded-br-3xl overflow-hidden shadow-2xl border border-black/5 bg-[#1f2c16]/5 group"
@@ -165,12 +163,12 @@ export default function WhyChooseUsSection({
                 className="object-cover object-center transform transition-transform duration-700 ease-out group-hover:scale-105"
               />
 
-              {/* Natural subtle bottom ambient gradient vignette */}
+              {/* Subtle ambient gradient vignette */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
 
-          {/* Right Column: 3 Numbered Feature Items (01, 02, 03) */}
+          {/* Numbered feature items list */}
           <div className="lg:col-span-6 flex flex-col justify-center space-y-6 sm:space-y-7 lg:space-y-8">
             {data.items.map((item: WhyChooseUsItem, index: number) => (
               <div
@@ -180,21 +178,21 @@ export default function WhyChooseUsSection({
                 }}
                 className="group flex items-start gap-4 sm:gap-6 md:gap-8 transition-transform duration-300 hover:-translate-y-1 select-none"
               >
-                {/* Badge Container: Organic Leaf/Pebble Shape + Overlapping Number */}
+                {/* Number badge shape container */}
                 <div className="relative flex items-center shrink-0 w-20 sm:w-24">
-                  {/* Organic Leaf/Pebble Colored Shape */}
+                  {/* Organic pebble shape element */}
                   <div
                     className="w-11 sm:w-12 h-13 sm:h-14 rounded-tl-2xl rounded-tr-md rounded-br-2xl rounded-bl-[28px] shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-110"
                     style={{ backgroundColor: item.badgeColor }}
                   />
 
-                  {/* Bold Charcoal Number overlapping right edge of badge */}
+                  {/* Bold item numbering text */}
                   <span className="absolute left-5 sm:left-6 font-poppins font-bold text-4xl sm:text-5xl text-[#1b2715] tracking-tight drop-shadow-sm select-none">
                     {item.number}
                   </span>
                 </div>
 
-                {/* Right Description Text Block */}
+                {/* Right description text block */}
                 <div className="flex-1 pt-1.5 sm:pt-2">
                   {item.title && (
                     <h3 className="font-poppins font-bold text-base sm:text-lg text-[#1b2715] mb-1.5 group-hover:text-[#2d5a27] transition-colors duration-200">

@@ -27,7 +27,7 @@ export default function BlogDetailSection({
 
   const normalizedSlug = (slug || "").toLowerCase().trim();
 
-  // Find the post matching slug, or use provided data, or fallback to first post
+  // Find post by slug
   const currentPost: BlogPostItem =
     propData ||
     (normalizedSlug
@@ -58,7 +58,7 @@ export default function BlogDetailSection({
     }
   };
 
-  // Dynamic configurations sourced from JSON with rich fallbacks
+  // Blog post dynamic configurations
   const category = currentPost?.category || "Child Education";
   const author = {
     name: currentPost?.author?.name || "Dr. Sarah Mitchell",
@@ -84,10 +84,10 @@ export default function BlogDetailSection({
   const collage = currentPost?.collage || currentPost?.photoCollage;
   const keyTakeaways = currentPost?.keyTakeaways || currentPost?.takeaways;
 
-  // Sourced from blog.donationCta in site.json (not from individual blog posts)
+  // Sourced from blog donation
   const donationCta = (site.blog as any)?.donationCta;
 
-  // Sourced from blog.sidebar in site.json (not from individual blog posts)
+  // Sourced from blog sidebar
   const sidebarData = (site.blog as any)?.sidebar;
   const recentStoriesTitle = sidebarData?.recentTitle || sidebarData?.recentStoriesTitle || "Recent Field Stories";
   const sidebarDonateCard = sidebarData?.donateCard;
@@ -98,11 +98,11 @@ export default function BlogDetailSection({
       className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-visible"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* MAIN 2-COLUMN GRID: Left Article Content | Right Sticky Sidebar */}
+        {/* Two column layout grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* LEFT COLUMN: The Rich Article Narrative */}
+          {/* Left article narrative column */}
           <article className="lg:col-span-8">
-            {/* 1. Article Meta Header */}
+            {/* Article metadata header section */}
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 pb-4 border-b border-[#1b2715]/10">
               <span className="bg-[#1f2c16] text-[#feff02] px-3.5 py-1 rounded-full text-xs font-poppins font-bold uppercase tracking-wider shadow-sm">
                 {category}
@@ -123,12 +123,12 @@ export default function BlogDetailSection({
               )}
             </div>
 
-            {/* 2. Article Headline */}
+            {/* Article main headline title */}
             <h1 className="font-poppins font-bold text-2xl sm:text-4xl lg:text-[40px] text-[#1b2715] tracking-tight leading-[1.2] mt-5 mb-6">
               {currentPost?.title}
             </h1>
 
-            {/* 3. Featured Hero Image with Organic Silhouette */}
+            {/* Featured hero article image */}
             <div className="relative w-full h-[280px] sm:h-[400px] md:h-[460px] rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none overflow-hidden shadow-2xl border border-[#1b2715]/10 mb-8">
               <Image
                 src={currentPost?.image || "/images/blog-education.webp"}
@@ -139,7 +139,7 @@ export default function BlogDetailSection({
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#162211]/80 via-transparent to-transparent pointer-events-none" />
 
-              {/* Verified Field Story Caption */}
+              {/* Verified field story caption */}
               <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 text-white font-poppins">
                 <span className="text-[11px] font-bold uppercase tracking-widest text-[#feff02] bg-[#162211]/70 backdrop-blur-md px-3 py-1 rounded-full inline-block mb-1">
                   {site.navbar?.brand?.name || "HopeAlive"} Frontline Documentation
@@ -150,14 +150,14 @@ export default function BlogDetailSection({
               </div>
             </div>
 
-            {/* 4. Article Lead Excerpt */}
+            {/* Article lead excerpt text */}
             {currentPost?.excerpt && (
               <p className="text-base sm:text-lg font-poppins font-semibold text-[#1b2715] leading-relaxed mb-6 border-l-4 border-[#1f2c16] pl-4">
                 {currentPost.excerpt}
               </p>
             )}
 
-            {/* 5. Article Main Narrative Paragraphs */}
+            {/* Main article narrative content */}
             {content.length > 0 && (
               <div className="space-y-5 text-sm sm:text-base font-poppins text-[#556350] leading-relaxed">
                 {content.map((paragraph: string, idx: number) => (
@@ -166,7 +166,7 @@ export default function BlogDetailSection({
               </div>
             )}
 
-            {/* 6. Signature Pullquote */}
+            {/* Signature pullquote highlight section */}
             {quote && (
               <div className="my-8 sm:my-10 bg-[#1f2c16] text-white p-7 sm:p-9 rounded-2xl sm:rounded-3xl border border-white/10 relative overflow-hidden shadow-xl">
                 <div className="absolute top-4 right-6 text-white/5 pointer-events-none">
@@ -183,7 +183,7 @@ export default function BlogDetailSection({
               </div>
             )}
 
-            {/* 7. Mid-Article 2-Column Photo Collage */}
+            {/* Mid article photo collage */}
             {collage && collage.images && collage.images.length > 0 && (
               <div className="my-8">
                 {collage.title && (
@@ -214,7 +214,7 @@ export default function BlogDetailSection({
               </div>
             )}
 
-            {/* 8. Key Takeaways Checklist */}
+            {/* Key takeaways checklist items */}
             {keyTakeaways && keyTakeaways.items && keyTakeaways.items.length > 0 && (
               <div className="my-8 p-6 sm:p-7 rounded-2xl bg-[#f8f6f0] border border-[#1b2715]/10 shadow-sm">
                 {keyTakeaways.title && (
@@ -233,7 +233,7 @@ export default function BlogDetailSection({
               </div>
             )}
 
-            {/* 9. In-Article Donation Callout Banner */}
+            {/* In article donation banner */}
             {donationCta && (
               <div className="my-8 p-6 sm:p-8 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none bg-[#1f2c16] text-white flex flex-col sm:flex-row items-center justify-between gap-5 shadow-xl border border-white/10">
                 <div>
@@ -260,9 +260,9 @@ export default function BlogDetailSection({
             )}
           </article>
 
-          {/* RIGHT COLUMN: Interactive Sticky Sidebar */}
+          {/* Interactive sticky sidebar column */}
           <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-28 self-start sticky-sidebar">
-            {/* Widget 1: Recent Field Reports */}
+            {/* Recent field reports widget */}
             {recentPosts.length > 0 && (
               <div className="bg-white p-6 rounded-3xl border border-[#1b2715]/10 shadow-md">
                 <h4 className="font-poppins font-bold text-xl text-[#1b2715] mb-4 pb-2 border-b border-[#1b2715]/10">
@@ -297,7 +297,7 @@ export default function BlogDetailSection({
               </div>
             )}
 
-            {/* Widget 2: Urgent Cause Donation Callout Card */}
+            {/* Urgent cause donation card */}
             {sidebarDonateCard && (
               <div className="bg-[#1f2c16] text-white p-7 rounded-3xl shadow-xl border border-white/10 relative overflow-hidden">
                 <h4 className="font-poppins font-bold text-lg sm:text-xl text-white">

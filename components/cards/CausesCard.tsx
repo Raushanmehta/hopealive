@@ -25,9 +25,7 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
     const cardData = cause || item;
     if (!cardData) return null;
 
-    /**
-     * Dynamically chooses the appropriate SVG icon based on the cause Title and Icon type
-     */
+    // Choose appropriate cause icon
     const renderIcon = (title: string, iconName: string = "", active: boolean) => {
       const t = (title || "").toLowerCase();
       const icon = (iconName || "").toLowerCase();
@@ -40,7 +38,7 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
         }`,
       };
 
-      // 1. Shelter & Homeless Children Cause
+      // Shelter humanitarian cause icon
       if (
         t.includes("shelter") ||
         t.includes("homeless") ||
@@ -50,7 +48,7 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
         return <ShelterIcon {...iconProps} />;
       }
 
-      // 2. Pure Clean Water Cause
+      // Clean drinking water icon
       if (
         t.includes("water") ||
         t.includes("drinking") ||
@@ -60,7 +58,7 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
         return <WaterIcon {...iconProps} />;
       }
 
-      // 3. Education & School Cause
+      // Education and school icon
       if (
         t.includes("education") ||
         t.includes("school") ||
@@ -71,7 +69,7 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
         return <EducationIcon {...iconProps} />;
       }
 
-      // 4. Emergency Aid & Food Relief Cause
+      // Emergency relief aid icon
       if (
         t.includes("emergency") ||
         t.includes("relief") ||
@@ -81,7 +79,7 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
         return <EmergencyAidIcon {...iconProps} />;
       }
 
-      // 5. Daily Warm Meals & Nutrition Cause
+      // Nutrition and meals icon
       if (
         t.includes("meal") ||
         t.includes("food") ||
@@ -91,7 +89,7 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
         return <NutritionIcon {...iconProps} />;
       }
 
-      // 6. Mobile Healthcare & Medicine Cause
+      // Mobile healthcare medical icon
       if (
         t.includes("health") ||
         t.includes("medical") ||
@@ -102,7 +100,7 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
         return <MedicalIcon {...iconProps} />;
       }
 
-      // Fallback
+      // Default healthcare fallback icon
       return <HealthcareIcon {...iconProps} />;
     };
 
@@ -124,7 +122,7 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
             : "bg-[#1f2c16] text-white border border-white/10 hover:border-white/25 hover:bg-[#25361c]"
         } ${className}`}
       >
-        {/* Top Row: Title (Left) and Distinct Title-Specific Organic SVG Icon (Right) */}
+        {/* Card header title icon */}
         <div className="flex items-start justify-between gap-4 w-full">
           <h3
             className={`font-poppins font-bold text-2xl sm:text-[28px] lg:text-[32px] tracking-tight leading-[1.15] max-w-[210px] ${
@@ -139,7 +137,7 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
           </div>
         </div>
 
-        {/* Bottom Paragraph with Subtle Opacity */}
+        {/* Cause narrative description paragraph */}
         <div className="mt-12 sm:mt-16">
           <p
             className={`font-poppins text-sm sm:text-[15px] leading-relaxed transition-colors duration-300 ${

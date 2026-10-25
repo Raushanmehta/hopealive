@@ -30,7 +30,7 @@ export default function ShelterIcon({
       <path d="M3 10.5L12 3l9 7.5" />
       {/* Chimney of Warmth */}
       <path d="M18 5.5v3" />
-      {/* Shelter Walls */}
+      {/* Shelter home foundation walls */}
       <path d="M5 9.5V20a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V9.5" />
       {/* Welcoming Arched Doorway */}
       <path d="M9.5 21v-5.5a2.5 2.5 0 0 1 5 0V21" />

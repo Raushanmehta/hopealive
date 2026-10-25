@@ -12,7 +12,7 @@ export default function FaqSection({
   const data = propData || site.faqs;
   const faqsList: FaqItem[] = data?.faqsList || [];
 
-  // Active accordion item ID (default first item open)
+  // Active accordion item state
   const [openId, setOpenId] = useState<string>(faqsList[0]?.id || "faq-1");
 
   const toggleAccordion = (id: string) => {
@@ -26,9 +26,9 @@ export default function FaqSection({
       className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* UPPER ROW: Left Column (Badge) | Right Column (Headline & Narrative) */}
+        {/* Header content grid layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* LEFT COLUMN: Organic Pill Badge */}
+          {/* Left badge column wrapper */}
           <div className="lg:col-span-4 flex flex-col justify-start self-stretch">
             <div className="inline-flex items-center w-fit select-none">
               <span className="text-sm lg:text-lg font-poppins font-medium text-[#1b2715]">
@@ -37,9 +37,9 @@ export default function FaqSection({
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Massive Headline & Narrative Paragraph */}
+          {/* Right headline and narrative */}
           <div className="lg:col-span-8 flex flex-col">
-            {/* Massive Bold Headline */}
+            {/* Section main heading title */}
             <h2 className="font-poppins font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[62px] text-[#1b2715] tracking-tight leading-[1.12] select-none">
               <span className="block">{data.headline.line1}</span>
               {data.headline.line2 && (
@@ -47,14 +47,14 @@ export default function FaqSection({
               )}
             </h2>
 
-            {/* Narrative Paragraph */}
+            {/* Description narrative paragraph text */}
             <p className="mt-3 sm:mt-4 max-w-3xl font-poppins text-sm sm:text-base text-[#556350] leading-relaxed select-none">
               {data.description}
             </p>
           </div>
         </div>
 
-        {/* Accordion FAQ List */}
+        {/* Accordion FAQ item list */}
         <div className="mt-4 sm:mt-6 lg:mt-8 space-y-4 ">
           {faqsList.map((item: FaqItem) => {
             const isOpen = openId === item.id;
@@ -97,7 +97,7 @@ export default function FaqSection({
                   </span>
                 </button>
 
-                {/* Animated Dropdown Answer with Smooth CSS Grid Height Transition */}
+                {/* Animated dropdown answer container */}
                 <div
                   className={`grid transition-[grid-template-rows,opacity] duration-350 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
                     }`}
@@ -125,7 +125,7 @@ export default function FaqSection({
           })}
         </div>
 
-        {/* Bottom CTA Banner (Can't find answer? Contact Us) */}
+        {/* Bottom help CTA banner */}
         {data.cta && (
           <div className="mt-8 sm:mt-10 lg:mt-12 bg-[#1f2c16] text-white p-8 sm:p-10 lg:p-12 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none shadow-2xl flex flex-col md:flex-row items-center justify-between gap-6 sm:gap-8 border border-white/10 select-none">
             <div className="flex-1 text-left">

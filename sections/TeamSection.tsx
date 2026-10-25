@@ -20,9 +20,9 @@ export default function TeamSection({
       className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* UPPER ROW: Left Column (Badge) | Right Column (Headline & Narrative) */}
+        {/* Header content grid layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* LEFT COLUMN: Organic Pill Badge */}
+          {/* Left badge column wrapper */}
           <div className="lg:col-span-4 flex flex-col justify-start self-stretch">
             <div className="inline-flex items-center w-fit select-none">
               <span className="text-sm lg:text-lg font-poppins font-medium text-[#1b2715] flex items-center gap-2">
@@ -32,7 +32,7 @@ export default function TeamSection({
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Massive Headline & Narrative Paragraph */}
+          {/* Right headline and narrative */}
           <div className="lg:col-span-8 flex flex-col">
             <h2 className="font-poppins font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[62px] text-[#1b2715] tracking-tight leading-[1.12] select-none">
               <span className="block">{data?.headline?.line1 || "Passionate Humanitarians Driven by Purpose"}</span>
@@ -48,17 +48,17 @@ export default function TeamSection({
           </div>
         </div>
 
-        {/* TEAM MEMBERS GRID */}
+        {/* Team members card grid */}
         <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
           {members.map((member) => (
             <TeamCard key={member.id} member={member as any} />
           ))}
         </div>
 
-        {/* BOTTOM CALLOUT BANNER: Join Our Team & Volunteer Movement */}
+        {/* Bottom callout banner container */}
         {ctaBanner && (
           <div className="mt-8 sm:mt-10 lg:mt-12 bg-[#1f2c16] text-white p-8 sm:p-10 lg:p-12 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none border border-white/10 shadow-2xl relative overflow-hidden">
-            {/* Subtle background radial accent */}
+            {/* Subtle radial background accent */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-[#feff02]/5 rounded-full blur-3xl pointer-events-none" />
 
             <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">

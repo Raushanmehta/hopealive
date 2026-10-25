@@ -19,10 +19,7 @@ export interface MissionVisionAnimationElements {
   divider4?: HTMLElement | null;
 }
 
-/**
- * GSAP Entrance Animation for Mission & Vision Section
- * Staggers taglines, line-by-line headlines, divider expands, and decorative icons
- */
+// Mission vision entrance animation
 export function animateMissionVisionEntrance(
   container: HTMLElement | null,
   elements: MissionVisionAnimationElements
@@ -52,7 +49,7 @@ export function animateMissionVisionEntrance(
     defaults: { ease: "power3.out" },
   });
 
-  // 1. Tagline fade in
+  // Section tagline fade in
   if (tagline) {
     tl.fromTo(
       tagline,
@@ -61,7 +58,7 @@ export function animateMissionVisionEntrance(
     );
   }
 
-  // 2. Vision Title lines slide up
+  // Vision title lines reveal
   const validVisionLines = (visionLines || []).filter(Boolean);
   if (validVisionLines.length > 0) {
     tl.fromTo(
@@ -79,7 +76,7 @@ export function animateMissionVisionEntrance(
     );
   }
 
-  // 3. Divider 1 expand
+  // First divider line expand
   if (divider1) {
     tl.fromTo(
       divider1,
@@ -89,7 +86,7 @@ export function animateMissionVisionEntrance(
     );
   }
 
-  // 4. Vision Icon & Paragraph
+  // Vision icon and description
   if (visionIcon) {
     tl.fromTo(
       visionIcon,
@@ -115,7 +112,7 @@ export function animateMissionVisionEntrance(
     );
   }
 
-  // 5. Divider 2 expand
+  // Second divider line expand
   if (divider2) {
     tl.fromTo(
       divider2,
@@ -125,7 +122,7 @@ export function animateMissionVisionEntrance(
     );
   }
 
-  // 6. Mission Title lines slide up
+  // Mission title lines reveal
   const validMissionLines = (missionLines || []).filter(Boolean);
   if (validMissionLines.length > 0) {
     tl.fromTo(
@@ -144,7 +141,7 @@ export function animateMissionVisionEntrance(
     );
   }
 
-  // 7. Divider 3 expand
+  // Third divider line expand
   if (divider3) {
     tl.fromTo(
       divider3,
@@ -154,7 +151,7 @@ export function animateMissionVisionEntrance(
     );
   }
 
-  // 8. Mission Paragraph & Icon
+  // Mission paragraph and icon
   if (missionDesc) {
     tl.fromTo(
       missionDesc,
@@ -180,7 +177,7 @@ export function animateMissionVisionEntrance(
     );
   }
 
-  // 9. Closing Divider 4 expand
+  // Fourth divider line expand
   if (divider4) {
     tl.fromTo(
       divider4,

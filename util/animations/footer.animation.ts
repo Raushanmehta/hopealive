@@ -11,9 +11,7 @@ export interface FooterAnimationElements {
   watermark?: HTMLElement | null;
 }
 
-/**
- * GSAP entrance animation for Footer
- */
+// Footer entrance animation timeline
 export function animateFooterEntrance(
   elements: FooterAnimationElements,
   scope?: HTMLElement | null
@@ -31,7 +29,7 @@ export function animateFooterEntrance(
 
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-  // 1. Headline reveal
+  // Main headline title reveal
   if (headline) {
     tl.fromTo(
       headline,
@@ -40,7 +38,7 @@ export function animateFooterEntrance(
     );
   }
 
-  // 2. Paragraph description
+  // Narrative paragraph description reveal
   if (description) {
     tl.fromTo(
       description,
@@ -50,7 +48,7 @@ export function animateFooterEntrance(
     );
   }
 
-  // 3. Social buttons stagger pop-in
+  // Social buttons stagger entrance
   if (socialsContainer) {
     const socialBtns = socialsContainer.querySelectorAll(".social-btn");
     if (socialBtns.length > 0) {
@@ -70,7 +68,7 @@ export function animateFooterEntrance(
     }
   }
 
-  // 4. Links, Quick Links and Location columns
+  // Footer links navigation columns
   const cols = [linksColumn, quickLinksColumn, locationColumn].filter(Boolean);
   if (cols.length > 0) {
     tl.fromTo(
@@ -87,7 +85,7 @@ export function animateFooterEntrance(
     );
   }
 
-  // 5. Copyright text
+  // Bottom copyright text reveal
   if (copyright) {
     tl.fromTo(
       copyright,
@@ -97,7 +95,7 @@ export function animateFooterEntrance(
     );
   }
 
-  // 6. Giant watermark "HopeAlive" reveal
+  // Large background watermark reveal
   if (watermark) {
     tl.fromTo(
       watermark,
@@ -116,9 +114,7 @@ export function animateFooterEntrance(
   return tl;
 }
 
-/**
- * Micro-interaction: Social button hover bounce
- */
+// Social button hover bounce
 export function animateSocialHover(element: HTMLElement | null) {
   if (!element) return;
   return gsap.to(element, {
@@ -129,9 +125,7 @@ export function animateSocialHover(element: HTMLElement | null) {
   });
 }
 
-/**
- * Micro-interaction: Social button mouse leave reset
- */
+// Social button reset leave
 export function animateSocialLeave(element: HTMLElement | null) {
   if (!element) return;
   return gsap.to(element, {
@@ -142,9 +136,7 @@ export function animateSocialLeave(element: HTMLElement | null) {
   });
 }
 
-/**
- * Micro-interaction: Footer link hover slide
- */
+// Footer link hover slide
 export function animateFooterLinkHover(element: HTMLElement | null) {
   if (!element) return;
   return gsap.to(element, {
@@ -154,9 +146,7 @@ export function animateFooterLinkHover(element: HTMLElement | null) {
   });
 }
 
-/**
- * Micro-interaction: Footer link mouse leave reset
- */
+// Footer link reset leave
 export function animateFooterLinkLeave(element: HTMLElement | null) {
   if (!element) return;
   return gsap.to(element, {

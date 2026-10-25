@@ -27,7 +27,7 @@ export const BlogCard = forwardRef<HTMLDivElement, BlogCardProps>(
       animateBlogCardLeave(targetEl, arrowRef.current);
     };
 
-    // Combine forwarded ref and internal ref
+    // Combine forwarded and internal refs
     const setRefs = (el: HTMLDivElement | null) => {
       internalCardRef.current = el;
       if (typeof ref === "function") {
@@ -45,7 +45,7 @@ export const BlogCard = forwardRef<HTMLDivElement, BlogCardProps>(
           onMouseLeave={handleMouseLeave}
           className="relative flex flex-col flex-1 bg-[#1c2918] rounded-tl-[80px] rounded-br-[80px] rounded-tr-2xl rounded-bl-2xl overflow-hidden shadow-xl transition-all duration-500 ease-out select-none cursor-pointer border border-white/5 hover:border-white/10"
         >
-          {/* Top Image Container */}
+          {/* Top card image container */}
           <div className="relative w-full h-[220px] sm:h-[240px] md:h-[250px] overflow-hidden">
             <Image
               src={post.image}
@@ -58,21 +58,21 @@ export const BlogCard = forwardRef<HTMLDivElement, BlogCardProps>(
             <div className="absolute inset-0 bg-gradient-to-t from-[#1c2918]/60 via-transparent to-transparent pointer-events-none" />
           </div>
 
-          {/* Bottom Dark Container with Metadata, Title & Link */}
+          {/* Card content and metadata */}
           <div className="p-6 sm:p-7 lg:p-8 flex flex-col justify-between flex-1">
             <div>
-              {/* Publication Date */}
+              {/* Blog post publication date */}
               <span className="font-poppins text-xs sm:text-[13px] text-[#8fa087] font-normal tracking-wide block">
                 {post.date}
               </span>
 
-              {/* Article Headline */}
+              {/* Blog article headline title */}
               <h3 className="mt-2.5 mb-6 sm:mb-8 font-poppins font-semibold text-lg sm:text-xl lg:text-[22px] text-white leading-snug tracking-normal group-hover:text-[#feff02] transition-colors duration-300">
                 {post.title}
               </h3>
             </div>
 
-            {/* Read More Link with Diagonal Arrow */}
+            {/* Read more action link */}
             <div className="inline-flex items-center gap-1.5 font-poppins text-xs sm:text-sm font-medium text-[#feff02] mt-auto">
               <span>Read More</span>
               <ArrowUpRight

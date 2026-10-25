@@ -13,10 +13,7 @@ export interface BlogAnimationElements {
   cards?: (HTMLElement | null)[];
 }
 
-/**
- * GSAP Entrance Animation for Blog Section
- * Staggers the badge, headline, description, CTA button, and cards smoothly on scroll
- */
+// Blog section entrance animation
 export function animateBlogEntrance(
   container: HTMLElement | null,
   elements: BlogAnimationElements
@@ -34,7 +31,7 @@ export function animateBlogEntrance(
     defaults: { ease: "power3.out" },
   });
 
-  // 1. Badge fade & slide down
+  // Badge slide down animation
   if (badge) {
     tl.fromTo(
       badge,
@@ -49,7 +46,7 @@ export function animateBlogEntrance(
     );
   }
 
-  // 2. Headline lines reveal
+  // Headline lines staggered reveal
   if (headline) {
     const lines = headline.querySelectorAll(".blog-headline-line");
     if (lines.length > 0) {
@@ -83,7 +80,7 @@ export function animateBlogEntrance(
     }
   }
 
-  // 3. Description smooth reveal
+  // Description smooth reveal animation
   if (description) {
     tl.fromTo(
       description,
@@ -100,7 +97,7 @@ export function animateBlogEntrance(
     );
   }
 
-  // 4. CTA button reveal
+  // Call to action button
   if (ctaButton) {
     tl.fromTo(
       ctaButton,
@@ -118,7 +115,7 @@ export function animateBlogEntrance(
     );
   }
 
-  // 5. Staggered blog cards reveal
+  // Blog cards staggered reveal
   if (cards && cards.length > 0) {
     const validCards = cards.filter(Boolean) as HTMLElement[];
     if (validCards.length > 0) {
@@ -142,9 +139,7 @@ export function animateBlogEntrance(
   return tl;
 }
 
-/**
- * Micro-interaction: CTA button hover diagonal arrow shift
- */
+// Button hover diagonal arrow
 export function animateBlogButtonHover(
   button: HTMLElement | null,
   arrow: SVGSVGElement | null
@@ -166,9 +161,7 @@ export function animateBlogButtonHover(
   }
 }
 
-/**
- * Micro-interaction: CTA button mouse leave
- */
+// Button mouse leave reset
 export function animateBlogButtonLeave(
   button: HTMLElement | null,
   arrow: SVGSVGElement | null
@@ -190,9 +183,7 @@ export function animateBlogButtonLeave(
   }
 }
 
-/**
- * Micro-interaction: Blog card hover lift and arrow shift
- */
+// Card hover subtle lift
 export function animateBlogCardHover(
   card: HTMLElement | null,
   arrow: SVGSVGElement | null

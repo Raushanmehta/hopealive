@@ -51,7 +51,7 @@ export default function AboutSection({
         imageSeedling: imageSeedlingRef.current,
       });
 
-      // Ultra-Smooth Animated Number Counter from 0 to 250
+      // Smooth animated number counter
       const rawValue = data.stats.value || "250K+";
       const match = rawValue.match(/^(\d+)(.*)$/);
       const targetNum = match ? parseInt(match[1], 10) : 250;
@@ -96,9 +96,9 @@ export default function AboutSection({
       className="relative w-full bg-[#f8f6f0] text-[#1a2614]  px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* UPPER ROW: Left Stat & Badge | Right Headline, Paragraph & CTA */}
+        {/* Header content grid layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* LEFT COLUMN: Badge + 12M+ Trees Planted Stat */}
+          {/* Left badge stat column */}
           <div className="lg:col-span-4 flex flex-col justify-between self-stretch">
             {/* Organic Capsule Badge */}
             <div
@@ -110,7 +110,7 @@ export default function AboutSection({
               </span>
             </div>
 
-            {/* Giant Stat Block: Counter 0 to 250 with Tabular Nums for zero-jitter smoothness */}
+            {/* Statistics counter value block */}
             <div ref={statsRef} className="mt-12 sm:mt-16 lg:mt-auto pt-4">
               <div className="font-poppins font-bold text-6xl sm:text-7xl lg:text-[84px] xl:text-[92px] tracking-tight text-[#1b2715] leading-none select-none tabular-nums">
                 <span ref={counterRef}>0{data.stats.value.replace(/^\d+/, "") || "K+"}</span>
@@ -121,9 +121,9 @@ export default function AboutSection({
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Massive Headline, Narrative Paragraph & Leaf CTA Button */}
+          {/* Right headline narrative column */}
           <div className="lg:col-span-8 flex flex-col">
-            {/* Massive Bold Headline */}
+            {/* Section main heading title */}
             <h2
               ref={headlineRef}
               className="font-poppins font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[62px] text-[#1b2715] tracking-tight leading-[1.12] select-none"
@@ -135,7 +135,7 @@ export default function AboutSection({
 
             </h2>
 
-            {/* Narrative Paragraph */}
+            {/* Description narrative paragraph text */}
             <p
               ref={descriptionRef}
               className="mt-3 sm:mt-4 max-w-3xl font-poppins text-sm sm:text-base text-[#556350] leading-relaxed select-none"
@@ -143,7 +143,7 @@ export default function AboutSection({
               {data.description}
             </p>
 
-            {/* CTA Button: Dark Green Leaf with Yellow Text & Arrow */}
+            {/* Action link button element */}
             {showCta && data.cta && (
               <div className="mt-3 sm:mt-6">
                 <Link
@@ -170,9 +170,9 @@ export default function AboutSection({
           </div>
         </div>
 
-        {/* BOTTOM ROW: Organic Shaped Featured Images */}
+        {/* Featured images row layout */}
         <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-stretch">
-          {/* LEFT IMAGE: Planting Trees (Wide, Organic Curves) */}
+          {/* Wide featured impact image */}
           <div
             ref={imagePlantingRef}
             className="lg:col-span-9 relative min-h-[400px] sm:min-h-[410px] md:min-h-[430px] lg:min-h-[450px] rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none overflow-hidden shadow-2xl group"
@@ -184,11 +184,11 @@ export default function AboutSection({
               unoptimized
               className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
             />
-            {/* Subtle natural sunlight vignette */}
+            {/* Natural sunlight image vignette */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
           </div>
 
-          {/* RIGHT IMAGE: Seedling Macro (Vertical Leaf / Arch Silhouette) */}
+          {/* Vertical secondary impact image */}
           <div
             ref={imageSeedlingRef}
             className="lg:col-span-3 relative min-h-[400px] sm:min-h-[410px] md:min-h-[430px] lg:min-h-[450px] rounded-tl-[80px] rounded-br-[80px] overflow-hidden shadow-2xl group"
@@ -200,7 +200,7 @@ export default function AboutSection({
               unoptimized
               className="object-cover object-center transition-transform duration-700 ease-out group-hover:scale-105"
             />
-            {/* Subtle natural warm glow vignette */}
+            {/* Warm glow image vignette */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/25 via-transparent to-transparent pointer-events-none" />
           </div>
         </div>

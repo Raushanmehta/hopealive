@@ -13,7 +13,7 @@ interface TeamCardProps {
 export default function TeamCard({ member }: TeamCardProps) {
   return (
     <div className="group relative bg-[#1f2c16] text-white rounded-3xl overflow-hidden hover:border-[#feff02]/40 transition-all duration-300 shadow-xl flex flex-col justify-between hover:-translate-y-1">
-      {/* Top Media Frame with Organic Gradient Vignette */}
+      {/* Team member image container */}
       <div className="relative w-full h-72 sm:h-80 overflow-hidden bg-[#162211]">
         <Image
           src={member.image}
@@ -26,7 +26,7 @@ export default function TeamCard({ member }: TeamCardProps) {
 
       </div>
 
-      {/* Content Body */}
+      {/* Team member biography details */}
       <div className="p-6 sm:p-7 flex flex-col flex-1 justify-between -mt-6 relative z-10">
         <div>
           <h3 className="font-poppins font-bold text-xl text-white group-hover:text-[#feff02] transition-colors leading-snug">
@@ -40,7 +40,7 @@ export default function TeamCard({ member }: TeamCardProps) {
           </p>
         </div>
 
-        {/* Bottom Social Links & Action */}
+        {/* Social profiles action links */}
         <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
           <span className="text-[13px] font-poppins uppercase tracking-wider text-[#7e8f7c]">
             Connect

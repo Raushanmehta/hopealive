@@ -66,9 +66,9 @@ export default function TestimonialSection({
       className="relative w-full bg-[#162211] text-white px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden border-t border-white/5"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* UPPER ROW: Left Column (Badge) | Right Column (Headline & Narrative) */}
+        {/* Header content grid layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* LEFT COLUMN: Organic Pill Badge */}
+          {/* Left badge column wrapper */}
           <div className="lg:col-span-4 flex flex-col justify-start self-stretch">
             <div
               ref={badgeRef}
@@ -80,9 +80,9 @@ export default function TestimonialSection({
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Massive Headline, Narrative Paragraph & Carousel Controls */}
+          {/* Right headline and controls */}
           <div className="lg:col-span-8 flex flex-col">
-            {/* Massive Bold Headline */}
+            {/* Section main heading title */}
             <h2
               ref={headlineRef}
               className="font-poppins font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[62px] text-white tracking-tight leading-[1.12] select-none"
@@ -97,7 +97,7 @@ export default function TestimonialSection({
               )}
             </h2>
 
-            {/* Narrative Paragraph */}
+            {/* Section description narrative text */}
             <p
               ref={descriptionRef}
               className="mt-3 sm:mt-4 max-w-3xl font-poppins text-sm sm:text-base text-[#b0bfae] leading-relaxed select-none"
@@ -105,7 +105,7 @@ export default function TestimonialSection({
               {data.description}
             </p>
 
-            {/* Carousel Navigation Buttons (Matching mt-3 sm:mt-6 from AboutSection) */}
+            {/* Carousel navigation button controls */}
             <div className="mt-2 sm:mt-4 flex items-center gap-3">
               <button
                 type="button"
@@ -129,7 +129,7 @@ export default function TestimonialSection({
           </div>
         </div>
 
-        {/* BOTTOM ROW: Shadcn Carousel (Matching mt-4 sm:mt-6 lg:mt-8 & gap-4 sm:gap-5 from AboutSection) */}
+        {/* Testimonials carousel container */}
         <div ref={carouselContainerRef} className="w-full">
           <Carousel
             setApi={setApi}
@@ -139,7 +139,7 @@ export default function TestimonialSection({
             }}
             className="w-full relative"
           >
-            {/* pt-12 allows the scalloped flower avatar to pop out above the card container without clipping */}
+            {/* Card container padding offset */}
             <CarouselContent className="-ml-4 sm:-ml-5 pt-12 pb-6">
               {data.items.map((item) => (
                 <CarouselItem

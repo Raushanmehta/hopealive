@@ -26,13 +26,13 @@ export default function NutritionIcon({
       aria-hidden="true"
       {...props}
     >
-      {/* Nourishing Food Bowl Rim & Body */}
+      {/* Nourishing food bowl body */}
       <path d="M2.5 11h19c0 5.2-4.1 9.5-9.5 9.5s-9.5-4.3-9.5-9.5Z" />
       {/* Bowl Stand / Base */}
       <path d="M8 20.5h8" />
       {/* Central Care Heart */}
       <path d="M12 13.8l-1.9-1.9a1.3 1.3 0 0 1 1.9-1.8 1.3 1.3 0 0 1 1.9 1.8L12 13.8Z" />
-      {/* Rising Warmth / Nutrition Steam Lines */}
+      {/* Rising nutrition steam lines */}
       <path d="M7.5 4c0 1.8 1.5 2.8 1.5 4" />
       <path d="M12 2.5c0 2 1.8 3.2 1.8 5" />
       <path d="M16.5 4c0 1.8-1.5 2.8-1.5 4" />

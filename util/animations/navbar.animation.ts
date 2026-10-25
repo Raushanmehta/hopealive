@@ -8,9 +8,7 @@ export interface NavbarEntranceElements {
   ctaButton?: HTMLElement | null;
 }
 
-/**
- * GSAP entrance timeline for Navbar on page load
- */
+// Navbar entrance animation timeline
 export function animateNavbarEntrance(
   elements: NavbarEntranceElements,
   scope?: HTMLElement | null
@@ -19,7 +17,7 @@ export function animateNavbarEntrance(
 
   const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-  // 1. Navbar container slide down
+  // Navbar container slide down
   if (container) {
     tl.fromTo(
       container,
@@ -34,7 +32,7 @@ export function animateNavbarEntrance(
     );
   }
 
-  // 2. Logo Icon rotation & scale
+  // Logo icon rotation animation
   if (logoIcon) {
     tl.fromTo(
       logoIcon,
@@ -52,7 +50,7 @@ export function animateNavbarEntrance(
     );
   }
 
-  // 3. Logo text reveal
+  // Brand logo text reveal
   if (logoText) {
     tl.fromTo(
       logoText,
@@ -68,7 +66,7 @@ export function animateNavbarEntrance(
     );
   }
 
-  // 4. Nav links staggered reveal
+  // Navigation links staggered reveal
   if (linksContainer) {
     const links = linksContainer.querySelectorAll(".nav-link-item");
     if (links.length > 0) {
@@ -89,7 +87,7 @@ export function animateNavbarEntrance(
     }
   }
 
-  // 5. CTA Button pop in
+  // Call to action button
   if (ctaButton) {
     tl.fromTo(
       ctaButton,
@@ -109,9 +107,7 @@ export function animateNavbarEntrance(
   return tl;
 }
 
-/**
- * Micro-interaction: Logo sunburst spin on hover
- */
+// Logo spin hover interaction
 export function animateLogoHover(logoIcon: HTMLElement | null) {
   if (!logoIcon) return;
   return gsap.to(logoIcon, {
@@ -121,9 +117,7 @@ export function animateLogoHover(logoIcon: HTMLElement | null) {
   });
 }
 
-/**
- * Micro-interaction: Button arrow diagonal shift on hover
- */
+// Button arrow diagonal shift
 export function animateButtonArrowHover(arrow: SVGSVGElement | null) {
   if (!arrow) return;
   return gsap.to(arrow, {
@@ -134,9 +128,7 @@ export function animateButtonArrowHover(arrow: SVGSVGElement | null) {
   });
 }
 
-/**
- * Micro-interaction: Button arrow reset on mouse leave
- */
+// Button arrow reset leave
 export function animateButtonArrowLeave(arrow: SVGSVGElement | null) {
   if (!arrow) return;
   return gsap.to(arrow, {
@@ -147,9 +139,7 @@ export function animateButtonArrowLeave(arrow: SVGSVGElement | null) {
   });
 }
 
-/**
- * Mobile Drawer Menu Open Transition
- */
+// Mobile drawer menu open
 export function animateMobileMenuOpen(
   menuContainer: HTMLElement | null,
   itemsSelector = ".mobile-nav-item"
@@ -177,10 +167,7 @@ export function animateMobileMenuOpen(
   return tl;
 }
 
-/**
- * GSAP Scroll Animation for Navbar
- * Fluidly morphs navbar between floating card and full-width sticky bar
- */
+// Navbar scroll morph animation
 export function animateNavbarScroll(
   nav: HTMLElement | null,
   inner: HTMLElement | null,
@@ -194,7 +181,7 @@ export function animateNavbarScroll(
   const dur = immediate ? 0 : 0.4;
 
   if (isScrolled) {
-    // Outer Navbar expands to 100% full width sticky bar
+    // Expand navbar full width
     gsap.to(nav, {
       maxWidth: "100%",
       width: "100%",
@@ -212,8 +199,7 @@ export function animateNavbarScroll(
       ease: "power2.out",
     });
 
-    // Inner container expands from max-w-6xl (1152px) to max-w-7xl (1280px)
-    // Logo shifts outward left, CTA button shifts outward right
+    // Expand inner container width
     if (inner) {
       gsap.to(inner, {
         maxWidth: "1280px",
@@ -222,7 +208,7 @@ export function animateNavbarScroll(
       });
     }
   } else {
-    // Outer Navbar shrinks to compact floating card (max-w-6xl = 1152px)
+    // Shrink navbar compact state
     gsap.to(nav, {
       maxWidth: "1152px",
       width: "calc(100% - 24px)",
@@ -240,8 +226,7 @@ export function animateNavbarScroll(
       ease: "power2.out",
     });
 
-    // Inner container shrinks back to max-w-6xl (1152px)
-    // Logo and CTA button smoothly shift inward
+    // Shrink inner container width
     if (inner) {
       gsap.to(inner, {
         maxWidth: "1152px",

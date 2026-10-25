@@ -14,9 +14,7 @@ interface TestimonialCardProps {
   setScrollPosition?: (pos: number) => void;
 }
 
-/**
- * 8-Petal Scalloped Flower / Cloud Path for the Avatar
- */
+// Avatar scalloped flower path
 const SCALLOP_FLOWER_PATH =
   "M 85.00 50.00 A 18.08 18.08 0 0 1 74.75 74.75 A 18.08 18.08 0 0 1 50.00 85.00 A 18.08 18.08 0 0 1 25.25 74.75 A 18.08 18.08 0 0 1 15.00 50.00 A 18.08 18.08 0 0 1 25.25 25.25 A 18.08 18.08 0 0 1 50.00 15.00 A 18.08 18.08 0 0 1 74.75 25.25 A 18.08 18.08 0 0 1 85.00 50.00 Z";
 
@@ -34,9 +32,9 @@ export const TestimonialCard = forwardRef<HTMLDivElement, TestimonialCardProps>(
         ref={ref}
         className={`group relative flex flex-col justify-between h-full min-h-[230px] sm:min-h-[260px] ${cardBg} text-[#1b2715] rounded-tl-[80px] rounded-br-[80px] rounded-tr-2xl rounded-bl-2xl p-6 sm:p-7 lg:p-8 pt-5 sm:pt-6 shadow-xl border border-[#1b2715]/10 hover:border-[#feff02] transition-all duration-300 ease-out select-none ${className}`}
       >
-        {/* Top Row: Flower-Scalloped Avatar Popping Out + Name & Role */}
+        {/* Top avatar and metadata */}
         <div className="flex items-center gap-4 sm:gap-5 -mt-16 sm:-mt-20">
-          {/* Scalloped Avatar with Organic Flower Silhouette */}
+          {/* Scalloped organic flower silhouette */}
           <div className="relative shrink-0 filter drop-shadow-[0_6px_12px_rgba(0,0,0,0.18)] transition-transform duration-300 group-hover:scale-105">
             <svg
               viewBox="0 0 100 100"
@@ -49,7 +47,7 @@ export const TestimonialCard = forwardRef<HTMLDivElement, TestimonialCardProps>(
                 </clipPath>
               </defs>
 
-              {/* Avatar Image clipped into flower silhouette */}
+              {/* Clipped flower avatar image */}
               <image
                 href={cardItem.avatar}
                 width="100"
@@ -58,7 +56,7 @@ export const TestimonialCard = forwardRef<HTMLDivElement, TestimonialCardProps>(
                 clipPath={`url(#${clipId})`}
               />
 
-              {/* Signature Lime-Yellow border outline matching NGO theme */}
+              {/* Signature decorative border outline */}
               <path
                 d={SCALLOP_FLOWER_PATH}
                 fill="none"
@@ -69,7 +67,7 @@ export const TestimonialCard = forwardRef<HTMLDivElement, TestimonialCardProps>(
             </svg>
           </div>
 
-          {/* Name & Designation matching NGO theme typography & palette */}
+          {/* Member name and role */}
           <div className="pt-10 sm:pt-14 flex flex-col justify-center">
             <h4 className="font-poppins font-bold text-xl sm:text-[22px] lg:text-2xl text-[#1b2715] leading-tight tracking-tight group-hover:text-[#121a0d] transition-colors">
               {cardItem.name}
@@ -80,7 +78,7 @@ export const TestimonialCard = forwardRef<HTMLDivElement, TestimonialCardProps>(
           </div>
         </div>
 
-        {/* Quote Text */}
+        {/* Testimonial quote text narrative */}
         <div className="mt-2 sm:mt-3 flex-1 flex flex-col justify-center">
           <p className="font-poppins text-sm sm:text-[15px] text-[#2a3824] leading-relaxed tracking-normal">
             &ldquo;{cardItem.quote}&rdquo;

@@ -18,7 +18,7 @@ export default function CausesSection({
   const ctaButtonRef = useRef<HTMLAnchorElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Default active card is the first item (Planting Nourishment in reference image)
+  // Default active card item
   const [activeCardId, setActiveCardId] = useState<string>(
     data.items[0]?.id || ""
   );
@@ -44,9 +44,9 @@ export default function CausesSection({
       className="relative w-full bg-[#162211] text-white px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden border-t border-white/5"
     >
       <div className="max-w-7xl mx-auto w-full">
-        {/* UPPER ROW: Left Badge | Right Massive Headline & Narrative Paragraph */}
+        {/* Header content grid layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-          {/* LEFT COLUMN: Badge (Matches AboutSection Left Column) */}
+          {/* Left badge column wrapper */}
           <div className="lg:col-span-4 flex flex-col justify-between self-stretch">
             <div
               ref={badgeRef}
@@ -58,9 +58,9 @@ export default function CausesSection({
             </div>
           </div>
 
-          {/* RIGHT COLUMN: Massive Headline & Narrative Paragraph */}
+          {/* Right headline and narrative */}
           <div className="lg:col-span-8 flex flex-col">
-            {/* Massive Bold Headline */}
+            {/* Section main heading title */}
             <h2
               ref={headlineRef}
               className="font-poppins font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[62px] text-white tracking-tight leading-[1.12] select-none"
@@ -75,7 +75,7 @@ export default function CausesSection({
               )}
             </h2>
 
-            {/* Narrative Paragraph */}
+            {/* Description narrative paragraph text */}
             <p
               ref={descriptionRef}
               className="mt-3 sm:mt-4 max-w-3xl font-poppins text-sm sm:text-base text-[#b0bfae] leading-relaxed select-none"
@@ -85,7 +85,7 @@ export default function CausesSection({
           </div>
         </div>
 
-        {/* BOTTOM ROW: 3 Feature Cause Cards with Organic Leaf-Cut Silhouette */}
+        {/* Feature cause cards grid */}
         <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
           {data.items.slice(0, 3).map((item: CauseItem, index: number) => (
             <CausesCard

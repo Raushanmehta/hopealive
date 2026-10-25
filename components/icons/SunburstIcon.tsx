@@ -12,7 +12,7 @@ export default function SunburstIcon({
   color = "#feff02",
   ...props
 }: SunburstIconProps) {
-  // 12 radial rays spaced at 30 degree intervals (clock positions)
+  // Radial rays angle array
   const rays = [0, 30, 60, 90, 120, 150, 180, 210, 240, 270, 300, 330];
 
   return (
@@ -36,7 +36,7 @@ export default function SunburstIcon({
         fill="none"
       />
 
-      {/* 12 chunky rounded pill rays radiating outwards */}
+      {/* Radiating sunburst ray lines */}
       {rays.map((deg) => {
         const rad = (deg * Math.PI) / 180;
         const x1 = +(18 + 7.5 * Math.sin(rad)).toFixed(2);
