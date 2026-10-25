@@ -2,15 +2,13 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import siteData from "@/data/site.json";
-import { CausesData, CauseItem } from "@/types";
+import { site, CausesData, CauseItem } from "@/data";
 import { animateCausesEntrance } from "@/util/animations";
 import CausesCard from "@/components/cards/CausesCard";
 import Breadcrumb from "@/components/common/Breadcrumb";
 
 export default function CausesPage() {
-  // All data sourced directly from site.json
-  const data: CausesData = siteData.causes as CausesData;
+  const data: CausesData = site.causes;
   const causess: CauseItem[] = data.items;
 
   const sectionRef = useRef<HTMLElement>(null);
@@ -19,7 +17,7 @@ export default function CausesPage() {
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Default active card is the first item
+  // Default active card selection
   const [activeCardId, setActiveCardId] = useState<string>(
     causess[0]?.id || ""
   );
@@ -46,9 +44,9 @@ export default function CausesPage() {
         className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
       >
         <div className="max-w-7xl mx-auto w-full">
-          {/* UPPER ROW: Left Badge | Right Massive Headline & Narrative Paragraph */}
+          {/* Header content grid layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            {/* LEFT COLUMN: Badge */}
+            {/* Left badge column wrapper */}
             <div className="lg:col-span-4 flex flex-col justify-between self-stretch">
               <div
                 ref={badgeRef}
@@ -60,9 +58,9 @@ export default function CausesPage() {
               </div>
             </div>
 
-            {/* RIGHT COLUMN: Massive Headline & Narrative Paragraph */}
+            {/* Right headline narrative column */}
             <div className="lg:col-span-8 flex flex-col">
-              {/* Massive Bold Headline */}
+              {/* Section main heading title */}
               <h2
                 ref={headlineRef}
                 className="font-poppins font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[62px] text-[#1b2715] tracking-tight leading-[1.12] select-none"
@@ -77,7 +75,7 @@ export default function CausesPage() {
                 )}
               </h2>
 
-              {/* Narrative Paragraph */}
+              {/* Section description narrative text */}
               <p
                 ref={descriptionRef}
                 className="mt-3 sm:mt-4 max-w-3xl font-poppins text-sm sm:text-base text-[#556350] leading-relaxed select-none"
@@ -87,7 +85,7 @@ export default function CausesPage() {
             </div>
           </div>
 
-          {/* Causes Cards Grid */}
+          {/* Causes cards grid container */}
           <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
             {causess.map((cause, index) => (
               <CausesCard

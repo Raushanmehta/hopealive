@@ -3,18 +3,17 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { ChevronDown, ArrowUpRight, HelpCircle, CheckCircle2 } from "lucide-react";
-import siteData from "@/data/site.json";
-import { FaqData, FaqItem } from "@/types";
-
-interface FaqSectionProps {
-  data?: FaqData;
-}
+import { site, SectionProps, FaqsData, FaqItem } from "@/data";
 
 export default function FaqSection({
-  data = (siteData as unknown as { faqs: FaqData }).faqs,
-}: FaqSectionProps) {
+  data: propData,
+  className,
+}: SectionProps<FaqsData> = {}) {
+  const data = propData || site.faqs;
+  const faqsList: FaqItem[] = data?.faqsList || [];
+
   // Active accordion item ID (default first item open)
-  const [openId, setOpenId] = useState<string>(data?.items?.[0]?.id || "faq-1");
+  const [openId, setOpenId] = useState<string>(faqsList[0]?.id || "faq-1");
 
   const toggleAccordion = (id: string) => {
     setOpenId((prev) => (prev === id ? "" : id));
@@ -56,18 +55,17 @@ export default function FaqSection({
         </div>
 
         {/* Accordion FAQ List */}
-        <div className="mt-4 sm:mt-6 lg:mt-8 space-y-4">
-          {data.items.map((item: FaqItem) => {
+        <div className="mt-4 sm:mt-6 lg:mt-8 space-y-4 ">
+          {faqsList.map((item: FaqItem) => {
             const isOpen = openId === item.id;
 
             return (
               <div
                 key={item.id}
-                className={`rounded-2xl bg-white transition-all duration-300 border ${
-                  isOpen
-                    ? "border-[#1f2c16] shadow-lg shadow-black/[0.04]"
-                    : "border-[#1b2715]/10 shadow-sm hover:border-[#1b2715]/25"
-                }`}
+                className={`overflow-hidden rounded-tl-[40px] rounded-br-[40px] rounded-tr-none rounded-bl-none bg-white transition-all duration-300 border ${isOpen
+                  ? "border-[#1f2c16] shadow-lg shadow-black/[0.04]"
+                  : "border-[#1b2715]/10 shadow-sm hover:border-[#1b2715]/25"
+                  }`}
               >
                 <button
                   type="button"
@@ -77,11 +75,10 @@ export default function FaqSection({
                 >
                   <div className="flex items-center gap-3.5 sm:gap-4 flex-1">
                     <span
-                      className={`shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center transition-colors duration-200 ${
-                        isOpen
-                          ? "bg-[#1f2c16] text-[#feff02]"
-                          : "bg-[#f8f6f0] text-[#1b2715] group-hover:bg-[#1f2c16] group-hover:text-[#feff02]"
-                      }`}
+                      className={`shrink-0 w-8 h-8 sm:w-9 sm:h-9 rounded-xl flex items-center justify-center transition-colors duration-200 ${isOpen
+                        ? "bg-[#1f2c16] text-[#feff02]"
+                        : "bg-[#f8f6f0] text-[#1b2715] group-hover:bg-[#1f2c16] group-hover:text-[#feff02]"
+                        }`}
                     >
                       <HelpCircle size={18} strokeWidth={2.2} />
                     </span>
@@ -91,30 +88,38 @@ export default function FaqSection({
                   </div>
 
                   <span
-                    className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-transform duration-300 ${
-                      isOpen
-                        ? "rotate-180 bg-[#1f2c16] text-[#feff02]"
-                        : "bg-[#f8f6f0] text-[#1b2715] group-hover:bg-[#1f2c16]/10"
-                    }`}
+                    className={`shrink-0 w-9 h-9 rounded-full flex items-center justify-center transition-transform duration-300 ${isOpen
+                      ? "rotate-180 bg-[#1f2c16] text-[#feff02]"
+                      : "bg-[#f8f6f0] text-[#1b2715] group-hover:bg-[#1f2c16]/10"
+                      }`}
                   >
                     <ChevronDown size={18} strokeWidth={2.4} />
                   </span>
                 </button>
 
-                {/* Animated Dropdown Answer */}
-                {isOpen && (
-                  <div className="px-5 sm:px-7 pb-6 sm:pb-7 pt-1 border-t border-[#1b2715]/5">
-                    <p className="font-poppins text-sm sm:text-[15px] text-[#556350] leading-relaxed">
-                      {item.answer}
-                    </p>
-                    {item.category && (
-                      <div className="mt-3.5 inline-flex items-center gap-1.5 text-xs font-poppins font-semibold uppercase tracking-wider text-[#1b2715]/60 bg-[#f8f6f0] px-3 py-1 rounded-md">
-                        <CheckCircle2 size={13} className="text-[#2d5a27]" />
-                        <span>Topic: {item.category}</span>
-                      </div>
-                    )}
+                {/* Animated Dropdown Answer with Smooth CSS Grid Height Transition */}
+                <div
+                  className={`grid transition-[grid-template-rows,opacity] duration-350 ease-in-out ${isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                    }`}
+                  style={{
+                    gridTemplateRows: isOpen ? "1fr" : "0fr",
+                    transition: "grid-template-rows 350ms cubic-bezier(0.4, 0, 0.2, 1), opacity 300ms ease",
+                  }}
+                >
+                  <div className="overflow-hidden">
+                    <div className="px-5 sm:px-7 pb-6 sm:pb-7 pt-1 border-t border-[#1b2715]/5">
+                      <p className="font-poppins text-sm sm:text-[15px] text-[#556350] leading-relaxed">
+                        {item.answer}
+                      </p>
+                      {item.category && (
+                        <div className="mt-3.5 inline-flex items-center gap-1.5 text-xs font-poppins font-semibold uppercase tracking-wider text-[#1b2715]/60 bg-[#f8f6f0] px-3 py-1 rounded-md">
+                          <CheckCircle2 size={13} className="text-[#2d5a27]" />
+                          <span>Topic: {item.category}</span>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                )}
+                </div>
               </div>
             );
           })}

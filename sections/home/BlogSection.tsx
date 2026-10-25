@@ -2,18 +2,16 @@
 
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import siteData from "@/data/site.json";
-import { BlogData, BlogPostItem } from "@/types";
+import { site, SectionProps, BlogData } from "@/data";
+import { BlogPostItem } from "@/types";
 import { animateBlogEntrance } from "@/util/animations";
 import BlogCard from "@/components/cards/BlogCard";
 
-interface BlogSectionProps {
-  data?: BlogData;
-}
-
 export default function BlogSection({
-  data = siteData.blog as BlogData,
-}: BlogSectionProps) {
+  data: propData,
+  className,
+}: SectionProps<BlogData> = {}) {
+  const data = propData || site.blog;
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -63,8 +61,8 @@ export default function BlogSection({
               className="font-poppins font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[62px] text-[#1b2715] tracking-tight leading-[1.12] select-none"
             >
               <span className="blog-headline-line block">{data.headline.line1}</span>
-              {data.headline.line2 && (
-                <span className="blog-headline-line block">{data.headline.line2}</span>
+              {(data.headline as { line1: string; line2?: string }).line2 && (
+                <span className="blog-headline-line block">{(data.headline as { line1: string; line2?: string }).line2}</span>
               )}
             </h2>
 
@@ -80,7 +78,7 @@ export default function BlogSection({
 
         {/* BOTTOM ROW: 3 Feature Blog Cards with Signature 80px Organic Leaf-Cut Silhouette */}
         <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
-          {(data.blogPosts || data.posts || []).slice(0, 3).map((post: BlogPostItem, index: number) => (
+          {(data.blogPosts || []).slice(0, 3).map((post: BlogPostItem, index: number) => (
             <BlogCard
               key={post.id}
               ref={(el) => {

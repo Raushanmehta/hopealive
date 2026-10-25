@@ -4,8 +4,7 @@ import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import ProjectCard from "@/components/cards/ProjectCard";
-import siteData from "@/data/site.json";
-import { ProjectItem } from "@/types";
+import { site, ProjectItem } from "@/data";
 import { animateProjectEntrance } from "@/util/animations";
 
 export default function ProjectPage() {
@@ -18,10 +17,10 @@ export default function ProjectPage() {
   const contentAnimRef = useRef<(HTMLDivElement | null)[]>([]);
   const linkAnimRef = useRef<(HTMLAnchorElement | null)[]>([]);
 
-  const data = siteData.projects;
-  const projectList: ProjectItem[] = ((data as any).projectsList || []) as ProjectItem[];
+  const data = site.projects;
+  const projectList: ProjectItem[] = (data.projectsList || []) as ProjectItem[];
 
-  // GSAP Entrance Animation on scroll
+  // GSAP scroll entrance animation
   useEffect(() => {
     const ctx = gsap.context(() => {
       animateProjectEntrance(sectionRef.current, {
@@ -44,9 +43,9 @@ export default function ProjectPage() {
         className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
       >
         <div className="max-w-7xl mx-auto w-full">
-          {/* UPPER ROW: Left Column (Badge) | Right Column (Headline & Narrative) */}
+          {/* Header content grid layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            {/* LEFT COLUMN: Organic Capsule Badge */}
+            {/* Left badge column wrapper */}
             <div className="lg:col-span-4 flex flex-col justify-between self-stretch">
               <div
                 ref={badgeRef}
@@ -58,7 +57,7 @@ export default function ProjectPage() {
               </div>
             </div>
 
-            {/* RIGHT COLUMN: Massive Bold Headline & Narrative Paragraph */}
+            {/* Right headline and narrative */}
             <div className="lg:col-span-8 flex flex-col">
               <h2
                 ref={headlineRef}
@@ -83,7 +82,7 @@ export default function ProjectPage() {
             </div>
           </div>
 
-          {/* PROJECT CARDS GRID: Data loaded dynamically from JSON */}
+          {/* Projects dynamic card grid */}
           <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
             {projectList.map((project, index) => (
               <div

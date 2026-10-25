@@ -11,16 +11,13 @@ import {
   User,
   MessageSquare,
 } from "lucide-react";
-import siteData from "@/data/site.json";
-import { ContactData } from "@/types";
-
-interface ContactSectionProps {
-  data?: ContactData;
-}
+import { site, SectionProps, ContactData } from "@/data";
 
 export default function ContactSection({
-  data = (siteData as unknown as { contact: ContactData }).contact,
-}: ContactSectionProps) {
+  data: propData,
+  className,
+}: SectionProps<ContactData> = {}) {
+  const data = propData || site.contact;
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -333,7 +330,7 @@ export default function ContactSection({
                       disabled={submitting}
                       className="btn-leaf w-full sm:w-auto inline-flex items-center justify-center gap-3 px-9 py-4 bg-[#1f2c16] text-[#feff02] font-poppins font-bold text-sm sm:text-base tracking-wide rounded-xl shadow-xl hover:bg-[#162211] active:scale-[0.98] transition-all duration-200 cursor-pointer disabled:opacity-50"
                     >
-                      <span>{submitting ? "Sending Message..." : "Send Message"}</span>
+                      <span>{submitting ? "Sending Message..." : "Submit"}</span>
                       <Send size={16} strokeWidth={2.4} />
                     </button>
                   </div>

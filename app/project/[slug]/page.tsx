@@ -1,16 +1,13 @@
 import Breadcrumb from "@/components/common/Breadcrumb";
 import ProjectDetailSection from "@/sections/ProjectDetailSection";
-import siteData from "@/data/site.json";
+import { site } from "@/data";
 
 interface PageProps {
   params: Promise<{ slug: string }> | { slug: string };
 }
 
 function getProjectBySlug(slug?: string) {
-  const projects =
-    ((siteData.projects as any)?.projectsList ||
-      (siteData.projects as any)?.items ||
-      []) as any[];
+  const projects = ((site.projects as any)?.projectsList || []) as any[];
   const normalizedId = (slug || "").toLowerCase().trim();
   return (
     projects.find((p) => {
@@ -40,8 +37,7 @@ export async function generateMetadata({ params }: PageProps) {
 
 export async function generateStaticParams() {
   const projects =
-    (siteData.projects as any).projectsList ||
-    (siteData.projects as any).items ||
+    (site.projects as any).projectsList ||
     [];
   const slugs: { slug: string }[] = [];
   projects.forEach((p: any) => {

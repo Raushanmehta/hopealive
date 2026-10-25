@@ -1,31 +1,65 @@
 import { Suspense } from "react";
 import Breadcrumb from "@/components/common/Breadcrumb";
 import BlogDetailSection from "@/sections/BlogDetailSection";
-import siteData from "@/data/site.json";
+import { site } from "@/data";
+import { BlogPostItem } from "@/types";
 
 interface PageProps {
   params: Promise<{ slug: string }> | { slug: string };
 }
 
+function getPostBySlug(slug?: string): BlogPostItem | undefined {
+  const posts = (((site.blog as any)?.blogPosts || []) as BlogPostItem[]);
+  const normalizedSlug = (slug || "").toLowerCase().trim();
+  return (
+    posts.find((p) => {
+      const pId = (p.id || "").toLowerCase();
+      const pHref = (p.href || "").toLowerCase();
+      return (
+        pId === normalizedSlug ||
+        pHref.endsWith(`/${normalizedSlug}`) ||
+        pHref.replace("/blog/", "") === normalizedSlug
+      );
+    }) || posts[0]
+  );
+}
+
+export async function generateMetadata({ params }: PageProps) {
+  const resolvedParams = await Promise.resolve(params);
+  const post = getPostBySlug(resolvedParams?.slug);
+  return {
+    title: `${post?.title || "Blog Story"} | HopeAlive Foundation`,
+    description:
+      post?.excerpt ||
+      "HopeAlive Foundation field dispatches and human interest stories.",
+  };
+}
+
 export async function generateStaticParams() {
-  const posts =
-    (siteData.blog as any).blogPosts || (siteData.blog as any).posts || [];
-  return posts.map((post: { href: string }) => ({
-    slug: post.href.replace("/blog/", ""),
+  const posts = (site.blog as any).blogPosts || [];
+  return posts.map((post: { href: string; id?: string }) => ({
+    slug: post.href ? post.href.replace("/blog/", "") : post.id,
   }));
 }
 
-async function BlogArticleContent({ params }: { params: Promise<{ slug: string }> | { slug: string } }) {
+export default async function BlogDetailPage({ params }: PageProps) {
   const resolvedParams = await Promise.resolve(params);
-  return <BlogDetailSection slug={resolvedParams?.slug} />;
-}
+  const post = getPostBySlug(resolvedParams?.slug);
 
-export default function BlogDetailPage({ params }: PageProps) {
   return (
     <main className="bg-[#f8f6f0]">
-      <Breadcrumb pageTitle="Blog Detail" subTitle="Blog Detail" />
-      <Suspense fallback={<div className="py-24 text-center text-stone-500 font-poppins">Loading article...</div>}>
-        <BlogArticleContent params={params} />
+      <Breadcrumb
+        pageTitle={post?.category || "Blog Detail"}
+        subTitle="Field Stories"
+      />
+      <Suspense
+        fallback={
+          <div className="py-24 text-center text-stone-500 font-poppins">
+            Loading article...
+          </div>
+        }
+      >
+        <BlogDetailSection slug={resolvedParams?.slug} data={post} />
       </Suspense>
     </main>
   );

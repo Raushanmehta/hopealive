@@ -9,6 +9,7 @@ export interface NavbarData {
   brand: {
     name: string;
     href: string;
+    logo?: string;
   };
   links: NavItem[];
   cta: {
@@ -139,39 +140,40 @@ export interface CausesData {
   items: CauseItem[];
 }
 
-export interface BlogDetailGalleryItem {
-  image: string;
-  alt: string;
-  caption: string;
+export interface BlogSidebarDonateCard {
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonHref?: string;
 }
 
-export interface BlogDetailConfig {
-  callout?: {
-    badge?: string;
-    title: string;
-    description: string;
-    buttonText: string;
-    buttonHref: string;
-  };
-  sidebar?: {
-    recentTitle?: string;
-    tagsTitle?: string;
-    donateCard?: {
-      badge?: string;
-      title: string;
-      description: string;
-      buttonText: string;
-      buttonHref: string;
-    };
-  };
-  highlights?: {
-    title: string;
-    items: string[];
-  };
-  gallery?: {
-    title: string;
-    items: BlogDetailGalleryItem[];
-  };
+export interface BlogSidebar {
+  recentTitle?: string;
+  donateCard?: BlogSidebarDonateCard;
+}
+
+export interface BlogCollageImage {
+  src: string;
+  alt?: string;
+  label?: string;
+}
+
+export interface BlogCollage {
+  title?: string;
+  images: BlogCollageImage[];
+}
+
+export interface BlogKeyTakeaways {
+  title?: string;
+  items: string[];
+}
+
+export interface BlogDonationCallout {
+  badge?: string;
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonHref?: string;
 }
 
 export interface BlogPostItem {
@@ -182,39 +184,23 @@ export interface BlogPostItem {
   alt: string;
   href: string;
   category?: string;
-  readTime?: string;
   author?: {
     name: string;
-    role: string;
-    avatar: string;
+    role?: string;
+    avatar?: string;
   };
   excerpt?: string;
   content?: string[];
   quote?: string;
   quoteAuthor?: string;
   tags?: string[];
-  highlights?: {
-    title?: string;
-    items: string[];
-  };
-  gallery?: {
-    title?: string;
-    items: BlogDetailGalleryItem[];
-  };
-  callout?: {
-    badge?: string;
-    title: string;
-    description: string;
-    buttonText: string;
-    buttonHref: string;
-  };
-  donateCard?: {
-    badge?: string;
-    title: string;
-    description: string;
-    buttonText: string;
-    buttonHref: string;
-  };
+  collage?: BlogCollage;
+  photoCollage?: BlogCollage;
+  keyTakeaways?: BlogKeyTakeaways;
+  takeaways?: BlogKeyTakeaways;
+  donationCallout?: BlogDonationCallout;
+  callout?: BlogDonationCallout;
+  donateCard?: BlogSidebarDonateCard;
 }
 
 export interface BlogData {
@@ -229,7 +215,8 @@ export interface BlogData {
   description: string;
   blogPosts?: BlogPostItem[];
   posts?: BlogPostItem[];
-  blogDetail?: BlogDetailConfig;
+  donationCta?: BlogDonationCallout;
+  sidebar?: BlogSidebar;
 }
 
 export interface TestimonialItem {
@@ -392,7 +379,38 @@ export interface TeamData {
     line2?: string;
   };
   description: string;
-  members: TeamMember[];
+  membersList?: TeamMember[];
+  members?: TeamMember[];
+  ctaBanner?: {
+    title: string;
+    description: string;
+    buttonText?: string;
+    buttonHref?: string;
+    primaryBtnText?: string;
+    primaryBtnHref?: string;
+    secondaryBtnText?: string;
+    secondaryBtnHref?: string;
+  };
+  callout?: {
+    title: string;
+    description: string;
+    buttonText?: string;
+    buttonHref?: string;
+    primaryBtnText?: string;
+    primaryBtnHref?: string;
+    secondaryBtnText?: string;
+    secondaryBtnHref?: string;
+  };
+  cta?: {
+    title: string;
+    description: string;
+    buttonText?: string;
+    buttonHref?: string;
+    primaryBtnText?: string;
+    primaryBtnHref?: string;
+    secondaryBtnText?: string;
+    secondaryBtnHref?: string;
+  };
 }
 
 export interface FaqItem {
@@ -412,7 +430,9 @@ export interface FaqData {
     line2?: string;
   };
   description: string;
-  items: FaqItem[];
+  faqsList?: FaqItem[];
+  faqList?: FaqItem[];
+  items?: FaqItem[];
   cta?: {
     title: string;
     description: string;
@@ -464,6 +484,7 @@ export interface SocialLink {
 }
 
 export interface FooterData {
+  logo?: string;
   headline: {
     line1: string;
     line2?: string;
@@ -528,3 +549,31 @@ export interface DonationData {
   };
   impactMetrics: ImpactMetric[];
 }
+
+export interface ThankYouData {
+  headline: string;
+  description: string;
+  primaryCta: {
+    label: string;
+    href: string;
+  };
+  secondaryCta: {
+    label: string;
+    href: string;
+  };
+}
+
+export interface NotFoundData {
+  code: string;
+  headline: string;
+  description: string;
+  primaryCta: {
+    label: string;
+    href: string;
+  };
+  secondaryCta: {
+    label: string;
+    href: string;
+  };
+}
+

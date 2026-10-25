@@ -5,24 +5,25 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { HandHeart, Globe2 } from "lucide-react";
 import SunburstIcon from "@/components/icons/SunburstIcon";
-import siteData from "@/data/site.json";
-import { MissionVisionData } from "@/types";
+import { site, SectionProps, MissionVisionData } from "@/data";
 import { animateMissionVisionEntrance } from "@/util/animations";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-interface MissionAndVisionProps {
-  data?: MissionVisionData;
+interface MissionAndVisionProps extends SectionProps<MissionVisionData> {
   bgColor?: string;
 }
 
 export default function MissionAndVisionSection({
-  data = siteData.missionVision as MissionVisionData,
+  data: propData,
   bgColor = "#162211",
-}: MissionAndVisionProps) {
-  const { tagline, vision, mission } = data;
+  className,
+}: MissionAndVisionProps = {}) {
+  const data = propData || site.missionVision;
+  const { vision, mission } = data;
+  const tagline = (data as { tagline?: string }).tagline;
 
   const sectionRef = useRef<HTMLElement>(null);
   const taglineRef = useRef<HTMLDivElement>(null);

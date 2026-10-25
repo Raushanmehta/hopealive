@@ -19,7 +19,7 @@ export default function Breadcrumb({
   pageTitle,
   subTitle,
   description,
-  bgImage = "/images/breadcrumb-clean.png",
+  bgImage = "/images/breadcrumb-clean.webp",
   accentColor = "#feff02",
   showAsterisk = true,
 }: BreadcrumbProps) {
@@ -31,7 +31,7 @@ export default function Breadcrumb({
   const asteriskRef = useRef<HTMLSpanElement>(null);
   const descRef = useRef<HTMLParagraphElement>(null);
 
-  // Default description fallback tailored to page context
+  // Contextual description fallback
   const resolvedDescription =
     description ||
     (pageTitle.toLowerCase().includes("about")
@@ -46,7 +46,7 @@ export default function Breadcrumb({
     const ctx = gsap.context(() => {
       const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
 
-      // 1. Background image subtle cinematic reveal zoom
+      // Background image reveal zoom
       if (bgImageRef.current) {
         tl.fromTo(
           bgImageRef.current,
@@ -55,7 +55,7 @@ export default function Breadcrumb({
         );
       }
 
-      // 2. Breadcrumb trail: subtle slide down and fade in
+      // Breadcrumb trail entrance animation
       if (trailRef.current) {
         tl.fromTo(
           trailRef.current,
@@ -65,7 +65,7 @@ export default function Breadcrumb({
         );
       }
 
-      // 3. Title: smooth upward reveal
+      // Page title entrance animation
       if (titleRef.current) {
         tl.fromTo(
           titleRef.current,
@@ -75,7 +75,7 @@ export default function Breadcrumb({
         );
       }
 
-      // 4. Brand Yellow Asterisk: spring pop-in with rotation
+      // Asterisk spring rotation animation
       if (asteriskRef.current) {
         tl.fromTo(
           asteriskRef.current,
@@ -85,7 +85,7 @@ export default function Breadcrumb({
         );
       }
 
-      // 5. Description paragraph: gentle fade-in
+      // Description paragraph fade animation
       if (descRef.current) {
         tl.fromTo(
           descRef.current,
@@ -105,7 +105,7 @@ export default function Breadcrumb({
       aria-label={`${pageTitle} Breadcrumb`}
       className="relative w-full bg-[#162211] text-white pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-16 sm:pb-20 md:pb-24 overflow-hidden border-b border-[#feff02]/15 px-4 md:px-12"
     >
-      {/* 1. Full Background Image Layer (Hands Holding Hearts Together in HopeAlive Theme) */}
+      {/* Background image overlay layer */}
       <div
         ref={bgImageRef}
         className="absolute inset-0 z-0 overflow-hidden pointer-events-none"
@@ -119,15 +119,13 @@ export default function Breadcrumb({
           className="object-cover object-bottom opacity-35 sm:opacity-45"
         />
 
-        {/* Forest Green (#162211) Gradient Overlays:
-            - Left-to-right fade: Solid forest green behind text for crisp legibility,
-              fading out to reveal the hands holding hearts illustration on the right */}
+        {/* Gradient background overlays */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#162211] via-[#162211]/92 via-35% to-[#162211]/40" />
 
-        {/* Top-to-bottom vignettes for seamless header & page integration */}
+        {/* Vignette integration gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-[#141f10] via-transparent via-50% to-[#10190d]/90" />
 
-        {/* Brand Yellow Ambient Sunburst Glow */}
+        {/* Ambient sunburst glow effect */}
         <div
           className="absolute inset-0 pointer-events-none"
           style={{
@@ -136,11 +134,11 @@ export default function Breadcrumb({
           }}
         />
 
-        {/* Subtle dot grid overlay for added depth */}
+        {/* Subtle grid overlay pattern */}
         <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none" />
       </div>
 
-      {/* 2. Foreground Content Container */}
+      {/* Main content container */}
       <div className="relative z-10 max-w-7xl mx-auto w-full text-left">
         {/* Breadcrumb Navigation Trail */}
         <nav
@@ -176,7 +174,7 @@ export default function Breadcrumb({
           </span>
         </nav>
 
-        {/* Main Title Line with Brand Yellow Asterisk */}
+        {/* Title and asterisk element */}
         <div ref={titleContainerRef} className="mt-3 sm:mt-4 flex items-start">
           <h1
             ref={titleRef}
@@ -199,7 +197,7 @@ export default function Breadcrumb({
           </h1>
         </div>
 
-        {/* Description Line in HopeAlive Muted Green/Sage */}
+        {/* Page description narrative */}
         {resolvedDescription && (
           <p
             ref={descRef}

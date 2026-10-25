@@ -2,15 +2,14 @@
 
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import siteData from "@/data/site.json";
-import { BlogData, BlogPostItem } from "@/types";
+import { site, BlogData } from "@/data";
+import { BlogPostItem } from "@/types";
 import { animateBlogEntrance } from "@/util/animations";
 import BlogCard from "@/components/cards/BlogCard";
 import Breadcrumb from "@/components/common/Breadcrumb";
 
 export default function BlogPage() {
-    // All blog data sourced directly from site.json
-    const data: BlogData = siteData.blog as BlogData;
+    const data: BlogData = site.blog;
 
     const sectionRef = useRef<HTMLElement>(null);
     const badgeRef = useRef<HTMLDivElement>(null);
@@ -18,7 +17,7 @@ export default function BlogPage() {
     const descriptionRef = useRef<HTMLParagraphElement>(null);
     const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-    // GSAP Entrance Animation on scroll
+    // GSAP scroll entrance animation
     useEffect(() => {
         const ctx = gsap.context(() => {
             animateBlogEntrance(sectionRef.current, {
@@ -41,9 +40,9 @@ export default function BlogPage() {
                 className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
             >
                 <div className="max-w-7xl mx-auto w-full">
-                    {/* UPPER ROW: Left Column (Badge) | Right Column (Headline & Description) */}
+                    {/* Header content grid layout */}
                     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-                        {/* LEFT COLUMN: Organic Pill Badge */}
+                        {/* Left badge column wrapper */}
                         <div className="lg:col-span-4 flex flex-col justify-start self-stretch">
                             <div
                                 ref={badgeRef}
@@ -55,20 +54,20 @@ export default function BlogPage() {
                             </div>
                         </div>
 
-                        {/* RIGHT COLUMN: Massive Headline & Narrative Paragraph */}
+                        {/* Right headline and narrative */}
                         <div className="lg:col-span-8 flex flex-col">
-                            {/* Massive Bold Headline */}
+                            {/* Section main heading title */}
                             <h2
                                 ref={headlineRef}
                                 className="font-poppins font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[62px] text-[#1b2715] tracking-tight leading-[1.12] select-none"
                             >
                                 <span className="blog-headline-line block">{data.headline.line1}</span>
-                                {data.headline.line2 && (
-                                    <span className="blog-headline-line block">{data.headline.line2}</span>
+                                {(data.headline as { line1: string; line2?: string }).line2 && (
+                                    <span className="blog-headline-line block">{(data.headline as { line1: string; line2?: string }).line2}</span>
                                 )}
                             </h2>
 
-                            {/* Narrative Paragraph */}
+                            {/* Section description narrative text */}
                             <p
                                 ref={descriptionRef}
                                 className="mt-3 sm:mt-4 max-w-3xl font-poppins text-sm sm:text-base text-[#556350] leading-relaxed select-none"
@@ -78,9 +77,9 @@ export default function BlogPage() {
                         </div>
                     </div>
 
-                    {/* Posts Cards Grid */}
+                    {/* Blog posts card grid */}
                     <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
-                        {(data.blogPosts || data.posts || []).map((post: BlogPostItem, index: number) => (
+                        {(data.blogPosts || []).map((post: BlogPostItem, index: number) => (
                             <BlogCard
                                 key={post.id}
                                 ref={(el) => {

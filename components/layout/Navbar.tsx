@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState, Suspense } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 import gsap from "gsap";
 import {
@@ -14,14 +15,13 @@ import {
 } from "@/util/animations";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import SunburstIcon from "@/components/icons/SunburstIcon";
-import siteData from "@/data/site.json";
-import { NavbarData, NavItem } from "@/types";
+import { site, SectionProps, NavbarData, NavItem } from "@/data";
 
 interface NavbarProps {
   data?: NavbarData;
 }
 
-function NavbarContent({ data = siteData.navbar }: NavbarProps) {
+function NavbarContent({ data = site.navbar }: NavbarProps) {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -119,13 +119,13 @@ function NavbarContent({ data = siteData.navbar }: NavbarProps) {
       >
         <div
           ref={innerContainerRef}
-          className="w-full max-w-7xl mx-auto flex items-center justify-between  py-2.5 sm:py-2.5"
+          className="w-full max-w-7xl mx-auto flex items-center justify-between  py-2.5 sm:py-2"
         >
-          {/* LEFT: Logo with exact Sunburst Icon & HopeAlive brand */}
+          {/* Left brand logo component */}
           <Link
             href={data.brand.href}
             onMouseEnter={handleLogoMouseEnter}
-            className="flex items-center gap-3 group select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#feff02] rounded-lg shrink-0"
+            className="flex items-center gap-2.5 group select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#feff02] rounded-lg shrink-0"
           >
             <span
               ref={logoIconRef}
@@ -139,13 +139,20 @@ function NavbarContent({ data = siteData.navbar }: NavbarProps) {
             </span>
             <span
               ref={logoTextRef}
-              className="font-poppins font-semibold text-xl sm:text-2xl tracking-tight text-white select-none"
+              className="inline-flex items-center select-none"
             >
-              {data.brand.name}
+              <Image
+                src={data.brand.logo || "/logo/logo.webp"}
+                alt={data.brand.name || "HopeAlive"}
+                width={240}
+                height={75}
+                priority
+                className="h-10  sm:h-14 w-auto object-contain select-none"
+              />
             </span>
           </Link>
 
-          {/* CENTER: Desktop Nav Links */}
+          {/* Desktop nav links list */}
           <div
             ref={linksContainerRef}
             className="hidden md:flex items-center gap-7 lg:gap-10"
@@ -167,9 +174,9 @@ function NavbarContent({ data = siteData.navbar }: NavbarProps) {
             })}
           </div>
 
-          {/* RIGHT: CTA Button & Mobile Toggle */}
+          {/* Right action button area */}
           <div className="flex items-center gap-3 shrink-0">
-            {/* "Join Us ↗" Button with exact organic leaf-curved geometry */}
+            {/* Primary CTA action button */}
             <Link
               ref={ctaButtonRef}
               href={data.cta.href}
@@ -241,7 +248,7 @@ function NavbarContent({ data = siteData.navbar }: NavbarProps) {
   );
 }
 
-export function NavbarFallback({ data = siteData.navbar }: NavbarProps) {
+export function NavbarFallback({ data = site.navbar }: NavbarProps) {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 pointer-events-none flex flex-col items-center w-full">
       <nav
@@ -252,7 +259,7 @@ export function NavbarFallback({ data = siteData.navbar }: NavbarProps) {
           {/* LEFT: Logo */}
           <Link
             href={data.brand.href}
-            className="flex items-center gap-3 group select-none focus:outline-none rounded-lg shrink-0"
+            className="flex items-center gap-2.5 group select-none focus:outline-none rounded-lg shrink-0"
           >
             <span className="inline-flex items-center justify-center shrink-0">
               <SunburstIcon
@@ -261,8 +268,15 @@ export function NavbarFallback({ data = siteData.navbar }: NavbarProps) {
                 className="drop-shadow-[0_0_10px_rgba(254,255,2,0.6)]"
               />
             </span>
-            <span className="font-poppins font-semibold text-xl sm:text-2xl tracking-tight text-white select-none">
-              {data.brand.name}
+            <span className="inline-flex items-center select-none">
+              <Image
+                src={data.brand.logo || "/logo/logo.webp"}
+                alt={data.brand.name || "HopeAlive"}
+                width={130}
+                height={42}
+                priority
+                className="h-7 sm:h-8 w-auto object-contain select-none"
+              />
             </span>
           </Link>
 

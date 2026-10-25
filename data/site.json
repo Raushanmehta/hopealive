@@ -1,1518 +1,1801 @@
 {
-  "site": {
-    "name": "HopeAlive",
-    "tagline": "Rooted in Compassion, Growing Lasting Hope",
-    "description": "HopeAlive is a global non-profit organization dedicated to empowering vulnerable children, supporting families, and uplifting communities through education, healthcare, and humanitarian aid."
-  },
-  "navbar": {
-    "brand": {
-      "name": "HopeAlive",
-      "href": "/"
-    },
-    "links": [
-      {
-        "id": "home",
-        "label": "HOME",
-        "href": "/"
-      },
-      {
-        "id": "about",
-        "label": "ABOUT US",
-        "href": "/about"
-      },
-      {
-        "id": "causes",
-        "label": "CAUSES",
-        "href": "/causes"
-      },
-      {
-        "id": "projects",
-        "label": "Projects",
-        "href": "/project"
-      },
-      {
-        "id": "blog",
-        "label": "BLOG",
-        "href": "/blog"
-      },
-      {
-        "id": "contact",
-        "label": "CONTACT US",
-        "href": "/contact"
+  "HopeAlive": {
+    "templateComponents": {
+      "template-1": {
+        "shared": {
+          "navbar": "HopeAliveNavbar1",
+          "footer": "HopeAliveFooter1"
+        },
+        "pages": {
+          "home": {
+            "components": [
+              {
+                "key": "hero",
+                "component": "HopeAliveHero1"
+              },
+              {
+                "key": "about",
+                "component": "HopeAliveAbout1"
+              },
+              {
+                "key": "causes",
+                "component": "HopeAliveCauses1"
+              },
+              {
+                "key": "projects",
+                "component": "HopeAliveProjects1"
+              },
+              {
+                "key": "testimonials",
+                "component": "HopeAliveTestimonials1"
+              },
+              {
+                "key": "blog",
+                "component": "HopeAliveBlog1"
+              }
+            ]
+          },
+          "about": {
+            "components": [
+              {
+                "key": "about",
+                "component": "HopeAliveAbout1"
+              },
+              {
+                "key": "missionVision",
+                "component": "HopeAliveMissionVision1"
+              },
+              {
+                "key": "whyChooseUs",
+                "component": "HopeAliveWhyChooseUs1"
+              },
+              {
+                "key": "team",
+                "component": "HopeAliveTeam1"
+              }
+            ]
+          },
+          "causes": {
+            "components": [
+              {
+                "key": "causes",
+                "component": "HopeAliveCauses1"
+              }
+            ]
+          },
+          "projects": {
+            "components": [
+              {
+                "key": "projects",
+                "component": "HopeAliveProjects1"
+              }
+            ]
+          },
+          "projectDetail": {
+            "components": [
+              {
+                "key": "projects",
+                "component": "HopeAliveProjects1"
+              }
+            ]
+          },
+          "team": {
+            "components": [
+              {
+                "key": "team",
+                "component": "HopeAliveTeam1"
+              }
+            ]
+          },
+          "testimonials": {
+            "components": [
+              {
+                "key": "testimonials",
+                "component": "HopeAliveTestimonials1"
+              }
+            ]
+          },
+          "faqs": {
+            "components": [
+              {
+                "key": "faqs",
+                "component": "HopeAliveFaqs1"
+              }
+            ]
+          },
+          "blog": {
+            "components": [
+              {
+                "key": "blog",
+                "component": "HopeAliveBlog1"
+              }
+            ]
+          },
+          "blogDetail": {
+            "components": [
+              {
+                "key": "blog",
+                "component": "HopeAliveBlog1"
+              }
+            ]
+          },
+          "contact": {
+            "components": [
+              {
+                "key": "contact",
+                "component": "HopeAliveContact1"
+              }
+            ]
+          },
+          "thankYou": {
+            "components": [
+              {
+                "key": "thankYou",
+                "component": "HopeAliveThankYou1"
+              }
+            ]
+          },
+          "notFound": {
+            "components": [
+              {
+                "key": "notFound",
+                "component": "HopeAliveNotFound1"
+              }
+            ]
+          }
+        }
       }
-    ],
-    "cta": {
-      "label": "Donate",
-      "href": "#"
+    },
+    "sections": {
+      "navbar": {
+        "variants": {
+          "HopeAliveNavbar1": {
+            "brand": {
+              "name": "HopeAlive",
+              "href": "/",
+              "logo": "/logo/logo.webp"
+            },
+            "links": [
+              {
+                "id": "home",
+                "label": "HOME",
+                "href": "/"
+              },
+              {
+                "id": "about",
+                "label": "ABOUT US",
+                "href": "/about"
+              },
+              {
+                "id": "causes",
+                "label": "CAUSES",
+                "href": "/causes"
+              },
+              {
+                "id": "projects",
+                "label": "Projects",
+                "href": "/project"
+              },
+              {
+                "id": "blog",
+                "label": "BLOG",
+                "href": "/blog"
+              },
+              {
+                "id": "contact",
+                "label": "CONTACT US",
+                "href": "/contact"
+              }
+            ],
+            "cta": {
+              "label": "Donate",
+              "href": "#"
+            }
+          }
+        }
+      },
+      "hero": {
+        "variants": {
+          "HopeAliveHero1": {
+            "badge": {
+              "text": "GLOBAL NONPROFIT & HUMANITARIAN AID",
+              "dot": true
+            },
+            "headline": {
+              "line1": "Children,",
+              "line2": "Nurturing Communities,",
+              "line3": "Transforming Lives"
+            },
+            "description": "HopeAlive Foundation works on the frontlines to empower vulnerable children and underserved communities through education, healthcare, and sustainable development.",
+            "cta": {
+              "label": "Explore Now",
+              "href": "/project"
+            },
+            "backgroundImage": "/images/hero-children.webp"
+          }
+        }
+      },
+      "about": {
+        "variants": {
+          "HopeAliveAbout1": {
+            "badge": {
+              "text": "ABOUT US",
+              "dot": true
+            },
+            "stats": {
+              "value": "250K+",
+              "label": "LIVES TRANSFORMED"
+            },
+            "headline": {
+              "line1": "International Independent",
+              "line2": "Charity Organization"
+            },
+            "description": "Your support will help us to make life better living for poor vulnerable children. We are a non-profit organization working for children and communities in need.",
+            "cta": {
+              "label": "Support Our Mission",
+              "href": "/about"
+            },
+            "images": {
+              "planting": {
+                "src": "/images/about-community.webp",
+                "alt": "HopeAlive volunteers and community children learning together in rural village"
+              },
+              "seedling": {
+                "src": "/images/about-child.webp",
+                "alt": "Joyful young African village girl smiling with hope"
+              }
+            }
+          }
+        }
+      },
+      "missionVision": {
+        "variants": {
+          "HopeAliveMissionVision1": {
+            "vision": {
+              "title": {
+                "line1": "Our",
+                "line2": "Vision"
+              },
+              "description": "We envision a world where every vulnerable child grows up healthy, educated, and protected. HopeAlive strives to break cycles of poverty across rural communities by establishing self-sustaining ecosystems where clean drinking water, quality primary schooling, and reliable healthcare are accessible to every family, leaving no child behind."
+            },
+            "mission": {
+              "title": {
+                "line1": "Our",
+                "line2": "Mission"
+              },
+              "description": "Our mission is to turn compassionate giving into tangible, life-changing action. Through direct grassroots mobilization, mobile rural healthcare camps, free learning resources, and nutritional emergency aid, we empower underprivileged communities with the tools, dignity, and resilience needed for a brighter, self-reliant future."
+            }
+          }
+        }
+      },
+      "whyChooseUs": {
+        "variants": {
+          "HopeAliveWhyChooseUs1": {
+            "badge": {
+              "text": "WHY CHOOSE US",
+              "dot": true
+            },
+            "headline": {
+              "line1": "Why Choose Us"
+            },
+            "description": "We combine relentless frontline dedication, zero-overhead transparency, and sustainable community empowerment to bring real hope where it is needed most.",
+            "image": "/images/about-community.webp",
+            "imageAlt": "HopeAlive community building and education initiative",
+            "items": [
+              {
+                "id": "item-1",
+                "number": "01",
+                "badgeColor": "#2d5a27",
+                "title": "Direct Grassroots Impact",
+                "description": "We work directly on the frontlines in underserved villages, delivering clean water, emergency nourishment, and essential medical supplies directly to families in need."
+              },
+              {
+                "id": "item-2",
+                "number": "02",
+                "badgeColor": "#d97706",
+                "title": "100% Financial Transparency",
+                "description": "Every donation is publicly accounted for with strict audits and low overhead, ensuring your contribution directly uplifts children and builds lasting community resilience."
+              },
+              {
+                "id": "item-3",
+                "number": "03",
+                "badgeColor": "#15803d",
+                "title": "Sustainable Self-Reliance",
+                "description": "Beyond immediate humanitarian relief, we build learning classrooms, vocational training programs, and local water systems so communities can flourish independently."
+              }
+            ]
+          }
+        }
+      },
+      "causes": {
+        "variants": {
+          "HopeAliveCauses1": {
+            "badge": {
+              "text": "OUR CAUSES",
+              "dot": true
+            },
+            "headline": {
+              "line1": "The Causes We Care About",
+              "line2": ""
+            },
+            "description": "Every contribution creates opportunities for children, families, and communities to build a brighter and healthier future together.",
+            "items": [
+              {
+                "id": "child-nutrition",
+                "title": "Education For Poor Children",
+                "category": "Child Education",
+                "icon": "education",
+                "image": "/images/blog-education.webp",
+                "raised": "$24,500",
+                "goal": "$30,000",
+                "description": "Every child deserves quality education, regardless of background. We provide free schooling, books, uniforms, and nutritious meals to children in need. Your support helps us build classrooms, train teachers, and ensure every child can learn, grow, and dream without limits.",
+                "href": "/programs/education"
+              },
+              {
+                "id": "education-empowerment",
+                "title": "Emergency Aid & Food Relief",
+                "category": "Emergency Aid",
+                "icon": "emergency",
+                "image": "/images/ngo-food-aid.webp",
+                "raised": "$42,000",
+                "goal": "$50,000",
+                "description": "We provide food, emergency shelter, medical aid, and vital resources to families facing extreme poverty. Your contribution helps us deliver essentials that change lives and restore human dignity.",
+                "href": "/programs/emergency-aid"
+              },
+              {
+                "id": "healthcare-shelter",
+                "title": "Shelter For Homeless Children",
+                "category": "Child Protection",
+                "icon": "shelter",
+                "image": "/images/ngo-shelter-care.webp",
+                "raised": "$18,200",
+                "goal": "$25,000",
+                "description": "Children need safety, warmth, and care. We provide emergency shelters, warm clothing, and nutritious meals to homeless children, ensuring they have a safe place to rest, heal, and rebuild their lives.",
+                "href": "/programs/child-shelter"
+              },
+              {
+                "id": "clean-water-sanitation",
+                "title": "Pure Clean Drinking Water",
+                "category": "Clean Water",
+                "icon": "water",
+                "image": "/images/ngo-clean-water.webp",
+                "raised": "$31,400",
+                "goal": "$40,000",
+                "description": "Clean water transforms whole villages. We install solar-powered wells and water purification filtration units, reducing waterborne illnesses and restoring vitality to vulnerable families.",
+                "href": "/programs/water"
+              },
+              {
+                "id": "emergency-food-nutrition",
+                "title": "Daily Warm Meals For Children",
+                "category": "Food & Nutrition",
+                "icon": "nutrition",
+                "image": "/images/blog-nutrition.webp",
+                "raised": "$15,800",
+                "goal": "$20,000",
+                "description": "Nutritious daily meals empower young minds and bodies. We run community hot kitchens and direct nourishment drives for impoverished children and at-risk families facing acute hunger.",
+                "href": "/programs/nutrition"
+              },
+              {
+                "id": "medical-outreach-aid",
+                "title": "Mobile Healthcare & Medicine",
+                "category": "Healthcare Aid",
+                "icon": "healthcare",
+                "image": "/images/blog-healthcare.webp",
+                "raised": "$28,900",
+                "goal": "$35,000",
+                "description": "Bringing compassionate doctors and life-saving treatments to rural communities without clinics. We deliver pediatric care, diagnostic screenings, and emergency medical supplies.",
+                "href": "/programs/healthcare"
+              }
+            ]
+          }
+        }
+      },
+      "projects": {
+        "variants": {
+          "HopeAliveProjects1": {
+            "badge": {
+              "text": "OUR PROJECTS",
+              "dot": true
+            },
+            "headline": {
+              "line1": "Our Featured Projects",
+              "line2": ""
+            },
+            "description": "Discover HopeAlive Foundation's active humanitarian projects — delivering quality education, child healthcare, clean water, and nutritional aid across vulnerable communities.",
+            "projectsList": [
+              {
+                "id": "project-education",
+                "title": "Education",
+                "subtitle": "Quality Education For All",
+                "description": "Providing free education, books and learning resources to underprivileged children for a brighter future.",
+                "category": "Youth Literacy & Schools",
+                "ctaText": "Explore Project",
+                "image": "/images/project-gallery-books.webp",
+                "alt": "Hands holding open school books and notebooks for children education",
+                "href": "/project/education",
+                "stats": [
+                  {
+                    "label": "Children Enrolled",
+                    "value": "72,000+"
+                  },
+                  {
+                    "label": "Classrooms & Centers",
+                    "value": "140+"
+                  },
+                  {
+                    "label": "Direct Community Handover",
+                    "value": "100%"
+                  },
+                  {
+                    "label": "Regional Literacy Gain",
+                    "value": "+38%"
+                  }
+                ],
+                "challengeSolution": {
+                  "title": "The Frontline Reality & Critical Need",
+                  "paragraphs": [
+                    "In remote villages across our operating zones, children frequently walk over 7 kilometers daily across arid terrain simply to attend dilapidated, single-room schoolhouses lacking roofs, clean water, or basic writing desks. When severe drought hits, schools shutter entirely as families prioritize basic survival.",
+                    "HopeAlive Foundation launched this targeted initiative not merely to construct walls, but to create thriving, self-sustaining educational sanctuaries. By combining resilient classroom architecture with localized solar clean water boreholes, school attendance rates surge by more than 85% within the first academic term."
+                  ]
+                },
+                "quote": {
+                  "text": "“A secure classroom with clean water on site is more than bricks and pipes — it is the single most transformative equalizer for a vulnerable child’s destiny.”",
+                  "author": "Dr. Sarah Mitchell",
+                  "role": "Executive Director & Field Medic"
+                },
+                "milestones": {
+                  "title": "Project Implementation Lifecycle",
+                  "items": [
+                    {
+                      "phase": "Phase 01",
+                      "title": "Community Needs Assessment & Land Survey",
+                      "description": "Field officers collaborate directly with village elders, local parent associations, and district education directors to map student population deficits.",
+                      "status": "Completed"
+                    },
+                    {
+                      "phase": "Phase 02",
+                      "title": "Classroom Construction & Solar Borehole Integration",
+                      "description": "Erecting weather-resistant brick classrooms, installing shaded ventilation, and drilling a dedicated solar well ensuring students have safe drinking water on campus.",
+                      "status": "Completed"
+                    },
+                    {
+                      "phase": "Phase 03",
+                      "title": "Learning Kits, Textbooks & Digital Tablets",
+                      "description": "Supplying accredited curriculum books, pencils, backpacks, and solar-charged tablets loaded with offline STEM and literacy modules.",
+                      "status": "Active Deployment"
+                    },
+                    {
+                      "phase": "Phase 04",
+                      "title": "Teacher Training & Sustainable Community Handover",
+                      "description": "Conducting pedagogical workshops for 85+ local educators and establishing a community school maintenance trust for multi-generational longevity.",
+                      "status": "Ongoing Stewardship"
+                    }
+                  ]
+                },
+                "gallery": {
+                  "title": "Frontline Gallery & Field Documentation",
+                  "items": [
+                    {
+                      "image": "/images/project-gallery-baby.webp",
+                      "alt": "Pediatric healthcare and maternal wellness in project village",
+                      "caption": "Pediatric Health & Nutrition Hub"
+                    },
+                    {
+                      "image": "/images/project-water.webp",
+                      "alt": "Solar-powered borehole providing clean running water",
+                      "caption": "Clean Water Well Integration"
+                    }
+                  ]
+                },
+                "callout": {
+                  "title": "Sponsor a Rural Classroom or Learning Kits",
+                  "description": "Collaborate with our field directors to construct classrooms, provide textbooks, and equip local teachers with learning resources.",
+                  "buttonText": "Sponsor Education",
+                  "buttonHref": "/contact"
+                },
+                "donateCard": {
+                  "title": "Empower a Child Through Education",
+                  "description": "Your support provides school supplies, textbooks, uniforms, and solar learning tablets for underprivileged students.",
+                  "buttonText": "Donate For Education",
+                  "buttonHref": "#"
+                }
+              },
+              {
+                "id": "project-healthcare",
+                "title": "Healthcare",
+                "subtitle": "Healthcare For Every Life",
+                "description": "Organizing health camps, medical support and awareness programs for rural communities.",
+                "category": "Medical Outreach & Aid",
+                "ctaText": "Explore Project",
+                "image": "/images/project-gallery-baby.webp",
+                "alt": "Volunteer hands protecting and nurturing a newborn baby in healthcare outreach",
+                "href": "/project/healthcare",
+                "stats": [
+                  {
+                    "value": "12,450+",
+                    "label": "Patients Screened & Treated"
+                  },
+                  {
+                    "value": "24",
+                    "label": "Mobile Clinics & Field Camps"
+                  },
+                  {
+                    "value": "3,800+",
+                    "label": "Pediatric Vaccinations Administered"
+                  },
+                  {
+                    "value": "100%",
+                    "label": "Free Essential Medicine Access"
+                  }
+                ],
+                "challengeSolution": {
+                  "title": "Frontline Medical Deserts & Mobile Healthcare Solutions",
+                  "paragraphs": [
+                    "Healthcare access remains non-existent across remote rural settlements, where families frequently live more than 50 kilometers away from the nearest operational dispensary, leaving preventable infections to escalate into life-threatening conditions.",
+                    "HopeAlive Foundation mobilizes fully equipped mobile health vehicles staffed with compassionate volunteer doctors and nurses, delivering routine diagnostic tests, prenatal consultations, critical antibiotics, and emergency maternal care directly to village doorsteps."
+                  ]
+                },
+                "quote": {
+                  "text": "“Reaching a vulnerable mother in active labor or treating a child suffering from severe respiratory infection in the field is what our mobile clinics exist for.”",
+                  "author": "Dr. Sarah Mitchell",
+                  "role": "Executive Director & Field Medic"
+                },
+                "milestones": {
+                  "title": "Medical Mission Lifecycle",
+                  "items": [
+                    {
+                      "phase": "Phase 01",
+                      "title": "Community Health Triage & Prevalence Mapping",
+                      "description": "Field medics conduct baseline screenings for waterborne illness, malnutrition, malaria, and prenatal maternal risks.",
+                      "status": "Completed"
+                    },
+                    {
+                      "phase": "Phase 02",
+                      "title": "Mobile Outpost Deployment & Diagnostic Setup",
+                      "description": "Dispatching 4x4 mobile clinical units equipped with point-of-care lab tests, ultrasound devices, and emergency oxygen.",
+                      "status": "Completed"
+                    },
+                    {
+                      "phase": "Phase 03",
+                      "title": "Essential Prescription & Infant Vaccine Drive",
+                      "description": "Distributing subsidized pharmaceuticals, clean delivery birth kits, and administering vital pediatric immunizations.",
+                      "status": "Active Deployment"
+                    },
+                    {
+                      "phase": "Phase 04",
+                      "title": "Community Health Worker Certification & Handover",
+                      "description": "Training and certifying 50+ local village health volunteers in rapid wound care, fever diagnosis, and triage referrals.",
+                      "status": "Ongoing Stewardship"
+                    }
+                  ]
+                },
+                "gallery": {
+                  "title": "Frontline Gallery & Field Documentation",
+                  "items": [
+                    {
+                      "image": "/images/project-gallery-baby.webp",
+                      "alt": "Pediatric healthcare and maternal wellness in project village",
+                      "caption": "Pediatric Health & Newborn Wellness Hub"
+                    },
+                    {
+                      "image": "/images/blog-healthcare.webp",
+                      "alt": "Compassionate doctor examining patient in mobile clinic",
+                      "caption": "Mobile Medical Clinic & Health Consultations"
+                    }
+                  ]
+                },
+                "callout": {
+                  "title": "Support Mobile Medical Clinics & Doctors",
+                  "description": "Help us dispatch mobile clinics stocked with diagnostic tests, vaccines, and emergency maternal medicine to isolated villages.",
+                  "buttonText": "Support Healthcare",
+                  "buttonHref": "/contact"
+                },
+                "donateCard": {
+                  "title": "Deliver Life-Saving Medical Care",
+                  "description": "Help fund routine checkups, antibiotic treatments, newborn wellness, and emergency surgeries for vulnerable families.",
+                  "buttonText": "Donate For Healthcare",
+                  "buttonHref": "#"
+                }
+              },
+              {
+                "id": "project-clean-water",
+                "title": "Clean Water",
+                "subtitle": "Clean Water, Better Life",
+                "description": "Building water wells and supplying safe drinking water to families and villages.",
+                "category": "Clean Water & Wells",
+                "ctaText": "Explore Project",
+                "image": "/images/project-water.webp",
+                "alt": "Cupped hands holding fresh clean drinking water droplets",
+                "href": "/project/clean-water",
+                "stats": [
+                  {
+                    "value": "3.8M+",
+                    "label": "Liters Clean Water Pumped"
+                  },
+                  {
+                    "value": "45+",
+                    "label": "Solar Boreholes Installed"
+                  },
+                  {
+                    "value": "82%",
+                    "label": "Drop in Waterborne Disease"
+                  },
+                  {
+                    "value": "68",
+                    "label": "Villages with Direct Safe Access"
+                  }
+                ],
+                "challengeSolution": {
+                  "title": "The Scourge of Contaminated Water & The Deep Solar Borehole Solution",
+                  "paragraphs": [
+                    "In arid rural districts, mothers and school-age girls walk over four hours every day under intense heat to collect brown, contaminated water from shared livestock puddles, directly leading to rampant cholera, dysentery, and child fatalities.",
+                    "HopeAlive Foundation deploys industrial hydraulic drilling rigs capable of penetrating deep subterranean aquifers up to 130 meters beneath the ground, powering stainless submersible pumps with solar arrays to dispense thousands of liters of crystalline drinking water daily."
+                  ]
+                },
+                "quote": {
+                  "text": "“When pure, clean running water begins flowing in the center of a village, sickness vanishes almost overnight, and young girls finally have the time to return to school.”",
+                  "author": "Kwame Mensah",
+                  "role": "Lead Water Infrastructure Engineer"
+                },
+                "milestones": {
+                  "title": "Clean Water Infrastructure Lifecycle",
+                  "items": [
+                    {
+                      "phase": "Phase 01",
+                      "title": "Hydrogeological Survey & Aquifer Depth Sounding",
+                      "description": "Geologists utilize ground radar to pinpoint reliable underground water tables with certified multi-decade capacity.",
+                      "status": "Completed"
+                    },
+                    {
+                      "phase": "Phase 02",
+                      "title": "Deep Borehole Drilling & Well Casing",
+                      "description": "Hydraulic rigs drill down 120+ meters, inserting food-grade non-toxic casings to prevent surface seepage.",
+                      "status": "Completed"
+                    },
+                    {
+                      "phase": "Phase 03",
+                      "title": "Solar Array Installation & 10,000L Cistern Setup",
+                      "description": "Mounting durable monocrystalline solar panels and elevating dual 5,000L storage cisterns with UV filtration.",
+                      "status": "Active Deployment"
+                    },
+                    {
+                      "phase": "Phase 04",
+                      "title": "Village Water Committee Formation & Tool Handover",
+                      "description": "Training five village custodians in pump maintenance, valve repairs, and weekly microbiological water testing.",
+                      "status": "Ongoing Stewardship"
+                    }
+                  ]
+                },
+                "gallery": {
+                  "title": "Frontline Gallery & Field Documentation",
+                  "items": [
+                    {
+                      "image": "/images/project-water.webp",
+                      "alt": "Cupped hands holding fresh clean drinking water droplets",
+                      "caption": "First Fresh Flow from New Solar Borehole"
+                    },
+                    {
+                      "image": "/images/ngo-clean-water.webp",
+                      "alt": "Solar powered clean water distribution kiosk",
+                      "caption": "Community Clean Water Station & Collection Kiosk"
+                    }
+                  ]
+                },
+                "callout": {
+                  "title": "Sponsor a Solar Clean Water Borehole",
+                  "description": "Partner with our engineering corps to drill deep aquifers, erect solar pumps, and provide 10,000+ liters of pure water daily.",
+                  "buttonText": "Fund a Water Well",
+                  "buttonHref": "/contact"
+                },
+                "donateCard": {
+                  "title": "Quench Thirst & Eliminate Sickness",
+                  "description": "A single community solar borehole liberates an entire village from cholera and spares young girls hours of walking every day.",
+                  "buttonText": "Donate For Clean Water",
+                  "buttonHref": "#"
+                }
+              },
+              {
+                "id": "project-emergency-aid",
+                "title": "Emergency Aid",
+                "subtitle": "Crisis & Disaster Relief",
+                "description": "Rapid response delivery of emergency nourishment rations, clean water kits and essential aid to families facing crisis.",
+                "category": "Disaster Relief & Aid",
+                "ctaText": "Explore Project",
+                "image": "/images/ngo-food-aid.webp",
+                "alt": "Humanitarian relief sacks and food rations being distributed to families",
+                "href": "/project/emergency-aid",
+                "stats": [
+                  {
+                    "value": "95,000+",
+                    "label": "Emergency Rations Distributed"
+                  },
+                  {
+                    "value": "6,400+",
+                    "label": "Families Relocated & Sheltered"
+                  },
+                  {
+                    "value": "34",
+                    "label": "Rapid Response Deployments"
+                  },
+                  {
+                    "value": "<24h",
+                    "label": "Average Crisis Response Time"
+                  }
+                ],
+                "challengeSolution": {
+                  "title": "Sudden Environmental Disasters & Immediate Frontline Relief",
+                  "paragraphs": [
+                    "Sudden climatic shocks, flash flooding, and agricultural collapses leave thousands of families homeless in minutes, stripped of shelter, dry food rations, potable water, and infant hygiene supplies in remote, isolated terrains.",
+                    "Our Emergency Response Division operates pre-positioned humanitarian regional warehouses. Within 24 hours of notification, convoy trucks and rescue boats transport life-saving family ration packs, water purification kits, thermal blankets, and rapid-assembly shelter tents."
+                  ]
+                },
+                "quote": {
+                  "text": "“In the first 48 hours of an acute emergency, precision logistics and compassionate presence are what prevent catastrophic loss of human life.”",
+                  "author": "Elena Rostova",
+                  "role": "Director of Humanitarian Emergency Logistics"
+                },
+                "milestones": {
+                  "title": "Crisis Response & Recovery Lifecycle",
+                  "items": [
+                    {
+                      "phase": "Phase 01",
+                      "title": "Rapid Needs Reconnaissance & Evacuation Support",
+                      "description": "Field operatives map flood zones and deploy search-and-rescue teams to relocate stranded villagers to safe high ground.",
+                      "status": "Completed"
+                    },
+                    {
+                      "phase": "Phase 02",
+                      "title": "Emergency Air & Road Convoy Food Drops",
+                      "description": "Distributing sealed 30-day calorie rations, therapeutic milk packets, and water purification tablets to cut-off families.",
+                      "status": "Completed"
+                    },
+                    {
+                      "phase": "Phase 03",
+                      "title": "Pop-Up Emergency Trauma Clinic & Sanitation Tents",
+                      "description": "Setting up sterile field surgical units and community latrines to prevent post-flood waterborne outbreaks.",
+                      "status": "Active Deployment"
+                    },
+                    {
+                      "phase": "Phase 04",
+                      "title": "Rebuilding Kits & Resilient Home Handover",
+                      "description": "Supplying roofing zinc, timber, agricultural seed packs, and micro-grants to help families rebuild homes.",
+                      "status": "Ongoing Stewardship"
+                    }
+                  ]
+                },
+                "gallery": {
+                  "title": "Frontline Gallery & Field Documentation",
+                  "items": [
+                    {
+                      "image": "/images/ngo-food-aid.webp",
+                      "alt": "Humanitarian relief sacks and food rations being distributed to families",
+                      "caption": "Emergency Nourishment Rations Staging & Dispatch"
+                    },
+                    {
+                      "image": "/images/blog-nutrition.webp",
+                      "alt": "Warm meals being served to displaced families in emergency tent",
+                      "caption": "Hot Daily Feeding Hub for Displaced Families"
+                    }
+                  ]
+                },
+                "callout": {
+                  "title": "Mobilize Crisis Relief Convoys",
+                  "description": "Support our rapid-deployment disaster units delivering family food rations, water purification kits, and shelter tents.",
+                  "buttonText": "Deploy Relief",
+                  "buttonHref": "/contact"
+                },
+                "donateCard": {
+                  "title": "Provide Immediate Crisis Aid",
+                  "description": "Your contribution enables 24-hour response logistics for families displaced by floods, drought, or extreme climate disaster.",
+                  "buttonText": "Donate For Relief",
+                  "buttonHref": "#"
+                }
+              },
+              {
+                "id": "project-child-shelter",
+                "title": "Child Shelter",
+                "subtitle": "Safe Haven For Vulnerable Children",
+                "description": "Providing safe residential shelters, warm bedding, trauma recovery and full protection for orphaned and displaced youth.",
+                "category": "Child Protection & Care",
+                "ctaText": "Explore Project",
+                "image": "/images/ngo-shelter-care.webp",
+                "alt": "Compassionate volunteer caring for young child in community shelter",
+                "href": "/project/child-shelter",
+                "stats": [
+                  {
+                    "value": "1,450+",
+                    "label": "Orphaned Children Given Safe Beds"
+                  },
+                  {
+                    "value": "18",
+                    "label": "Community Group Homes Active"
+                  },
+                  {
+                    "value": "94%",
+                    "label": "Trauma Recovery & Well-being Score"
+                  },
+                  {
+                    "value": "100%",
+                    "label": "School Enrollment Rate"
+                  }
+                ],
+                "challengeSolution": {
+                  "title": "The Plight of Displaced Children & The Sanctuary Model",
+                  "paragraphs": [
+                    "Children orphaned by famine, disease, or extreme poverty face unbearable vulnerability on city streets and roadside camps, exposed to forced labor, trafficking, exploitation, and acute malnutrition with nowhere safe to sleep.",
+                    "HopeAlive constructs secure, cottage-style residential sanctuaries where small groups of children live together under the loving care of trained house mothers. Each child receives their own bed, psychological counseling, educational support, and nutritious meals."
+                  ]
+                },
+                "quote": {
+                  "text": "“Every vulnerable child deserves to lay their head on a soft pillow at night knowing that they are safe, valued, and fiercely protected.”",
+                  "author": "Amara Okafor",
+                  "role": "Child Protection & Shelter Director"
+                },
+                "milestones": {
+                  "title": "Child Sanctuary & Care Lifecycle",
+                  "items": [
+                    {
+                      "phase": "Phase 01",
+                      "title": "Street Outreach & Child Welfare Intake",
+                      "description": "Social caseworkers identify high-risk orphans, conduct background traces, and secure legal child protection orders.",
+                      "status": "Completed"
+                    },
+                    {
+                      "phase": "Phase 02",
+                      "title": "Health Rehabilitation & Trauma Therapy",
+                      "description": "Comprehensive pediatric wellness checkups, corrective nutrition, and cognitive-behavioral play therapy sessions.",
+                      "status": "Completed"
+                    },
+                    {
+                      "phase": "Phase 03",
+                      "title": "Sanctuary Cottage Placement & Education Enrollment",
+                      "description": "Placing children in family-style home units and enrolling them in nearby partner schools with full uniforms and books.",
+                      "status": "Active Deployment"
+                    },
+                    {
+                      "phase": "Phase 04",
+                      "title": "Kinship Vetting, Mentorship & Independent Living",
+                      "description": "Providing adolescent mentorship, vocational apprenticeship, or facilitating carefully monitored kinship foster adoptions.",
+                      "status": "Ongoing Stewardship"
+                    }
+                  ]
+                },
+                "gallery": {
+                  "title": "Frontline Gallery & Field Documentation",
+                  "items": [
+                    {
+                      "image": "/images/ngo-shelter-care.webp",
+                      "alt": "Compassionate volunteer caring for young child in community shelter",
+                      "caption": "Sanctuary Home & Nurturing House Mothers"
+                    },
+                    {
+                      "image": "/images/project-gallery-books.webp",
+                      "alt": "Children reading books together in warm shelter library",
+                      "caption": "Safe Study Space & Community Library"
+                    }
+                  ]
+                },
+                "callout": {
+                  "title": "Expand Safe Sanctuary Group Homes",
+                  "description": "Help us build safe cottage shelters, train loving house mothers, and ensure orphaned children receive full protection.",
+                  "buttonText": "Support Child Shelter",
+                  "buttonHref": "/contact"
+                },
+                "donateCard": {
+                  "title": "Protect an Orphaned Child",
+                  "description": "Provide a safe bed, nutritious home-cooked meals, trauma recovery therapy, and school enrollment for vulnerable youth.",
+                  "buttonText": "Donate For Shelter",
+                  "buttonHref": "#"
+                }
+              },
+              {
+                "id": "project-nutrition",
+                "title": "Child Nutrition",
+                "subtitle": "Hot Daily Meals & Nutrition",
+                "description": "Operating community hot kitchens and therapeutic feeding drives to eradicate childhood malnutrition across rural areas.",
+                "category": "Food Security & Nutrition",
+                "ctaText": "Explore Project",
+                "image": "/images/blog-nutrition.webp",
+                "alt": "Warm nutritious meals being served to community children",
+                "href": "/project/nutrition",
+                "stats": [
+                  {
+                    "value": "540,000+",
+                    "label": "Fresh Cooked Meals Served"
+                  },
+                  {
+                    "value": "8,200+",
+                    "label": "Children in Therapeutic Feeding"
+                  },
+                  {
+                    "value": "22",
+                    "label": "Community Hot Kitchens Operating"
+                  },
+                  {
+                    "value": "74%",
+                    "label": "Drop in Severe Childhood Wasting"
+                  }
+                ],
+                "challengeSolution": {
+                  "title": "Breaking the Vicious Cycle of Chronic Malnutrition & Stunting",
+                  "paragraphs": [
+                    "Prolonged regional crop droughts leave rural families without grain reserves, forcing infants to subsist on plain porridge lacking protein, iron, and iodine — resulting in irreversible physical stunting, cognitive decline, and compromised immunity.",
+                    "HopeAlive runs central solar-powered community hot kitchens that cook two hot, balanced meals daily containing beans, eggs, leafy vegetables, fortified grains, and fresh fruit for every enrolled student and nursing mother in need."
+                  ]
+                },
+                "quote": {
+                  "text": "“A starving child cannot learn, play, or develop. Wholesome daily nutrition is the fundamental cornerstone of every child’s future dignity.”",
+                  "author": "Chef Marcus Vance",
+                  "role": "Head of Nutritional Logistics & Food Security"
+                },
+                "milestones": {
+                  "title": "Community Nutrition Lifecycle",
+                  "items": [
+                    {
+                      "phase": "Phase 01",
+                      "title": "MUAC Anthropometric Malnutrition Screening",
+                      "description": "Door-to-door mid-upper arm circumference measurement across rural villages to register all severely malnourished infants.",
+                      "status": "Completed"
+                    },
+                    {
+                      "phase": "Phase 02",
+                      "title": "Central Kitchen Commissioning & Supply Contracts",
+                      "description": "Building sanitary cooking facilities and contracting regional smallholder farmers for organic lentils, corn, and produce.",
+                      "status": "Completed"
+                    },
+                    {
+                      "phase": "Phase 03",
+                      "title": "Daily School Hot Meal Program & Therapeutic Kits",
+                      "description": "Serving 2,000+ hot meals daily per kitchen hub and distributing Plumpy'Nut fortified ready-to-use food packets.",
+                      "status": "Active Deployment"
+                    },
+                    {
+                      "phase": "Phase 04",
+                      "title": "Family Homestead Gardening & Permaculture Training",
+                      "description": "Distributing drip-irrigation kits and drought-tolerant seeds so families can cultivate nutritious vegetable plots at home.",
+                      "status": "Ongoing Stewardship"
+                    }
+                  ]
+                },
+                "gallery": {
+                  "title": "Frontline Gallery & Field Documentation",
+                  "items": [
+                    {
+                      "image": "/images/blog-nutrition.webp",
+                      "alt": "Warm nutritious meals being served to community children",
+                      "caption": "Hot Nutrient-Dense Daily School Meals"
+                    },
+                    {
+                      "image": "/images/ngo-food-aid.webp",
+                      "alt": "Bags of fortified grains and vitamin supplements",
+                      "caption": "Therapeutic Rations & Grain Storage Depot"
+                    }
+                  ]
+                },
+                "callout": {
+                  "title": "Fund Hot Daily Community Kitchens",
+                  "description": "Supply local farm produce, fortified grains, and therapeutic nutrition packets to eliminate childhood malnutrition and stunting.",
+                  "buttonText": "Fund Daily Meals",
+                  "buttonHref": "/contact"
+                },
+                "donateCard": {
+                  "title": "Eradicate Child Hunger Today",
+                  "description": "Every dollar funds two hot, nutritious daily meals for malnourished school children and nursing mothers in critical need.",
+                  "buttonText": "Donate For Nutrition",
+                  "buttonHref": "#"
+                }
+              }
+            ],
+            "callout": {
+              "title": "Support This Critical Field Mission",
+              "description": "Connect with our program directors to sponsor classrooms, fund water wells, or provide school supply convoys.",
+              "buttonText": "Contact Us",
+              "buttonHref": "/contact"
+            },
+            "sidebar": {
+              "relatedTitle": "Related Field Initiatives",
+              "donateCard": {
+                "title": "Every Community Deserves Hope",
+                "description": "Connect with our field operations desk to explore partnerships, equipment donations, or volunteer deployment.",
+                "buttonText": "Donate",
+                "buttonHref": "#"
+              }
+            }
+          }
+        }
+      },
+      "testimonials": {
+        "variants": {
+          "HopeAliveTestimonials1": {
+            "badge": {
+              "text": "TESTIMONIAL",
+              "dot": true
+            },
+            "headline": {
+              "line1": "Don't Believe Us See Review",
+              "line2": ""
+            },
+            "description": "Hear how HopeAlive Foundation touches lives every day through dedicated volunteer work, grassroots healthcare, child nutrition, and life-changing educational programs.",
+            "items": [
+              {
+                "id": "michael-b",
+                "name": "Michael B",
+                "role": "PHILANTHROPY PARTNER",
+                "avatar": "/images/testimonial-michael.webp",
+                "quote": "Seeing HopeAlive's school literacy kits, clean water wells, and child nutrition programs reach remote villages with total transparency gave us complete confidence to support their mission."
+              },
+              {
+                "id": "sarah-k",
+                "name": "Sarah K",
+                "role": "FIELD VOLUNTEER LEAD",
+                "avatar": "/images/testimonial-sarah.webp",
+                "quote": "Volunteering on the frontlines with HopeAlive has been deeply transformative. Serving warm meals and teaching children who were previously excluded from school creates genuine, lasting hope."
+              },
+              {
+                "id": "david-m",
+                "name": "David M",
+                "role": "RURAL HEALTHCARE ADVOCATE",
+                "avatar": "/images/testimonial-david.webp",
+                "quote": "HopeAlive brought life-saving medical camps and essential medicines directly to our remote village doorstep. For the first time in years, our mothers and children have access to dependable care."
+              },
+              {
+                "id": "elena-r",
+                "name": "Elena R",
+                "role": "EDUCATION MENTOR",
+                "avatar": "/images/testimonial-sarah.webp",
+                "quote": "Watching underprivileged children hold their first notebooks and learn to read with pure joy is unforgettable. HopeAlive is genuinely breaking the cycle of poverty from the ground up."
+              },
+              {
+                "id": "amara-o",
+                "name": "Amara O",
+                "role": "COMMUNITY LEADER",
+                "avatar": "/images/about-child.webp",
+                "quote": "Our children no longer walk miles for contaminated water. HopeAlive installed a clean solar-powered well that transformed our community's health, vitality, and children's daily attendance at school."
+              },
+              {
+                "id": "james-t",
+                "name": "James T",
+                "role": "FOOD AID COORDINATOR",
+                "avatar": "/images/testimonial-michael.webp",
+                "quote": "Delivering warm nutritious meals and vitamin rations to families during acute shortages has saved countless young lives. HopeAlive is love and action combined."
+              }
+            ]
+          }
+        }
+      },
+      "faqs": {
+        "variants": {
+          "HopeAliveFaqs1": {
+            "badge": {
+              "text": "FREQUENTLY ASKED QUESTIONS",
+              "dot": true
+            },
+            "headline": {
+              "line1": "Inquiries & Answers",
+              "line2": ""
+            },
+            "description": "Have questions about how your contributions make an impact, our frontline volunteer initiatives, or financial transparency? Discover clear answers below.",
+            "faqsList": [
+              {
+                "id": "faq-1",
+                "question": "How are donations utilized and accounted for?",
+                "answer": "At HopeAlive, financial integrity is our core pillar. Over 85% of every dollar contributed goes directly into on-the-ground programs: providing hot meals, pediatric medicine, clean water wells, and educational materials. We publish independent third-party audits annually for full transparency.",
+                "category": "Donations"
+              },
+              {
+                "id": "faq-2",
+                "question": "Can I sponsor a specific child or village project?",
+                "answer": "Yes! Through our dedicated Child Sponsorship and Village Well programs, donors can support an individual student's schooling or fund a specific solar well project. Sponsors receive quarterly progress reports, photos, and personal letters from the field.",
+                "category": "Sponsorship"
+              },
+              {
+                "id": "faq-3",
+                "question": "How can I volunteer with HopeAlive Foundation?",
+                "answer": "We welcome volunteers from all walks of life! You can join our medical outreach camps, assist in community food drives, teach in local learning centers, or contribute remotely through translation, graphic design, and fundraising advocacy.",
+                "category": "Volunteering"
+              },
+              {
+                "id": "faq-4",
+                "question": "Are my donations tax-deductible?",
+                "answer": "Yes. HopeAlive Foundation is a registered 501(c)(3) global humanitarian non-profit organization. All contributions are fully tax-deductible to the maximum extent permitted by law, and automated tax receipts are provided instantly upon donation.",
+                "category": "Tax & Legal"
+              },
+              {
+                "id": "faq-5",
+                "question": "How does HopeAlive ensure long-term community sustainability?",
+                "answer": "We believe in empowerment, not temporary charity. Alongside emergency relief aid, we train local water technicians, cultivate community food gardens, build local schools, and equip village councils with tools to manage resources independently.",
+                "category": "Sustainability"
+              },
+              {
+                "id": "faq-6",
+                "question": "Where does HopeAlive primarily conduct field operations?",
+                "answer": "Our humanitarian teams operate across underserved rural villages, drought-affected regions, and vulnerable community settlements across Sub-Saharan Africa and South Asia where access to clean water, food, and schools is severely limited.",
+                "category": "Operations"
+              }
+            ],
+            "cta": {
+              "title": "Still have questions about our mission?",
+              "description": "Our compassionate support team and field coordinators are here to provide all the answers you need.",
+              "buttonText": "Get in Touch With Us",
+              "buttonHref": "/contact"
+            }
+          }
+        }
+      },
+      "team": {
+        "variants": {
+          "HopeAliveTeam1": {
+            "badge": {
+              "text": "MEET OUR TEAM",
+              "dot": true
+            },
+            "headline": {
+              "line1": "Passionate Humanitarians Driven by Purpose",
+              "line2": ""
+            },
+            "description": "Meet the frontline physicians, logistics directors, and community educators dedicated to protecting vulnerable children and families worldwide.",
+            "membersList": [
+              {
+                "id": "team-sarah",
+                "name": "Dr. Sarah Mitchell",
+                "role": "Executive Director & Field Medic",
+                "department": "Leadership",
+                "bio": "Over 14 years directing crisis relief convoys and pediatric surgical camps across 18 countries.",
+                "image": "/images/testimonial-sarah.webp",
+                "alt": "Dr. Sarah Mitchell, Executive Director at HopeAlive Foundation",
+                "experience": "14+ Years Fieldwork",
+                "socials": [
+                  {
+                    "platform": "linkedin",
+                    "href": "https://linkedin.com"
+                  },
+                  {
+                    "platform": "twitter",
+                    "href": "https://twitter.com"
+                  },
+                  {
+                    "platform": "email",
+                    "href": "mailto:sarah@hopealive.org"
+                  }
+                ]
+              },
+              {
+                "id": "team-kwame",
+                "name": "Kwame Mensah",
+                "role": "Frontline Logistics & Crisis Coordinator",
+                "department": "Operations",
+                "bio": "Directs rapid humanitarian supply convoys, solar borehole drilling, and emergency nutrition distribution.",
+                "image": "/images/team-kwame.webp",
+                "alt": "Kwame Mensah, Logistics Director at HopeAlive Foundation",
+                "experience": "11+ Years Logistics",
+                "socials": [
+                  {
+                    "platform": "linkedin",
+                    "href": "https://linkedin.com"
+                  },
+                  {
+                    "platform": "twitter",
+                    "href": "https://twitter.com"
+                  },
+                  {
+                    "platform": "email",
+                    "href": "mailto:kwame@hopealive.org"
+                  }
+                ]
+              },
+              {
+                "id": "team-elena",
+                "name": "Dr. Elena Rostova",
+                "role": "Chief Medical Officer & Pediatric Surgeon",
+                "department": "Medical",
+                "bio": "Spearheads mobile pediatric clinics, malnutrition therapy wards, and clean vaccination campaigns.",
+                "image": "/images/team-elena.webp",
+                "alt": "Dr. Elena Rostova, Chief Medical Officer at HopeAlive Foundation",
+                "experience": "12+ Years Pediatric Care",
+                "socials": [
+                  {
+                    "platform": "linkedin",
+                    "href": "https://linkedin.com"
+                  },
+                  {
+                    "platform": "twitter",
+                    "href": "https://twitter.com"
+                  },
+                  {
+                    "platform": "email",
+                    "href": "mailto:elena@hopealive.org"
+                  }
+                ]
+              },
+              {
+                "id": "team-david",
+                "name": "David Chen",
+                "role": "Clean Water & Infrastructure Director",
+                "department": "Engineering",
+                "bio": "Civil water engineer overseeing 120+ solar well installations, water safety testing, and pipeline infrastructure.",
+                "image": "/images/testimonial-david.webp",
+                "alt": "David Chen, Clean Water Director at HopeAlive Foundation",
+                "experience": "9+ Years Water Systems",
+                "socials": [
+                  {
+                    "platform": "linkedin",
+                    "href": "https://linkedin.com"
+                  },
+                  {
+                    "platform": "twitter",
+                    "href": "https://twitter.com"
+                  },
+                  {
+                    "platform": "email",
+                    "href": "mailto:david@hopealive.org"
+                  }
+                ]
+              },
+              {
+                "id": "team-amara",
+                "name": "Amara Okafor",
+                "role": "Child Education & Community Stewardship Lead",
+                "department": "Education",
+                "bio": "Coordinates rural school enrollment, teacher training programs, and textbook distribution across 45 villages.",
+                "image": "/images/team-amara.webp",
+                "alt": "Amara Okafor, Education Lead at HopeAlive Foundation",
+                "experience": "8+ Years Literacy Dev",
+                "socials": [
+                  {
+                    "platform": "linkedin",
+                    "href": "https://linkedin.com"
+                  },
+                  {
+                    "platform": "twitter",
+                    "href": "https://twitter.com"
+                  },
+                  {
+                    "platform": "email",
+                    "href": "mailto:amara@hopealive.org"
+                  }
+                ]
+              },
+              {
+                "id": "team-michael",
+                "name": "Michael Vance",
+                "role": "Global Financial Transparency & Audit Officer",
+                "department": "Governance",
+                "bio": "Guarantees 100% public fiscal accountability, third-party audit verification, and direct program funding.",
+                "image": "/images/testimonial-michael.webp",
+                "alt": "Michael Vance, Financial Transparency Officer at HopeAlive Foundation",
+                "experience": "15+ Years NGO Audit",
+                "socials": [
+                  {
+                    "platform": "linkedin",
+                    "href": "https://linkedin.com"
+                  },
+                  {
+                    "platform": "twitter",
+                    "href": "https://twitter.com"
+                  },
+                  {
+                    "platform": "email",
+                    "href": "mailto:michael@hopealive.org"
+                  }
+                ]
+              }
+            ],
+            "ctaBanner": {
+              "title": "Want to Serve on the Frontlines With HopeAlive?",
+              "description": "Whether you are a licensed physician, civil water engineer, logistics coordinator, or educator, our international chapters welcome dedicated hearts ready to create lasting change.",
+              "primaryBtnText": "Get In Touch",
+              "primaryBtnHref": "/contact",
+              "secondaryBtnText": "Explore Active Causes",
+              "secondaryBtnHref": "/causes"
+            }
+          }
+        }
+      },
+      "blog": {
+        "variants": {
+          "HopeAliveBlog1": {
+            "badge": {
+              "text": "OUR BLOGS"
+            },
+            "headline": {
+              "line1": "Check Out Our Latest News"
+            },
+            "description": "Explore our latest articles, field reports, and inspiring stories showing how HopeAlive Foundation empowers vulnerable children and transforms communities.",
+            "blogPosts": [
+              {
+                "id": "education-empowers-rural-children",
+                "date": "April 20, 2025",
+                "title": "How Education Unlocks Brighter Futures for Underprivileged Children",
+                "image": "/images/blog-education.webp",
+                "alt": "Volunteer teacher reading books with smiling children in rural classroom",
+                "href": "/blog/education-empowers-rural-children",
+                "category": "Child Education",
+                "author": {
+                  "name": "Dr. Sarah Mitchell"
+                },
+                "excerpt": "Access to quality education is the single most powerful tool to break generational poverty. Discover how our community learning centers are transforming lives.",
+                "content": [
+                  "In many rural villages across our operating zones, the lack of basic educational infrastructure leaves thousands of bright young minds without access to formal literacy and numeracy. Without schools nearby, children frequently spend their days walking miles for water or working in seasonal labor.",
+                  "HopeAlive Foundation launched the Community Learning Centers initiative to bridge this critical divide. By partnering with village elders and training local volunteer instructors, we have equipped 38 rural community classrooms with solar lamps, bilingual storybooks, clean desks, and essential stationery sets.",
+                  "The transformation is immediate and profound. Attendance rates have surged above 92%, and children who had never held a pencil are now reading fluently in both English and their native dialects. Each student also receives a warm, nutritious meal every day at school, ensuring hunger never stands between a child and their future."
+                ],
+                "quote": "Education is not merely about learning words on paper; it is about restoring dignity, opening doors to self-reliance, and proving to every child that their dreams matter.",
+                "quoteAuthor": "Amara Okafor, HopeAlive Regional Education Coordinator",
+                "tags": [
+                  "Education",
+                  "Child Welfare",
+                  "Literacy",
+                  "Community Hope"
+                ],
+                "collage": {
+                  "title": "Frontline Action & Direct Impact",
+                  "images": [
+                    {
+                      "src": "/images/ngo-clean-water.webp",
+                      "alt": "Clean water initiative in rural village",
+                      "label": "Safe Drinking Water Wells"
+                    },
+                    {
+                      "src": "/images/ngo-food-aid.webp",
+                      "alt": "Daily child nutrition programs",
+                      "label": "Nutritional Emergency Rations"
+                    }
+                  ]
+                },
+                "keyTakeaways": {
+                  "title": "Key Humanitarian Highlights:",
+                  "items": [
+                    "Direct community partnership ensures that 100% of aid is tailored to village needs.",
+                    "Every classroom project is paired with clean sanitation and daily hot meals.",
+                    "Annual independent third-party audits verify all resource distributions transparently."
+                  ]
+                }
+              },
+              {
+                "id": "fighting-child-malnutrition",
+                "date": "June 09, 2025",
+                "title": "Nourishing Young Lives: Delivering Daily Warm Meals to At-Risk Families",
+                "image": "/images/blog-nutrition.webp",
+                "alt": "NGO volunteers serving nutritious hot meals and fruit to community children",
+                "href": "/blog/fighting-child-malnutrition",
+                "category": "Nutrition & Food",
+                "author": {
+                  "name": "James Thornton"
+                },
+                "excerpt": "Chronic hunger robs children of vitality and cognitive development. Learn how our hot community kitchens deliver balanced, life-saving meals every single day.",
+                "content": [
+                  "Severe acute malnutrition remains one of the greatest threats to children under the age of five in vulnerable settlements. Extended droughts and food price spikes frequently push low-income households into desperate survival conditions.",
+                  "HopeAlive's frontline nutrition teams operate daily feeding programs and therapeutic nutrition clinics. Each ration pack provides wholesome grains, legumes, essential vitamins, and fortified peanut pastes formulated to reverse malnutrition rapidly.",
+                  "Beyond emergency rations, we work with mothers and community groups to cultivate sustainable vegetable gardens using drought-tolerant seeds, ensuring families achieve lasting nutritional independence."
+                ],
+                "quote": "When you feed a hungry child, you do not just fill an empty stomach — you rekindle their laughter and their ability to learn.",
+                "quoteAuthor": "James Thornton, Director of Nutrition Outreach",
+                "tags": [
+                  "Nutrition",
+                  "Food Security",
+                  "Child Health",
+                  "Frontline Aid"
+                ],
+                "collage": {
+                  "title": "Nutrition Camps & Emergency Food Relief",
+                  "images": [
+                    {
+                      "src": "/images/about-child.webp",
+                      "alt": "Child receiving fortified nutritional packs",
+                      "label": "Therapeutic Nutrition Packs"
+                    },
+                    {
+                      "src": "/images/about-community.webp",
+                      "alt": "Community food preparation and feeding circle",
+                      "label": "Daily Hot Meal Kitchens"
+                    }
+                  ]
+                },
+                "keyTakeaways": {
+                  "title": "Nutrition Program Highlights:",
+                  "items": [
+                    "Over 12,000 warm meals cooked and delivered every week to vulnerable children.",
+                    "Early intervention clinics diagnose and reverse acute child malnutrition.",
+                    "Community food gardens equip local mothers with sustainable farming tools."
+                  ]
+                }
+              },
+              {
+                "id": "healthcare-outreach-camps",
+                "date": "October 17, 2025",
+                "title": "Healthcare on the Frontlines: Bringing Essential Medicine to Remote Villages",
+                "image": "/images/blog-healthcare.webp",
+                "alt": "Doctor providing medical checkup to child in rural community health camp",
+                "href": "/blog/healthcare-outreach-camps",
+                "category": "Mobile Healthcare",
+                "author": {
+                  "name": "Dr. David Mensah"
+                },
+                "excerpt": "When the nearest medical clinic is three days' walk away, mobile health vans bridge the gap between preventable illness and life-saving care.",
+                "content": [
+                  "Treatable ailments like malaria, respiratory infections, and waterborne pathogens claim far too many lives simply due to geographical isolation. In rural provinces, clinical help is often hopelessly out of reach.",
+                  "Through our mobile health vans, HopeAlive doctors and registered nurses travel directly to remote hamlets. Each camp conducts diagnostic screenings, pediatric vaccinations, maternal health checkups, and dispenses free prescription medications on the spot.",
+                  "Over the past year alone, our medical missions have treated over 45,000 patients, conducted hundreds of safe deliveries, and trained local community health workers to provide emergency first aid."
+                ],
+                "quote": "Healthcare is a universal human right, not a luxury reserved for those living near paved roads.",
+                "quoteAuthor": "Dr. David Mensah, Mobile Health Mission Lead",
+                "tags": [
+                  "Healthcare",
+                  "Medical Outreach",
+                  "Vaccinations",
+                  "Life Saving"
+                ],
+                "collage": {
+                  "title": "Mobile Medical Missions in Remote Regions",
+                  "images": [
+                    {
+                      "src": "/images/blog-healthcare.webp",
+                      "alt": "Doctor checking child health in field camp",
+                      "label": "Pediatric Diagnostics"
+                    },
+                    {
+                      "src": "/images/testimonial-sarah.webp",
+                      "alt": "Field medic administering emergency vaccinations",
+                      "label": "Vaccines & Emergency Meds"
+                    }
+                  ]
+                },
+                "keyTakeaways": {
+                  "title": "Healthcare Outreach Highlights:",
+                  "items": [
+                    "Mobile medical convoys navigate off-road terrain to reach forgotten villages.",
+                    "Zero-cost consultations, essential medicines, and maternal care delivered on-site.",
+                    "Local community health responders trained to manage common illnesses independently."
+                  ]
+                }
+              },
+              {
+                "id": "clean-water-rural-families",
+                "date": "November 12, 2025",
+                "title": "Clean Water Springs to Life: Bringing Solar Wells to Remote Villages",
+                "image": "/images/ngo-clean-water.webp",
+                "alt": "African village children smiling joyfully at a community clean water pump",
+                "href": "/blog/clean-water-rural-families",
+                "category": "Clean Water & Wells",
+                "author": {
+                  "name": "Sarah Jenkins"
+                },
+                "excerpt": "Clean water changes everything. Discover how solar-powered deep boreholes are eradicating waterborne diseases and freeing young girls to attend school.",
+                "content": [
+                  "Before the installation of our solar-powered deep borehole, young girls in the Makueni region spent up to six hours each morning trudging to contaminated mud ponds to collect murky water for their families.",
+                  "With the support of our dedicated donors, HopeAlive drilled deep into the aquifer and installed a durable solar pump system connected to five clean distribution taps situated right in the center of the village.",
+                  "Today, waterborne dysentery has dropped to zero in the community. Mothers have time to pursue micro-enterprises, and young girls are back where they belong — sitting at school desks, learning with bright smiles."
+                ],
+                "quote": "When pure clean water flows into a village, life, health, and economic dignity immediately spring to life with it.",
+                "quoteAuthor": "Sarah Jenkins, Water Engineering Lead",
+                "tags": [
+                  "Clean Water",
+                  "Solar Wells",
+                  "Sanitation",
+                  "Girls Education"
+                ],
+                "collage": {
+                  "title": "Sustainable Water Wells & Community Infrastructure",
+                  "images": [
+                    {
+                      "src": "/images/ngo-clean-water.webp",
+                      "alt": "Village solar water distribution station",
+                      "label": "Solar Deep Boreholes"
+                    },
+                    {
+                      "src": "/images/about-community.webp",
+                      "alt": "Community celebrating new clean water supply",
+                      "label": "Clean Sanitation Systems"
+                    }
+                  ]
+                },
+                "keyTakeaways": {
+                  "title": "Clean Water Impact Highlights:",
+                  "items": [
+                    "Solar-powered deep boreholes provide year-round water even during severe droughts.",
+                    "Waterborne diseases reduced by over 95% within 90 days of well installation.",
+                    "Village water councils trained in routine pump maintenance and aquifer stewardship."
+                  ]
+                }
+              },
+              {
+                "id": "frontline-volunteer-voices",
+                "date": "December 04, 2025",
+                "title": "A Safe Haven: Providing Shelter, Warmth, and Hope to Vulnerable Children",
+                "image": "/images/ngo-shelter-care.webp",
+                "alt": "Humanitarian volunteer caring for young child with warmth in community shelter",
+                "href": "/blog/frontline-volunteer-voices",
+                "category": "Shelter & Protection",
+                "author": {
+                  "name": "Elena Rostova"
+                },
+                "excerpt": "Displacement and crisis leave children vulnerable to exploitation. Our community transit centers provide security, trauma care, and unconditional warmth.",
+                "content": [
+                  "When severe seasonal floods or economic collapse hit vulnerable settlements, children are the first to lose their sense of security. Without a safe roof, the risks of abuse and abandonment multiply rapidly.",
+                  "HopeAlive operates three residential protection shelters equipped with clean sleeping dormitories, counseling spaces, and dedicated house parents who provide round-the-clock nurturing care.",
+                  "Our psychosocial support teams work diligently to reunite children with biological relatives whenever possible, while providing full educational and healthcare sponsorships throughout their transition."
+                ],
+                "quote": "Every child deserves a secure bed, a warm blanket, and someone who tucks them in with love every single night.",
+                "quoteAuthor": "Elena Rostova, Child Care Director",
+                "tags": [
+                  "Child Shelter",
+                  "Protection",
+                  "Mental Health",
+                  "Compassion"
+                ],
+                "collage": {
+                  "title": "Safe Havens & Trauma Recovery for Displaced Youth",
+                  "images": [
+                    {
+                      "src": "/images/ngo-shelter-care.webp",
+                      "alt": "Safe residential shelter dormitory and play area",
+                      "label": "Protective Residential Care"
+                    },
+                    {
+                      "src": "/images/about-child.webp",
+                      "alt": "Child smiling in caring shelter environment",
+                      "label": "Psychosocial Trauma Healing"
+                    }
+                  ]
+                },
+                "keyTakeaways": {
+                  "title": "Protection & Shelter Highlights:",
+                  "items": [
+                    "Round-the-clock shelter homes provide loving house parents and nutritious food.",
+                    "Licensed counselors provide trauma-informed therapy and emotional healing.",
+                    "Dedicated legal and social work team strives for safe family reunification."
+                  ]
+                }
+              },
+              {
+                "id": "rebuilding-hope-shelters",
+                "date": "January 15, 2026",
+                "title": "Emergency Relief in Action: Delivering Urgent Food Sacks to Families in Need",
+                "image": "/images/ngo-food-aid.webp",
+                "alt": "NGO humanitarian volunteers distributing emergency relief sacks and food rations to mothers",
+                "href": "/blog/rebuilding-hope-shelters",
+                "category": "Emergency Relief",
+                "author": {
+                  "name": "Michael Bennett"
+                },
+                "excerpt": "When sudden crisis strikes, rapid response is the difference between life and death. Read how our emergency task force mobilizes within 24 hours.",
+                "content": [
+                  "Natural emergencies give no advance warning. Within hours, flash floods or severe freezes can wipe out an entire community's food reserves and shelter materials.",
+                  "HopeAlive's Emergency Rapid Response Task Force maintains pre-positioned logistics caches of high-calorie food sacks, clean water purification tablets, thermal blankets, and family hygiene sets.",
+                  "Thanks to direct contributions, our logistics convoy delivered over 18 tons of urgent relief supplies to 1,200 displaced families within 36 hours of the recent regional emergency."
+                ],
+                "quote": "In disaster zones, speed and compassion are inseparable. Every minute saved protects a child's life.",
+                "quoteAuthor": "Michael Bennett, Rapid Response Lead",
+                "tags": [
+                  "Emergency Relief",
+                  "Disaster Response",
+                  "Food Aid",
+                  "Rapid Action"
+                ],
+                "collage": {
+                  "title": "Rapid Disaster Response & Emergency Logistics",
+                  "images": [
+                    {
+                      "src": "/images/ngo-food-aid.webp",
+                      "alt": "Emergency food ration distribution convoy",
+                      "label": "High-Calorie Relief Packs"
+                    },
+                    {
+                      "src": "/images/ngo-clean-water.webp",
+                      "alt": "Water purification tablets and emergency water kits",
+                      "label": "Emergency Water & Blankets"
+                    }
+                  ]
+                },
+                "keyTakeaways": {
+                  "title": "Emergency Response Highlights:",
+                  "items": [
+                    "Logistics task force mobilizes field convoys within 24 to 36 hours of crisis.",
+                    "Pre-positioned regional warehouses ensure rapid deployment of life-saving essentials.",
+                    "Coordinated relief efforts partner directly with local disaster management councils."
+                  ]
+                }
+              }
+            ],
+            "donationCta": {
+              "badge": "Make A Difference",
+              "title": "Support Our Ongoing Humanitarian Programs",
+              "description": "Your direct contribution empowers our medical, nutrition, and schooling convoys to reach the next community.",
+              "buttonText": "Contact Us",
+              "buttonHref": "/contact"
+            },
+            "sidebar": {
+              "recentTitle": "Recent Field Stories",
+              "donateCard": {
+                "title": "Every Action Saves Lives",
+                "description": "Join our circle of hope today. Your gift provides immediate nutrition, clean water, and classroom packs to vulnerable children.",
+                "buttonText": "Donate",
+                "buttonHref": "/contact"
+              }
+            }
+          }
+        }
+      },
+      "contact": {
+        "variants": {
+          "HopeAliveContact1": {
+            "badge": {
+              "text": "GET IN TOUCH",
+              "dot": true
+            },
+            "headline": {
+              "line1": "We Love To Hear From You",
+              "line2": ""
+            },
+            "description": "Have questions about our humanitarian programs, corporate partnerships, or donation drives? Reach out to our dedicated team anytime.",
+            "info": {
+              "address": {
+                "title": "Global Headquarters",
+                "lines": [
+                  "3170 Rosewood Lane Unit 200",
+                  "Beverly Hills, CA 90210"
+                ]
+              },
+              "phone": {
+                "title": "Call Direct Hotline",
+                "numbers": [
+                  "+10 0000000000",
+                  "+1 (800) 467-3254"
+                ]
+              },
+              "email": {
+                "title": "Send An Email",
+                "address": "info@xyz.com"
+              },
+              "support": {
+                "title": "Frontline & Volunteer Desk",
+                "text": "Immediate aid dispatch, localized relief projects & volunteer coordination.",
+                "email": "volunteer@xyz.com"
+              }
+            }
+          }
+        }
+      },
+      "thankYou": {
+        "variants": {
+          "HopeAliveThankYou1": {
+            "headline": "Thank You for Reaching Out",
+            "description": "Your message has been safely received by our frontline humanitarian desk. Because of caring supporters like you, HopeAlive continues to deliver nutrition, healthcare, and educational hope to children in need.",
+            "primaryCta": {
+              "label": "Return to Home",
+              "href": "/"
+            },
+            "secondaryCta": {
+              "label": "Explore Active Causes",
+              "href": "/causes"
+            }
+          }
+        }
+      },
+      "notFound": {
+        "variants": {
+          "HopeAliveNotFound1": {
+            "code": "404",
+            "headline": "The Page Does Not Exist",
+            "description": "Even in uncharted ground, hope never fades or the page may have been relocated during our latest humanitarian platform updates.",
+            "primaryCta": {
+              "label": "Return to Homepage",
+              "href": "/"
+            },
+            "secondaryCta": {
+              "label": "Explore Active Causes",
+              "href": "/causes"
+            }
+          }
+        }
+      },
+      "footer": {
+        "variants": {
+          "HopeAliveFooter1": {
+            "logo": "/logo/logo.webp",
+            "headline": {
+              "line1": "HopeAlive"
+            },
+            "description": "Rooted in purpose and grown through community, we turn simple actions into lasting impact that reaches far beyond today.",
+            "socials": [
+              {
+                "id": "facebook",
+                "platform": "facebook",
+                "href": "https://facebook.com",
+                "label": "Facebook"
+              },
+              {
+                "id": "instagram",
+                "platform": "instagram",
+                "href": "https://instagram.com",
+                "label": "Instagram"
+              },
+              {
+                "id": "twitter",
+                "platform": "twitter",
+                "href": "https://twitter.com",
+                "label": "Twitter"
+              },
+              {
+                "id": "linkedin",
+                "platform": "linkedin",
+                "href": "https://linkedin.com",
+                "label": "LinkedIn"
+              }
+            ],
+            "linksSection": {
+              "title": "LINKS",
+              "links": [
+                {
+                  "label": "Home",
+                  "href": "/"
+                },
+                {
+                  "label": "About Us",
+                  "href": "/about"
+                },
+                {
+                  "label": "Our Project",
+                  "href": "/project"
+                },
+                {
+                  "label": "Causes",
+                  "href": "/causes"
+                },
+                {
+                  "label": "Blog",
+                  "href": "/blog"
+                }
+              ]
+            },
+            "quickLinksSection": {
+              "title": "QUICK LINKS",
+              "links": [
+                {
+                  "label": "FAQs",
+                  "href": "/faqs"
+                },
+                {
+                  "label": "Our Team",
+                  "href": "/team"
+                },
+                {
+                  "label": "Testimonials",
+                  "href": "/testimonial"
+                },
+                {
+                  "label": "Contact Us",
+                  "href": "/contact"
+                }
+              ]
+            },
+            "locationSection": {
+              "title": "LOCATION",
+              "addressLines": [
+                "3170 Rosewood Lane Unit 200",
+                "Beverly Hills, CA 90210"
+              ],
+              "phones": [
+                "+10 0000000000"
+              ],
+              "email": "info@xyz.com"
+            },
+            "copyright": {
+              "line1": "© 2026 Copyright HopeAlive. All rights reserved. Powered by Lestow"
+            },
+            "watermark": "HopeAlive"
+          }
+        }
+      },
+      "siteMetadata": {
+        "variants": {
+          "HopeAliveSiteMetadata1": {
+            "name": "HopeAlive",
+            "tagline": "Rooted in Compassion, Growing Lasting Hope",
+            "description": "HopeAlive is a global non-profit organization dedicated to empowering vulnerable children, supporting families, and uplifting communities through education, healthcare, and humanitarian aid."
+          }
+        }
+      }
     }
-  },
-  "hero": {
-    "badge": {
-      "text": "GLOBAL NONPROFIT & HUMANITARIAN AID",
-      "dot": true
-    },
-    "headline": {
-      "line1": "Children,",
-      "line2": "Nurturing Communities,",
-      "line3": "Transforming Lives"
-    },
-    "description": "HopeAlive Foundation works on the frontlines to empower vulnerable children and underserved communities through education, healthcare, and sustainable development.",
-    "cta": {
-      "label": "Explore Now",
-      "href": "/project"
-    },
-    "backgroundImage": "/images/hero-children.png"
-  },
-  "about": {
-    "badge": {
-      "text": "ABOUT US",
-      "dot": true
-    },
-    "stats": {
-      "value": "250K+",
-      "label": "LIVES TRANSFORMED"
-    },
-    "headline": {
-      "line1": "International Independent",
-      "line2": "Charity Organization"
-    },
-    "description": "Your support will help us to make life better living for poor vulnerable children. We are a non-profit organization working for children and communities in need.",
-    "cta": {
-      "label": "Support Our Mission",
-      "href": "/about"
-    },
-    "images": {
-      "planting": {
-        "src": "/images/about-community.jpg",
-        "alt": "HopeAlive volunteers and community children learning together in rural village"
-      },
-      "seedling": {
-        "src": "/images/about-child.jpg",
-        "alt": "Joyful young African village girl smiling with hope"
-      }
-    }
-  },
-  "missionVision": {
-    "vision": {
-      "title": {
-        "line1": "Our",
-        "line2": "Vision"
-      },
-      "description": "We envision a world where every vulnerable child grows up healthy, educated, and protected. HopeAlive strives to break cycles of poverty across rural communities by establishing self-sustaining ecosystems where clean drinking water, quality primary schooling, and reliable healthcare are accessible to every family, leaving no child behind."
-    },
-    "mission": {
-      "title": {
-        "line1": "Our",
-        "line2": "Mission"
-      },
-      "description": "Our mission is to turn compassionate giving into tangible, life-changing action. Through direct grassroots mobilization, mobile rural healthcare camps, free learning resources, and nutritional emergency aid, we empower underprivileged communities with the tools, dignity, and resilience needed for a brighter, self-reliant future."
-    }
-  },
-  "whyChooseUs": {
-    "badge": {
-      "text": "WHY CHOOSE US",
-      "dot": true
-    },
-    "headline": {
-      "line1": "Why Choose Us"
-    },
-    "description": "We combine relentless frontline dedication, zero-overhead transparency, and sustainable community empowerment to bring real hope where it is needed most.",
-    "image": "/images/about-community.jpg",
-    "imageAlt": "HopeAlive community building and education initiative",
-    "items": [
-      {
-        "id": "item-1",
-        "number": "01",
-        "badgeColor": "#2d5a27",
-        "title": "Direct Grassroots Impact",
-        "description": "We work directly on the frontlines in underserved villages, delivering clean water, emergency nourishment, and essential medical supplies directly to families in need."
-      },
-      {
-        "id": "item-2",
-        "number": "02",
-        "badgeColor": "#d97706",
-        "title": "100% Financial Transparency",
-        "description": "Every donation is publicly accounted for with strict audits and low overhead, ensuring your contribution directly uplifts children and builds lasting community resilience."
-      },
-      {
-        "id": "item-3",
-        "number": "03",
-        "badgeColor": "#15803d",
-        "title": "Sustainable Self-Reliance",
-        "description": "Beyond immediate humanitarian relief, we build learning classrooms, vocational training programs, and local water systems so communities can flourish independently."
-      }
-    ]
-  },
-  "causes": {
-    "badge": {
-      "text": "OUR CAUSES",
-      "dot": true
-    },
-    "headline": {
-      "line1": "The Causes We Care About",
-      "line2": ""
-    },
-    "description": "Every contribution creates opportunities for children, families, and communities to build a brighter and healthier future together.",
-    "items": [
-      {
-        "id": "child-nutrition",
-        "title": "Education For Poor Children",
-        "category": "Child Education",
-        "icon": "education",
-        "image": "/images/blog-education.jpg",
-        "raised": "$24,500",
-        "goal": "$30,000",
-        "description": "Every child deserves quality education, regardless of background. We provide free schooling, books, uniforms, and nutritious meals to children in need. Your support helps us build classrooms, train teachers, and ensure every child can learn, grow, and dream without limits.",
-        "href": "/programs/education"
-      },
-      {
-        "id": "education-empowerment",
-        "title": "Emergency Aid & Food Relief",
-        "category": "Emergency Aid",
-        "icon": "emergency",
-        "image": "/images/ngo-food-aid.jpg",
-        "raised": "$42,000",
-        "goal": "$50,000",
-        "description": "We provide food, emergency shelter, medical aid, and vital resources to families facing extreme poverty. Your contribution helps us deliver essentials that change lives and restore human dignity.",
-        "href": "/programs/emergency-aid"
-      },
-      {
-        "id": "healthcare-shelter",
-        "title": "Shelter For Homeless Children",
-        "category": "Child Protection",
-        "icon": "shelter",
-        "image": "/images/ngo-shelter-care.jpg",
-        "raised": "$18,200",
-        "goal": "$25,000",
-        "description": "Children need safety, warmth, and care. We provide emergency shelters, warm clothing, and nutritious meals to homeless children, ensuring they have a safe place to rest, heal, and rebuild their lives.",
-        "href": "/programs/child-shelter"
-      },
-      {
-        "id": "clean-water-sanitation",
-        "title": "Pure Clean Drinking Water",
-        "category": "Clean Water",
-        "icon": "water",
-        "image": "/images/ngo-clean-water.jpg",
-        "raised": "$31,400",
-        "goal": "$40,000",
-        "description": "Clean water transforms whole villages. We install solar-powered wells and water purification filtration units, reducing waterborne illnesses and restoring vitality to vulnerable families.",
-        "href": "/programs/water"
-      },
-      {
-        "id": "emergency-food-nutrition",
-        "title": "Daily Warm Meals For Children",
-        "category": "Food & Nutrition",
-        "icon": "nutrition",
-        "image": "/images/blog-nutrition.jpg",
-        "raised": "$15,800",
-        "goal": "$20,000",
-        "description": "Nutritious daily meals empower young minds and bodies. We run community hot kitchens and direct nourishment drives for impoverished children and at-risk families facing acute hunger.",
-        "href": "/programs/nutrition"
-      },
-      {
-        "id": "medical-outreach-aid",
-        "title": "Mobile Healthcare & Medicine",
-        "category": "Healthcare Aid",
-        "icon": "healthcare",
-        "image": "/images/blog-healthcare.jpg",
-        "raised": "$28,900",
-        "goal": "$35,000",
-        "description": "Bringing compassionate doctors and life-saving treatments to rural communities without clinics. We deliver pediatric care, diagnostic screenings, and emergency medical supplies.",
-        "href": "/programs/healthcare"
-      }
-    ]
-  },
-  "blog": {
-    "badge": {
-      "text": "OUR BLOGS",
-      "dot": true
-    },
-    "headline": {
-      "line1": "Check Out Our Latest News",
-      "line2": ""
-    },
-    "description": "Explore our latest articles, field reports, and inspiring stories showing how HopeAlive Foundation empowers vulnerable children and transforms communities.",
-    "blogPosts": [
-      {
-        "id": "education-empowers-rural-children",
-        "date": "April 20, 2025",
-        "title": "How Education Unlocks Brighter Futures for Underprivileged Children",
-        "image": "/images/blog-education.jpg",
-        "alt": "Volunteer teacher reading books with smiling children in rural classroom",
-        "href": "/blog/education-empowers-rural-children",
-        "category": "Child Education",
-        "readTime": "5 Min Read",
-        "author": {
-          "name": "Dr. Sarah Mitchell",
-          "role": "Education & Field Lead",
-          "avatar": "/images/testimonial-sarah.jpg"
-        },
-        "excerpt": "Access to quality education is the single most powerful tool to break generational poverty. Discover how our community learning centers are transforming lives.",
-        "content": [
-          "In many rural villages across our operating zones, the lack of basic educational infrastructure leaves thousands of bright young minds without access to formal literacy and numeracy. Without schools nearby, children frequently spend their days walking miles for water or working in seasonal labor.",
-          "HopeAlive Foundation launched the Community Learning Centers initiative to bridge this critical divide. By partnering with village elders and training local volunteer instructors, we have equipped 38 rural community classrooms with solar lamps, bilingual storybooks, clean desks, and essential stationery sets.",
-          "The transformation is immediate and profound. Attendance rates have surged above 92%, and children who had never held a pencil are now reading fluently in both English and their native dialects. Each student also receives a warm, nutritious meal every day at school, ensuring hunger never stands between a child and their future."
-        ],
-        "quote": "Education is not merely about learning words on paper; it is about restoring dignity, opening doors to self-reliance, and proving to every child that their dreams matter.",
-        "quoteAuthor": "Amara Okafor, HopeAlive Regional Education Coordinator",
-        "tags": [
-          "Education",
-          "Child Welfare",
-          "Literacy",
-          "Community Hope"
-        ]
-      },
-      {
-        "id": "fighting-child-malnutrition",
-        "date": "June 09, 2025",
-        "title": "Nourishing Young Lives: Delivering Daily Warm Meals to At-Risk Families",
-        "image": "/images/blog-nutrition.jpg",
-        "alt": "NGO volunteers serving nutritious hot meals and fruit to community children",
-        "href": "/blog/fighting-child-malnutrition",
-        "category": "Nutrition & Food",
-        "readTime": "4 Min Read",
-        "author": {
-          "name": "James Thornton",
-          "role": "Nutrition Programs Director",
-          "avatar": "/images/testimonial-michael.jpg"
-        },
-        "excerpt": "Chronic hunger robs children of vitality and cognitive development. Learn how our hot community kitchens deliver balanced, life-saving meals every single day.",
-        "content": [
-          "Severe acute malnutrition remains one of the greatest threats to children under the age of five in vulnerable settlements. Extended droughts and food price spikes frequently push low-income households into desperate survival conditions.",
-          "HopeAlive's frontline nutrition teams operate daily feeding programs and therapeutic nutrition clinics. Each ration pack provides wholesome grains, legumes, essential vitamins, and fortified peanut pastes formulated to reverse malnutrition rapidly.",
-          "Beyond emergency rations, we work with mothers and community groups to cultivate sustainable vegetable gardens using drought-tolerant seeds, ensuring families achieve lasting nutritional independence."
-        ],
-        "quote": "When you feed a hungry child, you do not just fill an empty stomach — you rekindle their laughter and their ability to learn.",
-        "quoteAuthor": "James Thornton, Director of Nutrition Outreach",
-        "tags": [
-          "Nutrition",
-          "Food Security",
-          "Child Health",
-          "Frontline Aid"
-        ]
-      },
-      {
-        "id": "healthcare-outreach-camps",
-        "date": "October 17, 2025",
-        "title": "Healthcare on the Frontlines: Bringing Essential Medicine to Remote Villages",
-        "image": "/images/blog-healthcare.jpg",
-        "alt": "Doctor providing medical checkup to child in rural community health camp",
-        "href": "/blog/healthcare-outreach-camps",
-        "category": "Mobile Healthcare",
-        "readTime": "6 Min Read",
-        "author": {
-          "name": "Dr. David Mensah",
-          "role": "Chief Medical Officer",
-          "avatar": "/images/testimonial-david.jpg"
-        },
-        "excerpt": "When the nearest medical clinic is three days' walk away, mobile health vans bridge the gap between preventable illness and life-saving care.",
-        "content": [
-          "Treatable ailments like malaria, respiratory infections, and waterborne pathogens claim far too many lives simply due to geographical isolation. In rural provinces, clinical help is often hopelessly out of reach.",
-          "Through our mobile health vans, HopeAlive doctors and registered nurses travel directly to remote hamlets. Each camp conducts diagnostic screenings, pediatric vaccinations, maternal health checkups, and dispenses free prescription medications on the spot.",
-          "Over the past year alone, our medical missions have treated over 45,000 patients, conducted hundreds of safe deliveries, and trained local community health workers to provide emergency first aid."
-        ],
-        "quote": "Healthcare is a universal human right, not a luxury reserved for those living near paved roads.",
-        "quoteAuthor": "Dr. David Mensah, Mobile Health Mission Lead",
-        "tags": [
-          "Healthcare",
-          "Medical Outreach",
-          "Vaccinations",
-          "Life Saving"
-        ]
-      },
-      {
-        "id": "clean-water-rural-families",
-        "date": "November 12, 2025",
-        "title": "Clean Water Springs to Life: Bringing Solar Wells to Remote Villages",
-        "image": "/images/ngo-clean-water.jpg",
-        "alt": "African village children smiling joyfully at a community clean water pump",
-        "href": "/blog/clean-water-rural-families",
-        "category": "Clean Water & Wells",
-        "readTime": "5 Min Read",
-        "author": {
-          "name": "Sarah Jenkins",
-          "role": "Water Infrastructure Specialist",
-          "avatar": "/images/testimonial-sarah.jpg"
-        },
-        "excerpt": "Clean water changes everything. Discover how solar-powered deep boreholes are eradicating waterborne diseases and freeing young girls to attend school.",
-        "content": [
-          "Before the installation of our solar-powered deep borehole, young girls in the Makueni region spent up to six hours each morning trudging to contaminated mud ponds to collect murky water for their families.",
-          "With the support of our dedicated donors, HopeAlive drilled deep into the aquifer and installed a durable solar pump system connected to five clean distribution taps situated right in the center of the village.",
-          "Today, waterborne dysentery has dropped to zero in the community. Mothers have time to pursue micro-enterprises, and young girls are back where they belong — sitting at school desks, learning with bright smiles."
-        ],
-        "quote": "When pure clean water flows into a village, life, health, and economic dignity immediately spring to life with it.",
-        "quoteAuthor": "Sarah Jenkins, Water Engineering Lead",
-        "tags": [
-          "Clean Water",
-          "Solar Wells",
-          "Sanitation",
-          "Girls Education"
-        ]
-      },
-      {
-        "id": "frontline-volunteer-voices",
-        "date": "December 04, 2025",
-        "title": "A Safe Haven: Providing Shelter, Warmth, and Hope to Vulnerable Children",
-        "image": "/images/ngo-shelter-care.jpg",
-        "alt": "Humanitarian volunteer caring for young child with warmth in community shelter",
-        "href": "/blog/frontline-volunteer-voices",
-        "category": "Shelter & Protection",
-        "readTime": "4 Min Read",
-        "author": {
-          "name": "Elena Rostova",
-          "role": "Child Protection Specialist",
-          "avatar": "/images/testimonial-sarah.jpg"
-        },
-        "excerpt": "Displacement and crisis leave children vulnerable to exploitation. Our community transit centers provide security, trauma care, and unconditional warmth.",
-        "content": [
-          "When severe seasonal floods or economic collapse hit vulnerable settlements, children are the first to lose their sense of security. Without a safe roof, the risks of abuse and abandonment multiply rapidly.",
-          "HopeAlive operates three residential protection shelters equipped with clean sleeping dormitories, counseling spaces, and dedicated house parents who provide round-the-clock nurturing care.",
-          "Our psychosocial support teams work diligently to reunite children with biological relatives whenever possible, while providing full educational and healthcare sponsorships throughout their transition."
-        ],
-        "quote": "Every child deserves a secure bed, a warm blanket, and someone who tucks them in with love every single night.",
-        "quoteAuthor": "Elena Rostova, Child Care Director",
-        "tags": [
-          "Child Shelter",
-          "Protection",
-          "Mental Health",
-          "Compassion"
-        ]
-      },
-      {
-        "id": "rebuilding-hope-shelters",
-        "date": "January 15, 2026",
-        "title": "Emergency Relief in Action: Delivering Urgent Food Sacks to Families in Need",
-        "image": "/images/ngo-food-aid.jpg",
-        "alt": "NGO humanitarian volunteers distributing emergency relief sacks and food rations to mothers",
-        "href": "/blog/rebuilding-hope-shelters",
-        "category": "Emergency Relief",
-        "readTime": "5 Min Read",
-        "author": {
-          "name": "Michael Bennett",
-          "role": "Disaster Response Coordinator",
-          "avatar": "/images/testimonial-michael.jpg"
-        },
-        "excerpt": "When sudden crisis strikes, rapid response is the difference between life and death. Read how our emergency task force mobilizes within 24 hours.",
-        "content": [
-          "Natural emergencies give no advance warning. Within hours, flash floods or severe freezes can wipe out an entire community's food reserves and shelter materials.",
-          "HopeAlive's Emergency Rapid Response Task Force maintains pre-positioned logistics caches of high-calorie food sacks, clean water purification tablets, thermal blankets, and family hygiene sets.",
-          "Thanks to direct contributions, our logistics convoy delivered over 18 tons of urgent relief supplies to 1,200 displaced families within 36 hours of the recent regional emergency."
-        ],
-        "quote": "In disaster zones, speed and compassion are inseparable. Every minute saved protects a child's life.",
-        "quoteAuthor": "Michael Bennett, Rapid Response Lead",
-        "tags": [
-          "Emergency Relief",
-          "Disaster Response",
-          "Food Aid",
-          "Rapid Action"
-        ]
-      }
-    ]
-  },
-  "projects": {
-    "badge": {
-      "text": "OUR PROJECTS",
-      "dot": true
-    },
-    "headline": {
-      "line1": "Our Featured Projects",
-      "line2": ""
-    },
-    "description": "Discover HopeAlive Foundation's active humanitarian projects — delivering quality education, child healthcare, clean water, and nutritional aid across vulnerable communities.",
-    "projectsList": [
-      {
-        "id": "project-education",
-        "title": "Education",
-        "subtitle": "Quality Education For All",
-        "description": "Providing free education, books and learning resources to underprivileged children for a brighter future.",
-        "category": "Youth Literacy & Schools",
-        "ctaText": "Explore Project",
-        "image": "/images/project-gallery-books.jpg",
-        "alt": "Hands holding open school books and notebooks for children education",
-        "href": "/project/education",
-        "stats": [
-          {
-            "label": "Children Enrolled",
-            "value": "72,000+"
-          },
-          {
-            "label": "Classrooms & Centers",
-            "value": "140+"
-          },
-          {
-            "label": "Direct Community Handover",
-            "value": "100%"
-          },
-          {
-            "label": "Regional Literacy Gain",
-            "value": "+38%"
-          }
-        ],
-        "challengeSolution": {
-          "title": "The Frontline Reality & Critical Need",
-          "paragraphs": [
-            "In remote villages across our operating zones, children frequently walk over 7 kilometers daily across arid terrain simply to attend dilapidated, single-room schoolhouses lacking roofs, clean water, or basic writing desks. When severe drought hits, schools shutter entirely as families prioritize basic survival.",
-            "HopeAlive Foundation launched this targeted initiative not merely to construct walls, but to create thriving, self-sustaining educational sanctuaries. By combining resilient classroom architecture with localized solar clean water boreholes, school attendance rates surge by more than 85% within the first academic term."
-          ]
-        },
-        "quote": {
-          "text": "“A secure classroom with clean water on site is more than bricks and pipes — it is the single most transformative equalizer for a vulnerable child’s destiny.”",
-          "author": "Dr. Sarah Mitchell",
-          "role": "Executive Director & Field Medic"
-        },
-        "milestones": {
-          "title": "Project Implementation Lifecycle",
-          "items": [
-            {
-              "phase": "Phase 01",
-              "title": "Community Needs Assessment & Land Survey",
-              "description": "Field officers collaborate directly with village elders, local parent associations, and district education directors to map student population deficits.",
-              "status": "Completed"
-            },
-            {
-              "phase": "Phase 02",
-              "title": "Classroom Construction & Solar Borehole Integration",
-              "description": "Erecting weather-resistant brick classrooms, installing shaded ventilation, and drilling a dedicated solar well ensuring students have safe drinking water on campus.",
-              "status": "Completed"
-            },
-            {
-              "phase": "Phase 03",
-              "title": "Learning Kits, Textbooks & Digital Tablets",
-              "description": "Supplying accredited curriculum books, pencils, backpacks, and solar-charged tablets loaded with offline STEM and literacy modules.",
-              "status": "Active Deployment"
-            },
-            {
-              "phase": "Phase 04",
-              "title": "Teacher Training & Sustainable Community Handover",
-              "description": "Conducting pedagogical workshops for 85+ local educators and establishing a community school maintenance trust for multi-generational longevity.",
-              "status": "Ongoing Stewardship"
-            }
-          ]
-        },
-        "gallery": {
-          "title": "Frontline Gallery & Field Documentation",
-          "items": [
-            {
-              "image": "/images/project-gallery-baby.jpg",
-              "alt": "Pediatric healthcare and maternal wellness in project village",
-              "caption": "Pediatric Health & Nutrition Hub"
-            },
-            {
-              "image": "/images/project-water.jpg",
-              "alt": "Solar-powered borehole providing clean running water",
-              "caption": "Clean Water Well Integration"
-            }
-          ]
-        },
-        "callout": {
-          "title": "Sponsor a Rural Classroom or Learning Kits",
-          "description": "Collaborate with our field directors to construct classrooms, provide textbooks, and equip local teachers with learning resources.",
-          "buttonText": "Sponsor Education",
-          "buttonHref": "/contact"
-        },
-        "donateCard": {
-          "title": "Empower a Child Through Education",
-          "description": "Your support provides school supplies, textbooks, uniforms, and solar learning tablets for underprivileged students.",
-          "buttonText": "Donate For Education",
-          "buttonHref": "#"
-        }
-      },
-      {
-        "id": "project-healthcare",
-        "title": "Healthcare",
-        "subtitle": "Healthcare For Every Life",
-        "description": "Organizing health camps, medical support and awareness programs for rural communities.",
-        "category": "Medical Outreach & Aid",
-        "ctaText": "Explore Project",
-        "image": "/images/project-gallery-baby.jpg",
-        "alt": "Volunteer hands protecting and nurturing a newborn baby in healthcare outreach",
-        "href": "/project/healthcare",
-        "stats": [
-          {
-            "value": "12,450+",
-            "label": "Patients Screened & Treated"
-          },
-          {
-            "value": "24",
-            "label": "Mobile Clinics & Field Camps"
-          },
-          {
-            "value": "3,800+",
-            "label": "Pediatric Vaccinations Administered"
-          },
-          {
-            "value": "100%",
-            "label": "Free Essential Medicine Access"
-          }
-        ],
-        "challengeSolution": {
-          "title": "Frontline Medical Deserts & Mobile Healthcare Solutions",
-          "paragraphs": [
-            "Healthcare access remains non-existent across remote rural settlements, where families frequently live more than 50 kilometers away from the nearest operational dispensary, leaving preventable infections to escalate into life-threatening conditions.",
-            "HopeAlive Foundation mobilizes fully equipped mobile health vehicles staffed with compassionate volunteer doctors and nurses, delivering routine diagnostic tests, prenatal consultations, critical antibiotics, and emergency maternal care directly to village doorsteps."
-          ]
-        },
-        "quote": {
-          "text": "“Reaching a vulnerable mother in active labor or treating a child suffering from severe respiratory infection in the field is what our mobile clinics exist for.”",
-          "author": "Dr. Sarah Mitchell",
-          "role": "Executive Director & Field Medic"
-        },
-        "milestones": {
-          "title": "Medical Mission Lifecycle",
-          "items": [
-            {
-              "phase": "Phase 01",
-              "title": "Community Health Triage & Prevalence Mapping",
-              "description": "Field medics conduct baseline screenings for waterborne illness, malnutrition, malaria, and prenatal maternal risks.",
-              "status": "Completed"
-            },
-            {
-              "phase": "Phase 02",
-              "title": "Mobile Outpost Deployment & Diagnostic Setup",
-              "description": "Dispatching 4x4 mobile clinical units equipped with point-of-care lab tests, ultrasound devices, and emergency oxygen.",
-              "status": "Completed"
-            },
-            {
-              "phase": "Phase 03",
-              "title": "Essential Prescription & Infant Vaccine Drive",
-              "description": "Distributing subsidized pharmaceuticals, clean delivery birth kits, and administering vital pediatric immunizations.",
-              "status": "Active Deployment"
-            },
-            {
-              "phase": "Phase 04",
-              "title": "Community Health Worker Certification & Handover",
-              "description": "Training and certifying 50+ local village health volunteers in rapid wound care, fever diagnosis, and triage referrals.",
-              "status": "Ongoing Stewardship"
-            }
-          ]
-        },
-        "gallery": {
-          "title": "Frontline Gallery & Field Documentation",
-          "items": [
-            {
-              "image": "/images/project-gallery-baby.jpg",
-              "alt": "Pediatric healthcare and maternal wellness in project village",
-              "caption": "Pediatric Health & Newborn Wellness Hub"
-            },
-            {
-              "image": "/images/blog-healthcare.jpg",
-              "alt": "Compassionate doctor examining patient in mobile clinic",
-              "caption": "Mobile Medical Clinic & Health Consultations"
-            }
-          ]
-        },
-        "callout": {
-          "title": "Support Mobile Medical Clinics & Doctors",
-          "description": "Help us dispatch mobile clinics stocked with diagnostic tests, vaccines, and emergency maternal medicine to isolated villages.",
-          "buttonText": "Support Healthcare",
-          "buttonHref": "/contact"
-        },
-        "donateCard": {
-          "title": "Deliver Life-Saving Medical Care",
-          "description": "Help fund routine checkups, antibiotic treatments, newborn wellness, and emergency surgeries for vulnerable families.",
-          "buttonText": "Donate For Healthcare",
-          "buttonHref": "#"
-        }
-      },
-      {
-        "id": "project-clean-water",
-        "title": "Clean Water",
-        "subtitle": "Clean Water, Better Life",
-        "description": "Building water wells and supplying safe drinking water to families and villages.",
-        "category": "Clean Water & Wells",
-        "ctaText": "Explore Project",
-        "image": "/images/project-water.jpg",
-        "alt": "Cupped hands holding fresh clean drinking water droplets",
-        "href": "/project/clean-water",
-        "stats": [
-          {
-            "value": "3.8M+",
-            "label": "Liters Clean Water Pumped"
-          },
-          {
-            "value": "45+",
-            "label": "Solar Boreholes Installed"
-          },
-          {
-            "value": "82%",
-            "label": "Drop in Waterborne Disease"
-          },
-          {
-            "value": "68",
-            "label": "Villages with Direct Safe Access"
-          }
-        ],
-        "challengeSolution": {
-          "title": "The Scourge of Contaminated Water & The Deep Solar Borehole Solution",
-          "paragraphs": [
-            "In arid rural districts, mothers and school-age girls walk over four hours every day under intense heat to collect brown, contaminated water from shared livestock puddles, directly leading to rampant cholera, dysentery, and child fatalities.",
-            "HopeAlive Foundation deploys industrial hydraulic drilling rigs capable of penetrating deep subterranean aquifers up to 130 meters beneath the ground, powering stainless submersible pumps with solar arrays to dispense thousands of liters of crystalline drinking water daily."
-          ]
-        },
-        "quote": {
-          "text": "“When pure, clean running water begins flowing in the center of a village, sickness vanishes almost overnight, and young girls finally have the time to return to school.”",
-          "author": "Kwame Mensah",
-          "role": "Lead Water Infrastructure Engineer"
-        },
-        "milestones": {
-          "title": "Clean Water Infrastructure Lifecycle",
-          "items": [
-            {
-              "phase": "Phase 01",
-              "title": "Hydrogeological Survey & Aquifer Depth Sounding",
-              "description": "Geologists utilize ground radar to pinpoint reliable underground water tables with certified multi-decade capacity.",
-              "status": "Completed"
-            },
-            {
-              "phase": "Phase 02",
-              "title": "Deep Borehole Drilling & Well Casing",
-              "description": "Hydraulic rigs drill down 120+ meters, inserting food-grade non-toxic casings to prevent surface seepage.",
-              "status": "Completed"
-            },
-            {
-              "phase": "Phase 03",
-              "title": "Solar Array Installation & 10,000L Cistern Setup",
-              "description": "Mounting durable monocrystalline solar panels and elevating dual 5,000L storage cisterns with UV filtration.",
-              "status": "Active Deployment"
-            },
-            {
-              "phase": "Phase 04",
-              "title": "Village Water Committee Formation & Tool Handover",
-              "description": "Training five village custodians in pump maintenance, valve repairs, and weekly microbiological water testing.",
-              "status": "Ongoing Stewardship"
-            }
-          ]
-        },
-        "gallery": {
-          "title": "Frontline Gallery & Field Documentation",
-          "items": [
-            {
-              "image": "/images/project-water.jpg",
-              "alt": "Cupped hands holding fresh clean drinking water droplets",
-              "caption": "First Fresh Flow from New Solar Borehole"
-            },
-            {
-              "image": "/images/ngo-clean-water.jpg",
-              "alt": "Solar powered clean water distribution kiosk",
-              "caption": "Community Clean Water Station & Collection Kiosk"
-            }
-          ]
-        },
-        "callout": {
-          "title": "Sponsor a Solar Clean Water Borehole",
-          "description": "Partner with our engineering corps to drill deep aquifers, erect solar pumps, and provide 10,000+ liters of pure water daily.",
-          "buttonText": "Fund a Water Well",
-          "buttonHref": "/contact"
-        },
-        "donateCard": {
-          "title": "Quench Thirst & Eliminate Sickness",
-          "description": "A single community solar borehole liberates an entire village from cholera and spares young girls hours of walking every day.",
-          "buttonText": "Donate For Clean Water",
-          "buttonHref": "#"
-        }
-      },
-      {
-        "id": "project-emergency-aid",
-        "title": "Emergency Aid",
-        "subtitle": "Crisis & Disaster Relief",
-        "description": "Rapid response delivery of emergency nourishment rations, clean water kits and essential aid to families facing crisis.",
-        "category": "Disaster Relief & Aid",
-        "ctaText": "Explore Project",
-        "image": "/images/ngo-food-aid.jpg",
-        "alt": "Humanitarian relief sacks and food rations being distributed to families",
-        "href": "/project/emergency-aid",
-        "stats": [
-          {
-            "value": "95,000+",
-            "label": "Emergency Rations Distributed"
-          },
-          {
-            "value": "6,400+",
-            "label": "Families Relocated & Sheltered"
-          },
-          {
-            "value": "34",
-            "label": "Rapid Response Deployments"
-          },
-          {
-            "value": "<24h",
-            "label": "Average Crisis Response Time"
-          }
-        ],
-        "challengeSolution": {
-          "title": "Sudden Environmental Disasters & Immediate Frontline Relief",
-          "paragraphs": [
-            "Sudden climatic shocks, flash flooding, and agricultural collapses leave thousands of families homeless in minutes, stripped of shelter, dry food rations, potable water, and infant hygiene supplies in remote, isolated terrains.",
-            "Our Emergency Response Division operates pre-positioned humanitarian regional warehouses. Within 24 hours of notification, convoy trucks and rescue boats transport life-saving family ration packs, water purification kits, thermal blankets, and rapid-assembly shelter tents."
-          ]
-        },
-        "quote": {
-          "text": "“In the first 48 hours of an acute emergency, precision logistics and compassionate presence are what prevent catastrophic loss of human life.”",
-          "author": "Elena Rostova",
-          "role": "Director of Humanitarian Emergency Logistics"
-        },
-        "milestones": {
-          "title": "Crisis Response & Recovery Lifecycle",
-          "items": [
-            {
-              "phase": "Phase 01",
-              "title": "Rapid Needs Reconnaissance & Evacuation Support",
-              "description": "Field operatives map flood zones and deploy search-and-rescue teams to relocate stranded villagers to safe high ground.",
-              "status": "Completed"
-            },
-            {
-              "phase": "Phase 02",
-              "title": "Emergency Air & Road Convoy Food Drops",
-              "description": "Distributing sealed 30-day calorie rations, therapeutic milk packets, and water purification tablets to cut-off families.",
-              "status": "Completed"
-            },
-            {
-              "phase": "Phase 03",
-              "title": "Pop-Up Emergency Trauma Clinic & Sanitation Tents",
-              "description": "Setting up sterile field surgical units and community latrines to prevent post-flood waterborne outbreaks.",
-              "status": "Active Deployment"
-            },
-            {
-              "phase": "Phase 04",
-              "title": "Rebuilding Kits & Resilient Home Handover",
-              "description": "Supplying roofing zinc, timber, agricultural seed packs, and micro-grants to help families rebuild homes.",
-              "status": "Ongoing Stewardship"
-            }
-          ]
-        },
-        "gallery": {
-          "title": "Frontline Gallery & Field Documentation",
-          "items": [
-            {
-              "image": "/images/ngo-food-aid.jpg",
-              "alt": "Humanitarian relief sacks and food rations being distributed to families",
-              "caption": "Emergency Nourishment Rations Staging & Dispatch"
-            },
-            {
-              "image": "/images/blog-nutrition.jpg",
-              "alt": "Warm meals being served to displaced families in emergency tent",
-              "caption": "Hot Daily Feeding Hub for Displaced Families"
-            }
-          ]
-        },
-        "callout": {
-          "title": "Mobilize Crisis Relief Convoys",
-          "description": "Support our rapid-deployment disaster units delivering family food rations, water purification kits, and shelter tents.",
-          "buttonText": "Deploy Relief",
-          "buttonHref": "/contact"
-        },
-        "donateCard": {
-          "title": "Provide Immediate Crisis Aid",
-          "description": "Your contribution enables 24-hour response logistics for families displaced by floods, drought, or extreme climate disaster.",
-          "buttonText": "Donate For Relief",
-          "buttonHref": "#"
-        }
-      },
-      {
-        "id": "project-child-shelter",
-        "title": "Child Shelter",
-        "subtitle": "Safe Haven For Vulnerable Children",
-        "description": "Providing safe residential shelters, warm bedding, trauma recovery and full protection for orphaned and displaced youth.",
-        "category": "Child Protection & Care",
-        "ctaText": "Explore Project",
-        "image": "/images/ngo-shelter-care.jpg",
-        "alt": "Compassionate volunteer caring for young child in community shelter",
-        "href": "/project/child-shelter",
-        "stats": [
-          {
-            "value": "1,450+",
-            "label": "Orphaned Children Given Safe Beds"
-          },
-          {
-            "value": "18",
-            "label": "Community Group Homes Active"
-          },
-          {
-            "value": "94%",
-            "label": "Trauma Recovery & Well-being Score"
-          },
-          {
-            "value": "100%",
-            "label": "School Enrollment Rate"
-          }
-        ],
-        "challengeSolution": {
-          "title": "The Plight of Displaced Children & The Sanctuary Model",
-          "paragraphs": [
-            "Children orphaned by famine, disease, or extreme poverty face unbearable vulnerability on city streets and roadside camps, exposed to forced labor, trafficking, exploitation, and acute malnutrition with nowhere safe to sleep.",
-            "HopeAlive constructs secure, cottage-style residential sanctuaries where small groups of children live together under the loving care of trained house mothers. Each child receives their own bed, psychological counseling, educational support, and nutritious meals."
-          ]
-        },
-        "quote": {
-          "text": "“Every vulnerable child deserves to lay their head on a soft pillow at night knowing that they are safe, valued, and fiercely protected.”",
-          "author": "Amara Okafor",
-          "role": "Child Protection & Shelter Director"
-        },
-        "milestones": {
-          "title": "Child Sanctuary & Care Lifecycle",
-          "items": [
-            {
-              "phase": "Phase 01",
-              "title": "Street Outreach & Child Welfare Intake",
-              "description": "Social caseworkers identify high-risk orphans, conduct background traces, and secure legal child protection orders.",
-              "status": "Completed"
-            },
-            {
-              "phase": "Phase 02",
-              "title": "Health Rehabilitation & Trauma Therapy",
-              "description": "Comprehensive pediatric wellness checkups, corrective nutrition, and cognitive-behavioral play therapy sessions.",
-              "status": "Completed"
-            },
-            {
-              "phase": "Phase 03",
-              "title": "Sanctuary Cottage Placement & Education Enrollment",
-              "description": "Placing children in family-style home units and enrolling them in nearby partner schools with full uniforms and books.",
-              "status": "Active Deployment"
-            },
-            {
-              "phase": "Phase 04",
-              "title": "Kinship Vetting, Mentorship & Independent Living",
-              "description": "Providing adolescent mentorship, vocational apprenticeship, or facilitating carefully monitored kinship foster adoptions.",
-              "status": "Ongoing Stewardship"
-            }
-          ]
-        },
-        "gallery": {
-          "title": "Frontline Gallery & Field Documentation",
-          "items": [
-            {
-              "image": "/images/ngo-shelter-care.jpg",
-              "alt": "Compassionate volunteer caring for young child in community shelter",
-              "caption": "Sanctuary Home & Nurturing House Mothers"
-            },
-            {
-              "image": "/images/project-gallery-books.jpg",
-              "alt": "Children reading books together in warm shelter library",
-              "caption": "Safe Study Space & Community Library"
-            }
-          ]
-        },
-        "callout": {
-          "title": "Expand Safe Sanctuary Group Homes",
-          "description": "Help us build safe cottage shelters, train loving house mothers, and ensure orphaned children receive full protection.",
-          "buttonText": "Support Child Shelter",
-          "buttonHref": "/contact"
-        },
-        "donateCard": {
-          "title": "Protect an Orphaned Child",
-          "description": "Provide a safe bed, nutritious home-cooked meals, trauma recovery therapy, and school enrollment for vulnerable youth.",
-          "buttonText": "Donate For Shelter",
-          "buttonHref": "#"
-        }
-      },
-      {
-        "id": "project-nutrition",
-        "title": "Child Nutrition",
-        "subtitle": "Hot Daily Meals & Nutrition",
-        "description": "Operating community hot kitchens and therapeutic feeding drives to eradicate childhood malnutrition across rural areas.",
-        "category": "Food Security & Nutrition",
-        "ctaText": "Explore Project",
-        "image": "/images/blog-nutrition.jpg",
-        "alt": "Warm nutritious meals being served to community children",
-        "href": "/project/nutrition",
-        "stats": [
-          {
-            "value": "540,000+",
-            "label": "Fresh Cooked Meals Served"
-          },
-          {
-            "value": "8,200+",
-            "label": "Children in Therapeutic Feeding"
-          },
-          {
-            "value": "22",
-            "label": "Community Hot Kitchens Operating"
-          },
-          {
-            "value": "74%",
-            "label": "Drop in Severe Childhood Wasting"
-          }
-        ],
-        "challengeSolution": {
-          "title": "Breaking the Vicious Cycle of Chronic Malnutrition & Stunting",
-          "paragraphs": [
-            "Prolonged regional crop droughts leave rural families without grain reserves, forcing infants to subsist on plain porridge lacking protein, iron, and iodine — resulting in irreversible physical stunting, cognitive decline, and compromised immunity.",
-            "HopeAlive runs central solar-powered community hot kitchens that cook two hot, balanced meals daily containing beans, eggs, leafy vegetables, fortified grains, and fresh fruit for every enrolled student and nursing mother in need."
-          ]
-        },
-        "quote": {
-          "text": "“A starving child cannot learn, play, or develop. Wholesome daily nutrition is the fundamental cornerstone of every child’s future dignity.”",
-          "author": "Chef Marcus Vance",
-          "role": "Head of Nutritional Logistics & Food Security"
-        },
-        "milestones": {
-          "title": "Community Nutrition Lifecycle",
-          "items": [
-            {
-              "phase": "Phase 01",
-              "title": "MUAC Anthropometric Malnutrition Screening",
-              "description": "Door-to-door mid-upper arm circumference measurement across rural villages to register all severely malnourished infants.",
-              "status": "Completed"
-            },
-            {
-              "phase": "Phase 02",
-              "title": "Central Kitchen Commissioning & Supply Contracts",
-              "description": "Building sanitary cooking facilities and contracting regional smallholder farmers for organic lentils, corn, and produce.",
-              "status": "Completed"
-            },
-            {
-              "phase": "Phase 03",
-              "title": "Daily School Hot Meal Program & Therapeutic Kits",
-              "description": "Serving 2,000+ hot meals daily per kitchen hub and distributing Plumpy'Nut fortified ready-to-use food packets.",
-              "status": "Active Deployment"
-            },
-            {
-              "phase": "Phase 04",
-              "title": "Family Homestead Gardening & Permaculture Training",
-              "description": "Distributing drip-irrigation kits and drought-tolerant seeds so families can cultivate nutritious vegetable plots at home.",
-              "status": "Ongoing Stewardship"
-            }
-          ]
-        },
-        "gallery": {
-          "title": "Frontline Gallery & Field Documentation",
-          "items": [
-            {
-              "image": "/images/blog-nutrition.jpg",
-              "alt": "Warm nutritious meals being served to community children",
-              "caption": "Hot Nutrient-Dense Daily School Meals"
-            },
-            {
-              "image": "/images/ngo-food-aid.jpg",
-              "alt": "Bags of fortified grains and vitamin supplements",
-              "caption": "Therapeutic Rations & Grain Storage Depot"
-            }
-          ]
-        },
-        "callout": {
-          "title": "Fund Hot Daily Community Kitchens",
-          "description": "Supply local farm produce, fortified grains, and therapeutic nutrition packets to eliminate childhood malnutrition and stunting.",
-          "buttonText": "Fund Daily Meals",
-          "buttonHref": "/contact"
-        },
-        "donateCard": {
-          "title": "Eradicate Child Hunger Today",
-          "description": "Every dollar funds two hot, nutritious daily meals for malnourished school children and nursing mothers in critical need.",
-          "buttonText": "Donate For Nutrition",
-          "buttonHref": "#"
-        }
-      }
-    ],
-    "callout": {
-      "title": "Support This Critical Field Mission",
-      "description": "Connect with our program directors to sponsor classrooms, fund water wells, or provide school supply convoys.",
-      "buttonText": "Contact Us",
-      "buttonHref": "/contact"
-    },
-    "sidebar": {
-      "relatedTitle": "Related Field Initiatives",
-      "donateCard": {
-        "title": "Every Community Deserves Hope",
-        "description": "Connect with our field operations desk to explore partnerships, equipment donations, or volunteer deployment.",
-        "buttonText": "Donate",
-        "buttonHref": "#"
-      }
-    }
-  },
-  "testimonials": {
-    "badge": {
-      "text": "TESTIMONIAL",
-      "dot": true
-    },
-    "headline": {
-      "line1": "Don't Believe Us See Review",
-      "line2": ""
-    },
-    "description": "Hear how HopeAlive Foundation touches lives every day through dedicated volunteer work, grassroots healthcare, child nutrition, and life-changing educational programs.",
-    "items": [
-      {
-        "id": "michael-b",
-        "name": "Michael B",
-        "role": "PHILANTHROPY PARTNER",
-        "avatar": "/images/testimonial-michael.jpg",
-        "quote": "Seeing HopeAlive's school literacy kits, clean water wells, and child nutrition programs reach remote villages with total transparency gave us complete confidence to support their mission."
-      },
-      {
-        "id": "sarah-k",
-        "name": "Sarah K",
-        "role": "FIELD VOLUNTEER LEAD",
-        "avatar": "/images/testimonial-sarah.jpg",
-        "quote": "Volunteering on the frontlines with HopeAlive has been deeply transformative. Serving warm meals and teaching children who were previously excluded from school creates genuine, lasting hope."
-      },
-      {
-        "id": "david-m",
-        "name": "David M",
-        "role": "RURAL HEALTHCARE ADVOCATE",
-        "avatar": "/images/testimonial-david.jpg",
-        "quote": "HopeAlive brought life-saving medical camps and essential medicines directly to our remote village doorstep. For the first time in years, our mothers and children have access to dependable care."
-      },
-      {
-        "id": "elena-r",
-        "name": "Elena R",
-        "role": "EDUCATION MENTOR",
-        "avatar": "/images/testimonial-sarah.jpg",
-        "quote": "Watching underprivileged children hold their first notebooks and learn to read with pure joy is unforgettable. HopeAlive is genuinely breaking the cycle of poverty from the ground up."
-      },
-      {
-        "id": "amara-o",
-        "name": "Amara O",
-        "role": "COMMUNITY LEADER",
-        "avatar": "/images/about-child.jpg",
-        "quote": "Our children no longer walk miles for contaminated water. HopeAlive installed a clean solar-powered well that transformed our community's health, vitality, and children's daily attendance at school."
-      },
-      {
-        "id": "james-t",
-        "name": "James T",
-        "role": "FOOD AID COORDINATOR",
-        "avatar": "/images/testimonial-michael.jpg",
-        "quote": "Delivering warm nutritious meals and vitamin rations to families during acute shortages has saved countless young lives. HopeAlive is love and action combined."
-      }
-    ]
-  },
-  "faqs": {
-    "badge": {
-      "text": "FREQUENTLY ASKED QUESTIONS",
-      "dot": true
-    },
-    "headline": {
-      "line1": "Common Inquiries &",
-      "line2": "Transparent Answers"
-    },
-    "description": "Have questions about how your contributions make an impact, our frontline volunteer initiatives, or financial transparency? Discover clear answers below.",
-    "items": [
-      {
-        "id": "faq-1",
-        "question": "How are donations utilized and accounted for?",
-        "answer": "At HopeAlive, financial integrity is our core pillar. Over 85% of every dollar contributed goes directly into on-the-ground programs: providing hot meals, pediatric medicine, clean water wells, and educational materials. We publish independent third-party audits annually for full transparency.",
-        "category": "Donations"
-      },
-      {
-        "id": "faq-2",
-        "question": "Can I sponsor a specific child or village project?",
-        "answer": "Yes! Through our dedicated Child Sponsorship and Village Well programs, donors can support an individual student's schooling or fund a specific solar well project. Sponsors receive quarterly progress reports, photos, and personal letters from the field.",
-        "category": "Sponsorship"
-      },
-      {
-        "id": "faq-3",
-        "question": "How can I volunteer with HopeAlive Foundation?",
-        "answer": "We welcome volunteers from all walks of life! You can join our medical outreach camps, assist in community food drives, teach in local learning centers, or contribute remotely through translation, graphic design, and fundraising advocacy.",
-        "category": "Volunteering"
-      },
-      {
-        "id": "faq-4",
-        "question": "Are my donations tax-deductible?",
-        "answer": "Yes. HopeAlive Foundation is a registered 501(c)(3) global humanitarian non-profit organization. All contributions are fully tax-deductible to the maximum extent permitted by law, and automated tax receipts are provided instantly upon donation.",
-        "category": "Tax & Legal"
-      },
-      {
-        "id": "faq-5",
-        "question": "How does HopeAlive ensure long-term community sustainability?",
-        "answer": "We believe in empowerment, not temporary charity. Alongside emergency relief aid, we train local water technicians, cultivate community food gardens, build local schools, and equip village councils with tools to manage resources independently.",
-        "category": "Sustainability"
-      },
-      {
-        "id": "faq-6",
-        "question": "Where does HopeAlive primarily conduct field operations?",
-        "answer": "Our humanitarian teams operate across underserved rural villages, drought-affected regions, and vulnerable community settlements across Sub-Saharan Africa and South Asia where access to clean water, food, and schools is severely limited.",
-        "category": "Operations"
-      }
-    ],
-    "cta": {
-      "title": "Still have questions about our mission?",
-      "description": "Our compassionate support team and field coordinators are here to provide all the answers you need.",
-      "buttonText": "Get in Touch With Us",
-      "buttonHref": "/contact"
-    }
-  },
-  "team": {
-    "badge": {
-      "text": "MEET OUR LEADERSHIP & FIELD CREW",
-      "dot": true
-    },
-    "headline": {
-      "line1": "Passionate Humanitarians",
-      "line2": "Driven by Purpose"
-    },
-    "description": "Meet the frontline physicians, logistics directors, and community educators dedicated to protecting vulnerable children and families worldwide.",
-    "members": [
-      {
-        "id": "team-sarah",
-        "name": "Dr. Sarah Mitchell",
-        "role": "Executive Director & Field Medic",
-        "department": "Leadership",
-        "bio": "Over 14 years directing crisis relief convoys and pediatric surgical camps across 18 countries.",
-        "image": "/images/testimonial-sarah.jpg",
-        "alt": "Dr. Sarah Mitchell, Executive Director at HopeAlive Foundation",
-        "experience": "14+ Years Fieldwork",
-        "socials": [
-          {
-            "platform": "linkedin",
-            "href": "https://linkedin.com"
-          },
-          {
-            "platform": "twitter",
-            "href": "https://twitter.com"
-          },
-          {
-            "platform": "email",
-            "href": "mailto:sarah@hopealive.org"
-          }
-        ]
-      },
-      {
-        "id": "team-kwame",
-        "name": "Kwame Mensah",
-        "role": "Frontline Logistics & Crisis Coordinator",
-        "department": "Operations",
-        "bio": "Directs rapid humanitarian supply convoys, solar borehole drilling, and emergency nutrition distribution.",
-        "image": "/images/team-kwame.jpg",
-        "alt": "Kwame Mensah, Logistics Director at HopeAlive Foundation",
-        "experience": "11+ Years Logistics",
-        "socials": [
-          {
-            "platform": "linkedin",
-            "href": "https://linkedin.com"
-          },
-          {
-            "platform": "twitter",
-            "href": "https://twitter.com"
-          },
-          {
-            "platform": "email",
-            "href": "mailto:kwame@hopealive.org"
-          }
-        ]
-      },
-      {
-        "id": "team-elena",
-        "name": "Dr. Elena Rostova",
-        "role": "Chief Medical Officer & Pediatric Surgeon",
-        "department": "Medical",
-        "bio": "Spearheads mobile pediatric clinics, malnutrition therapy wards, and clean vaccination campaigns.",
-        "image": "/images/team-elena.jpg",
-        "alt": "Dr. Elena Rostova, Chief Medical Officer at HopeAlive Foundation",
-        "experience": "12+ Years Pediatric Care",
-        "socials": [
-          {
-            "platform": "linkedin",
-            "href": "https://linkedin.com"
-          },
-          {
-            "platform": "twitter",
-            "href": "https://twitter.com"
-          },
-          {
-            "platform": "email",
-            "href": "mailto:elena@hopealive.org"
-          }
-        ]
-      },
-      {
-        "id": "team-david",
-        "name": "David Chen",
-        "role": "Clean Water & Infrastructure Director",
-        "department": "Engineering",
-        "bio": "Civil water engineer overseeing 120+ solar well installations, water safety testing, and pipeline infrastructure.",
-        "image": "/images/testimonial-david.jpg",
-        "alt": "David Chen, Clean Water Director at HopeAlive Foundation",
-        "experience": "9+ Years Water Systems",
-        "socials": [
-          {
-            "platform": "linkedin",
-            "href": "https://linkedin.com"
-          },
-          {
-            "platform": "twitter",
-            "href": "https://twitter.com"
-          },
-          {
-            "platform": "email",
-            "href": "mailto:david@hopealive.org"
-          }
-        ]
-      },
-      {
-        "id": "team-amara",
-        "name": "Amara Okafor",
-        "role": "Child Education & Community Stewardship Lead",
-        "department": "Education",
-        "bio": "Coordinates rural school enrollment, teacher training programs, and textbook distribution across 45 villages.",
-        "image": "/images/team-amara.jpg",
-        "alt": "Amara Okafor, Education Lead at HopeAlive Foundation",
-        "experience": "8+ Years Literacy Dev",
-        "socials": [
-          {
-            "platform": "linkedin",
-            "href": "https://linkedin.com"
-          },
-          {
-            "platform": "twitter",
-            "href": "https://twitter.com"
-          },
-          {
-            "platform": "email",
-            "href": "mailto:amara@hopealive.org"
-          }
-        ]
-      },
-      {
-        "id": "team-michael",
-        "name": "Michael Vance",
-        "role": "Global Financial Transparency & Audit Officer",
-        "department": "Governance",
-        "bio": "Guarantees 100% public fiscal accountability, third-party audit verification, and direct program funding.",
-        "image": "/images/testimonial-michael.jpg",
-        "alt": "Michael Vance, Financial Transparency Officer at HopeAlive Foundation",
-        "experience": "15+ Years NGO Audit",
-        "socials": [
-          {
-            "platform": "linkedin",
-            "href": "https://linkedin.com"
-          },
-          {
-            "platform": "twitter",
-            "href": "https://twitter.com"
-          },
-          {
-            "platform": "email",
-            "href": "mailto:michael@hopealive.org"
-          }
-        ]
-      }
-    ]
-  },
-  "contact": {
-    "badge": {
-      "text": "GET IN TOUCH",
-      "dot": true
-    },
-    "headline": {
-      "line1": "We Would Love To",
-      "line2": "Hear From You"
-    },
-    "description": "Have questions about our humanitarian programs, corporate partnerships, or donation drives? Reach out to our dedicated team anytime.",
-    "info": {
-      "address": {
-        "title": "Global Headquarters",
-        "lines": [
-          "3170 Rosewood Lane Unit 200",
-          "Beverly Hills, CA 90210"
-        ]
-      },
-      "phone": {
-        "title": "Call Direct Hotline",
-        "numbers": [
-          "+10 0000000000",
-          "+1 (800) 467-3254"
-        ]
-      },
-      "email": {
-        "title": "Send An Email",
-        "address": "info@xyz.com"
-      },
-      "support": {
-        "title": "Frontline & Volunteer Desk",
-        "text": "Immediate aid dispatch, localized relief projects & volunteer coordination.",
-        "email": "volunteer@xyz.com"
-      }
-    }
-  },
-  "donation": {
-    "badge": {
-      "text": "MAKE A DIRECT IMPACT",
-      "dot": true
-    },
-    "headline": {
-      "line1": "Empower Vulnerable Lives,",
-      "line2": "Nurture Hope Worldwide"
-    },
-    "description": "Every single dollar directly funds urgent food supplies, clean water wells, emergency healthcare, and educational kits for children and families in crisis. Join our circle of hope today.",
-    "presetAmounts": [
-      {
-        "amount": 25,
-        "label": "$25",
-        "impact": "Provides 2 weeks of nutritious hot meals for an orphaned child in community care."
-      },
-      {
-        "amount": 50,
-        "label": "$50",
-        "impact": "Supplies a clean water purification kit and family sanitation pack for 6 months."
-      },
-      {
-        "amount": 100,
-        "label": "$100",
-        "impact": "Covers a child's complete school tuition, uniform, and books for one full semester."
-      },
-      {
-        "amount": 250,
-        "label": "$250",
-        "impact": "Delivers emergency medical care, vitamins, and clinical aid to a remote rural clinic."
-      },
-      {
-        "amount": 500,
-        "label": "$500",
-        "impact": "Funds sustainable farming tools and drought-resistant seeds for an entire community."
-      }
-    ],
-    "causes": [
-      {
-        "id": "general",
-        "name": "Where Most Needed (Emergency Rapid Response)"
-      },
-      {
-        "id": "food",
-        "name": "Child Nutrition & Daily Food Security"
-      },
-      {
-        "id": "water",
-        "name": "Clean Water Wells & Community Sanitation"
-      },
-      {
-        "id": "education",
-        "name": "Underprivileged Child Education & School Kits"
-      },
-      {
-        "id": "medical",
-        "name": "Mobile Health Clinics & Emergency Medical Aid"
-      }
-    ],
-    "transparency": {
-      "stats": [
-        {
-          "percentage": "88%",
-          "label": "Direct Humanitarian Field Programs"
-        },
-        {
-          "percentage": "8%",
-          "label": "Emergency Rapid Response Pool"
-        },
-        {
-          "percentage": "4%",
-          "label": "Strict Financial Auditing & Ops"
-        }
-      ],
-      "guarantees": [
-        "100% Tax Deductible (501(c)(3) Registered Global NGO)",
-        "Zero Hidden Intermediaries — Direct Community Handover",
-        "Bank-Grade 256-Bit SSL Encrypted & Secure Checkout",
-        "Instant Automated Tax Deductible Receipt via Email"
-      ]
-    },
-    "impactMetrics": [
-      {
-        "value": "$4.8M+",
-        "label": "Direct Aid Distributed"
-      },
-      {
-        "value": "250K+",
-        "label": "Children Uplifted"
-      },
-      {
-        "value": "120+",
-        "label": "Water Wells Built"
-      },
-      {
-        "value": "100%",
-        "label": "Audited & Transparent"
-      }
-    ]
-  },
-  "footer": {
-    "headline": {
-      "line1": "HopeAlive"
-    },
-    "description": "Rooted in purpose and grown through community, we turn simple actions into lasting impact that reaches far beyond today.",
-    "socials": [
-      {
-        "id": "facebook",
-        "platform": "facebook",
-        "href": "https://facebook.com",
-        "label": "Facebook"
-      },
-      {
-        "id": "instagram",
-        "platform": "instagram",
-        "href": "https://instagram.com",
-        "label": "Instagram"
-      },
-      {
-        "id": "twitter",
-        "platform": "twitter",
-        "href": "https://twitter.com",
-        "label": "Twitter"
-      },
-      {
-        "id": "linkedin",
-        "platform": "linkedin",
-        "href": "https://linkedin.com",
-        "label": "LinkedIn"
-      }
-    ],
-    "linksSection": {
-      "title": "LINKS",
-      "links": [
-        {
-          "label": "Home",
-          "href": "/"
-        },
-        {
-          "label": "About Us",
-          "href": "/about"
-        },
-        {
-          "label": "Our Project",
-          "href": "/project"
-        },
-        {
-          "label": "Causes",
-          "href": "/causes"
-        },
-        {
-          "label": "Blog",
-          "href": "/blog"
-        }
-      ]
-    },
-    "quickLinksSection": {
-      "title": "QUICK LINKS",
-      "links": [
-        {
-          "label": "FAQs",
-          "href": "/faqs"
-        },
-        {
-          "label": "Our Team",
-          "href": "/team"
-        },
-        {
-          "label": "TestimonialS",
-          "href": "/testimonial"
-        },
-        {
-          "label": "Contact Us",
-          "href": "/contact"
-        }
-      ]
-    },
-    "locationSection": {
-      "title": "LOCATION",
-      "addressLines": [
-        "3170 Rosewood Lane Unit 200",
-        "Beverly Hills, CA 90210"
-      ],
-      "phones": [
-        "+10 0000000000"
-      ],
-      "email": "info@xyz.com"
-    },
-    "copyright": {
-      "line1": "© 2026 Copyright HopeAlive. All rights reserved. Powered by Lestow"
-    },
-    "watermark": "HopeAlive"
   }
 }

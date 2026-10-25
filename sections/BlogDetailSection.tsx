@@ -1,17 +1,16 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   Calendar,
   User,
-  Tag,
-  Heart,
   CheckCircle2,
   Quote,
+  Heart
 } from "lucide-react";
-import siteData from "@/data/site.json";
+import { site } from "@/data";
 import { BlogPostItem } from "@/types";
 
 interface BlogDetailSectionProps {
@@ -24,60 +23,104 @@ export default function BlogDetailSection({
   data: propData,
 }: BlogDetailSectionProps) {
   const allPosts: BlogPostItem[] =
-    (((siteData.blog as any)?.blogPosts || (siteData.blog as any)?.posts || []) as BlogPostItem[]);
+    (((site.blog as any)?.blogPosts || []) as BlogPostItem[]);
+
+  const normalizedSlug = (slug || "").toLowerCase().trim();
 
   // Find the post matching slug, or use provided data, or fallback to first post
   const currentPost: BlogPostItem =
     propData ||
-    (slug ? allPosts.find((p) => p.id === slug) : null) ||
+    (normalizedSlug
+      ? allPosts.find((p) => {
+        const pId = (p.id || "").toLowerCase();
+        const pHref = (p.href || "").toLowerCase();
+        return (
+          pId === normalizedSlug ||
+          pHref.endsWith(`/${normalizedSlug}`) ||
+          pHref.replace("/blog/", "") === normalizedSlug
+        );
+      })
+      : null) ||
     allPosts[0];
 
-  // Recent posts excluding the current one
-  const recentPosts = allPosts.filter((p) => p.id !== currentPost?.id).slice(0, 4);
+  // Recent posts excluding current post
+  const recentPosts = allPosts
+    .filter((p) => p.id !== currentPost?.id)
+    .slice(0, 4);
 
-  // Fallback defaults for rich details
-  const category = currentPost?.category || "Humanitarian Field Story";
-  const author = currentPost?.author || {
-    name: "Dr. Sarah Mitchell",
-    role: "Field Operations & Education Lead",
-    avatar: "/images/testimonial-sarah.jpg",
+  // Social share copy feedback
+  const [copied, setCopied] = useState(false);
+  const handleCopyLink = () => {
+    if (typeof window !== "undefined") {
+      navigator.clipboard?.writeText(window.location.href);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    }
   };
-  const content = currentPost?.content || [
-    "In underserved rural villages across our operating zones, the absence of basic infrastructure often leaves thousands of children without access to education, clean water, or reliable food security.",
-    "HopeAlive Foundation works directly alongside local community councils and frontline volunteers to establish long-term, sustainable programs that restore human dignity and empower families from the ground up.",
-    "Through transparent donations and collective compassion, we continue expanding our reach to ensure no child or family is forgotten.",
-  ];
+
+  // Dynamic configurations sourced from JSON with rich fallbacks
+  const category = currentPost?.category || "Child Education";
+  const author = {
+    name: currentPost?.author?.name || "Dr. Sarah Mitchell",
+    role: currentPost?.author?.role || "Field Operations & Education Lead",
+    avatar: currentPost?.author?.avatar || "/images/testimonial-sarah.webp",
+  };
+  const content =
+    currentPost?.content && currentPost.content.length > 0
+      ? currentPost.content
+      : [
+        "In many rural villages across our operating zones, the lack of basic educational infrastructure leaves thousands of bright young minds without access to formal literacy and numeracy. Without schools nearby, children frequently spend their days walking miles for water or working in seasonal labor.",
+        "HopeAlive Foundation launched our community learning initiatives to bridge this critical divide. By partnering with village elders and training local volunteer instructors, we have equipped rural community classrooms with solar lamps, bilingual storybooks, clean desks, and essential stationery sets.",
+        "The transformation is immediate and profound. Attendance rates have surged above 92%, and children who had never held a pencil are now reading fluently in both English and their native dialects. Each student also receives a warm, nutritious meal every day at school, ensuring hunger never stands between a child and their future.",
+      ];
   const quote =
     currentPost?.quote ||
-    "Education, nourishment, and clean water are universal human rights — not privileges reserved for the fortunate.";
-  const quoteAuthor = currentPost?.quoteAuthor || "Amara Okafor, HopeAlive Field Coordinator";
-  const tags = currentPost?.tags || ["Child Welfare", "Education", "HopeAlive", "Community Impact"];
+    "Education is not merely about learning words on paper; it is about restoring dignity, opening doors to self-reliance, and proving to every child that their dreams matter.";
+  const quoteAuthor =
+    currentPost?.quoteAuthor || "Amara Okafor, HopeAlive Regional Education Coordinator";
+
+
+
+  const collage = currentPost?.collage || currentPost?.photoCollage;
+  const keyTakeaways = currentPost?.keyTakeaways || currentPost?.takeaways;
+
+  // Sourced from blog.donationCta in site.json (not from individual blog posts)
+  const donationCta = (site.blog as any)?.donationCta;
+
+  // Sourced from blog.sidebar in site.json (not from individual blog posts)
+  const sidebarData = (site.blog as any)?.sidebar;
+  const recentStoriesTitle = sidebarData?.recentTitle || sidebarData?.recentStoriesTitle || "Recent Field Stories";
+  const sidebarDonateCard = sidebarData?.donateCard;
 
   return (
     <section
       aria-label="HopeAlive Foundation Blog Article Detail"
-      className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
+      className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-visible"
     >
       <div className="max-w-7xl mx-auto w-full">
         {/* MAIN 2-COLUMN GRID: Left Article Content | Right Sticky Sidebar */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* LEFT COLUMN: The Rich Article */}
-          <article className="lg:col-span-8 ">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+          {/* LEFT COLUMN: The Rich Article Narrative */}
+          <article className="lg:col-span-8">
             {/* 1. Article Meta Header */}
             <div className="flex flex-wrap items-center gap-3 sm:gap-4 pb-4 border-b border-[#1b2715]/10">
               <span className="bg-[#1f2c16] text-[#feff02] px-3.5 py-1 rounded-full text-xs font-poppins font-bold uppercase tracking-wider shadow-sm">
                 {category}
               </span>
 
-              <div className="flex items-center gap-1.5 text-xs font-poppins text-[#556350]">
-                <Calendar size={14} className="text-[#1b2715]" />
-                <span>{currentPost?.date}</span>
-              </div>
+              {currentPost?.date && (
+                <div className="flex items-center gap-1.5 text-xs font-poppins text-[#556350]">
+                  <Calendar size={14} className="text-[#1b2715]" />
+                  <span>{currentPost.date}</span>
+                </div>
+              )}
 
-              <div className="flex items-center gap-1.5 text-xs font-poppins text-[#556350]">
-                <User size={14} className="text-[#1b2715]" />
-                <span>{author.name}</span>
-              </div>
+              {author?.name && (
+                <div className="flex items-center gap-1.5 text-xs font-poppins text-[#556350]">
+                  <User size={14} className="text-[#1b2715]" />
+                  <span>{author.name}</span>
+                </div>
+              )}
             </div>
 
             {/* 2. Article Headline */}
@@ -85,10 +128,10 @@ export default function BlogDetailSection({
               {currentPost?.title}
             </h1>
 
-            {/* 3. Featured Hero Image with Leaf-Cut Accent */}
+            {/* 3. Featured Hero Image with Organic Silhouette */}
             <div className="relative w-full h-[280px] sm:h-[400px] md:h-[460px] rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none overflow-hidden shadow-2xl border border-[#1b2715]/10 mb-8">
               <Image
-                src={currentPost?.image || "/images/blog-education.jpg"}
+                src={currentPost?.image || "/images/blog-education.webp"}
                 alt={currentPost?.alt || currentPost?.title || "HopeAlive Humanitarian field post"}
                 fill
                 priority
@@ -99,7 +142,7 @@ export default function BlogDetailSection({
               {/* Verified Field Story Caption */}
               <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 text-white font-poppins">
                 <span className="text-[11px] font-bold uppercase tracking-widest text-[#feff02] bg-[#162211]/70 backdrop-blur-md px-3 py-1 rounded-full inline-block mb-1">
-                  HopeAlive Frontline Documentation
+                  {site.navbar?.brand?.name || "HopeAlive"} Frontline Documentation
                 </span>
                 <p className="text-xs sm:text-sm text-[#e0ece0] line-clamp-2">
                   {currentPost?.alt || "Real-world impact recorded by HopeAlive field staff and community volunteers."}
@@ -107,7 +150,7 @@ export default function BlogDetailSection({
               </div>
             </div>
 
-            {/* 4. Article Lead Paragraph */}
+            {/* 4. Article Lead Excerpt */}
             {currentPost?.excerpt && (
               <p className="text-base sm:text-lg font-poppins font-semibold text-[#1b2715] leading-relaxed mb-6 border-l-4 border-[#1f2c16] pl-4">
                 {currentPost.excerpt}
@@ -115,158 +158,163 @@ export default function BlogDetailSection({
             )}
 
             {/* 5. Article Main Narrative Paragraphs */}
-            <div className="space-y-5 text-sm sm:text-base font-poppins text-[#556350] leading-relaxed">
-              {content.map((paragraph, idx) => (
-                <p key={idx}>{paragraph}</p>
-              ))}
-            </div>
+            {content.length > 0 && (
+              <div className="space-y-5 text-sm sm:text-base font-poppins text-[#556350] leading-relaxed">
+                {content.map((paragraph: string, idx: number) => (
+                  <p key={idx}>{paragraph}</p>
+                ))}
+              </div>
+            )}
 
-            {/* 6. Signature HopeAlive Pullquote */}
-            <div className="my-8 sm:my-10 bg-[#1f2c16] text-white p-7 sm:p-9 rounded-2xl sm:rounded-3xl border border-white/10 relative overflow-hidden shadow-xl">
-              <div className="absolute top-4 right-6 text-white/5 pointer-events-none">
-                <Quote size={100} />
+            {/* 6. Signature Pullquote */}
+            {quote && (
+              <div className="my-8 sm:my-10 bg-[#1f2c16] text-white p-7 sm:p-9 rounded-2xl sm:rounded-3xl border border-white/10 relative overflow-hidden shadow-xl">
+                <div className="absolute top-4 right-6 text-white/5 pointer-events-none">
+                  <Quote size={100} />
+                </div>
+                <Quote size={28} className="text-[#feff02] mb-3" />
+                <blockquote className="font-poppins text-base sm:text-xl font-medium leading-relaxed italic text-[#f4f7f4]">
+                  “{quote}”
+                </blockquote>
+                <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs sm:text-sm font-poppins">
+                  <span className="text-[#feff02] font-semibold">{quoteAuthor}</span>
+                  <span className="text-[#a5b5a2]">Verified Field Dispatch</span>
+                </div>
               </div>
-              <Quote size={28} className="text-[#feff02] mb-3" />
-              <blockquote className="font-poppins text-base sm:text-xl font-medium leading-relaxed italic text-[#f4f7f4]">
-                “{quote}”
-              </blockquote>
-              <div className="mt-4 pt-4 border-t border-white/10 flex items-center justify-between text-xs sm:text-sm font-poppins">
-                <span className="text-[#feff02] font-semibold">{quoteAuthor}</span>
-                <span className="text-[#a5b5a2]">Verified Field Dispatch</span>
-              </div>
-            </div>
+            )}
 
             {/* 7. Mid-Article 2-Column Photo Collage */}
-            <div className="my-8">
-              <h3 className="font-poppins font-bold text-xl sm:text-2xl text-[#1b2715] mb-4">
-                Frontline Action & Direct Impact
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-md border border-[#1b2715]/10 group">
-                  <Image
-                    src="/images/ngo-clean-water.jpg"
-                    alt="Clean water initiative in rural village"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute bottom-3 left-3 bg-[#162211]/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-poppins text-[#feff02] font-semibold">
-                    Safe Drinking Water Wells
-                  </div>
-                </div>
-
-                <div className="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-md border border-[#1b2715]/10 group">
-                  <Image
-                    src="/images/ngo-food-aid.jpg"
-                    alt="Daily child nutrition programs"
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  <div className="absolute bottom-3 left-3 bg-[#162211]/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-poppins text-[#feff02] font-semibold">
-                    Nutritional Emergency Rations
-                  </div>
+            {collage && collage.images && collage.images.length > 0 && (
+              <div className="my-8">
+                {collage.title && (
+                  <h3 className="font-poppins font-bold text-xl sm:text-2xl text-[#1b2715] mb-4">
+                    {collage.title}
+                  </h3>
+                )}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {collage.images.map((img: { src: string; alt?: string; label?: string }, idx: number) => (
+                    <div
+                      key={idx}
+                      className="relative h-56 sm:h-64 rounded-2xl overflow-hidden shadow-md border border-[#1b2715]/10 group"
+                    >
+                      <Image
+                        src={img.src}
+                        alt={img.alt || collage.title || "Field photo"}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      />
+                      {img.label && (
+                        <div className="absolute bottom-3 left-3 bg-[#162211]/80 backdrop-blur-md px-3 py-1 rounded-full text-[11px] font-poppins text-[#feff02] font-semibold">
+                          {img.label}
+                        </div>
+                      )}
+                    </div>
+                  ))}
                 </div>
               </div>
-            </div>
+            )}
 
             {/* 8. Key Takeaways Checklist */}
-            <div className="my-8 p-6 sm:p-7 rounded-2xl bg-[#f8f6f0] border border-[#1b2715]/10">
-              <h4 className="font-poppins font-bold text-base sm:text-lg text-[#1b2715] mb-3">
-                Key Humanitarian Highlights:
-              </h4>
-              <ul className="space-y-2.5 font-poppins text-xs sm:text-sm text-[#556350]">
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 size={17} className="text-[#2d5a27] shrink-0 mt-0.5" />
-                  <span>Direct community partnership ensures that 100% of aid is tailored to village needs.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 size={17} className="text-[#2d5a27] shrink-0 mt-0.5" />
-                  <span>Every classroom project is paired with clean sanitation and daily hot meals.</span>
-                </li>
-                <li className="flex items-start gap-2.5">
-                  <CheckCircle2 size={17} className="text-[#2d5a27] shrink-0 mt-0.5" />
-                  <span>Annual independent third-party audits verify all resource distributions transparently.</span>
-                </li>
-              </ul>
-            </div>
+            {keyTakeaways && keyTakeaways.items && keyTakeaways.items.length > 0 && (
+              <div className="my-8 p-6 sm:p-7 rounded-2xl bg-[#f8f6f0] border border-[#1b2715]/10 shadow-sm">
+                {keyTakeaways.title && (
+                  <h4 className="font-poppins font-bold text-base sm:text-lg text-[#1b2715] mb-3">
+                    {keyTakeaways.title}
+                  </h4>
+                )}
+                <ul className="space-y-2.5 font-poppins text-xs sm:text-sm text-[#556350]">
+                  {keyTakeaways.items.map((itemText: string, idx: number) => (
+                    <li key={idx} className="flex items-start gap-2.5">
+                      <CheckCircle2 size={17} className="text-[#2d5a27] shrink-0 mt-0.5" />
+                      <span>{itemText}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
 
             {/* 9. In-Article Donation Callout Banner */}
-            <div className="my-8 p-6 sm:p-8 rounded-2xl sm:rounded-3xl bg-[#1f2c16] text-white flex flex-col sm:flex-row items-center justify-between gap-5 shadow-lg">
-              <div>
-                <span className="text-[11px] font-poppins font-bold uppercase tracking-widest text-[#feff02]">
-                  Make A Difference
-                </span>
-                <h4 className="font-poppins font-bold text-lg sm:text-xl text-white mt-1">
-                  Support Our Ongoing Humanitarian Programs
-                </h4>
-                <p className="mt-1 text-xs sm:text-sm text-[#b0bfae] font-poppins max-w-md">
-                  Your direct contribution empowers our medical, nutrition, and schooling convoys to reach the next community.
-                </p>
+            {donationCta && (
+              <div className="my-8 p-6 sm:p-8 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none bg-[#1f2c16] text-white flex flex-col sm:flex-row items-center justify-between gap-5 shadow-xl border border-white/10">
+                <div>
+                  {donationCta.badge && (
+                    <span className="text-[11px] font-poppins font-bold uppercase tracking-widest text-[#feff02]">
+                      {donationCta.badge}
+                    </span>
+                  )}
+                  <h4 className="font-poppins font-bold text-lg sm:text-xl text-white mt-1">
+                    {donationCta.title}
+                  </h4>
+                  <p className="mt-1 text-xs sm:text-sm text-[#b0bfae] font-poppins max-w-md">
+                    {donationCta.description}
+                  </p>
+                </div>
+                <Link
+                  href={donationCta.buttonHref || "/contact"}
+                  className="btn-leaf shrink-0 px-6 py-3.5 rounded-xl bg-[#feff02] text-[#121a0d] hover:bg-white font-poppins font-bold text-xs sm:text-sm tracking-wide transition-all shadow-md cursor-pointer flex items-center gap-2 select-none"
+                >
+                  <Heart size={15} className="fill-[#121a0d]" />
+                  <span>{donationCta.buttonText || "Contact Us"}</span>
+                </Link>
               </div>
-              <Link
-                href="/contact"
-                className="shrink-0 px-6 py-3 rounded-full bg-[#feff02] text-[#121a0d] hover:bg-white font-poppins font-bold text-xs sm:text-sm tracking-wide transition-all shadow-md cursor-pointer flex items-center gap-2"
-              >
-                <Heart size={15} className="fill-[#121a0d]" />
-                <span>Contact Us</span>
-              </Link>
-            </div>
+            )}
           </article>
 
           {/* RIGHT COLUMN: Interactive Sticky Sidebar */}
-          <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-0 self-start">
-
-            {/* 2. Recent Field Reports Widget */}
-            <div className="bg-white p-6 rounded-3xl border border-[#1b2715]/10 shadow-md">
-              <h4 className="font-poppins font-bold text-base text-[#1b2715] mb-4 pb-2 border-b border-[#1b2715]/10">
-                Recent Field Stories
-              </h4>
-              <div className="space-y-4">
-                {recentPosts.map((post) => (
-                  <Link
-                    key={post.id}
-                    href={post.href}
-                    className="flex items-center gap-3.5 group"
-                  >
-                    <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-[#1b2715]/10">
-                      <Image
-                        src={post.image}
-                        alt={post.title}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
-                    </div>
-                    <div className="flex-1">
-                      <span className="block text-[11px] font-poppins text-[#556350] flex items-center gap-1">
-                        <Calendar size={11} /> {post.date}
-                      </span>
-                      <h5 className="font-poppins font-semibold text-xs sm:text-sm text-[#1b2715] group-hover:text-[#2d5a27] transition-colors line-clamp-2 mt-0.5 leading-snug">
-                        {post.title}
-                      </h5>
-                    </div>
-                  </Link>
-                ))}
+          <aside className="lg:col-span-4 space-y-6 lg:sticky lg:top-28 self-start sticky-sidebar">
+            {/* Widget 1: Recent Field Reports */}
+            {recentPosts.length > 0 && (
+              <div className="bg-white p-6 rounded-3xl border border-[#1b2715]/10 shadow-md">
+                <h4 className="font-poppins font-bold text-xl text-[#1b2715] mb-4 pb-2 border-b border-[#1b2715]/10">
+                  {recentStoriesTitle}
+                </h4>
+                <div className="space-y-4">
+                  {recentPosts.map((post) => (
+                    <Link
+                      key={post.id}
+                      href={post.href}
+                      className="flex items-center gap-3.5 group cursor-pointer"
+                    >
+                      <div className="relative w-16 h-16 rounded-xl overflow-hidden shrink-0 border border-[#1b2715]/10">
+                        <Image
+                          src={post.image}
+                          alt={post.title}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <span className="block text-[11px] font-poppins text-[#556350] flex items-center gap-1">
+                          <Calendar size={11} /> {post.date}
+                        </span>
+                        <h5 className="font-poppins font-semibold text-xs sm:text-sm text-[#1b2715] group-hover:text-[#2d5a27] transition-colors line-clamp-2 mt-0.5 leading-snug">
+                          {post.title}
+                        </h5>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
               </div>
-            </div>
+            )}
 
-            {/* 4. Urgent Cause Donation Callout Card */}
-            <div className="bg-[#1f2c16] text-white p-7 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none shadow-2xl border border-white/10 relative overflow-hidden">
-              <span className="text-[11px] font-poppins font-bold uppercase tracking-widest text-[#feff02] bg-[#2a3c20] px-3.5 py-1 rounded-full inline-block mb-3">
-                Urgent Humanitarian Need
-              </span>
-              <h4 className="font-poppins font-bold text-lg sm:text-xl text-white">
-                Every Action Saves Lives
-              </h4>
-              <p className="mt-2 text-xs text-[#d8e2d6] font-poppins leading-relaxed">
-                Join our circle of hope today. Your gift provides immediate nutrition, clean water, and classroom packs to vulnerable children.
-              </p>
-              <Link
-                href="#donate"
-                className="btn-leaf mt-5 w-full py-3.5 px-6 rounded-xl bg-[#feff02] text-[#121a0d] hover:bg-white font-poppins font-bold text-xs tracking-wide transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer select-none"
-              >
-                <Heart size={14} className="fill-[#121a0d]" />
-                <span>Donate</span>
-              </Link>
-            </div>
+            {/* Widget 2: Urgent Cause Donation Callout Card */}
+            {sidebarDonateCard && (
+              <div className="bg-[#1f2c16] text-white p-7 rounded-3xl shadow-xl border border-white/10 relative overflow-hidden">
+                <h4 className="font-poppins font-bold text-lg sm:text-xl text-white">
+                  {sidebarDonateCard.title}
+                </h4>
+                <p className="mt-2 text-xs text-[#d8e2d6] font-poppins leading-relaxed">
+                  {sidebarDonateCard.description}
+                </p>
+                <Link
+                  href={sidebarDonateCard.buttonHref || "/contact"}
+                  className="btn-leaf mt-5 w-full py-3.5 px-6 rounded-xl bg-[#feff02] text-[#121a0d] hover:bg-white font-poppins font-bold text-base tracking-wide transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer select-none"
+                >
+                  <Heart size={14} className="fill-[#121a0d]" />
+                  <span>{sidebarDonateCard.buttonText || "Donate"}</span>
+                </Link>
+              </div>
+            )}
           </aside>
         </div>
       </div>

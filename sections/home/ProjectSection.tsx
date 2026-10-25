@@ -2,18 +2,15 @@
 
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import siteData from "@/data/site.json";
-import { ProjectData, ProjectItem } from "@/types";
+import { site, SectionProps, ProjectsData, ProjectItem } from "@/data";
 import ProjectCard from "@/components/cards/ProjectCard";
 import { animateProjectEntrance } from "@/util/animations";
 
-interface ProjectSectionProps {
-  data?: ProjectData;
-}
-
 export default function ProjectSection({
-  data = siteData.projects as ProjectData,
-}: ProjectSectionProps) {
+  data: propData,
+  className,
+}: SectionProps<ProjectsData> = {}) {
+  const data = propData || site.projects;
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);

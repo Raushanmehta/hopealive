@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import gsap from "gsap";
 import {
     FacebookIcon,
@@ -10,8 +11,8 @@ import {
     LinkedinIcon,
 } from "@/components/icons/SocialIcons";
 import SunburstIcon from "@/components/icons/SunburstIcon";
-import siteData from "@/data/site.json";
-import { FooterData, SocialLink } from "@/types";
+import { site, SectionProps, FooterData } from "@/data";
+import { SocialLink } from "@/types";
 import {
     animateFooterEntrance,
     animateSocialHover,
@@ -20,13 +21,10 @@ import {
     animateFooterLinkLeave,
 } from "@/util/animations";
 
-interface FooterProps {
-    data?: FooterData;
-}
-
-export default function Footer({ data = siteData.footer }: FooterProps) {
+export default function Footer({ data: propData, className }: SectionProps<FooterData> = {}) {
+    const data = propData || site.footer;
     const footerRef = useRef<HTMLElement>(null);
-    const headlineRef = useRef<HTMLHeadingElement>(null);
+    const headlineRef = useRef<HTMLDivElement>(null);
     const descriptionRef = useRef<HTMLParagraphElement>(null);
     const socialsContainerRef = useRef<HTMLDivElement>(null);
     const linksColumnRef = useRef<HTMLDivElement>(null);
@@ -71,12 +69,12 @@ export default function Footer({ data = siteData.footer }: FooterProps) {
     return (
         <footer
             ref={footerRef}
-            className="relative w-full bg-[#1f2c16] text-[#b0bfae] overflow-hidden pt-12 sm:pt-16 lg:pt-20 pb-0 border-t border-white/5 px-4 md:px-12"
+            className={`relative w-full bg-[#1f2c16] text-[#b0bfae] overflow-hidden pt-12 sm:pt-16 lg:pt-20 pb-0 border-t border-white/5 px-4 md:px-12 ${className || ""}`}
         >
             <div className="max-w-7xl mx-auto w-full">
-                {/* Upper Main Section */}
+                {/* Upper footer content row */}
                 <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-8 items-start">
-                    {/* Left Column: Headline, Description & Social Icons */}
+                    {/* Left company information column */}
                     <div className="lg:col-span-5 xl:col-span-5">
                         <div ref={headlineRef} className="flex items-center gap-3 sm:gap-3.5">
                             <SunburstIcon
@@ -84,18 +82,15 @@ export default function Footer({ data = siteData.footer }: FooterProps) {
                                 color="#feff02"
                                 className="drop-shadow-[0_0_12px_rgba(254,255,2,0.6)] shrink-0 transition-transform duration-300 hover:rotate-45 sm:w-10 sm:h-10"
                             />
-                            <h2
-                                className="text-2xl sm:text-3xl md:text-4xl lg:text-[42px] xl:text-[46px] font-poppins font-bold text-white tracking-tight leading-[1.14]"
-                            >
-                                {data.headline.line1}
-                                {data.headline.line2 && (
-                                    <>
-                                        {" "}
-                                        <br />
-                                        {data.headline.line2}
-                                    </>
-                                )}
-                            </h2>
+                            <Link href="/" className="inline-flex items-center select-none">
+                                <Image
+                                    src={data.logo || "/logo/logo.webp"}
+                                    alt={data.headline?.line1 || "HopeAlive"}
+                                    width={180}
+                                    height={52}
+                                    className="h-16 sm:h-20 w-auto object-contain select-none"
+                                />
+                            </Link>
                         </div>
 
                         <p
@@ -105,7 +100,7 @@ export default function Footer({ data = siteData.footer }: FooterProps) {
                             {data.description}
                         </p>
 
-                        {/* Social Media Buttons (4 yellow circles) */}
+                        {/* Social media link buttons */}
                         <div
                             ref={socialsContainerRef}
                             className="mt-6 sm:mt-8 flex flex-wrap items-center gap-3 sm:gap-3.5"
@@ -127,10 +122,10 @@ export default function Footer({ data = siteData.footer }: FooterProps) {
                         </div>
                     </div>
 
-                    {/* Right Column: Links, Quick Links, Location */}
+                    {/* Right navigation links area */}
                     <div className="lg:col-span-7 xl:col-span-7 flex flex-col justify-between">
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8">
-                            {/* Links Column */}
+                            {/* Navigation links column list */}
                             <div ref={linksColumnRef}>
                                 <h3 className="font-poppins uppercase tracking-[0.16em] text-xs sm:text-[13px] font-semibold text-[#e1ece0] mb-4 sm:mb-5">
                                     {data.linksSection.title}
@@ -174,7 +169,7 @@ export default function Footer({ data = siteData.footer }: FooterProps) {
                                 </div>
                             )}
 
-                            {/* Location Column: On mobile, spans across full 2 columns */}
+                            {/* Location and contact column */}
                             <div ref={locationColumnRef} className="col-span-2 sm:col-span-1 flex flex-col justify-between pt-4 sm:pt-0 border-t border-white/5 sm:border-transparent">
                                 <div>
                                     <h3 className="font-poppins uppercase tracking-[0.16em] text-xs sm:text-[13px] font-semibold text-[#e1ece0] mb-4 sm:mb-5">
@@ -210,7 +205,7 @@ export default function Footer({ data = siteData.footer }: FooterProps) {
                                     </div>
                                 </div>
 
-                                {/* Copyright Notice */}
+                                {/* Copyright statement notice */}
                                 <div
                                     ref={copyrightRef}
                                     className="mt-6 sm:mt-10 text-[11px] sm:text-xs font-poppins text-[#6e806b] leading-relaxed select-none"
@@ -222,7 +217,7 @@ export default function Footer({ data = siteData.footer }: FooterProps) {
                     </div>
                 </div>
 
-                {/* Massive Watermark "HopeAlive" at the Bottom */}
+                {/* Brand watermark background text */}
                 <div
                     ref={watermarkRef}
                     aria-hidden="true"

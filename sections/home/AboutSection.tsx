@@ -6,8 +6,7 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
-import siteData from "@/data/site.json";
-import { AboutData } from "@/types";
+import { site, SectionProps, AboutData } from "@/data";
 import {
   animateAboutEntrance,
   animateAboutButtonHover,
@@ -18,15 +17,16 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-interface AboutSectionProps {
-  data?: AboutData;
+interface AboutSectionProps extends SectionProps<AboutData> {
   showCta?: boolean;
 }
 
 export default function AboutSection({
-  data = siteData.about,
+  data: propData,
+  className,
   showCta = true,
-}: AboutSectionProps) {
+}: AboutSectionProps = {}) {
+  const data = propData || site.about;
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const statsRef = useRef<HTMLDivElement>(null);

@@ -12,7 +12,7 @@ interface TeamCardProps {
 
 export default function TeamCard({ member }: TeamCardProps) {
   return (
-    <div className="group relative bg-[#1f2c16] text-white rounded-3xl overflow-hidden border border-white/10 hover:border-[#feff02]/40 transition-all duration-300 shadow-xl flex flex-col justify-between hover:-translate-y-1">
+    <div className="group relative bg-[#1f2c16] text-white rounded-3xl overflow-hidden hover:border-[#feff02]/40 transition-all duration-300 shadow-xl flex flex-col justify-between hover:-translate-y-1">
       {/* Top Media Frame with Organic Gradient Vignette */}
       <div className="relative w-full h-72 sm:h-80 overflow-hidden bg-[#162211]">
         <Image
@@ -23,17 +23,7 @@ export default function TeamCard({ member }: TeamCardProps) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#1f2c16] via-transparent to-black/20 pointer-events-none" />
 
-        {/* Top Badges */}
-        <div className="absolute top-4 left-4 right-4 flex items-center justify-between gap-2 pointer-events-none">
-          <span className="px-3 py-1 rounded-full text-[11px] font-poppins font-bold uppercase tracking-wider bg-[#162211]/85 backdrop-blur-md text-[#feff02] border border-white/10 shadow-sm">
-            {member.department}
-          </span>
-          {member.experience && (
-            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-poppins font-medium bg-[#2a3c20]/90 backdrop-blur-md text-white/90 border border-white/10">
-              {member.experience}
-            </span>
-          )}
-        </div>
+
       </div>
 
       {/* Content Body */}
@@ -52,7 +42,7 @@ export default function TeamCard({ member }: TeamCardProps) {
 
         {/* Bottom Social Links & Action */}
         <div className="mt-5 pt-4 border-t border-white/10 flex items-center justify-between">
-          <span className="text-[11px] font-poppins uppercase tracking-wider text-[#7e8f7c]">
+          <span className="text-[13px] font-poppins uppercase tracking-wider text-[#7e8f7c]">
             Connect
           </span>
           <div className="flex items-center gap-2">
@@ -63,13 +53,13 @@ export default function TeamCard({ member }: TeamCardProps) {
                   href={social.href}
                   target={social.href.startsWith("http") ? "_blank" : undefined}
                   rel={social.href.startsWith("http") ? "noopener noreferrer" : undefined}
-                  className="w-8 h-8 rounded-full bg-[#2a3c20] border border-white/10 flex items-center justify-center text-white/90 hover:bg-[#feff02] hover:text-[#121a0d] hover:border-[#feff02] transition-all cursor-pointer"
+                  className="w-10 h-10 rounded-full bg-[#2a3c20] border border-white/10 flex items-center justify-center text-white/90 hover:bg-[#feff02] hover:text-[#121a0d] hover:border-[#feff02] transition-all cursor-pointer"
                   aria-label={`${member.name} ${social.platform}`}
                 >
-                  {social.platform === "linkedin" && <LinkedinIcon size={14} />}
-                  {social.platform === "twitter" && <TwitterIcon size={14} />}
-                  {social.platform === "facebook" && <FacebookIcon size={14} />}
-                  {social.platform === "email" && <Mail size={14} />}
+                  {social.platform === "linkedin" && <LinkedinIcon size={18} />}
+                  {social.platform === "twitter" && <TwitterIcon size={18} />}
+                  {social.platform === "facebook" && <FacebookIcon size={18} />}
+                  {social.platform === "email" && <Mail size={18} />}
                 </a>
               );
             })}

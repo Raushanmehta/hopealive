@@ -6,8 +6,8 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ArrowUpRight } from "lucide-react";
-import siteData from "@/data/site.json";
-import { WhyChooseUsData, WhyChooseUsItem } from "@/types";
+import { site, SectionProps, WhyChooseUsData } from "@/data";
+import { WhyChooseUsItem } from "@/types";
 import {
   animateWhyChooseUsEntrance,
   animateWhyChooseUsButtonHover,
@@ -18,15 +18,15 @@ if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-interface WhyChooseUsSectionProps {
-  data?: WhyChooseUsData;
-  className?: string;
-}
-
 export default function WhyChooseUsSection({
-  data = siteData.whyChooseUs as WhyChooseUsData,
+  data: propData,
   className = "",
-}: WhyChooseUsSectionProps) {
+}: SectionProps<WhyChooseUsData> = {}) {
+  const data = (propData || site.whyChooseUs) as typeof site.whyChooseUs & {
+    stats?: { value: string; label: string };
+    cta?: { label: string; href: string };
+    headline: { line1: string; line2?: string };
+  };
   const sectionRef = useRef<HTMLElement>(null);
 
   // Upper row refs (Badge, Stats, Headline, Description, CTA)

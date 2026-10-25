@@ -2,18 +2,15 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
-import siteData from "@/data/site.json";
-import { CausesData, CauseItem } from "@/types";
+import { site, SectionProps, CausesData, CauseItem } from "@/data";
 import { animateCausesEntrance } from "@/util/animations";
 import CausesCard from "@/components/cards/CausesCard";
 
-interface CausesSectionProps {
-  data?: CausesData;
-}
-
 export default function CausesSection({
-  data = siteData.causes as CausesData,
-}: CausesSectionProps) {
+  data: propData,
+  className,
+}: SectionProps<CausesData> = {}) {
+  const data = propData || site.causes;
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);

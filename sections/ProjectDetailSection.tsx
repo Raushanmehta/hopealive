@@ -4,9 +4,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Quote, Heart } from "lucide-react";
-import siteData from "@/data/site.json";
+import { site, ProjectItem, SectionProps } from "@/data";
 import {
-  ProjectItem,
   ProjectStat,
   ProjectMilestone,
   ProjectGalleryItem,
@@ -23,8 +22,8 @@ export default function ProjectDetailSection({
   data: propData,
 }: ProjectDetailSectionProps) {
   const allProjects: ProjectItem[] =
-    ((siteData.projects as any)?.projectsList || []) as ProjectItem[];
-  const projectDetailConfig = (siteData as { projectDetail?: ProjectDetailConfig }).projectDetail;
+    ((site.projects as any)?.projectsList || []) as ProjectItem[];
+  const projectDetailConfig = (site as unknown as { projectDetail?: ProjectDetailConfig }).projectDetail;
   const defaultProject = allProjects[0] || {};
 
   const normalizedId = (projectId || "").toLowerCase().trim();
@@ -53,7 +52,7 @@ export default function ProjectDetailSection({
         "Providing free education, books and learning resources to underprivileged children for a brighter future.",
       category: "Youth Literacy & Schools",
       ctaText: "Explore Project",
-      image: "/images/project-gallery-books.jpg",
+      image: "/images/project-gallery-books.webp",
       alt: "Hands holding open school books and notebooks for children education",
       href: "/project/education",
     };
@@ -81,9 +80,9 @@ export default function ProjectDetailSection({
     currentProject.callout ||
     defaultProject.callout ||
     projectDetailConfig?.callout ||
-    (siteData.projects as any)?.callout;
+    (site.projects as any)?.callout;
   const baseSidebar =
-    projectDetailConfig?.sidebar || (siteData.projects as any)?.sidebar;
+    projectDetailConfig?.sidebar || (site.projects as any)?.sidebar;
   const sidebar = {
     ...baseSidebar,
     donateCard:
@@ -112,7 +111,7 @@ export default function ProjectDetailSection({
             {/* Featured Hero Showcase Image */}
             <div className="relative w-full h-[300px] sm:h-[420px] md:h-[480px] rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none overflow-hidden shadow-2xl border border-[#1b2715]/10 mb-10">
               <Image
-                src={currentProject.image || "/images/project-gallery-books.jpg"}
+                src={currentProject.image || "/images/project-gallery-books.webp"}
                 alt={currentProject.alt || currentProject.title}
                 fill
                 priority

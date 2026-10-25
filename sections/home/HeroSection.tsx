@@ -5,19 +5,15 @@ import Image from "next/image";
 import Link from "next/link";
 import gsap from "gsap";
 import { ArrowUpRight } from "lucide-react";
-import siteData from "@/data/site.json";
-import { HeroData } from "@/types";
+import { site, SectionProps, HeroData } from "@/data";
 import {
   animateHeroEntrance,
   animateHeroButtonHover,
   animateHeroButtonLeave,
 } from "@/util/animations";
 
-interface HeroSectionProps {
-  data?: HeroData;
-}
-
-export default function HeroSection({ data = siteData.hero }: HeroSectionProps) {
+export default function HeroSection({ data: propData, className }: SectionProps<HeroData> = {}) {
+  const data = propData || site.hero;
   const heroRef = useRef<HTMLElement>(null);
   const bgRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
@@ -41,7 +37,7 @@ export default function HeroSection({ data = siteData.hero }: HeroSectionProps) 
     <section
       ref={heroRef}
       aria-label="Hero Section"
-      className="relative min-h-[100svh] min-h-screen w-full overflow-hidden flex flex-col justify-end pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-10 sm:pb-14 lg:pb-20 bg-[#162211] px-4 md:px-12"
+      className={`relative min-h-[100svh] min-h-screen w-full overflow-hidden flex flex-col justify-end pt-28 sm:pt-32 md:pt-36 lg:pt-40 pb-10 sm:pb-14 lg:pb-20 bg-[#162211] px-4 md:px-12 ${className || ""}`}
     >
       {/* 1. Cinematic Background Image */}
       <div
@@ -57,20 +53,20 @@ export default function HeroSection({ data = siteData.hero }: HeroSectionProps) 
           className="object-cover object-center transform-gpu"
         />
 
-        {/* Top Vignette Overlay for Navbar Contrast */}
+        {/* Top navbar contrast vignette */}
         <div className="absolute inset-x-0 top-0 h-40 sm:h-56 lg:h-64 bg-gradient-to-b from-[#10190d]/90 via-[#10190d]/40 to-transparent pointer-events-none" />
 
-        {/* Ambient Dark Forest Green Vignette Tint */}
+        {/* Ambient dark vignette tint */}
         <div className="absolute inset-0 bg-[#0f170c]/30 pointer-events-none" />
 
-        {/* Bottom Dark Gradient to Seamlessly Blend into Next Section */}
+        {/* Bottom blend dark gradient */}
         <div className="absolute inset-x-0 bottom-0 h-64 sm:h-80 lg:h-96 bg-gradient-to-t from-[#141f10] via-[#141f10]/60 to-transparent pointer-events-none" />
       </div>
 
-      {/* 2. Main Content Container */}
+      {/* Main hero content container */}
       <div className="relative z-10 max-w-7xl mx-auto w-full">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-end">
-          {/* Left Column: Responsive 3-Line Headline */}
+          {/* Left headline text column */}
           <div className="lg:col-span-8">
             <h1
               ref={headlineRef}
@@ -86,7 +82,7 @@ export default function HeroSection({ data = siteData.hero }: HeroSectionProps) 
             </h1>
           </div>
 
-          {/* Right Column: CTA Button (Bottom-Right) */}
+          {/* Right CTA action column */}
           <div className="lg:col-span-4 flex justify-start lg:justify-end items-end w-full">
             <div className="pt-3 sm:pt-4 lg:pt-6 w-full sm:w-auto">
               <Link

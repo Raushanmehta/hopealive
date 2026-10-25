@@ -10,17 +10,14 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import TestimonialCard from "@/components/cards/TestimonialCard";
-import siteData from "@/data/site.json";
-import { TestimonialData } from "@/types";
+import { site, SectionProps, TestimonialsData } from "@/data";
 import { animateTestimonialEntrance } from "@/util/animations";
 
-interface TestimonialSectionProps {
-  data?: TestimonialData;
-}
-
 export default function TestimonialSection({
-  data = siteData.testimonials as TestimonialData,
-}: TestimonialSectionProps) {
+  data: propData,
+  className,
+}: SectionProps<TestimonialsData> = {}) {
+  const data = propData || site.testimonials;
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);

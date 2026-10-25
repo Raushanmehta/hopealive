@@ -142,3 +142,13 @@
   border-top-right-radius: 6px !important;
   border-bottom-left-radius: 6px !important;
 }
+
+@media (min-width: 1024px) {
+  .sticky-sidebar {
+    position: -webkit-sticky !important;
+    position: sticky !important;
+    top: 7rem !important;
+    align-self: flex-start !important;
+    z-index: 20 !important;
+  }
+}

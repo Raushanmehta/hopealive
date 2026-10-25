@@ -2,15 +2,13 @@
 
 import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
-import siteData from "@/data/site.json";
-import { TestimonialData, TestimonialItem } from "@/types";
+import { site, TestimonialsData, TestimonialItem } from "@/data";
 import { animateTestimonialEntrance } from "@/util/animations";
 import TestimonialCard from "@/components/cards/TestimonialCard";
 import Breadcrumb from "@/components/common/Breadcrumb";
 
 export default function TestimonialPage() {
-  // All testimonial data sourced directly from site.json
-  const data: TestimonialData = siteData.testimonials as TestimonialData;
+  const data: TestimonialsData = site.testimonials;
 
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
@@ -18,7 +16,7 @@ export default function TestimonialPage() {
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const gridContainerRef = useRef<HTMLDivElement>(null);
 
-  // GSAP Entrance Animation on scroll
+  // GSAP scroll entrance animation
   useEffect(() => {
     const ctx = gsap.context(() => {
       animateTestimonialEntrance(sectionRef.current, {
@@ -43,9 +41,9 @@ export default function TestimonialPage() {
         className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
       >
         <div className="max-w-7xl mx-auto w-full">
-          {/* UPPER ROW: Left Column (Badge) | Right Column (Headline & Narrative) */}
+          {/* Header content grid layout */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
-            {/* LEFT COLUMN: Organic Pill Badge */}
+            {/* Left badge column wrapper */}
             <div className="lg:col-span-4 flex flex-col justify-start self-stretch">
               <div
                 ref={badgeRef}
@@ -57,9 +55,9 @@ export default function TestimonialPage() {
               </div>
             </div>
 
-            {/* RIGHT COLUMN: Massive Headline & Narrative Paragraph */}
+            {/* Right headline and narrative */}
             <div className="lg:col-span-8 flex flex-col">
-              {/* Massive Bold Headline */}
+              {/* Section main heading title */}
               <h2
                 ref={headlineRef}
                 className="font-poppins font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[62px] text-[#1b2715] tracking-tight leading-[1.12] select-none"
@@ -74,7 +72,7 @@ export default function TestimonialPage() {
                 )}
               </h2>
 
-              {/* Narrative Paragraph */}
+              {/* Section description narrative text */}
               <p
                 ref={descriptionRef}
                 className="mt-3 sm:mt-4 max-w-3xl font-poppins text-sm sm:text-base text-[#556350] leading-relaxed select-none"
@@ -84,10 +82,10 @@ export default function TestimonialPage() {
             </div>
           </div>
 
-          {/* Testimonial Cards Grid with uniform heights and gap-y for popping avatars */}
+          {/* Testimonial cards grid container */}
           <div
             ref={gridContainerRef}
-            className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 gap-y-16 sm:gap-y-20 pt-14 sm:pt-16 items-stretch"
+            className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 gap-y-10 sm:gap-y-14 pt-14 sm:pt-8 items-stretch"
           >
             {data.items.map((item: TestimonialItem) => (
               <TestimonialCard
