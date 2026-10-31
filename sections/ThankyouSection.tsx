@@ -22,7 +22,7 @@ export default function ThankYouSection({ data: propData, className }: SectionPr
                 </div>
 
                 {/* Thank you headline title */}
-                <h1 className="font-poppins font-bold text-3xl sm:text-5xl lg:text-[54px] text-[#1b2715] tracking-tight leading-[1.15] mb-4">
+                <h1 className="font-poppins font-bold text-3xl sm:text-5xl md:text-5xl text-[#1b2715] tracking-tight leading-[1.15] mb-4">
                     {content.headline}
                 </h1>
 

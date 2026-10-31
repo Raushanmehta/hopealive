@@ -168,7 +168,7 @@ export default function BlogDetailSection({
 
             {/* Signature pullquote highlight section */}
             {quote && (
-              <div className="my-8 sm:my-10 bg-[#1f2c16] text-white p-7 sm:p-9 rounded-2xl sm:rounded-3xl border border-white/10 relative overflow-hidden shadow-xl">
+              <div className="my-5 sm:my-6 bg-[#1f2c16] text-white p-7 sm:p-9 rounded-2xl sm:rounded-3xl border border-white/10 relative overflow-hidden shadow-xl">
                 <div className="absolute top-4 right-6 text-white/5 pointer-events-none">
                   <Quote size={100} />
                 </div>
@@ -185,7 +185,7 @@ export default function BlogDetailSection({
 
             {/* Mid article photo collage */}
             {collage && collage.images && collage.images.length > 0 && (
-              <div className="my-8">
+              <div className="my-6">
                 {collage.title && (
                   <h3 className="font-poppins font-bold text-xl sm:text-2xl text-[#1b2715] mb-4">
                     {collage.title}
@@ -216,7 +216,7 @@ export default function BlogDetailSection({
 
             {/* Key takeaways checklist items */}
             {keyTakeaways && keyTakeaways.items && keyTakeaways.items.length > 0 && (
-              <div className="my-8 p-6 sm:p-7 rounded-2xl bg-[#f8f6f0] border border-[#1b2715]/10 shadow-sm">
+              <div className="my-6 p-6 sm:p-7 rounded-2xl bg-[#f8f6f0] border border-[#1b2715]/10 shadow-sm">
                 {keyTakeaways.title && (
                   <h4 className="font-poppins font-bold text-base sm:text-lg text-[#1b2715] mb-3">
                     {keyTakeaways.title}
@@ -235,7 +235,7 @@ export default function BlogDetailSection({
 
             {/* In article donation banner */}
             {donationCta && (
-              <div className="my-8 p-6 sm:p-8 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none bg-[#1f2c16] text-white flex flex-col sm:flex-row items-center justify-between gap-5 shadow-xl border border-white/10">
+              <div className="my-6 p-6 sm:p-8 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none bg-[#1f2c16] text-white flex flex-col sm:flex-row items-center justify-between gap-5 shadow-xl border border-white/10">
                 <div>
                   {donationCta.badge && (
                     <span className="text-[11px] font-poppins font-bold uppercase tracking-widest text-[#feff02]">

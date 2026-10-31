@@ -17,11 +17,12 @@ interface CausesCardProps {
   cause?: CauseItem;
   isActive?: boolean;
   onSelect?: () => void;
+  onLeave?: () => void;
   className?: string;
 }
 
 export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
-  ({ item, cause, isActive = false, onSelect, className = "" }, ref) => {
+  ({ item, cause, isActive = false, onSelect, onLeave, className = "" }, ref) => {
     const cardData = cause || item;
     if (!cardData) return null;
 
@@ -109,6 +110,7 @@ export const CausesCard = forwardRef<HTMLDivElement, CausesCardProps>(
         ref={ref}
         onClick={onSelect}
         onMouseEnter={onSelect}
+        onMouseLeave={onLeave}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => {

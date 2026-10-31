@@ -227,8 +227,8 @@
               "label": "LIVES TRANSFORMED"
             },
             "headline": {
-              "line1": "International Independent",
-              "line2": "Charity Organization"
+              "line1": "International Charity Organization",
+              "line2": " "
             },
             "description": "Your support will help us to make life better living for poor vulnerable children. We are a non-profit organization working for children and communities in need.",
             "cta": {
@@ -488,7 +488,7 @@
                   ]
                 },
                 "callout": {
-                  "title": "Sponsor a Rural Classroom or Learning Kits",
+                  "title": "Sponsor a Rural For Learning Kits",
                   "description": "Collaborate with our field directors to construct classrooms, provide textbooks, and equip local teachers with learning resources.",
                   "buttonText": "Sponsor Education",
                   "buttonHref": "/contact"
@@ -585,7 +585,7 @@
                   ]
                 },
                 "callout": {
-                  "title": "Support Mobile Medical Clinics & Doctors",
+                  "title": "Support Medical Clinics & Doctors",
                   "description": "Help us dispatch mobile clinics stocked with diagnostic tests, vaccines, and emergency maternal medicine to isolated villages.",
                   "buttonText": "Support Healthcare",
                   "buttonHref": "/contact"
@@ -682,7 +682,7 @@
                   ]
                 },
                 "callout": {
-                  "title": "Sponsor a Solar Clean Water Borehole",
+                  "title": "Sponsor a Solar Clean Water ",
                   "description": "Partner with our engineering corps to drill deep aquifers, erect solar pumps, and provide 10,000+ liters of pure water daily.",
                   "buttonText": "Fund a Water Well",
                   "buttonHref": "/contact"
@@ -1610,7 +1610,7 @@
                 "title": "Every Action Saves Lives",
                 "description": "Join our circle of hope today. Your gift provides immediate nutrition, clean water, and classroom packs to vulnerable children.",
                 "buttonText": "Donate",
-                "buttonHref": "/contact"
+                "buttonHref": "#"
               }
             }
           }
@@ -1724,7 +1724,7 @@
               }
             ],
             "linksSection": {
-              "title": "LINKS",
+              "title": "QUICK LINKS",
               "links": [
                 {
                   "label": "Home",
@@ -1745,32 +1745,44 @@
                 {
                   "label": "Blog",
                   "href": "/blog"
+                },
+                {
+                  "label": "Testimonial",
+                  "href": "/testimonial"
                 }
               ]
             },
             "quickLinksSection": {
-              "title": "QUICK LINKS",
+              "title": "PROJECTS",
               "links": [
                 {
-                  "label": "FAQs",
-                  "href": "/faqs"
+                  "label": "Education",
+                  "href": "/project/education"
                 },
                 {
-                  "label": "Our Team",
-                  "href": "/team"
+                  "label": "Healthcare",
+                  "href": "/project/healthcare"
                 },
                 {
-                  "label": "Testimonials",
-                  "href": "/testimonial"
+                  "label": "Clean Water",
+                  "href": "/project/clean-water"
                 },
                 {
-                  "label": "Contact Us",
-                  "href": "/contact"
+                  "label": "Emergency Aid",
+                  "href": "/project/emergency-aid"
+                },
+                {
+                  "label": "Children Shelter",
+                  "href": "/project/child-shelter"
+                },
+                {
+                  "label": "Child Nutrition",
+                  "href": "/project/nutrition"
                 }
               ]
             },
             "locationSection": {
-              "title": "LOCATION",
+              "title": "GET IN TOUCH",
               "addressLines": [
                 "3170 Rosewood Lane Unit 200",
                 "Beverly Hills, CA 90210"

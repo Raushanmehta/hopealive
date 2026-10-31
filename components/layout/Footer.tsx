@@ -11,6 +11,7 @@ import {
     LinkedinIcon,
 } from "@/components/icons/SocialIcons";
 import SunburstIcon from "@/components/icons/SunburstIcon";
+import BrandLogoIcon from "@/components/icons/BrandLogoIcon";
 import { site, SectionProps, FooterData } from "@/data";
 import { SocialLink } from "@/types";
 import {
@@ -69,7 +70,7 @@ export default function Footer({ data: propData, className }: SectionProps<Foote
     return (
         <footer
             ref={footerRef}
-            className={`relative w-full bg-[#1f2c16] text-[#b0bfae] overflow-hidden pt-12 sm:pt-16 lg:pt-20 pb-0 border-t border-white/5 px-4 md:px-12 ${className || ""}`}
+            className={`relative w-full bg-[#1f2c16] text-[#b0bfae] overflow-hidden pt-12 sm:pt-16 lg:pt-16 pb-0 border-t border-white/5 px-4 md:px-12 ${className || ""}`}
         >
             <div className="max-w-7xl mx-auto w-full">
                 {/* Upper footer content row */}
@@ -77,18 +78,18 @@ export default function Footer({ data: propData, className }: SectionProps<Foote
                     {/* Left company information column */}
                     <div className="lg:col-span-5 xl:col-span-5">
                         <div ref={headlineRef} className="flex items-center gap-3 sm:gap-3.5">
-                            <SunburstIcon
+                            <BrandLogoIcon
                                 size={36}
                                 color="#feff02"
-                                className="drop-shadow-[0_0_12px_rgba(254,255,2,0.6)] shrink-0 transition-transform duration-300 hover:rotate-45 sm:w-10 sm:h-10"
+                                className="drop-shadow-[0_0_12px_rgba(254,255,2,0.6)] shrink-0 transition-transform duration-300 hover:rotate-12 sm:w-10 sm:h-10"
                             />
                             <Link href="/" className="inline-flex items-center select-none">
                                 <Image
                                     src={data.logo || "/logo/logo.webp"}
                                     alt={data.headline?.line1 || "HopeAlive"}
-                                    width={180}
-                                    height={52}
-                                    className="h-16 sm:h-20 w-auto object-contain select-none"
+                                    width={240}
+                                    height={75}
+                                    className="h-10 sm:h-14 w-auto object-contain select-none"
                                 />
                             </Link>
                         </div>
@@ -120,6 +121,13 @@ export default function Footer({ data: propData, className }: SectionProps<Foote
                                 </a>
                             ))}
                         </div>
+                        {/* Copyright statement notice */}
+                        <div
+                            ref={copyrightRef}
+                            className="mt-6 sm:mt-10 text-[13px] sm:text-sm font-poppins text-[#6e806b] leading-relaxed select-none"
+                        >
+                            <p>{data.copyright.line1}</p>
+                        </div>
                     </div>
 
                     {/* Right navigation links area */}
@@ -127,10 +135,10 @@ export default function Footer({ data: propData, className }: SectionProps<Foote
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8">
                             {/* Navigation links column list */}
                             <div ref={linksColumnRef}>
-                                <h3 className="font-poppins uppercase tracking-[0.16em] text-xs sm:text-[13px] font-semibold text-[#e1ece0] mb-4 sm:mb-5">
+                                <h3 className="font-poppins uppercase tracking-[0.16em] text-sm sm:text-[18px] font-semibold text-[#feff02] mb-4 sm:mb-5">
                                     {data.linksSection.title}
                                 </h3>
-                                <ul className="space-y-2.5 sm:space-y-3">
+                                <ul className="space-y-2 sm:space-y-2">
                                     {data.linksSection.links.map((link) => (
                                         <li key={link.label}>
                                             <Link
@@ -149,10 +157,10 @@ export default function Footer({ data: propData, className }: SectionProps<Foote
                             {/* Quick Links Column */}
                             {data.quickLinksSection && (
                                 <div ref={quickLinksColumnRef}>
-                                    <h3 className="font-poppins uppercase tracking-[0.16em] text-xs sm:text-[13px] font-semibold text-[#e1ece0] mb-4 sm:mb-5">
+                                    <h3 className="font-poppins uppercase tracking-[0.16em] text-sm sm:text-[18px] font-semibold text-[#feff02] mb-4 sm:mb-5">
                                         {data.quickLinksSection.title}
                                     </h3>
-                                    <ul className="space-y-2.5 sm:space-y-3">
+                                    <ul className="space-y-2 sm:space-y-2">
                                         {data.quickLinksSection.links.map((link) => (
                                             <li key={link.label}>
                                                 <Link
@@ -172,7 +180,7 @@ export default function Footer({ data: propData, className }: SectionProps<Foote
                             {/* Location and contact column */}
                             <div ref={locationColumnRef} className="col-span-2 sm:col-span-1 flex flex-col justify-between pt-4 sm:pt-0 border-t border-white/5 sm:border-transparent">
                                 <div>
-                                    <h3 className="font-poppins uppercase tracking-[0.16em] text-xs sm:text-[13px] font-semibold text-[#e1ece0] mb-4 sm:mb-5">
+                                    <h3 className="font-poppins uppercase tracking-[0.16em] text-sm sm:text-[18px] font-semibold text-[#feff02] mb-4 sm:mb-5">
                                         {data.locationSection.title}
                                     </h3>
                                     <div className="space-y-1 text-xs sm:text-sm font-poppins text-[#a1b099] leading-relaxed">
@@ -181,7 +189,7 @@ export default function Footer({ data: propData, className }: SectionProps<Foote
                                         ))}
                                     </div>
 
-                                    <div className="mt-4 sm:mt-5 space-y-1.5 text-xs sm:text-sm font-poppins text-[#a1b099]">
+                                    <div className="mt-2 sm:mt-2 space-y-1.5 text-xs sm:text-sm font-poppins text-[#a1b099]">
                                         {data.locationSection.phones.map((phone) => (
                                             <p key={phone}>
                                                 <a
@@ -202,16 +210,12 @@ export default function Footer({ data: propData, className }: SectionProps<Foote
                                                 </a>
                                             </p>
                                         )}
+
                                     </div>
+
                                 </div>
 
-                                {/* Copyright statement notice */}
-                                <div
-                                    ref={copyrightRef}
-                                    className="mt-6 sm:mt-10 text-[11px] sm:text-xs font-poppins text-[#6e806b] leading-relaxed select-none"
-                                >
-                                    <p>{data.copyright.line1}</p>
-                                </div>
+
                             </div>
                         </div>
                     </div>
@@ -221,9 +225,9 @@ export default function Footer({ data: propData, className }: SectionProps<Foote
                 <div
                     ref={watermarkRef}
                     aria-hidden="true"
-                    className="mt-8 sm:mt-10 lg:mt-12 text-center select-none pointer-events-none overflow-hidden w-full"
+                    className=" text-center select-none pointer-events-none w-full flex justify-center items-center py-2"
                 >
-                    <span className="block font-poppins font-bold text-[16vw] sm:text-[18vw] lg:text-[200px] xl:text-[230px] tracking-tight leading-[0.8] text-white/[0.08] select-none truncate">
+                    <span className="block font-poppins font-bold text-[13.5vw] lg:text-[180px] xl:text-[210px] tracking-tight leading-[1.1] pb-2 text-white/[0.08] select-none whitespace-nowrap">
                         {data.watermark}
                     </span>
                 </div>

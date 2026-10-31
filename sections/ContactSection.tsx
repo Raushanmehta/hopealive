@@ -1,6 +1,8 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
   MapPin,
   Phone,
@@ -13,11 +15,47 @@ import {
 } from "lucide-react";
 import { site, SectionProps, ContactData } from "@/data";
 
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
 export default function ContactSection({
   data: propData,
   className,
 }: SectionProps<ContactData> = {}) {
   const data = propData || site.contact;
+  const sectionRef = useRef<HTMLElement>(null);
+  const badgeRef = useRef<HTMLDivElement>(null);
+  const badgeLineRef = useRef<SVGLineElement>(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Animate straight line drawing under the badge
+      if (badgeLineRef.current) {
+        gsap.fromTo(
+          badgeLineRef.current,
+          {
+            strokeDasharray: 120,
+            strokeDashoffset: 120,
+          },
+          {
+            strokeDashoffset: 0,
+            duration: 1.2,
+            ease: "power2.out",
+            delay: 0.3,
+            scrollTrigger: {
+              trigger: badgeRef.current || sectionRef.current,
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -48,6 +86,7 @@ export default function ContactSection({
 
   return (
     <section
+      ref={sectionRef}
       id="contact"
       aria-label="Contact HopeAlive Foundation"
       className="relative w-full bg-[#f8f6f0] text-[#1a2614] px-4 md:px-12 py-8 md:py-10 lg:py-20 overflow-hidden"
@@ -57,17 +96,39 @@ export default function ContactSection({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-start">
           {/* Left badge column wrapper */}
           <div className="lg:col-span-4 flex flex-col justify-start self-stretch">
-            <div className="inline-flex items-center w-fit select-none">
+            <div
+              ref={badgeRef}
+              className="inline-flex flex-col items-start w-fit select-none"
+            >
               <span className="text-sm lg:text-lg font-poppins font-medium text-[#1b2715]">
                 {data.badge.text}
               </span>
+              <svg
+                width="120"
+                height="8"
+                viewBox="0 0 120 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                className="mt-1 pointer-events-none w-full max-w-[120px] overflow-visible"
+              >
+                <line
+                  ref={badgeLineRef}
+                  x1="2"
+                  y1="4"
+                  x2="118"
+                  y2="4"
+                  stroke="#feff02"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                />
+              </svg>
             </div>
           </div>
 
           {/* Right headline and narrative */}
           <div className="lg:col-span-8 flex flex-col">
             {/* Section main heading title */}
-            <h2 className="font-poppins font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[62px] text-[#1b2715] tracking-tight leading-[1.12] select-none">
+            <h2 className="font-poppins font-bold text-3xl sm:text-5xl md:text-5xl text-[#1b2715] tracking-tight leading-[1.12] select-none">
               <span className="block">{data.headline.line1}</span>
               {data.headline.line2 && (
                 <span className="block">{data.headline.line2}</span>

@@ -97,9 +97,9 @@ export default function MissionAndVisionSection({
           </div>
         )}
 
-        {/* Vision headline block */}
-        <div className="pt-2 sm:pt-3 pb-2 sm:pb-3">
-          <h2 className="font-poppins font-bold text-6xl sm:text-7xl md:text-8xl text-white tracking-[-0.035em] leading-[0.88] flex flex-col items-start select-none">
+        {/* Vision block: Title on Left, Description on Right */}
+        <div className="pt-2 sm:pt-3 pb-2 sm:pb-3 flex flex-col md:flex-row md:items-center justify-between gap-6 md:gap-10">
+          <h2 className="font-poppins font-bold text-3xl sm:text-5xl md:text-5xl text-white tracking-[-0.035em] leading-[1.05] flex flex-col items-start select-none shrink-0">
             <span ref={visionLine1Ref} className="block text-white">
               {vision.title.line1}
             </span>
@@ -110,38 +110,8 @@ export default function MissionAndVisionSection({
               {vision.title.line2}
             </span>
           </h2>
-        </div>
 
-        {/* Vision separator divider line */}
-        <hr
-          ref={divider1Ref}
-          className="border-0 h-[2px] bg-gradient-to-r from-[#feff02]/50 via-[#feff02]/25 to-white/10 w-full my-6 sm:my-8 md:my-9 opacity-100"
-        />
-
-        {/* Vision narrative content block */}
-        <div className="py-2 sm:py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-10 md:gap-14 lg:gap-16">
-          {/* Vision emblem icon container */}
-          <div
-            ref={visionIconRef}
-            className="shrink-0 flex items-center justify-start group"
-          >
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-3xl bg-[#1f2c16] border border-[#feff02]/30 flex items-center justify-center text-[#feff02] shadow-[0_0_35px_rgba(254,255,2,0.12)] transition-all duration-500 ease-out group-hover:scale-105 group-hover:border-[#feff02] group-hover:shadow-[0_0_45px_rgba(254,255,2,0.25)] cursor-pointer">
-              <div className="relative flex items-center justify-center">
-                <SunburstIcon
-                  size={48}
-                  color="#feff02"
-                  className="transition-transform duration-700 group-hover:rotate-90"
-                />
-                <Globe2
-                  size={20}
-                  className="absolute text-white stroke-[2.2] drop-shadow-md"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Vision narrative description text */}
-          <div className="w-full sm:max-w-xl md:max-w-2xl flex justify-end">
+          <div className="w-full md:max-w-xl lg:max-w-2xl flex md:justify-end">
             <p
               ref={visionDescRef}
               className="font-poppins font-normal text-sm sm:text-[15px] md:text-base text-[#b0c0ad] leading-[1.65] text-left select-none"
@@ -151,57 +121,34 @@ export default function MissionAndVisionSection({
           </div>
         </div>
 
-        {/* Second section divider line */}
+        {/* Section separator divider line */}
         <hr
-          ref={divider2Ref}
-          className="border-0 h-[2px] bg-gradient-to-r from-white/10 via-[#feff02]/25 to-[#feff02]/50 w-full my-6 sm:my-8 md:my-9 opacity-100"
+          ref={divider1Ref}
+          className="border-0 h-[2px] bg-gradient-to-r from-[#feff02]/50 via-[#feff02]/25 to-white/10 w-full my-6 sm:my-8 md:my-9 opacity-100"
         />
 
-        {/* Mission headline title block */}
-        <div className="pt-2 sm:pt-3 pb-2 sm:pb-3 flex flex-col items-end text-right">
-          <h2 className="font-poppins font-extrabold text-6xl sm:text-7xl md:text-8xl text-white tracking-[-0.035em] leading-[0.88] flex flex-col items-end select-none">
-            <span ref={missionLine1Ref} className="block text-right text-white">
-              {mission.title.line1}
-            </span>
-            <span
-              ref={missionLine2Ref}
-              className="block text-right mt-1 sm:mt-2 text-white hover:text-[#feff02] transition-colors duration-300"
-            >
-              {mission.title.line2}
-            </span>
-          </h2>
-        </div>
-
-        {/* Third section divider line */}
-        <hr
-          ref={divider3Ref}
-          className="border-0 h-[2px] bg-gradient-to-l from-[#feff02]/50 via-[#feff02]/25 to-white/10 w-full my-6 sm:my-8 md:my-9 opacity-100"
-        />
-
-        {/* Mission narrative content block */}
-        <div className="py-2 sm:py-4 flex flex-col-reverse sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-10 md:gap-14 lg:gap-16">
-          {/* Mission narrative description text */}
-          <div className="w-full sm:max-w-xl md:max-w-2xl flex justify-start">
+        {/* Mission block: Description on Left, Title on Right */}
+        <div className="pt-2 sm:pt-3 pb-2 sm:pb-3 flex flex-col-reverse md:flex-row md:items-center justify-between gap-6 md:gap-10">
+          <div className="w-full md:max-w-xl lg:max-w-2xl flex justify-start">
             <p
               ref={missionDescRef}
-              className="font-poppins font-normal text-sm sm:text-[15px] md:text-base text-[#b0c0ad] leading-[1.65] text-left sm:text-right select-none"
+              className="font-poppins font-normal text-sm sm:text-[15px] md:text-base text-[#b0c0ad] leading-[1.65] text-left select-none"
             >
               {mission.description}
             </p>
           </div>
 
-          {/* Mission emblem icon container */}
-          <div
-            ref={missionIconRef}
-            className="shrink-0 flex items-center justify-start sm:justify-end group"
-          >
-            <div className="relative w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 rounded-3xl bg-[#1f2c16] border border-[#feff02]/30 flex items-center justify-center text-[#feff02] shadow-[0_0_35px_rgba(254,255,2,0.12)] transition-all duration-500 ease-out group-hover:scale-105 group-hover:border-[#feff02] group-hover:shadow-[0_0_45px_rgba(254,255,2,0.25)] cursor-pointer">
-              <HandHeart
-                size={40}
-                className="text-[#feff02] transition-transform duration-500 group-hover:scale-110 drop-shadow-md"
-              />
-            </div>
-          </div>
+          <h2 className="font-poppins font-extrabold text-3xl sm:text-5xl md:text-5xl text-white tracking-[-0.035em] leading-[1.05] flex flex-col items-start md:items-end text-left md:text-right select-none shrink-0">
+            <span ref={missionLine1Ref} className="block text-white">
+              {mission.title.line1}
+            </span>
+            <span
+              ref={missionLine2Ref}
+              className="block mt-1 sm:mt-2 text-white hover:text-[#feff02] transition-colors duration-300"
+            >
+              {mission.title.line2}
+            </span>
+          </h2>
         </div>
 
         {/* Bottom closing divider line */}

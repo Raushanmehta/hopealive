@@ -15,6 +15,7 @@ import {
 } from "@/util/animations";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import SunburstIcon from "@/components/icons/SunburstIcon";
+import BrandLogoIcon from "@/components/icons/BrandLogoIcon";
 import { site, SectionProps, NavbarData, NavItem } from "@/data";
 
 interface NavbarProps {
@@ -131,7 +132,7 @@ function NavbarContent({ data = site.navbar }: NavbarProps) {
               ref={logoIconRef}
               className="inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0"
             >
-              <SunburstIcon
+              <BrandLogoIcon
                 size={34}
                 color="#feff02"
                 className="drop-shadow-[0_0_10px_rgba(254,255,2,0.6)]"

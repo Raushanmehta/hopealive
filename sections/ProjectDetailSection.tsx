@@ -33,16 +33,16 @@ export default function ProjectDetailSection({
     propData ||
     (normalizedId
       ? allProjects.find((p) => {
-          const pId = p.id.toLowerCase();
-          const pHref = p.href.toLowerCase();
-          return (
-            pId === normalizedId ||
-            pId === `project-${normalizedId}` ||
-            pId.replace("project-", "") === normalizedId ||
-            pHref.endsWith(`/${normalizedId}`) ||
-            pHref.endsWith(`/${normalizedId.replace("project-", "")}`)
-          );
-        })
+        const pId = p.id.toLowerCase();
+        const pHref = p.href.toLowerCase();
+        return (
+          pId === normalizedId ||
+          pId === `project-${normalizedId}` ||
+          pId.replace("project-", "") === normalizedId ||
+          pHref.endsWith(`/${normalizedId}`) ||
+          pHref.endsWith(`/${normalizedId.replace("project-", "")}`)
+        );
+      })
       : null) ||
     allProjects[0] || {
       id: "project-education",
@@ -104,12 +104,12 @@ export default function ProjectDetailSection({
             <h1 className="font-poppins font-bold text-2xl sm:text-4xl lg:text-[42px] text-[#1b2715] tracking-tight leading-[1.2] mb-3">
               {currentProject.subtitle || currentProject.title}
             </h1>
-            <p className="font-poppins text-base sm:text-lg text-[#556350] leading-relaxed mb-8">
+            <p className="font-poppins text-base sm:text-lg text-[#556350] leading-relaxed mb-6">
               {currentProject.description}
             </p>
 
             {/* Featured Hero Showcase Image */}
-            <div className="relative w-full h-[300px] sm:h-[420px] md:h-[480px] rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none overflow-hidden shadow-2xl border border-[#1b2715]/10 mb-10">
+            <div className="relative w-full h-[300px] sm:h-[420px] md:h-[480px] rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none overflow-hidden shadow-2xl border border-[#1b2715]/10 mb-6">
               <Image
                 src={currentProject.image || "/images/project-gallery-books.webp"}
                 alt={currentProject.alt || currentProject.title}
@@ -132,7 +132,7 @@ export default function ProjectDetailSection({
 
             {/* Key project metrics grid */}
             {stats.length > 0 && (
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-10">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6">
                 {stats.map((stat, idx) => (
                   <div
                     key={idx}
@@ -151,7 +151,7 @@ export default function ProjectDetailSection({
 
             {/* Challenge and solution narrative */}
             {challengeSolution && (
-              <div className="space-y-6 font-poppins text-[#556350] text-sm sm:text-base leading-relaxed mb-10">
+              <div className="space-y-3 font-poppins text-[#556350] text-sm sm:text-base leading-relaxed mb-6">
                 <h2 className="text-xl sm:text-2xl font-bold text-[#1b2715] tracking-tight">
                   {challengeSolution.title}
                 </h2>
@@ -163,7 +163,7 @@ export default function ProjectDetailSection({
 
             {/* Project signature pullquote highlight */}
             {quote && (
-              <div className="my-8 sm:my-10 bg-[#1f2c16] text-white p-7 sm:p-9 rounded-3xl border border-white/10 relative overflow-hidden shadow-xl">
+              <div className="my-5 sm:my-6 bg-[#1f2c16] text-white p-7 sm:p-9 rounded-3xl border border-white/10 relative overflow-hidden shadow-xl">
                 <div className="absolute top-4 right-6 text-white/5 pointer-events-none">
                   <Quote size={110} />
                 </div>
@@ -182,7 +182,7 @@ export default function ProjectDetailSection({
 
             {/* Project milestones implementation roadmap */}
             {milestones && milestones.items?.length > 0 && (
-              <div className="my-10">
+              <div className="my-6">
                 <h3 className="font-poppins font-bold text-xl sm:text-2xl text-[#1b2715] tracking-tight mb-6">
                   {milestones.title}
                 </h3>
@@ -216,7 +216,7 @@ export default function ProjectDetailSection({
 
             {/* Field photo showcase collage */}
             {gallery && gallery.items?.length > 0 && (
-              <div className="my-10">
+              <div className="my-6">
                 <h3 className="font-poppins font-bold text-xl sm:text-2xl text-[#1b2715] tracking-tight mb-5">
                   {gallery.title}
                 </h3>
@@ -245,7 +245,7 @@ export default function ProjectDetailSection({
 
             {/* Project contact callout banner */}
             {callout && (
-              <div className="mt-8 sm:mt-10 lg:mt-12 bg-[#1f2c16] text-white p-7 sm:p-9 lg:p-10 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none border border-white/10 shadow-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+              <div className="mt-5 sm:mt-6   lg:mt-6 bg-[#1f2c16] text-white p-7 sm:p-9 lg:p-10 rounded-tl-[80px] rounded-br-[80px] rounded-tr-none rounded-bl-none border border-white/10 shadow-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
                 <div>
                   <h4 className="font-poppins font-bold text-xl sm:text-2xl text-white">
                     {callout.title}

@@ -13,14 +13,13 @@ export default function CausesPage() {
 
   const sectionRef = useRef<HTMLElement>(null);
   const badgeRef = useRef<HTMLDivElement>(null);
+  const badgeLineRef = useRef<SVGLineElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const descriptionRef = useRef<HTMLParagraphElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Default active card selection
-  const [activeCardId, setActiveCardId] = useState<string>(
-    causess[0]?.id || ""
-  );
+  // Active card selection (null by default so no card is active initially)
+  const [activeCardId, setActiveCardId] = useState<string | null>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -30,6 +29,28 @@ export default function CausesPage() {
         description: descriptionRef.current,
         cards: cardRefs.current,
       });
+
+      // Animate straight line drawing under the badge
+      if (badgeLineRef.current) {
+        gsap.fromTo(
+          badgeLineRef.current,
+          {
+            strokeDasharray: 120,
+            strokeDashoffset: 120,
+          },
+          {
+            strokeDashoffset: 0,
+            duration: 1.2,
+            ease: "power2.out",
+            delay: 0.3,
+            scrollTrigger: {
+              trigger: badgeRef.current || sectionRef.current,
+              start: "top 85%",
+              once: true,
+            },
+          }
+        );
+      }
     }, sectionRef);
 
     return () => ctx.revert();
@@ -50,11 +71,30 @@ export default function CausesPage() {
             <div className="lg:col-span-4 flex flex-col justify-between self-stretch">
               <div
                 ref={badgeRef}
-                className="inline-flex items-center w-fit select-none"
+                className="inline-flex flex-col items-start w-fit select-none"
               >
                 <span className="text-sm lg:text-lg font-poppins font-medium text-[#1b2715]">
                   {data.badge.text}
                 </span>
+                <svg
+                  width="120"
+                  height="8"
+                  viewBox="0 0 120 8"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="mt-1 pointer-events-none w-full max-w-[120px] overflow-visible"
+                >
+                  <line
+                    ref={badgeLineRef}
+                    x1="2"
+                    y1="4"
+                    x2="118"
+                    y2="4"
+                    stroke="#feff02"
+                    strokeWidth="4"
+                    strokeLinecap="round"
+                  />
+                </svg>
               </div>
             </div>
 
@@ -63,7 +103,7 @@ export default function CausesPage() {
               {/* Section main heading title */}
               <h2
                 ref={headlineRef}
-                className="font-poppins font-bold text-3xl sm:text-5xl md:text-6xl lg:text-[52px] xl:text-[62px] text-[#1b2715] tracking-tight leading-[1.12] select-none"
+                className="font-poppins font-bold text-3xl sm:text-5xl md:text-5xl text-[#1b2715] tracking-tight leading-[1.12] select-none"
               >
                 <span className="causes-headline-line block">
                   {data.headline.line1}
@@ -86,7 +126,10 @@ export default function CausesPage() {
           </div>
 
           {/* Causes cards grid container */}
-          <div className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch">
+          <div
+            className="mt-4 sm:mt-6 lg:mt-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 items-stretch"
+            onMouseLeave={() => setActiveCardId(null)}
+          >
             {causess.map((cause, index) => (
               <CausesCard
                 key={cause.id}
@@ -96,6 +139,7 @@ export default function CausesPage() {
                 cause={cause}
                 isActive={activeCardId === cause.id}
                 onSelect={() => setActiveCardId(cause.id)}
+                onLeave={() => setActiveCardId(null)}
               />
             ))}
           </div>

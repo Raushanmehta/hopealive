@@ -35,10 +35,10 @@ export default function Breadcrumb({
   const resolvedDescription =
     description ||
     (pageTitle.toLowerCase().includes("about")
-      ? "Pioneering extraordinary architecture and bespoke sanctuaries across global capitals."
+      ? "Pioneering extraordinary architecture."
       : pageTitle.toLowerCase().includes("blog")
-      ? "Explore insightful stories, impactful community initiatives, and the latest humanitarian updates."
-      : "Empowering communities, creating lasting change, and bringing hope to every life we touch.");
+        ? "Explore insightful stories humanitarian updates."
+        : "Empowering communities every life we touch.");
 
   const activeBreadcrumbText = subTitle || pageTitle;
 
