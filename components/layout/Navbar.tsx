@@ -171,7 +171,7 @@ function NavbarContent({ data = site.navbar }: NavbarProps) {
               href={data.cta.href}
               onMouseEnter={handleButtonMouseEnter}
               onMouseLeave={handleButtonMouseLeave}
-              className="btn-leaf relative inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2 sm:py-3 bg-[#feff02] text-black font-poppins font-medium sm:font-semibold text-xs sm:text-sm tracking-wide shadow-sm hover:bg-[#f5f600] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#feff02] cursor-pointer shrink-0 select-none"
+              className="btn-leaf relative hidden sm:inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2 sm:py-3 bg-[#feff02] text-black font-poppins font-medium sm:font-semibold text-xs sm:text-sm tracking-wide shadow-sm hover:bg-[#f5f600] active:scale-[0.98] transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#feff02] cursor-pointer shrink-0 select-none"
             >
               <span>{data.cta.label}</span>
               <ArrowUpRight
@@ -280,7 +280,7 @@ export function NavbarFallback({ data = site.navbar }: NavbarProps) {
           <div className="flex items-center gap-3 shrink-0">
             <Link
               href={data.cta.href}
-              className="btn-leaf relative inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2 sm:py-3 bg-[#feff02] text-black font-poppins font-medium sm:font-semibold text-xs sm:text-sm tracking-wide shadow-sm hover:bg-[#f5f600] transition-all duration-200 shrink-0 select-none"
+              className="btn-leaf relative hidden sm:inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-2 sm:py-3 bg-[#feff02] text-black font-poppins font-medium sm:font-semibold text-xs sm:text-sm tracking-wide shadow-sm hover:bg-[#f5f600] transition-all duration-200 shrink-0 select-none"
             >
               <span>{data.cta.label}</span>
               <ArrowUpRight

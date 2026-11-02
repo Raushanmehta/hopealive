@@ -129,9 +129,30 @@ export default function Footer({ data: propData, className }: SectionProps<Foote
                         <div className="grid grid-cols-2 sm:grid-cols-3 gap-8 sm:gap-6 lg:gap-8">
                             {/* Navigation links column list */}
                             <div ref={linksColumnRef}>
-                                <h3 className="font-poppins uppercase tracking-[0.16em] text-sm sm:text-[18px] font-semibold text-[#feff02] mb-4 sm:mb-5">
-                                    {data.linksSection.title}
-                                </h3>
+                                <div className="mb-4 sm:mb-5">
+                                    <h3 className="font-poppins uppercase tracking-[0.16em] text-sm sm:text-[18px] font-semibold text-[#feff02]">
+                                        {data.linksSection.title}
+                                    </h3>
+                                    <svg
+                                        width="48"
+                                        height="4"
+                                        viewBox="0 0 48 4"
+                                        fill="none"
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        className="mt-1.5 pointer-events-none"
+                                        aria-hidden="true"
+                                    >
+                                        <line
+                                            x1="1"
+                                            y1="2"
+                                            x2="47"
+                                            y2="2"
+                                            stroke="#feff02"
+                                            strokeWidth="3"
+                                            strokeLinecap="round"
+                                        />
+                                    </svg>
+                                </div>
                                 <ul className="space-y-2 sm:space-y-2">
                                     {data.linksSection.links.map((link) => (
                                         <li key={link.label}>
@@ -151,9 +172,30 @@ export default function Footer({ data: propData, className }: SectionProps<Foote
                             {/* Quick Links Column */}
                             {data.quickLinksSection && (
                                 <div ref={quickLinksColumnRef}>
-                                    <h3 className="font-poppins uppercase tracking-[0.16em] text-sm sm:text-[18px] font-semibold text-[#feff02] mb-4 sm:mb-5">
-                                        {data.quickLinksSection.title}
-                                    </h3>
+                                    <div className="mb-4 sm:mb-5">
+                                        <h3 className="font-poppins uppercase tracking-[0.16em] text-sm sm:text-[18px] font-semibold text-[#feff02]">
+                                            {data.quickLinksSection.title}
+                                        </h3>
+                                        <svg
+                                            width="48"
+                                            height="4"
+                                            viewBox="0 0 48 4"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="mt-1.5 pointer-events-none"
+                                            aria-hidden="true"
+                                        >
+                                            <line
+                                                x1="1"
+                                                y1="2"
+                                                x2="47"
+                                                y2="2"
+                                                stroke="#feff02"
+                                                strokeWidth="3"
+                                                strokeLinecap="round"
+                                            />
+                                        </svg>
+                                    </div>
                                     <ul className="space-y-2 sm:space-y-2">
                                         {data.quickLinksSection.links.map((link) => (
                                             <li key={link.label}>
@@ -174,9 +216,30 @@ export default function Footer({ data: propData, className }: SectionProps<Foote
                             {/* Location and contact column */}
                             <div ref={locationColumnRef} className="col-span-2 sm:col-span-1 flex flex-col justify-between pt-4 sm:pt-0 border-t border-white/5 sm:border-transparent">
                                 <div>
-                                    <h3 className="font-poppins uppercase tracking-[0.16em] text-sm sm:text-[18px] font-semibold text-[#feff02] mb-4 sm:mb-5">
-                                        {data.locationSection.title}
-                                    </h3>
+                                    <div className="mb-4 sm:mb-5">
+                                        <h3 className="font-poppins uppercase tracking-[0.16em] text-sm sm:text-[18px] font-semibold text-[#feff02]">
+                                            {data.locationSection.title}
+                                        </h3>
+                                        <svg
+                                            width="48"
+                                            height="4"
+                                            viewBox="0 0 48 4"
+                                            fill="none"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            className="mt-1.5 pointer-events-none"
+                                            aria-hidden="true"
+                                        >
+                                            <line
+                                                x1="1"
+                                                y1="2"
+                                                x2="47"
+                                                y2="2"
+                                                stroke="#feff02"
+                                                strokeWidth="3"
+                                                strokeLinecap="round"
+                                            />
+                                        </svg>
+                                    </div>
                                     <div className="space-y-1 text-xs sm:text-sm font-poppins text-[#a1b099] leading-relaxed">
                                         {data.locationSection.addressLines.map((line) => (
                                             <p key={line}>{line}</p>
