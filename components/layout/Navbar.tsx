@@ -15,7 +15,6 @@ import {
 } from "@/util/animations";
 import { ArrowUpRight, Menu, X } from "lucide-react";
 import SunburstIcon from "@/components/icons/SunburstIcon";
-import BrandLogoIcon from "@/components/icons/BrandLogoIcon";
 import { site, SectionProps, NavbarData, NavItem } from "@/data";
 
 interface NavbarProps {
@@ -125,19 +124,8 @@ function NavbarContent({ data = site.navbar }: NavbarProps) {
           {/* Left brand logo component */}
           <Link
             href={data.brand.href}
-            onMouseEnter={handleLogoMouseEnter}
             className="flex items-center gap-2.5 group select-none focus:outline-none focus-visible:ring-2 focus-visible:ring-[#feff02] rounded-lg shrink-0"
           >
-            <span
-              ref={logoIconRef}
-              className="inline-flex items-center justify-center transition-transform duration-300 group-hover:scale-105 shrink-0"
-            >
-              <BrandLogoIcon
-                size={34}
-                color="#feff02"
-                className="drop-shadow-[0_0_10px_rgba(254,255,2,0.6)]"
-              />
-            </span>
             <span
               ref={logoTextRef}
               className="inline-flex items-center select-none"
@@ -262,13 +250,7 @@ export function NavbarFallback({ data = site.navbar }: NavbarProps) {
             href={data.brand.href}
             className="flex items-center gap-2.5 group select-none focus:outline-none rounded-lg shrink-0"
           >
-            <span className="inline-flex items-center justify-center shrink-0">
-              <SunburstIcon
-                size={34}
-                color="#feff02"
-                className="drop-shadow-[0_0_10px_rgba(254,255,2,0.6)]"
-              />
-            </span>
+
             <span className="inline-flex items-center select-none">
               <Image
                 src={data.brand.logo || "/logo/logo.webp"}
